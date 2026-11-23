@@ -2,6 +2,7 @@
   const script = document.currentScript;
   const DATA_URL = (script && script.getAttribute("data-src")) || "data/sites.json";
   const ICON_PATH = (script && script.getAttribute("data-icon-path")) || "lib/leaflet/images/";
+  const ZCTA_URL = (script && script.getAttribute("data-zcta-src")) || "data/zcta-centroids.json";
 
   const badgeClass = (v) => {
     const s = (v || "").toLowerCase();
@@ -19,6 +20,29 @@
   const unique = (arr) => Array.from(new Set(arr.filter(Boolean))).sort();
 
   const joinTypes = (t) => (Array.isArray(t) ? t.join(", ") : (t || ""));
+
+  const EARTH_MI = 3958.7613;
+
+  function milesBetween(aLat, aLon, bLat, bLon) {
+    const toRad = (d) => (d * Math.PI) / 180;
+    const dLat = toRad(bLat - aLat);
+    const dLon = toRad(bLon - aLon);
+    const lat1 = toRad(aLat);
+    const lat2 = toRad(bLat);
+    const h =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return 2 * EARTH_MI * Math.asin(Math.min(1, Math.sqrt(h)));
+  }
+
+  function formatMiles(mi) {
+    if (mi < 0.1) return "< 0.1 miles";
+    return mi.toFixed(1) + " miles";
+  }
+
+  function escapeText(s) {
+    return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  }
 
   function populateSelect(sel, values, allLabel) {
     sel.innerHTML = "";
@@ -169,6 +193,196 @@
       if (arrow) arrow.textContent = sortDir === 1 ? "▲" : "▼";
       render();
     });
+
+
+    let zctaTable = null;
+    let zctaLoading = null;
+    let originLayer = null;
+
+    function loadZcta() {
+      if (zctaTable) return Promise.resolve(zctaTable);
+      if (!zctaLoading) {
+        zctaLoading = fetch(ZCTA_URL)
+          .then((r) => {
+            if (!r.ok) throw new Error("Could not load the ZIP centroid table.");
+            return r.json();
+          })
+          .then((t) => {
+            zctaTable = t;
+            return t;
+          })
+          .catch((err) => {
+            zctaLoading = null;
+            throw err;
+          });
+      }
+      return zctaLoading;
+    }
+
+    function rankedSites(lat, lon) {
+      return sites
+        .filter((s) => s.latitude != null && s.longitude != null && s.latitude !== "" && s.longitude !== "")
+        .map((s) => ({
+          site: s,
+          miles: milesBetween(lat, lon, Number(s.latitude), Number(s.longitude)),
+        }))
+        .filter((r) => !Number.isNaN(r.miles))
+        .sort((a, b) => a.miles - b.miles);
+    }
+
+    function pickNearby(ranked) {
+      const within = ranked.filter((r) => r.miles <= 100);
+      const seen = {};
+      const out = [];
+      ranked.slice(0, 5).forEach((r) => {
+        seen[r.site.id] = true;
+        out.push(r);
+      });
+      within.forEach((r) => {
+        if (!seen[r.site.id]) {
+          seen[r.site.id] = true;
+          out.push(r);
+        }
+      });
+      out.sort((a, b) => a.miles - b.miles);
+      return out;
+    }
+
+    function showOrigin(lat, lon, label) {
+      if (originLayer) {
+        map.removeLayer(originLayer);
+        originLayer = null;
+      }
+      originLayer = L.circleMarker([lat, lon], {
+        radius: 8,
+        color: "#1e3a5f",
+        weight: 2,
+        fillColor: "#f7f4ef",
+        fillOpacity: 1,
+      }).addTo(map);
+      originLayer.bindPopup(label).openPopup();
+    }
+
+    function renderNearby(lat, lon, heading, originLabel) {
+      const resultsEl = document.getElementById("nearby-results");
+      const ranked = rankedSites(lat, lon);
+      const picked = pickNearby(ranked);
+      if (!picked.length) {
+        resultsEl.innerHTML = '<p class="nearby-error">No sites in this draft have coordinates, so a nearby list cannot be calculated.</p>';
+        return;
+      }
+      const withinCount = picked.filter((r) => r.miles <= 100).length;
+      let summary =
+        "Showing the closest " +
+        Math.min(5, picked.length) +
+        " site" +
+        (Math.min(5, picked.length) === 1 ? "" : "s");
+      if (withinCount > 5) {
+        summary += ", plus " + (withinCount - 5) + " more within 100 miles";
+      } else if (withinCount === 0) {
+        summary += ". None of the sites in this draft are within 100 straight-line miles";
+      }
+      summary += ".";
+      const items = picked
+        .map((r) => {
+          const loc = [r.site.city, r.site.state].filter(Boolean).join(", ");
+          return (
+            "<li><a href=\"" +
+            hrefFor(r.site) +
+            "\">" +
+            escapeText(r.site.name) +
+            "</a> — <span class=\"miles\">" +
+            formatMiles(r.miles) +
+            "</span>" +
+            (loc ? " — " + escapeText(loc) : "") +
+            "</li>"
+          );
+        })
+        .join("");
+      resultsEl.innerHTML =
+        "<h3>" +
+        escapeText(heading) +
+        "</h3><p>" +
+        escapeText(summary) +
+        "</p><ol>" +
+        items +
+        "</ol>";
+      showOrigin(lat, lon, originLabel);
+      const bounds = [[lat, lon]].concat(
+        picked.map((r) => [Number(r.site.latitude), Number(r.site.longitude)])
+      );
+      map.fitBounds(bounds, { padding: [36, 36], maxZoom: 10 });
+    }
+
+    function setNearbyMessage(msg, isError) {
+      const resultsEl = document.getElementById("nearby-results");
+      if (!resultsEl) return;
+      resultsEl.innerHTML = '<p class="' + (isError ? "nearby-error" : "") + '">' + escapeText(msg) + "</p>";
+    }
+
+    const form = document.getElementById("nearby-form");
+    const zipInput = document.getElementById("nearby-zip");
+    const geoBtn = document.getElementById("nearby-geo");
+
+    if (form && zipInput) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const zip = (zipInput.value || "").trim();
+        if (!/^\d{5}$/.test(zip)) {
+          setNearbyMessage("Please enter a five-digit U.S. ZIP code.", true);
+          zipInput.focus();
+          return;
+        }
+        setNearbyMessage("Looking up that ZIP…");
+        loadZcta()
+          .then((table) => {
+            const coord = table[zip];
+            if (!coord || coord.length < 2) {
+              setNearbyMessage(
+                "ZIP " +
+                  zip +
+                  " is not in the Census 2025 ZCTA list used by this draft. Not every postal ZIP has a ZCTA centroid, so a distance cannot be calculated for this code.",
+                true
+              );
+              return;
+            }
+            renderNearby(
+              coord[0],
+              coord[1],
+              "Nearest sites to ZIP " + zip,
+              "ZIP " + zip + " (Census ZCTA center)"
+            );
+          })
+          .catch((err) => {
+            setNearbyMessage(err.message || "Could not load the ZIP centroid table.", true);
+          });
+      });
+    }
+
+    if (geoBtn) {
+      geoBtn.addEventListener("click", () => {
+        if (!navigator.geolocation) {
+          setNearbyMessage("This browser does not support location lookup.", true);
+          return;
+        }
+        setNearbyMessage("Asking this browser for your location. Nothing is sent to a server.");
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            renderNearby(lat, lon, "Nearest sites to your location", "Your location (from this browser)");
+          },
+          (err) => {
+            let msg = "Could not get your location.";
+            if (err && err.code === 1) msg = "Location permission was denied. You can still search by ZIP code.";
+            else if (err && err.code === 2) msg = "Your location was unavailable. You can still search by ZIP code.";
+            else if (err && err.code === 3) msg = "The location request timed out. You can still search by ZIP code.";
+            setNearbyMessage(msg, true);
+          },
+          { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 }
+        );
+      });
+    }
 
     render();
   }

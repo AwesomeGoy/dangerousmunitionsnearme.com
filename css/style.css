@@ -174,3 +174,82 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-conte
   nav a { margin-right: 0.7rem; }
 }
 .brand h1 a.home-link { color: inherit; text-decoration: none; }
+
+.nearby {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.95rem 1rem 1rem;
+  margin: 0 0 1.1rem;
+}
+.nearby h2 { margin: 0 0 0.4rem; }
+.nearby p { margin: 0 0 0.75rem; max-width: 46rem; }
+.nearby-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  align-items: end;
+  margin: 0 0 0.75rem;
+}
+.nearby-row label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  gap: 0.2rem;
+}
+.nearby-row input,
+.nearby-row button {
+  font: inherit;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  padding: 0.45rem 0.7rem;
+}
+.nearby-row input {
+  font-weight: 400;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  width: 8.5rem;
+  letter-spacing: 0.08em;
+}
+.nearby-row button {
+  font-weight: 600;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--card);
+  cursor: pointer;
+}
+.nearby-row button:hover,
+.nearby-row button:focus-visible {
+  background: var(--link);
+  border-color: var(--link);
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+.nearby-row button[type="button"] {
+  background: var(--card);
+  color: var(--ink);
+}
+.nearby-row button[type="button"]:hover,
+.nearby-row button[type="button"]:focus-visible {
+  background: #efeae2;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.nearby-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0 0 0.4rem !important;
+}
+.nearby-results { margin-top: 0.4rem; }
+.nearby-results h3 { font-size: 1rem; margin: 0.4rem 0 0.4rem; }
+.nearby-results ol { margin: 0.2rem 0 0.5rem; padding-left: 1.3rem; }
+.nearby-results li { margin: 0.25rem 0; }
+.nearby-results .miles { color: var(--muted); font-variant-numeric: tabular-nums; }
+.nearby-error { color: var(--banner); font-weight: 650; margin: 0.3rem 0 0; }
+@media (max-width: 700px) {
+  .nearby-row { flex-direction: column; align-items: stretch; }
+  .nearby-row input, .nearby-row button { width: 100%; }
+}
