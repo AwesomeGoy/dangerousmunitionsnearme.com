@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "U.S. Army / DoD munitions sites tracker",
+    "title": "Dangerous Munitions Near Me",
     "status": "DRAFT, not published",
     "byline": "D.A. Williams",
     "homepage": "https://awesomegoy.com",
@@ -156,7 +156,8 @@
         "name": "U. S. DOE, NNSA/NFO",
         "state": "NV"
       }
-    ]
+    ],
+    "data_note": "Canonical dataset lives in /workspace/munitions-sites-tracker/data/. A later research pass on 2026-11-23 deepened the formerly basic sites and updated Camp Minden and Savanna residual-holdings notes. Per-site HTML pages under site/ were not regenerated in that pass."
   },
   "sites": [
     {
@@ -233,13 +234,22 @@
       "permit_status": "Permitted",
       "permit_expiration": "7/18/2031",
       "permit_expiration_iso": "2031-07-18",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 7/18/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
-      "notable_incidents": [],
-      "research_depth": "basic",
+      "known_energetics": "ADEM's June 2026 draft-modification fact sheet says Redstone is a U.S. Army Aviation and Missile Command installation. The OB/OD area is used to burn and detonate hazardous energetic waste with the characteristic of reactivity (D003) and explosiveness. The open-burning area consists of five burn pans on concrete pads; open detonation takes place in a designated OD area. Explosive Destruction System (EDS) units are used to treat recovered munitions or other items. This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of July 18, 2031. ADEM issued a 10-year hazardous-waste permit renewal effective July 19, 2021 (EPA ID AL7210020742 / AL 7 210 020 742). ADEM published a draft permit modification fact sheet for public comment June 3–July 20, 2026, to incorporate investigations and corrective measures approved since the last modification (August 8, 2022). This draft did not independently confirm whether that 2026 modification was finalized.",
+      "notable_incidents": [
+        {
+          "date": "2010-05-05",
+          "summary": "Redstone Arsenal Public Affairs: at about 8:45 a.m., a fire and explosion occurred at Building 7352, an Aviation and Missile Research, Development, and Engineering Center facility, during demilitarization operations involving ammonium perchlorate, an oxidizer used in solid rocket propellant. Two AMRDEC contractors were injured and taken to UAB's Burn Center; a third employee nearby was not injured. There were no fatalities.",
+          "verification": "verified",
+          "sources": [
+            "https://www.army.mil/article/38599/explosion_at_redstone_arsenal"
+          ]
+        }
+      ],
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "The 2010 event was a production/demil-building accident, not a documented aging-drum storage emergency. Current energetic holdings were not inventoried in this pass.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -248,6 +258,18 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID AL7210020742",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "ADEM, Redstone Arsenal draft permit-modification fact sheet (public comment began June 3, 2026)",
+          "url": "https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.pdf"
+        },
+        {
+          "title": "EPA-hosted Redstone Arsenal hazardous-waste permit package (posted 2025)",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/redston-arsenal.pdf"
+        },
+        {
+          "title": "Army, Explosion at Redstone Arsenal (May 5, 2010)",
+          "url": "https://www.army.mil/article/38599/explosion_at_redstone_arsenal"
         }
       ],
       "last_checked": "2026-11-23"
@@ -275,13 +297,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "8/4/2025",
       "permit_expiration_iso": "2025-08-04",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 8/4/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "ADEQ Arizona Hazardous Waste Management Act permit for the Munitions Treatment Range at Barry M. Goldwater Range–West: open detonation of unserviceable, outdated, or obsolete munitions generated at MCAS Yuma, other military bases and bombing ranges, and certain local government or contractor manufacturing facilities. Treatment is conducted in fragmentation-area and white-phosphorus-area detonation pits. The explosive ordnance is categorized as reactive and ignitable hazardous waste. This draft does not have a current item-level inventory.",
+      "current_status": "Property owner and facility operator are the U.S. Marine Corps (MCAS Yuma). The ADEQ permit states it is effective as of August 4, 2015, and remains in effect for 10 years from that date, unless continued under 40 CFR 270.51; the signature block is dated July 16, 2021. EPA's current OB/OD list, last updated March 11, 2025, still shows the facility as permitted with an expiration of August 4, 2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "This pass did not retrieve a post-August 2025 renewal decision.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -290,6 +312,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID AZR000037382",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "ADEQ, Barry M. Goldwater Range–West / Munitions Treatment Range final permit (EPA ID AZR000037382)",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/barry-m-goldwater-range.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -317,13 +343,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "7/11/2027",
       "permit_expiration_iso": "2027-07-11",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 7/11/2027. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "ADEQ permit for the Munitions Treatment Facility at U.S. Army Garrison Yuma Proving Ground authorizes open burning and open detonation of unserviceable, outdated, or obsolete munitions generated at the proving ground, in OB pads and OD pits. The explosive ordnance is categorized as reactive and ignitable hazardous waste. This draft does not have a current item-level inventory.",
+      "current_status": "The ADEQ permit is effective as of July 11, 2017, and remains in effect for 10 years from that date unless continued under 40 CFR 270.51. EPA's current OB/OD list shows the facility as permitted with an expiration of July 11, 2027, which had not yet been reached as of this check (Nov 23, 2026). The permit requires a complete renewal application at least 180 days before expiration.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "A renewal filing, if submitted, was not independently retrieved in this pass.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -332,6 +358,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID AZ5213820991",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "ADEQ, Yuma Proving Ground Munitions Treatment Facility final permit (EPA ID AZ5213820991)",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/yuma-proving-ground.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -359,10 +389,10 @@
       "permit_status": "Permitted",
       "permit_expiration": "9/20/2031",
       "permit_expiration_iso": "2031-09-20",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/20/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "California DTSC RCRA-equivalent permit: the Explosive Ordnance Disposal Range in the Precision Impact Range Area has open-burn and open-detonation units. Edwards AFB generates waste munitions, energetic rocket propellant, and propellant-contaminated laboratory materials. The permit describes OB as self-sustained combustion used primarily to treat rocket propellant, and OD as detonation initiated by a donor charge, used primarily to treat waste munitions. This draft does not have a current item-level inventory.",
+      "current_status": "Permittee is the United States Air Force. DTSC permit first-issue date September 20, 2021; effective October 20, 2021; expiration September 20, 2031. EPA's current OB/OD list matches that expiration date and shows the facility as permitted.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
       "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
@@ -374,6 +404,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID CA1570024504",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "DTSC, Edwards AFB RCRA-equivalent hazardous-waste facility permit",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/edwards-afb.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -401,13 +435,22 @@
       "permit_status": "Permitted",
       "permit_expiration": "7/12/2028",
       "permit_expiration_iso": "2028-07-12",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 7/12/2028. Incidents and current operations beyond this listing have not been researched in this draft.",
-      "notable_incidents": [],
-      "research_depth": "basic",
+      "known_energetics": "EPA and DTSC materials describe operations that include research and development of explosive materials and weapons. A DTSC fact sheet for the hazardous-waste permit describes on-site treatment of reactive energetics at Burro Canyon by open burn and open detonation, including obsolete or expired munitions and explosive laboratory/propellant wastes. The EPA-hosted permit PDF retrieved in this pass was image-based and could not be text-extracted here; annual and per-event limits reported in secondary descriptions were not independently read from the signed permit text in this draft, so those numbers are not recorded. EPA's current OB/OD list shows the permit as expiring July 12, 2028.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of July 12, 2028. EPA announced in 2022 that 2018 inspections had found RCRA violations (including deteriorating or open hazardous-waste containers and improper universal-waste management); EPA said the facility had resolved the violations and was then in compliance.",
+      "notable_incidents": [
+        {
+          "date": "2018",
+          "summary": "EPA inspections at NAWS China Lake identified RCRA violations including failure to replace or overpack deteriorating containers, failure to keep hazardous-waste containers closed, and failure to properly manage universal wastes. EPA's November 2022 news release said the facility had resolved the identified violations and was in compliance. This was an enforcement matter, not a reported explosion.",
+          "verification": "verified",
+          "sources": [
+            "https://www.epa.gov/newsreleases/us-epa-requires-safer-management-hazardous-waste-naval-air-weapons-station-china-lake"
+          ]
+        }
+      ],
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "The signed DTSC permit PDF is posted by EPA but was not OCR'd in this pass; per-event tonnage limits are therefore left unstated here.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -416,6 +459,14 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID CA2170023152",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA-hosted DTSC Hazardous Waste Facility Permit, NAWS China Lake",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/naval-air-weapons-station-china-lake.pdf"
+        },
+        {
+          "title": "EPA, U.S. EPA requires safer management of hazardous waste at NAWS China Lake (updated Nov 14, 2022)",
+          "url": "https://www.epa.gov/newsreleases/us-epa-requires-safer-management-hazardous-waste-naval-air-weapons-station-china-lake"
         }
       ],
       "last_checked": "2026-11-23"
@@ -443,10 +494,10 @@
       "permit_status": "Permitted",
       "permit_expiration": "8/07/2027",
       "permit_expiration_iso": "2027-08-07",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 8/07/2027. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "The DTSC permit names the Permittee as the United States Air Force / Vandenberg Air Force Base (the permit text defines 'Air Force' as the United States Air Force and defines PEP materials as propellants, explosives, and pyrotechnic materials). The permitted Explosive Ordnance Disposal Range is used to treat military munitions and other PEP materials. This draft does not have a current item-level inventory. The permit title on the EPA list remains 'DEPT OF AIR FORCE VANDENBERG AFB'; this draft does not re-label the installation as Space Force.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of August 7, 2027. The permit recites earlier DTSC authorizations, including a 2008 EOD Range renewal that expired May 5, 2018, and a renewal application submitted March 2, 2018. This draft did not extract a single signature-block effective date for the current term beyond the EPA-listed expiration of August 7, 2027.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
       "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
@@ -458,6 +509,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID CA9570025149",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "DTSC, Vandenberg AFB RCRA-equivalent hazardous-waste facility permit",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/vandenberg-afb.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -486,12 +541,12 @@
       "permit_expiration": "9/28/2027",
       "permit_expiration_iso": "2027-09-28",
       "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/28/2027. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of September 28, 2027, which had not yet been reached as of this check (Nov 23, 2026). This pass did not retrieve the Colorado hazardous-waste permit text, so authorized wastes, units, and any renewal history beyond the EPA listing are not recorded.",
       "notable_incidents": [],
       "research_depth": "basic",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "Permit document not retrieved in this pass. Energetics inventory and incidents still need research.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -527,13 +582,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "3/03/2025",
       "permit_expiration_iso": "2025-03-03",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 3/03/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "Florida DEP operating permit 70725-008-HO: low explosives are treated by burning in an Open Burn Unit consisting of two steel burn boxes; high explosives are detonated at an Open Detonation Unit used for fragment-producing items. A September 23, 2022 minor modification authorized in-kind replacement of the Open Burn Unit. This draft does not have a current item-level inventory.",
+      "current_status": "Permit issued March 19, 2020, to Cape Canaveral Space Force Station / 45 CES/CD; the permit face states an expiration date of March 3, 2025. EPA's current OB/OD list, last updated March 11, 2025, still shows the facility as permitted with that expiration date. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "This pass did not retrieve a final post-March 2025 renewed operating permit.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -542,6 +597,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID FL2800016121",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Florida DEP, Cape Canaveral SFS hazardous-waste operating permit 70725-008-HO (and later modification package posted by EPA)",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/cape-canaveral-sfs.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -569,13 +628,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "9/1/2025",
       "permit_expiration_iso": "2025-09-01",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/1/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "The EPA-hosted Florida DEP permit package identifies the facility as a permitted open-detonation operation (EPA ID FL8570024366). A March 2025 open-detonation permit renewal application for Range C-62 has been circulated in the public record; this draft did not independently re-read that entire application for a waste-by-waste inventory. The current listed permit expiration is September 1, 2025.",
+      "current_status": "The EPA-hosted permit face lists an expiration date of September 1, 2025. EPA's current OB/OD list, last updated March 11, 2025, shows the facility as permitted with that expiration. A public March 2025 renewal application exists for the open-detonation range. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "This pass did not retrieve a final post-September 2025 renewed permit. Whether open burning is still authorized was not independently confirmed from the signed permit text in this cut.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -584,6 +643,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID FL8570024366",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Florida DEP / EPA-hosted Eglin AFB hazardous-waste permit package",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/eglin-air-force-base.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -611,13 +674,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "9/28/2022",
       "permit_expiration_iso": "2022-09-28",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/28/2022. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "Georgia EPD Hazardous Waste Facility Permit HW-014(S&T)-4 (Facility I.D. GA4170090001) authorizes storage of 59,840 gallons of hazardous waste in containers; treatment of 0.5 short tons net explosive weight per day of waste munitions and explosives by open burning; and treatment of 0.6 short tons net explosive weight per day of waste munitions and explosives by open detonation; plus corrective action, including at the Old Camden County Landfill (Site 11). This draft does not have a current item-level inventory.",
+      "current_status": "The Georgia EPD permit was issued September 28, 2012, with a permit termination date of September 28, 2022 (application dated July 23, 2012). EPA's current OB/OD list, last updated March 11, 2025, still shows the facility as permitted with that September 28, 2022 expiration. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "The EPA-hosted permit PDF is a scan; the cover terms were read from the rendered first page. This pass did not retrieve a post-2022 renewal decision.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -626,6 +689,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID GA4170090001",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Georgia EPD, Hazardous Waste Facility Permit HW-014(S&T)-4, Naval Submarine Base Kings Bay (EPA-hosted scan)",
+          "url": "https://www.epa.gov/system/files/documents/2025-08/naval-submarine-base-kings-bay.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -654,12 +721,12 @@
       "permit_expiration": "5/31/2020",
       "permit_expiration_iso": "2020-05-31",
       "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 5/31/2020. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of May 31, 2020. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so. This pass did not retrieve a Guam or EPA permit-renewal decision or the underlying permit text.",
       "notable_incidents": [],
       "research_depth": "basic",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "Permit text and any post-2020 renewal remain unretrieved. Energetics inventory and incidents still need research.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -695,13 +762,22 @@
       "permit_status": "Permitted",
       "permit_expiration": "1/29/2029",
       "permit_expiration_iso": "2029-01-29",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 1/29/2029. Incidents and current operations beyond this listing have not been researched in this draft.",
-      "notable_incidents": [],
-      "research_depth": "basic",
+      "known_energetics": "The site is used to treat remediation-waste munitions recovered from dredging and construction-related activities at Joint Base Pearl Harbor-Hickam. A July 11, 2015 Navy release said recovered types from Pearl Harbor dredged-material screening included 5-inch projectiles, 4.5-inch barrage rockets and/or motors, 3-inch and 75mm projectiles, 60mm mortars, 40mm and 20mm projectiles and/or casings, grenades, a practice bomb, a TNT demolition charge, fuzes, and small-arms ammunition. A Hawaii Department of Health public notice dated August 15, 2024, on a draft five-year Remedial Action Plan permit renewal, would limit each detonation shot to no more than 16 pounds net explosive weight unless DOH approves a larger shot, and would cap annual treatment at 5,760 pounds net explosive weight per 365-day period. Those numeric limits are from the 2024 draft public notice, not from a final permit page retrieved in this pass.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of January 29, 2029. Hawaii DOH solicited public comment beginning August 15, 2024, on a draft five-year RAP permit renewal for continued controlled intentional detonations at the Waipio Peninsula Annex. This draft did not independently retrieve a final 2024–2025 RAP issuance. In 2015, DOH granted a 90-day State Emergency Hazardous Waste Permit on June 29, 2015, allowing up to 50 detonation events and no more than 15 pounds net explosive weight per event, to destroy munitions recovered from dredged material.",
+      "notable_incidents": [
+        {
+          "date": "2015-07",
+          "summary": "Navy Region Hawaii announced scheduled controlled detonations July 14–31, 2015 (work had also occurred July 7–8) at the Confined Disposal Facility on Waipio Peninsula to destroy munitions recovered from screening of Pearl Harbor dredged material, under the June 29, 2015 emergency permit. The Navy said the project had previously treated some recovered munitions on Oct. 30, 2013, was suspended, and resumed in May 2015.",
+          "verification": "verified",
+          "sources": [
+            "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/2262813/navy-controlled-detonations-to-occur-over-next-several-weeks-at-waipio-peninsul/"
+          ]
+        }
+      ],
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "These operations are permitted treatment of recovered munitions, not a spontaneous storage explosion. Whether the August 2024 draft RAP was finalized was not confirmed in this pass.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -710,6 +786,14 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID HIR000001115",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Navy, controlled detonations at Waipio Peninsula (July 11, 2015)",
+          "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/2262813/navy-controlled-detonations-to-occur-over-next-several-weeks-at-waipio-peninsul/"
+        },
+        {
+          "title": "Hawaii DOH public notice on draft five-year RAP permit renewal (published Aug 15, 2024)",
+          "url": "https://statelegals.staradvertiser.com/2024/08/15/0001462891-01/"
         }
       ],
       "last_checked": "2026-11-23"
@@ -750,7 +834,8 @@
             "https://www.army.mil/article/296990/army_update_on_iowa_army_ammunition_plant",
             "https://www.courtlistener.com/docket/75150222/iowa-environmental-council-v-epa/",
             "https://www.iowapublicradio.org/ipr-news/2026-11-23/trump-orders-army-stop-lead-blast-iowa"
-          ]
+          ],
+          "verification": "partly verified"
         }
       ],
       "research_depth": "deep",
@@ -818,7 +903,7 @@
       "permit_status": "Not on EPA's current OB/OD operating list",
       "permit_expiration": "",
       "known_energetics": "William Shaneyfelt, safety officer at Savanna Army Depot Activity, described Vietnam-era surplus bulk lead azide in deteriorating 55-gallon drums in a 1984 paper to the DoD Explosives Safety Board. Electrolysis destroyed about half the stockpile; the remainder was repacked. The public record reviewed for this draft does not establish what happened to the remaining drums after 1984.",
-      "current_status": "A former Army depot. EPA FRS lists BRAC and SEMS interests under ID IL3210020803. It is not on EPA's current OB/OD operating list. Present land use and whether any energetic material remains were not independently confirmed in this draft.",
+      "current_status": "A former Army depot. Official Army BRAC records recommend closing Savanna Army Depot Activity and relocating the U.S. Army Defense Ammunition Center and School to McAlester Army Ammunition Plant, Oklahoma. An Army BRAC NEPA public document states that SVADA ceased operations and officially closed on May 20, 2000. The depot was listed on the EPA National Priorities List on October 15, 1984. Parcel conveyance has continued; a DENIX page updated July 15, 2026, lists starting acreage of 12,884.32, conveyed 5,363.76, and remaining 7,520.56, with current owners including USFWS, USACE, Illinois DNR, and the Jo-Carroll Depot Local Redevelopment Authority. The installation is not on EPA's current OB/OD operating list. This draft still has not found an official document that accounts for the remaining bulk lead azide drums after the 1984 repack — including whether they were later destroyed, sold, or transferred (for example when the ammunition school moved to McAlester). A 1990 USADACS paper presented from Savanna discusses electrochemical reduction as a process demonstrated on lead azide, but it does not state the fate of the remaining 1984 stockpile.",
       "notable_incidents": [
         {
           "date": "1984",
@@ -826,13 +911,14 @@
           "sources": [
             "https://apps.dtic.mil/sti/citations/ADP004872",
             "https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt"
-          ]
+          ],
+          "verification": "verified"
         }
       ],
       "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Closest documented historical analog to IAAAP's bulk lead azide drums. Post-1984 fate of the remaining material is a research gap.",
+      "notes": "Closest documented historical analog to IAAAP's bulk lead azide drums. Depot closed May 20, 2000. The post-1984 fate of the remaining lead azide remains a research gap; no official destruction or transfer record for that residual stockpile was found in this pass.",
       "sources": [
         {
           "title": "Shaneyfelt, Complexities of Lead Azide, DTIC ADP004872 / ADA152150 (1984)",
@@ -845,6 +931,14 @@
         {
           "title": "EPA FRS / SEMS ID IL3210020803",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "DoD DENIX, Savanna Army Depot Activity BRAC page (last page update July 15, 2026)",
+          "url": "https://www.denix.osd.mil/armybrac/illinois-active-component/savanna-army-depot-activity/"
+        },
+        {
+          "title": "Army BRAC NEPA public information document on SVADA closure and Parcel 20 (states official closure May 20, 2000)",
+          "url": "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_72674.pdf"
         }
       ],
       "last_checked": "2026-11-23",
@@ -885,7 +979,8 @@
           "summary": "Local contemporaneous reporting: three Crane Army Ammunition Activity employees were injured when small detonators exploded prematurely while being unpacked at the Ammunition Burning Grounds. This draft did not independently retrieve an official Army accident report.",
           "sources": [
             "https://www.suncommercial.com/gcdailyworld/archives/article_7f398027-d9be-5e6a-81c0-ff5b1c0dde54.html"
-          ]
+          ],
+          "verification": "partly verified"
         }
       ],
       "research_depth": "deep",
@@ -981,29 +1076,32 @@
       "on_epa_obod_list": false,
       "permit_status": "Not on EPA's current OB/OD operating list",
       "permit_expiration": "",
-      "known_energetics": "M6 propellant and clean-burning igniter (CBI) left from Explo Systems contractor storage of Army-origin material. EPA approved contained-burn destruction of about 16 million pounds of M6 and CBI in June 2016. These are HD 1.3 propellant/igniter materials, not primary explosives such as lead azide.",
-      "current_status": "The 2012–2016 emergency disposal campaign used a contained-burn chamber after open burning was dropped following public opposition. This draft has not independently confirmed current residual holdings, if any, after that campaign.",
+      "known_energetics": "M6 propellant and clean-burning igniter (CBI) left from Explo Systems contractor storage of Army-origin material. These are HD 1.3 propellant/igniter materials, not primary explosives such as lead azide. A Louisiana National Guard release dated April 21, 2017, said the State of Louisiana contracted Explosive Service International on June 17, 2015, to destroy approximately 15,687,247 pounds of M6 and approximately 320,890 pounds of CBI, and that destruction of the M6 and CBI had been successfully completed in accordance with the contract. The Minden Press-Herald reported on October 24, 2018, that 15 pounds of M6 remained in a bunker thought too unstable to move. This draft did not find an official 2019–2026 confirmation that those 15 pounds were later destroyed.",
+      "current_status": "The main contained-burn disposal campaign was declared complete by the Louisiana National Guard on April 21, 2017; ESI was then to conduct about 30 days of cleanup, including burning residual debris, after which the chamber would not be used in that capacity again at Camp Minden. As of an October 24, 2018, Minden Press-Herald account of a Camp Minden Citizens Advisory Group meeting, 15 pounds of M6 were still reported in a bunker, the burn chamber was no longer in use and was up for sale, and Louisiana Military Department project coordinator Winston Matejowsky was quoted saying closure could not go on until that M6 was burned. This draft has not independently confirmed, from an official 2019–2026 source, whether those 15 pounds remain, were burned, or were otherwise disposed of.",
       "notable_incidents": [
         {
           "date": "2012-10-15",
           "summary": "Explosion of a magazine at Explo Systems, Camp Minden. EPA chronology: Louisiana State Police later identified about 10 million pounds of unsecured M6; the town of Doyline (about 400 homes) was evacuated during operational hours.",
           "sources": [
             "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf"
-          ]
+          ],
+          "verification": "verified"
         },
         {
           "date": "2013-06",
           "summary": "Army Explosives Safety Board report cited in the EPA chronology: the probability of an explosives event related to long-term storage of M6 at Camp Minden was 'likely'; the Board recommended open burn/open detonation within two years.",
           "sources": [
             "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf"
-          ]
+          ],
+          "verification": "verified"
         },
         {
           "date": "2016-06-13",
           "summary": "EPA approved a contained-burn system after tests showed 99.99% destruction of chemicals of concern, for about 16 million pounds of M6 and CBI.",
           "sources": [
             "https://www.epa.gov/archive/epa/newsreleases/epa-approves-contained-burn-system-camp-minden-disposal.html"
-          ]
+          ],
+          "verification": "verified"
         },
         {
           "date": "2016-09-29",
@@ -1011,13 +1109,30 @@
           "sources": [
             "https://geauxguard.la.gov/2016/09/29/camp-minden-update-clean-burning-ignitor-combusted/",
             "https://geauxguard.la.gov/2016/10/14/explosives-experts-cbi-must-be-destroyed-in-place/"
+          ],
+          "verification": "verified"
+        },
+        {
+          "date": "2017-04-21",
+          "summary": "Louisiana National Guard announced that destruction of approximately 15,687,247 pounds of M6 propellant and approximately 320,890 pounds of CBI had been successfully completed under the June 17, 2015, contract with Explosive Service International. Cleanup of residual debris was expected to take about 30 days.",
+          "verification": "verified",
+          "sources": [
+            "https://geauxguard.la.gov/2017/04/21/update-camp-minden-m6-disposal-successfully-completed/"
+          ]
+        },
+        {
+          "date": "2018-10-24",
+          "summary": "Minden Press-Herald, reporting on a Camp Minden Citizens Advisory Group meeting: 15 pounds of M6 propellant remained in a bunker thought too unstable to move; the burn chamber was no longer in use and was up for sale; LMD project coordinator Winston Matejowsky was quoted saying the leftover should have been taken care of along the way and that the longer it was held the more likely it was to self-ignite. This draft did not find a later official confirmation of disposal.",
+          "verification": "partly verified",
+          "sources": [
+            "https://press-herald.com/leftover-m6-causes-stir-at-meeting/"
           ]
         }
       ],
       "research_depth": "deep",
       "verification": "partly verified",
-      "needs_research": false,
-      "notes": "Closest recent official parallel to IAAAP's 'cannot safely move it, destroy in place' finding, though the chemistry differs.",
+      "needs_research": true,
+      "notes": "Closest recent official parallel to IAAAP's 'cannot safely move it, destroy in place' finding, though the chemistry differs. The main tonnage was officially declared destroyed in April 2017; a reported 15-pound leftover in October 2018 is the remaining residual-holdings gap.",
       "sources": [
         {
           "title": "EPA, Camp Minden chronology (Feb 13, 2015)",
@@ -1038,6 +1153,14 @@
         {
           "title": "EPA FRS coordinates for RCRA ID LA0213820533",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Louisiana National Guard, Camp Minden M6 disposal successfully completed (April 21, 2017)",
+          "url": "https://geauxguard.la.gov/2017/04/21/update-camp-minden-m6-disposal-successfully-completed/"
+        },
+        {
+          "title": "Minden Press-Herald, Leftover M6 causes stir at meeting (Oct 24, 2018)",
+          "url": "https://press-herald.com/leftover-m6-causes-stir-at-meeting/"
         }
       ],
       "last_checked": "2026-11-23",
@@ -1069,12 +1192,12 @@
       "permit_expiration": "10/31/2020",
       "permit_expiration_iso": "2020-10-31",
       "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 10/31/2020. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as 'US ARMY, FORT JOHNSON,' permitted, with a listed expiration of October 31, 2020. EPA's RCRA/CIMC profile for the same EPA ID (LA0214022725) also appears under the earlier name Fort Polk. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so. This pass did not retrieve a current LDEQ hazardous-waste operating permit text or a documented renewal decision for the OB/OD units.",
       "notable_incidents": [],
       "research_depth": "basic",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "The October 31, 2020 expiration is more than six years old; whether the facility still operates OB/OD under a continued or renewed permit was not independently confirmed. Energetics inventory still needs research.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1083,6 +1206,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID LA0214022725",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA CIMC/RCRA profile for EPA ID LA0214022725",
+          "url": "https://ordspub.epa.gov/ords/cimc/f?p=CIMC:RCRA::::P14_RCRA_HANDLER_ID:LA0214022725"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1110,13 +1237,22 @@
       "permit_status": "Permitted",
       "permit_expiration": "2/15/2020",
       "permit_expiration_iso": "2020-02-15",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 2/15/2020. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
-      "notable_incidents": [],
-      "research_depth": "basic",
+      "known_energetics": "A May 20, 2022 Maryland Department of the Environment tentative-determination fact sheet and draft Controlled Hazardous Substance permit A-190 (EPA ID MD3210021355) describe these treatment units: the J-Field Open Detonation unit, for waste conventional explosives and munitions (and items fully decontaminated or formally found not to contain lethal agents); and Old Bombing Field open-burn and open-detonation units, used to treat waste conventional explosives and propellants, with open burning of waste propellants on steel pans and open detonation in a designated 18.4-acre site. The draft also lists other Edgewood Area hazardous-waste units operated by DEVCOM Chemical Biological Center and related organizations (storage, thermal treatment, Explosive Destruction System, Munitions Assessment and Processing System). Those descriptions are from the 2022 draft renewal, not from a retrieved final signed 2022–2026 permit. Separately, a 2024 emergency permit addressed about 35 pounds of potentially unstable TMETN at an Army Research Laboratory bunker.",
+      "current_status": "MDE received a renewal application for CHS permit A-190 on August 14, 2019, which is before the February 15, 2020 expiration of the prior term. On May 20, 2022, MDE issued a tentative determination to renew the permit, with a draft 10-year permit. Maryland open-data records reviewed in this pass still listed permit A-190 as expired (term February 15, 2010–February 15, 2020) and not administratively extended. EPA's current OB/OD list, last updated March 11, 2025, still shows the facility as permitted with the February 15, 2020 expiration. This draft did not retrieve a final post-2022 signed CHS permit. Because the renewal application was received before expiration, the 40 CFR 270.51 continuation rule may apply, but a final issuance was not confirmed here.",
+      "notable_incidents": [
+        {
+          "date": "2024-11-21",
+          "summary": "MDE temporary emergency permit E2024-1 (oral approval November 21, 2024; written permit November 22, 2024; expired February 19, 2025) authorized on-site contained chemical treatment of approximately 35 pounds of trimethylolethane trinitrate (TMETN, CAS 3032-55-1) in a single container at Army Research Laboratory Bunker 1174 on Spesutie Island. Army explosives-safety experts were concerned the material may have become unstable after about 10 years of storage and might detonate if shipped. ARL proposed chemical neutralization by MuniRem Environmental, LLC, as an alternative to open detonation. The permit states there was no other TMETN on the inventory list.",
+          "verification": "verified",
+          "sources": [
+            "https://mde.maryland.gov/programs/land/Documents/APG%20Emergency%20Permit%202024/APG%20-%20emergency%20permit%2011-21-24%20signed.pdf"
+          ]
+        }
+      ],
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "The 2024 TMETN action is a small-quantity instability case treated by proposed chemical neutralization under an emergency permit, not a bulk-drum detonation. Whether the work was completed, and whether CHS permit A-190 was finally renewed, were not independently confirmed.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1125,6 +1261,18 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID MD3210021355",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "MDE, Temporary Emergency Permit E2024-1 (issued Nov 22, 2024)",
+          "url": "https://mde.maryland.gov/programs/land/Documents/APG%20Emergency%20Permit%202024/APG%20-%20emergency%20permit%2011-21-24%20signed.pdf"
+        },
+        {
+          "title": "MDE, notice of tentative determination and fact sheet to renew APG CHS permit A-190 (May 20, 2022)",
+          "url": "https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20TD%20Notice%20and%20Fact%20Sheet%20-%205-20-22.pdf"
+        },
+        {
+          "title": "MDE, draft CHS Permit A-190 (May 20, 2022)",
+          "url": "https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20Draft%20A-190%20CHS%20Permit%205-20-22%20redacted.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1152,13 +1300,13 @@
       "permit_status": "Interim Status",
       "permit_expiration": "",
       "permit_expiration_iso": "",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Interim Status. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "An EPA federal-facility document (posted June 2025) states that Naval Surface Warfare Center Indian Head Division — formerly the Naval Ordnance Station, Naval Propellant Plant, Naval Powder Factory, and Naval Proving Grounds — is the lead Navy activity for propellants, explosives, and pyrotechnics (energetics), and conducts engineering, manufacturing, research and development, and testing of energetic materials and ordnance devices. The same document says a RCRA Part B, Subpart X permit application for thermal treatment of explosives was submitted to EPA on November 8, 1988, for both the Main Area and the Stump Neck Annex, and that both activities remain in interim status for those miscellaneous units. The installation was added to the Superfund National Priorities List in September 1995. This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as interim status, with permit expiration 'Not applicable.' Interim status has continued since the 1988 Part B Subpart X applications; a final miscellaneous-unit permit was not identified as having been issued in the sources reviewed.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "See also the Stump Neck Annex record (MD4170090001), which is a separate EPA ID under the same NSWC Indian Head activity.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1167,6 +1315,14 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID MD4170024109",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA, Naval Surface Warfare Center Indian Head Division facility document (posted June 2025)",
+          "url": "https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf"
+        },
+        {
+          "title": "EPA Superfund site profile, Indian Head Naval Surface Warfare Center",
+          "url": "https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.cleanup&id=0300430"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1194,13 +1350,13 @@
       "permit_status": "Interim Status",
       "permit_expiration": "",
       "permit_expiration_iso": "",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Interim Status. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "Part of Naval Surface Warfare Center Indian Head Division. The EPA facility document posted June 2025 states that RCRA Part B, Subpart X permit applications for thermal treatment of explosives were submitted to EPA on November 8, 1988, for both the Main Area and the Stump Neck Annex, and that both remain in interim status. A historical Part B application describes Stump Neck as the smaller peninsula and notes a tenant Naval Explosive Ordnance Disposal Technology Center operation there. This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as interim status, with permit expiration 'Not applicable.' A final miscellaneous-unit permit for the annex was not identified as having been issued in the sources reviewed.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "See also NSF Indian Head (MD4170024109).",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1209,6 +1365,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID MD4170090001",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA, Naval Surface Warfare Center Indian Head Division facility document (posted June 2025)",
+          "url": "https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1242,7 +1402,8 @@
           "sources": [
             "https://apnews.com/article/4a4af83a47ea4a608ab28eae9f1c6412",
             "https://apnews.com/domestic-news-general-news-f00f91f83e7f4d3384a346263c2f45d2"
-          ]
+          ],
+          "verification": "verified"
         }
       ],
       "research_depth": "deep",
@@ -1534,13 +1695,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "9/06/2033",
       "permit_expiration_iso": "2033-09-06",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/06/2033. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "EPA lists Joint Base Charleston Weapons as a permitted OB/OD facility (EPA ID SC8170022620). The EPA-hosted hazardous-waste permit package was retrieved; this draft records the EPA-listed expiration of September 6, 2033, and does not add an item-level munitions inventory that was not clearly extracted from the permit front matter in this pass.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of September 6, 2033, which had not yet been reached as of this check (Nov 23, 2026).",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "Authorized waste types beyond the fact of a current OB/OD permit still need a closer read of the permit attachments.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1549,6 +1710,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID SC8170022620",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA-hosted Joint Base Charleston hazardous-waste permit package",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/joint-base-charleston.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1576,13 +1741,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "1/29/2025",
       "permit_expiration_iso": "2025-01-29",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 1/29/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "EPA lists MCAS Beaufort as a permitted OB/OD facility (EPA ID SC1750216169). An EPA-hosted Class 1 RCRA permit-modification package was retrieved. This draft does not record an item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of January 29, 2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "This pass did not retrieve a final post-January 2025 renewal decision.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1591,6 +1756,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID SC1750216169",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA-hosted MCAS Beaufort Class 1 RCRA permit-modification package",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/marine-corps-air-station-beaufort.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1627,7 +1796,8 @@
           "summary": "Local press, citing an Army final report, said a fire in a manufacturing building spread to a trailer carrying about 2,500 pounds of explosives, which detonated; the area had been evacuated and no fatalities were reported. The Army report itself was not independently read in this draft.",
           "sources": [
             "https://www.timesnews.net/business/army-gives-final-report-on-2019-explosion-at-haap/article_df039f0e-6c1a-5f6b-a376-da388e5ae61d.html"
-          ]
+          ],
+          "verification": "partly verified"
         }
       ],
       "research_depth": "deep",
@@ -1669,13 +1839,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "5/23/2029",
       "permit_expiration_iso": "2029-05-23",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 5/23/2029. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "EPA lists Joint Base San Antonio–Camp Bullis as a permitted OB/OD facility (EPA ID TX4210020133). An EPA-hosted Texas industrial solid-waste / hazardous-waste permit package was retrieved. This draft does not record an item-level inventory from the permit attachments.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of May 23, 2029, which had not yet been reached as of this check (Nov 23, 2026).",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "Authorized waste types still need a closer attachment-level read.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1684,6 +1854,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID TX4210020133",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA-hosted Joint Base San Antonio–Camp Bullis hazardous-waste permit package",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/joint-base-san-antonio-camp-bullis.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1704,20 +1878,21 @@
       "coordinate_source": "EPA FRS RCRAINFO TXR000084774 (NAD83)",
       "coordinate_method": "",
       "type": [
-        "OB/OD"
+        "OB/OD",
+        "storage"
       ],
       "on_epa_obod_list": true,
       "jmc_demil_hub": false,
       "permit_status": "Permitted",
       "permit_expiration": "1/16/2031",
       "permit_expiration_iso": "2031-01-16",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 1/16/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "An official Army BRAC installation report (updated November 3, 2025; compilation updated January 23, 2026) says Lone Star Army Ammunition Plant performed a load-assemble-pack munitions production mission for more than 60 years on 11 production lines. The 2005 BRAC Commission recommended relocating storage and demilitarization functions to McAlester AAP; 105mm and 155mm ICM artillery, MLRS artillery, hand grenades, and 60mm and 81mm mortars to Milan AAP; mines and detonators/relays/delays functions to Iowa AAP; and demolition-charges functions to Crane Army Ammunition Activity. That official relocation of detonator functions to IAAAP is not, by itself, a documented origin for IAAAP's 2026 lead azide drums. Day & Zimmermann–Lone Star remains the Army's agent for two RCRA-regulated units, the High Explosives Burning Ground and the High Explosives Demolition Ground. EPA lists this EPA ID (TXR000084774) separately from Day & Zimmermann Lone Star Facility (TXR000080174).",
+      "current_status": "The same official BRAC report states that all active missions ceased and the plant closed as part of BRAC 2005 on September 30, 2009. A staff of two federal employees remain for caretaker oversight; caretaker operations are executed by Day & Zimmermann–Lone Star under a cost-plus caretaker contract. As of the November 3, 2025 update, 14,292 of 15,589 acres had been conveyed; 1,297 acres remained, with conveyance depending on cleanup. The site is on the National Priorities List. EPA's current OB/OD list still shows Lone Star Army Ammunition Plant as permitted, with a listed expiration of January 16, 2031.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "Closed production plant under BRAC caretaker and cleanup; remaining RCRA OB/OD units are in caretaker/agent status. This draft does not claim that IAAAP's 68 drums came from Lone Star.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1726,6 +1901,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID TXR000084774",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "DoD/Army BRAC, 2005 Base Realignment and Closure Installations report, Lone Star AAP update dated Nov 3, 2025 (compilation updated Jan 23, 2026)",
+          "url": "https://www.denix.osd.mil/armybrac/denix-files/sites/111/BRAC-2005-Installation-Reports.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1753,10 +1932,10 @@
       "permit_status": "Permitted",
       "permit_expiration": "9/30/2030",
       "permit_expiration_iso": "2030-09-30",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/30/2030. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "Utah RCRA permit Module V authorizes treatment of waste energetic material at the Dugway Thermal Treatment Facility, a vegetation-free area for open burning or open detonation equipped with three burn pans for open burning. The permittee is prohibited from treating at the DTTF, among other things, armor-penetrating weapons containing depleted uranium, and chemical and nuclear weapons, their devices, and components. The permit also states that chemical, radiological, and biological munitions require the Director's approval before emergency destruction when they have been determined unsafe to transport to the DTTF. This draft does not have a current item-level inventory of conventional energetics treated at the DTTF.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of September 30, 2030, which had not yet been reached as of this check (Nov 23, 2026).",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
       "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
@@ -1768,6 +1947,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID UT3750211259",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Utah / EPA-hosted Dugway Proving Ground permit Module V, Treatment of Energetic Wastes",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/dugway-proving-ground.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1889,13 +2072,13 @@
       "permit_status": "Permitted",
       "permit_expiration": "8/18/2025",
       "permit_expiration_iso": "2025-08-18",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 8/18/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "Utah RCRA permit Module III authorizes thermal treatment of hazardous-waste military munitions at UTTR in Box Elder County. Permitted wastes include unserviceable or serviceable excess munitions and explosive materials (examples in the module include bulk explosives, small-arms munitions, projectiles, flares, grenades, and sub-munitions) and unserviceable or serviceable excess solid-propellant components. The permittee may treat only hazardous-waste military munitions from allowed sources and is prohibited from treating hazardous waste from sources not authorized in the module. Treatment is described at Site 1 for open burning and Site 2 for open burning or open detonation. This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of August 18, 2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft did not independently confirm whether a timely renewal was filed or whether a new permit has been issued, unless a source below says so. The EPA-hosted file retrieved in this pass is the energetic-waste module, not a cover page naming the permittee; the EPA list name does not state a service branch, so the branch field is left blank.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
-      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "notes": "Utah DEQ maintains a UTTR facility-overview page that could not be retrieved in this pass (the request was blocked). Public descriptions that Hill Air Force Base operates UTTR were therefore not independently confirmed from a retrieved official page and are not used to fill the branch field.",
       "sources": [
         {
           "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
@@ -1904,6 +2087,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID UT0570090001",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Utah / EPA-hosted UTTR permit Module III, Treatment of Energetic Wastes",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/utah-test-training-range.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1931,10 +2118,10 @@
       "permit_status": "Permitted",
       "permit_expiration": "4/28/2031",
       "permit_expiration_iso": "2031-04-28",
-      "known_energetics": "",
-      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 4/28/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "known_energetics": "Virginia DEQ hazardous-waste permit issued to the United States Navy authorizes treatment of hazardous waste by open burning and open detonation at the Naval Surface Warfare Center Dahlgren Site (Churchill Range plans are among the permit attachments). This draft does not record a complete item-level list from the permit attachments. The facility is a Navy weapons-development and test activity; a current inventory of energetics in storage was not retrieved.",
+      "current_status": "The Virginia DEQ permit is effective as of April 28, 2021, and remains in effect until April 28, 2031, unless revoked, reissued, or terminated. EPA's current OB/OD list shows the facility as permitted with that April 28, 2031 expiration.",
       "notable_incidents": [],
-      "research_depth": "basic",
+      "research_depth": "deep",
       "verification": "partly verified",
       "needs_research": true,
       "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
@@ -1946,6 +2133,10 @@
         {
           "title": "EPA FRS facility coordinates for RCRA ID VA7170024684",
           "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Virginia DEQ, Final Hazardous Waste Permit for thermal treatment by OB/OD, NSWC Dahlgren (EPA-hosted)",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/naval-surface-warfare-center.pdf"
         }
       ],
       "last_checked": "2026-11-23"
@@ -1982,7 +2173,8 @@
           "summary": "AP reported a nitrocellulose flash fire at Radford Army Ammunition Plant that injured three workers. This was a production accident, not an aging-drum storage emergency. This draft did not independently retrieve the full AP article body (Cloudflare block during collection).",
           "sources": [
             "https://apnews.com/general-news-domestic-news-domestic-news-9a869211a454431ea11867c4c82751b5"
-          ]
+          ],
+          "verification": "partly verified"
         }
       ],
       "research_depth": "deep",
