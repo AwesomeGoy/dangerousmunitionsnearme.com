@@ -15,7 +15,14 @@
   <meta property="og:title" content="Picatinny Arsenal | Dangerous Munitions Near Me">
   <meta property="og:description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
   <meta property="og:url" content="https://dangerousmunitionsnearme.com/sites/picatinny-arsenal.html">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://dangerousmunitionsnearme.com/og/picatinny-arsenal.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Picatinny Arsenal | Dangerous Munitions Near Me">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Picatinny Arsenal | Dangerous Munitions Near Me">
+  <meta name="twitter:description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
+  <meta name="twitter:image" content="https://dangerousmunitionsnearme.com/og/picatinny-arsenal.png">
   <link rel="stylesheet" href="../css/style.css">
   <link rel=stylesheet href='../lib/leaflet/leaflet.css'>
 </head>
@@ -27,7 +34,7 @@
         <h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
         <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
       </div>
-      <nav><a href="../index.html">Tracker</a><a href="../about.html">About / methods</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
+      <nav><a href="../index.html">Tracker</a><a href="../nearby.html">Live near one?</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../about.html">About / methods</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
     </div>
   </header>
   <main class="wrap">
@@ -35,8 +42,10 @@
     <p><a href="../index.html">← All sites</a></p>
     <h2>Picatinny Arsenal</h2>
     <p><span class="badge partly">partly verified</span>
+       <span class="badge depth">Army</span>
        <span class="badge depth">deep</span></p>
     <dl class="meta-list">
+      <dt>Sector</dt><dd>Army</dd>
       <dt>Branch</dt><dd>U.S. Army</dd>
       <dt>Location</dt><dd>Bldg 3100, Picatinny, NJ, 07806</dd>
       <dt>EPA ID</dt><dd>NJ3210020704</dd>
@@ -77,11 +86,29 @@
     <h2>Sources</h2>
     <ul class="sources"><li>EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a></li><li>EPA FRS facility coordinates for RCRA ID NJ3210020704<br><a href="https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8</a></li><li>Army, Picatinny aims for green with new type of primary explosive (March 21, 2014)<br><a href="https://www.army.mil/article/122127/picatinny_aims_for_green_with_new_type_of_primary_explosive">https://www.army.mil/article/122127/picatinny_aims_for_green_with_new_type_of_primary_explosive</a></li></ul>
     
+    <section class="nearby alerts-box" aria-labelledby="alerts-heading-site-picatinny-arsenal">
+      <h2 id="alerts-heading-site-picatinny-arsenal">ZIP alerts <span class="coming-soon">Alerts coming soon</span></h2>
+      <p>A later version may offer email notices when a tracked site near your ZIP has a newly documented incident, permit comment period, or sourced status change. That signup is not active. This form is disabled and does not collect, send, or store an email address or ZIP code.</p>
+      <form id="alerts-form-site-picatinny-arsenal" action="#" method="post" onsubmit="return false;">
+        <div class="nearby-row">
+          <label for="alerts-zip-site-picatinny-arsenal">ZIP code
+            <input id="alerts-zip-site-picatinny-arsenal" type="text" inputmode="numeric" maxlength="5" value="07806" disabled autocomplete="off" aria-describedby="alerts-note-site-picatinny-arsenal">
+          </label>
+          <label for="alerts-email-site-picatinny-arsenal">Email
+            <input id="alerts-email-site-picatinny-arsenal" type="email" disabled autocomplete="off" placeholder="Coming soon">
+          </label>
+          <button type="button" disabled>Coming soon</button>
+        </div>
+      </form>
+      <p class="nearby-note" id="alerts-note-site-picatinny-arsenal">See the <a href="../privacy.html">privacy notice</a> for what would be collected if alerts are turned on. Nothing is collected now.</p>
+    </section>
+    
+    
   </main>
   <footer>
     <div class="wrap">
       <div>Draft by D.A. Williams. Not published.</div>
-      <div><a href="https://awesomegoy.com">awesomegoy.com</a></div>
+      <div><a href="../privacy.html">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a></div>
     </div>
   </footer>
 </body>

@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "title": "Nearby-residents guide: official sources",
+    "status": "DRAFT, not published",
+    "byline": "D.A. Williams",
+    "homepage": "https://awesomegoy.com",
+    "last_checked": "2026-11-23",
+    "disclaimer": "This guide points to official public sources so residents can find emergency-planning contacts, permit notices, and records-request portals. It is not medical advice, legal advice, or an emergency instruction. In an emergency, follow directions from local officials. Health questions belong with a licensed clinician or the local health department. FOIA and permit comments have formal rules; agency pages control how to file."
+  },
+  "sections": [
+    {
+      "id": "find-lepc-and-emergency-plan",
+      "title": "Finding your county emergency plan or Local Emergency Planning Committee",
+      "points": [
+        {
+          "text": "Under the Emergency Planning and Community Right-to-Know Act (EPCRA), Local Emergency Planning Committees must develop an emergency response plan, review the plan at least annually, and provide information about chemicals in the community to citizens.",
+          "sources": [
+            {
+              "title": "EPA, Finding Your LEPC",
+              "url": "https://www.epa.gov/epcra/finding-your-lepc"
+            },
+            {
+              "title": "EPA, Local Emergency Planning Committees",
+              "url": "https://www.epa.gov/epcra/local-emergency-planning-committees"
+            }
+          ]
+        },
+        {
+          "text": "EPA says individuals can find their LEPC by contacting their State Emergency Response Commission. EPA publishes a directory of SERC contacts for the states and territories.",
+          "sources": [
+            {
+              "title": "EPA, Finding Your LEPC",
+              "url": "https://www.epa.gov/epcra/finding-your-lepc"
+            },
+            {
+              "title": "EPA, State Emergency Response Commissions Contacts",
+              "url": "https://www.epa.gov/epcra/state-emergency-response-commissions-contacts"
+            }
+          ]
+        },
+        {
+          "text": "County or city emergency-management offices may also publish all-hazards emergency plans. Those plans are local documents; this guide does not reproduce them. Start with the SERC/LEPC contacts above or your county emergency-management website.",
+          "sources": [
+            {
+              "title": "EPA, Local Emergency Planning Committees",
+              "url": "https://www.epa.gov/epcra/local-emergency-planning-committees"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obod-emissions-and-health-sources",
+      "title": "What open burning / open detonation can release — official sources, not medical advice",
+      "points": [
+        {
+          "text": "EPA allows open burning and open detonation of waste explosives only for wastes that cannot safely be disposed of through other modes of treatment, as an exception to the general open-burning ban. Owners and operators must demonstrate, and periodically redemonstrate, that they remain eligible for that exception and must use safe alternative technologies where available.",
+          "sources": [
+            {
+              "title": "EPA, Explosive Hazardous Wastes",
+              "url": "https://www.epa.gov/hwpermitting/explosive-hazardous-wastes"
+            },
+            {
+              "title": "EPA, Open Burning and Open Detonation of Waste Explosives Under RCRA (memorandum, June 7, 2022)",
+              "url": "https://www.epa.gov/system/files/documents/2022-06/OBOD_Policy_Memo_signed_6.7.22_508.pdf"
+            }
+          ]
+        },
+        {
+          "text": "On its Explosive Hazardous Wastes page, EPA reports that community groups have raised concerns about exposure to contaminants through inhalation from plumes of smoke migrating into communities, and through ingestion of contaminants deposited onto soil and leached into groundwater used for irrigation and drinking water. EPA says permits issued to OB/OD facilities must include conditions that protect the health of communities, and gives examples that may include protective distance requirements, limits on duration and timing of events, monitoring of environmental media, engineering controls to reduce off-site impacts, and noise and vibration thresholds. This is a statement of EPA's permitting expectations, not a site-specific finding for any one facility.",
+          "sources": [
+            {
+              "title": "EPA, Explosive Hazardous Wastes (section on OB/OD impacts on communities)",
+              "url": "https://www.epa.gov/hwpermitting/explosive-hazardous-wastes"
+            }
+          ]
+        },
+        {
+          "text": "EPA's current facilities table and Subpart X permit compilation identify which sites are listed as treating waste explosives by OB/OD. They do not, by themselves, report measured emissions at a given site or date. For a specific facility, look at that site's permit, monitoring reports, and any public health assessment.",
+          "sources": [
+            {
+              "title": "EPA, Current Open Burning / Open Detonation Facilities",
+              "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+            },
+            {
+              "title": "EPA, Subpart X Hazardous Waste Permits for Treatment of Explosive Wastes",
+              "url": "https://www.epa.gov/hwpermitting/subpart-x-hazardous-waste-permits-treatment-explosive-wastes"
+            }
+          ]
+        },
+        {
+          "text": "The Agency for Toxic Substances and Disease Registry publishes toxicological profiles that summarize what is known about individual chemicals. Profiles confirmed in this pass that are often relevant to munitions or energetic wastes include 2,4,6-trinitrotoluene (TNT), RDX (cyclonite), lead, perchlorates, and white phosphorus. A profile is general chemical information; it is not a diagnosis and does not mean that chemical is being released at a particular site.",
+          "sources": [
+            {
+              "title": "ATSDR Toxicological Profile: 2,4,6-Trinitrotoluene (TNT)",
+              "url": "https://wwwn.cdc.gov/TSP/ToxProfiles/ToxProfiles.aspx?id=677&tid=125"
+            },
+            {
+              "title": "ATSDR Toxicological Profile: RDX (Cyclonite)",
+              "url": "https://wwwn.cdc.gov/TSP/ToxProfiles/ToxProfiles.aspx?id=411&tid=72"
+            },
+            {
+              "title": "ATSDR Toxicological Profile: Lead",
+              "url": "https://wwwn.cdc.gov/TSP/ToxProfiles/ToxProfiles.aspx?id=96&tid=22"
+            },
+            {
+              "title": "ATSDR Toxicological Profile: Perchlorates",
+              "url": "https://wwwn.cdc.gov/TSP/ToxProfiles/ToxProfiles.aspx?id=895&tid=181"
+            },
+            {
+              "title": "ATSDR Toxicological Profile: White Phosphorus",
+              "url": "https://wwwn.cdc.gov/TSP/ToxProfiles/ToxProfiles.aspx?id=285&tid=52"
+            },
+            {
+              "title": "ATSDR Toxic Substances Portal",
+              "url": "https://wwwn.cdc.gov/TSP/index.aspx"
+            }
+          ]
+        },
+        {
+          "text": "ATSDR also publishes site-specific public health assessments for some facilities. Those documents, when they exist for a site near you, are the better starting point for that location than a general chemical profile. Search ATSDR or the EPA site profile for the facility name. This guide does not claim to list every such assessment.",
+          "sources": [
+            {
+              "title": "ATSDR Toxic Substances Portal",
+              "url": "https://wwwn.cdc.gov/TSP/index.aspx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foia-requests",
+      "title": "How to file a Freedom of Information Act request",
+      "points": [
+        {
+          "text": "FOIA.gov is the official U.S. government portal for the Freedom of Information Act. It explains how the law works and routes requesters to federal agency FOIA offices. Start there if you are unsure which agency holds the records.",
+          "sources": [
+            {
+              "title": "FOIA.gov",
+              "url": "https://www.foia.gov/"
+            }
+          ]
+        },
+        {
+          "text": "The U.S. Army accepts FOIA requests through its official request portal. The Army also maintains an electronic FOIA reading room of previously released records. Requests should describe the records as clearly as possible and be sent to the component that maintains them; the portal and reading-room pages explain current filing instructions.",
+          "sources": [
+            {
+              "title": "U.S. Army FOIA request portal",
+              "url": "https://www.foia.army.mil/foiarequest/"
+            },
+            {
+              "title": "U.S. Army FOIA Reading Room",
+              "url": "https://foia.army.mil/"
+            }
+          ]
+        },
+        {
+          "text": "Other Defense Department components (Navy, Marine Corps, Air Force, Space Force, Defense agencies, and the Office of the Secretary of Defense) have their own FOIA offices. Use FOIA.gov to locate the correct component rather than sending an Army request for another service's records.",
+          "sources": [
+            {
+              "title": "FOIA.gov",
+              "url": "https://www.foia.gov/"
+            }
+          ]
+        },
+        {
+          "text": "EPA records, including many RCRA permits, administrative records, and enforcement files, can be requested through EPA's FOIA program. EPA's FOIA page explains how to submit a request and points to reading-room materials.",
+          "sources": [
+            {
+              "title": "EPA Freedom of Information Act",
+              "url": "https://www.epa.gov/foia"
+            },
+            {
+              "title": "FOIA.gov",
+              "url": "https://www.foia.gov/"
+            }
+          ]
+        },
+        {
+          "text": "State environmental agencies are usually not covered by the federal FOIA. They have their own public-records laws. For a state-issued hazardous-waste permit, use that state's public-records process (for example, a state DEP records or OCULUS system) in addition to, or instead of, a federal FOIA.",
+          "sources": [
+            {
+              "title": "FOIA.gov",
+              "url": "https://www.foia.gov/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "permit-notices",
+      "title": "How to sign up for EPA or state hazardous-waste permit notices",
+      "points": [
+        {
+          "text": "Federal RCRA rules create public-participation steps in hazardous-waste permitting, including a pre-application meeting, public comment and response periods, and public hearings. The federal procedures are in 40 CFR Parts 124 and 270. States that run the RCRA program may have additional or more stringent requirements. Virtual hearings and meetings are allowed under RCRA in lieu of in-person sessions.",
+          "sources": [
+            {
+              "title": "EPA, How Can the Public Participate in the Hazardous Waste Permitting Process?",
+              "url": "https://www.epa.gov/hwpermitting/how-can-public-participate-hazardous-waste-permitting-process"
+            },
+            {
+              "title": "40 CFR 124.10, Public notice of permit actions and public comment period",
+              "url": "https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-124/subpart-A/section-124.10"
+            }
+          ]
+        },
+        {
+          "text": "EPA advises interested people to ask the permitting agency to put their name on the facility mailing list for notices, fact sheets, and other documents the agency distributes. That mailing-list request is made to the EPA region or the authorized state agency that issues the permit, not through this tracker.",
+          "sources": [
+            {
+              "title": "EPA, How Can the Public Participate in the Hazardous Waste Permitting Process?",
+              "url": "https://www.epa.gov/hwpermitting/how-can-public-participate-hazardous-waste-permitting-process"
+            }
+          ]
+        },
+        {
+          "text": "EPA posts many of its own public notices, including some RCRA and emergency-permit notices, at EPA Public Notices. You can search by topic, location, or keyword.",
+          "sources": [
+            {
+              "title": "EPA Public Notices",
+              "url": "https://www.epa.gov/publicnotices"
+            },
+            {
+              "title": "EPA Public Notices search",
+              "url": "https://www.epa.gov/publicnotices/notices-search"
+            }
+          ]
+        },
+        {
+          "text": "Authorized state agencies also publish hazardous-waste draft permits and comment opportunities on their own public-notice pages. Examples confirmed in this pass include the Alabama Department of Environmental Management public-notices page and the Kentucky Energy and Environment Cabinet waste-management public-notices page. For other states, start from that state's environmental-agency website or ask the permit writer to add you to the facility mailing list.",
+          "sources": [
+            {
+              "title": "Alabama Department of Environmental Management, All Public Notices",
+              "url": "https://adem.alabama.gov/public-notices"
+            },
+            {
+              "title": "Kentucky Energy and Environment Cabinet, Waste Management Public Notices",
+              "url": "https://eec.ky.gov/Environmental-Protection/Waste/Pages/public-notices.aspx"
+            },
+            {
+              "title": "EPA, How Can the Public Participate in the Hazardous Waste Permitting Process?",
+              "url": "https://www.epa.gov/hwpermitting/how-can-public-participate-hazardous-waste-permitting-process"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

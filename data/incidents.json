@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "title": "Munitions sites incident timeline",
+    "status": "DRAFT, not published",
+    "byline": "D.A. Williams",
+    "homepage": "https://awesomegoy.com",
+    "last_built": "2026-11-23",
+    "source_file": "Derived from notable_incidents in data/sites.json",
+    "sort": "Ascending by date (incomplete dates sort at the start of their year or month), then site_id",
+    "count": 16
+  },
+  "incidents": [
+    {
+      "date": "1984",
+      "site_id": "savanna-army-depot",
+      "site_name": "Savanna Army Depot Activity",
+      "description": "Shaneyfelt paper (21st Explosives Safety Seminar, Houston, Aug 28–30, 1984): surplus bulk lead azide in deteriorating drums; sale attempts failed; electrolytic destruction halted after about half the stockpile; remaining leaking drums were repacked. The paper also describes a process-building contamination accident in which sodium azide washdown reacted with brass/copper debris and caused a 'loud, though not extremely dangerous, explosion.' That event was not a storage-drum detonation.",
+      "sources": [
+        {
+          "url": "https://apps.dtic.mil/sti/citations/ADP004872"
+        },
+        {
+          "url": "https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2006-03-21",
+      "site_id": "nsa-crane",
+      "site_name": "Crane Army Ammunition Activity / Naval Support Activity Crane",
+      "description": "Local contemporaneous reporting: three Crane Army Ammunition Activity employees were injured when small detonators exploded prematurely while being unpacked at the Ammunition Burning Grounds. This draft did not independently retrieve an official Army accident report.",
+      "sources": [
+        {
+          "url": "https://www.suncommercial.com/gcdailyworld/archives/article_7f398027-d9be-5e6a-81c0-ff5b1c0dde54.html"
+        }
+      ],
+      "verification": "partly verified"
+    },
+    {
+      "date": "2010-05-05",
+      "site_id": "redstone-arsenal",
+      "site_name": "Redstone Arsenal",
+      "description": "Redstone Arsenal Public Affairs: at about 8:45 a.m., a fire and explosion occurred at Building 7352, an Aviation and Missile Research, Development, and Engineering Center facility, during demilitarization operations involving ammonium perchlorate, an oxidizer used in solid rocket propellant. Two AMRDEC contractors were injured and taken to UAB's Burn Center; a third employee nearby was not injured. There were no fatalities.",
+      "sources": [
+        {
+          "url": "https://www.army.mil/article/38599/explosion_at_redstone_arsenal"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2012-10-15",
+      "site_id": "camp-minden",
+      "site_name": "Camp Minden (former Louisiana Army Ammunition Plant)",
+      "description": "Explosion of a magazine at Explo Systems, Camp Minden. EPA chronology: Louisiana State Police later identified about 10 million pounds of unsecured M6; the town of Doyline (about 400 homes) was evacuated during operational hours.",
+      "sources": [
+        {
+          "url": "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2013-06",
+      "site_id": "camp-minden",
+      "site_name": "Camp Minden (former Louisiana Army Ammunition Plant)",
+      "description": "Army Explosives Safety Board report cited in the EPA chronology: the probability of an explosives event related to long-term storage of M6 at Camp Minden was 'likely'; the Board recommended open burn/open detonation within two years.",
+      "sources": [
+        {
+          "url": "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2015-07",
+      "site_id": "navy-region-hawaii-waipio",
+      "site_name": "Navy Region Hawaii – Waipio Peninsula",
+      "description": "Navy Region Hawaii announced scheduled controlled detonations July 14–31, 2015 (work had also occurred July 7–8) at the Confined Disposal Facility on Waipio Peninsula to destroy munitions recovered from screening of Pearl Harbor dredged material, under the June 29, 2015 emergency permit. The Navy said the project had previously treated some recovered munitions on Oct. 30, 2013, was suspended, and resumed in May 2015.",
+      "sources": [
+        {
+          "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/2262813/navy-controlled-detonations-to-occur-over-next-several-weeks-at-waipio-peninsul/"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2016-06-13",
+      "site_id": "camp-minden",
+      "site_name": "Camp Minden (former Louisiana Army Ammunition Plant)",
+      "description": "EPA approved a contained-burn system after tests showed 99.99% destruction of chemicals of concern, for about 16 million pounds of M6 and CBI.",
+      "sources": [
+        {
+          "url": "https://www.epa.gov/archive/epa/newsreleases/epa-approves-contained-burn-system-camp-minden-disposal.html"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2016-09-29",
+      "site_id": "camp-minden",
+      "site_name": "Camp Minden (former Louisiana Army Ammunition Plant)",
+      "description": "About 120,960 pounds of CBI auto-ignited in an earth-covered magazine and destroyed the bunker. Louisiana National Guard reported no injuries. An Army Explosive Safety Technical Assistance Visit then advised that remaining CBI was too dangerous to handle and should be destroyed in place, with some magazines remotely ignited because entering them was not acceptable.",
+      "sources": [
+        {
+          "url": "https://geauxguard.la.gov/2016/09/29/camp-minden-update-clean-burning-ignitor-combusted/"
+        },
+        {
+          "url": "https://geauxguard.la.gov/2016/10/14/explosives-experts-cbi-must-be-destroyed-in-place/"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2017-04-11",
+      "site_id": "lake-city-aap",
+      "site_name": "Lake City Army Ammunition Plant",
+      "description": "AP: an explosion in primer-mixing operations at Lake City Army Ammunition Plant killed one worker, later identified as Lawrence Bass, and four other workers were treated at the scene.",
+      "sources": [
+        {
+          "url": "https://apnews.com/article/4a4af83a47ea4a608ab28eae9f1c6412"
+        },
+        {
+          "url": "https://apnews.com/domestic-news-general-news-f00f91f83e7f4d3384a346263c2f45d2"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2017-04-21",
+      "site_id": "camp-minden",
+      "site_name": "Camp Minden (former Louisiana Army Ammunition Plant)",
+      "description": "Louisiana National Guard announced that destruction of approximately 15,687,247 pounds of M6 propellant and approximately 320,890 pounds of CBI had been successfully completed under the June 17, 2015, contract with Explosive Service International. Cleanup of residual debris was expected to take about 30 days.",
+      "sources": [
+        {
+          "url": "https://geauxguard.la.gov/2017/04/21/update-camp-minden-m6-disposal-successfully-completed/"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2018",
+      "site_id": "naws-china-lake",
+      "site_name": "Naval Air Weapons Station China Lake",
+      "description": "EPA inspections at NAWS China Lake identified RCRA violations including failure to replace or overpack deteriorating containers, failure to keep hazardous-waste containers closed, and failure to properly manage universal wastes. EPA's November 2022 news release said the facility had resolved the identified violations and was in compliance. This was an enforcement matter, not a reported explosion.",
+      "sources": [
+        {
+          "url": "https://www.epa.gov/newsreleases/us-epa-requires-safer-management-hazardous-waste-naval-air-weapons-station-china-lake"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2018-06-11",
+      "site_id": "radford-aap",
+      "site_name": "Radford Army Ammunition Plant",
+      "description": "AP reported a nitrocellulose flash fire at Radford Army Ammunition Plant that injured three workers. This was a production accident, not an aging-drum storage emergency. This draft did not independently retrieve the full AP article body (Cloudflare block during collection).",
+      "sources": [
+        {
+          "url": "https://apnews.com/general-news-domestic-news-domestic-news-9a869211a454431ea11867c4c82751b5"
+        }
+      ],
+      "verification": "partly verified"
+    },
+    {
+      "date": "2018-10-24",
+      "site_id": "camp-minden",
+      "site_name": "Camp Minden (former Louisiana Army Ammunition Plant)",
+      "description": "Minden Press-Herald, reporting on a Camp Minden Citizens Advisory Group meeting: 15 pounds of M6 propellant remained in a bunker thought too unstable to move; the burn chamber was no longer in use and was up for sale; LMD project coordinator Winston Matejowsky was quoted saying the leftover should have been taken care of along the way and that the longer it was held the more likely it was to self-ignite. This draft did not find a later official confirmation of disposal.",
+      "sources": [
+        {
+          "url": "https://press-herald.com/leftover-m6-causes-stir-at-meeting/"
+        }
+      ],
+      "verification": "partly verified"
+    },
+    {
+      "date": "2019-01-03",
+      "site_id": "holston-aap",
+      "site_name": "Holston Army Ammunition Plant",
+      "description": "Local press, citing an Army final report, said a fire in a manufacturing building spread to a trailer carrying about 2,500 pounds of explosives, which detonated; the area had been evacuated and no fatalities were reported. The Army report itself was not independently read in this draft.",
+      "sources": [
+        {
+          "url": "https://www.timesnews.net/business/army-gives-final-report-on-2019-explosion-at-haap/article_df039f0e-6c1a-5f6b-a376-da388e5ae61d.html"
+        }
+      ],
+      "verification": "partly verified"
+    },
+    {
+      "date": "2024-11-21",
+      "site_id": "aberdeen-proving-ground",
+      "site_name": "Aberdeen Proving Ground",
+      "description": "MDE temporary emergency permit E2024-1 (oral approval November 21, 2024; written permit November 22, 2024; expired February 19, 2025) authorized on-site contained chemical treatment of approximately 35 pounds of trimethylolethane trinitrate (TMETN, CAS 3032-55-1) in a single container at Army Research Laboratory Bunker 1174 on Spesutie Island. Army explosives-safety experts were concerned the material may have become unstable after about 10 years of storage and might detonate if shipped. ARL proposed chemical neutralization by MuniRem Environmental, LLC, as an alternative to open detonation. The permit states there was no other TMETN on the inventory list.",
+      "sources": [
+        {
+          "url": "https://mde.maryland.gov/programs/land/Documents/APG%20Emergency%20Permit%202024/APG%20-%20emergency%20permit%2011-21-24%20signed.pdf"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "date": "2026-11",
+      "site_id": "iaaap",
+      "site_name": "Iowa Army Ammunition Plant",
+      "description": "Army plan to destroy 68 drums of crystallized, unserviceable lead azide by controlled in-place detonation in two earth-covered magazines. EPA issued an emergency RCRA permit on Nov 13, 2026. The shot did not take place on Nov 20 or Nov 23, 2026, and remained subject to a court stay and a reported presidential stand-down order.",
+      "sources": [
+        {
+          "url": "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-3"
+        },
+        {
+          "url": "https://www.army.mil/article/296990/army_update_on_iowa_army_ammunition_plant"
+        },
+        {
+          "url": "https://www.courtlistener.com/docket/75150222/iowa-environmental-council-v-epa/"
+        },
+        {
+          "url": "https://www.iowapublicradio.org/ipr-news/2026-11-23/trump-orders-army-stop-lead-blast-iowa"
+        }
+      ],
+      "verification": "partly verified"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Public comment tracker for munitions / OB/OD sites",
+    "status": "DRAFT, not published",
+    "byline": "D.A. Williams",
+    "homepage": "https://awesomegoy.com",
+    "last_built": "2026-11-23",
+    "scope": "Current or upcoming comment, petition, or hearing windows since January 1, 2026, plus recent closed items worth noting. Items are included only when a notice was retrieved. Blank date fields mean no date was stated in the source, not that a period is open.",
+    "gaps": [
+      "This pass checked EPA public-notice pages and targeted state searches. It was not a complete scrape of every state hazardous-waste notice board.",
+      "A Kentucky legal advertisement appears to have described a June 2026 Blue Grass Army Depot emergency-permit comment window, but the official notice text was not retrieved (the advertisement URL returned 403, and Kentucky EEC's current waste public-notices page, checked November 23, 2026, did not list it). That item is omitted.",
+      "The St. Marks Powder item relies on a third-party reproduction of a Florida DEP Notice of Intent to Issue dated October 15, 2026 (legal number LSAR0614945). The original newspaper or DEP posting was not independently retrieved. The comment/petition close date of November 29, 2026, is 45 calendar days after that publication date, as the reproduced notice requires petitions or public-meeting requests to be filed within 45 days of publication.",
+      "EPA's two IAAAP emergency-permit notices are listed because they are recent official notices; EPA stated it was not requesting or accepting comments on either."
+    ],
+    "count": 4
+  },
+  "comments": [
+    {
+      "site_id": "iaaap",
+      "permit_type": "RCRA emergency permit (storage in place)",
+      "action": "emergency permit (informational notice; EPA stated it was not requesting or accepting comments)",
+      "agency": "U.S. EPA Region 7",
+      "comment_open": "",
+      "comment_close": "",
+      "hearing_date": "",
+      "hearing_location": "",
+      "status": "closed",
+      "notice_url": "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-2",
+      "source_checked_date": "2026-11-23",
+      "verification": "verified"
+    },
+    {
+      "site_id": "iaaap",
+      "permit_type": "RCRA emergency permit (storage and treatment by in-place intentional detonation)",
+      "action": "emergency permit (informational notice; EPA stated it was not requesting or accepting comments)",
+      "agency": "U.S. EPA Region 7",
+      "comment_open": "",
+      "comment_close": "",
+      "hearing_date": "",
+      "hearing_location": "",
+      "status": "closed",
+      "notice_url": "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-3",
+      "source_checked_date": "2026-11-23",
+      "verification": "verified"
+    },
+    {
+      "site_id": "redstone-arsenal",
+      "permit_type": "AHWMMA hazardous-waste facility / Subpart X / SWMU corrective-action permit",
+      "action": "modification",
+      "agency": "Alabama Department of Environmental Management",
+      "comment_open": "2026-06-03",
+      "comment_close": "2026-07-20",
+      "hearing_date": "",
+      "hearing_location": "",
+      "status": "closed",
+      "notice_url": "https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.html",
+      "source_checked_date": "2026-11-23",
+      "verification": "verified"
+    },
+    {
+      "site_id": "st-marks-powder",
+      "permit_type": "Florida DEP operating / post-closure hazardous-waste permit with corrective actions (66244-014-HO)",
+      "action": "intent to issue (renewal or successor operating/post-closure permit)",
+      "agency": "Florida Department of Environmental Protection",
+      "comment_open": "2026-10-15",
+      "comment_close": "2026-11-29",
+      "hearing_date": "",
+      "hearing_location": "",
+      "status": "open",
+      "notice_url": "https://www.noticeregistry.com/florida/notice/other-crawfordville-11713815",
+      "source_checked_date": "2026-11-23",
+      "verification": "partly verified"
+    }
+  ]
+}

@@ -21,6 +21,39 @@
 
   const joinTypes = (t) => (Array.isArray(t) ? t.join(", ") : (t || ""));
 
+  const SECTOR_LABELS = {
+    army: "Army",
+    navy: "Navy",
+    air_force: "Air Force",
+    marines: "Marines",
+    other_dod: "Other DoD",
+    doe: "Department of Energy",
+    nasa: "NASA",
+    contractor: "Contractor",
+    other: "Other"
+  };
+  const SECTOR_ORDER = ["army","navy","air_force","marines","other_dod","doe","nasa","contractor","other"];
+  const sectorLabel = (s) => SECTOR_LABELS[s] || s || "";
+
+  function populateSectorSelect(sel, values) {
+    if (!sel) return;
+    sel.innerHTML = "";
+    const all = document.createElement("option");
+    all.value = "";
+    all.textContent = "All sectors";
+    sel.appendChild(all);
+    const set = new Set(values.filter(Boolean));
+    const ordered = SECTOR_ORDER.filter((v) => set.has(v)).concat(
+      Array.from(set).filter((v) => SECTOR_ORDER.indexOf(v) === -1).sort()
+    );
+    ordered.forEach((v) => {
+      const o = document.createElement("option");
+      o.value = v;
+      o.textContent = sectorLabel(v);
+      sel.appendChild(o);
+    });
+  }
+
   const EARTH_MI = 3958.7613;
 
   function milesBetween(aLat, aLon, bLat, bLon) {
@@ -62,6 +95,7 @@
     const sites = data.sites || [];
     const q = document.getElementById("q");
     const fState = document.getElementById("f-state");
+    const fSector = document.getElementById("f-sector");
     const fBranch = document.getElementById("f-branch");
     const fType = document.getElementById("f-type");
     const fVer = document.getElementById("f-verification");
@@ -71,6 +105,7 @@
     const thead = document.querySelector("#sites-table thead");
 
     populateSelect(fState, unique(sites.map((s) => s.state)), "All states");
+    populateSectorSelect(fSector, unique(sites.map((s) => s.sector)));
     populateSelect(fBranch, unique(sites.map((s) => s.branch)), "All branches");
     populateSelect(fType, unique(sites.flatMap((s) => s.type || [])), "All types");
     populateSelect(fVer, unique(sites.map((s) => s.verification)), "All labels");
@@ -89,12 +124,13 @@
     function passes(s) {
       const query = (q.value || "").trim().toLowerCase();
       if (query) {
-        const hay = [s.name, s.city, s.state, s.branch, s.epa_id, joinTypes(s.type), s.known_energetics, s.current_status]
+        const hay = [s.name, s.city, s.state, s.branch, s.sector, sectorLabel(s.sector), s.epa_id, joinTypes(s.type), s.known_energetics, s.current_status]
           .join(" ")
           .toLowerCase();
         if (hay.indexOf(query) === -1) return false;
       }
       if (fState.value && s.state !== fState.value) return false;
+      if (fSector && fSector.value && s.sector !== fSector.value) return false;
       if (fBranch.value && s.branch !== fBranch.value) return false;
       if (fType.value && !(s.type || []).includes(fType.value)) return false;
       if (fVer.value && s.verification !== fVer.value) return false;
@@ -143,7 +179,8 @@
             "</a></strong>" +
             [s.city, s.state].filter(Boolean).join(", ") +
             "<br>" +
-            (s.branch || "") +
+            (sectorLabel(s.sector) || s.branch || "") +
+            (s.branch && sectorLabel(s.sector) ? " · " + s.branch : "") +
             "<br><span class=\"badge " + badgeClass(s.verification) + "\">" +
             (s.verification || "") +
             "</span>"
@@ -164,6 +201,7 @@
         const loc = [s.city, s.state].filter(Boolean).join(", ");
         tr.innerHTML =
           "<td><a href=\"" + hrefFor(s) + "\">" + (s.name || "").replace(/</g, "&lt;") + "</a></td>" +
+          "<td>" + sectorLabel(s.sector).replace(/</g, "&lt;") + "</td>" +
           "<td>" + (s.branch || "").replace(/</g, "&lt;") + "</td>" +
           "<td>" + loc.replace(/</g, "&lt;") + "</td>" +
           "<td class=\"types\">" + joinTypes(s.type).replace(/</g, "&lt;") + "</td>" +
@@ -176,7 +214,7 @@
     }
 
     ["input", "change"].forEach((ev) => {
-      [q, fState, fBranch, fType, fVer, fDepth].forEach((el) => el.addEventListener(ev, render));
+      [q, fState, fSector, fBranch, fType, fVer, fDepth].forEach((el) => el && el.addEventListener(ev, render));
     });
 
     thead.addEventListener("click", (e) => {
