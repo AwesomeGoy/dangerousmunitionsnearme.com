@@ -1,0 +1,2005 @@
+{
+  "meta": {
+    "title": "U.S. Army / DoD munitions sites tracker",
+    "status": "DRAFT, not published",
+    "byline": "D.A. Williams",
+    "homepage": "https://awesomegoy.com",
+    "created": "2026-11-23",
+    "last_built": "2026-11-23",
+    "timezone_note": "Dates and 'last checked' values are recorded in America/Phoenix (UTC-7) calendar dates unless a source gives another zone.",
+    "inclusion_rule": "Includes every clearly named military/DoD facility on EPA's current OB/OD list as of the March 11, 2025 table (page also marked July 14, 2026), plus JMC conventional demil hubs named in the Oct 1, 2025 Hrycak briefing when they map to those facilities, plus Camp Minden, Savanna Army Depot, and Lake City Army Ammunition Plant. Commercial explosives plants, DOE sites, NASA Wallops, and the Saipan DFEMS entry on the same EPA list are omitted from this draft pending a later decision.",
+    "coordinate_policy": "Latitude and longitude are EPA FRS LATITUDE83/LONGITUDE83 for the site's RCRA ID when available. Collection method and accuracy are recorded when FRS provides them. Coordinates are not guessed or manually offset.",
+    "verification_policy": "verified: the listed facts were confirmed from official or other allowed primary sources. partly verified: official identity (and usually the EPA listing or a documented incident) is confirmed, but inventory, current operations, or some incident details remain incomplete. unverified: a claim was recorded but not confirmed against a primary source. Blank fields mean no source, not a zero or a no.",
+    "source_exclusions": "This draft does not cite NYT, CNN, MSNBC/MS NOW, Fox News, Snopes, or PolitiFact.",
+    "epa_list_url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities",
+    "epa_list_updated": "2025-03-11",
+    "site_count": 39,
+    "excluded_from_epa_list_count": 28,
+    "excluded_from_epa_list": [
+      {
+        "epa_id": "MDD003067121",
+        "name": "ALLIANT TECHSYSTEMS OPERATIONS LLC - ELKTON",
+        "state": "MD"
+      },
+      {
+        "epa_id": "PAR000030874",
+        "name": "COPPERHEAD CHEMICAL CO INC",
+        "state": "PA"
+      },
+      {
+        "epa_id": "VA7800020888",
+        "name": "NASA GSFC WALLOPS FLIGHT FACILITY",
+        "state": "VA"
+      },
+      {
+        "epa_id": "WV0170023691",
+        "name": "ALLIANT TECHSYSTEMS OPERATIONS LLC, ABL OPERATIONS",
+        "state": "WV"
+      },
+      {
+        "epa_id": "FLD047096524",
+        "name": "ST MARKS POWDER INC",
+        "state": "FL"
+      },
+      {
+        "epa_id": "FLD047966593",
+        "name": "NAMMO PERRY INC.",
+        "state": "FL"
+      },
+      {
+        "epa_id": "TND981026594",
+        "name": "KILGORE FLARES COMPANY LLC",
+        "state": "TN"
+      },
+      {
+        "epa_id": "MND006156590",
+        "name": "FEDERAL CARTRIDGE CO",
+        "state": "MN"
+      },
+      {
+        "epa_id": "MND081138604",
+        "name": "ALLIANT TECHSYSTEMS OPERATIONS LLC",
+        "state": "MN"
+      },
+      {
+        "epa_id": "OHD004293775",
+        "name": "AUSTIN POWDER CO - RED DIAMOND PLANT",
+        "state": "OH"
+      },
+      {
+        "epa_id": "WID020488011",
+        "name": "STRESAU LABORATORY INC",
+        "state": "WI"
+      },
+      {
+        "epa_id": "ARD091688283",
+        "name": "AEROJET ROCKETDYNE, INC.",
+        "state": "AR"
+      },
+      {
+        "epa_id": "ARD093417525",
+        "name": "AUSTIN POWDER COMPANY",
+        "state": "AR"
+      },
+      {
+        "epa_id": "ARD980867873",
+        "name": "ARMTEC COUNTERMEASURES CO.",
+        "state": "AR"
+      },
+      {
+        "epa_id": "LAD981055791",
+        "name": "CLEAN HARBORS OF COLFAX LLC",
+        "state": "LA"
+      },
+      {
+        "epa_id": "NM0890010515",
+        "name": "LOS ALAMOS NATIONAL LABORATORY",
+        "state": "NM"
+      },
+      {
+        "epa_id": "NM5890110518",
+        "name": "SANDIA NATIONAL LABORATORIES",
+        "state": "NM"
+      },
+      {
+        "epa_id": "TX4890110527",
+        "name": "US DEPARTMENT OF ENERGY PANTEX PLANT",
+        "state": "TX"
+      },
+      {
+        "epa_id": "TXD987988318",
+        "name": "SCHLUMBERGER COYANOSA FACILITY",
+        "state": "TX"
+      },
+      {
+        "epa_id": "TXR000080174",
+        "name": "DAY & ZIMMERMANN LONE STAR FACILITY",
+        "state": "TX"
+      },
+      {
+        "epa_id": "KSR000511964",
+        "name": "DAY & ZIMMERMANN KANSAS LLC",
+        "state": "KS"
+      },
+      {
+        "epa_id": "SDD981549983",
+        "name": "TECH ORD, A DIVISION OF AMTEC CORPORATION",
+        "state": "SD"
+      },
+      {
+        "epa_id": "UT3170027277",
+        "name": "ATK LAUNCH SYSTEMS INC. - NIROP",
+        "state": "UT"
+      },
+      {
+        "epa_id": "UTD009081357",
+        "name": "ATK LAUNCH SYSTEMS INC. - PROMONTORY",
+        "state": "UT"
+      },
+      {
+        "epa_id": "CA2890090002",
+        "name": "LAWRENCE LIVERMORE NATIONAL LABORATORY -SITE 300",
+        "state": "CA"
+      },
+      {
+        "epa_id": "CAD009220898",
+        "name": "PACIFIC SCIENTIFIC ENERGETIC MATERIALS CO",
+        "state": "CA"
+      },
+      {
+        "epa_id": "MPR000128710",
+        "name": "DEPARTMENT OF FIRE AND EMERGENCY MANAGEMENT SERVICES (DFEMS)",
+        "state": "MP"
+      },
+      {
+        "epa_id": "NV3890090001",
+        "name": "U. S. DOE, NNSA/NFO",
+        "state": "NV"
+      }
+    ]
+  },
+  "sites": [
+    {
+      "id": "anniston-army-depot",
+      "name": "Anniston Army Depot / Anniston Defense Munitions Center",
+      "epa_name": "ANNISTON ARMY DEPOT",
+      "branch": "U.S. Army",
+      "state": "AL",
+      "city": "Anniston",
+      "address": "7 Frankford Ave",
+      "zip": "36201",
+      "epa_id": "AL3210020027",
+      "epa_region": "4",
+      "latitude": 33.629,
+      "longitude": -85.951,
+      "coordinate_source": "EPA FRS RCRAINFO AL3210020027 (NAD83)",
+      "coordinate_method": "INTERPOLATION-PHOTO, accuracy_value=1000, reference: CENTER OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/21/2031",
+      "permit_expiration_iso": "2031-09-21",
+      "known_energetics": "Hrycak's Oct 1, 2025 briefing names Anniston Defense Munitions Center (ANMC) at Anniston, Alabama, as a CONUS demil facility (GOGO). Anniston was also a completed chemical-weapons destruction site in the earlier continental campaign that DoD said was finished by 2012. This draft does not have a current item-level inventory of conventional demil stocks.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of Sept 21, 2031.",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID AL3210020027",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        },
+        {
+          "title": "DoD, U.S. completes chemical weapons stockpile destruction operations (July 7, 2023)",
+          "url": "https://www.war.gov/News/Releases/Release/Article/3451920/us-completes-chemical-weapons-stockpile-destruction-operations/"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "redstone-arsenal",
+      "name": "Redstone Arsenal",
+      "epa_name": "U.S. ARMY REDSTONE ARSENAL",
+      "branch": "U.S. Army",
+      "state": "AL",
+      "city": "Redstone Arsenal",
+      "address": "4488 Martin Rd",
+      "zip": "35898",
+      "epa_id": "AL7210020742",
+      "epa_region": "4",
+      "latitude": 34.631389,
+      "longitude": -86.636111,
+      "coordinate_source": "EPA FRS RCRAINFO AL7210020742 (NAD83)",
+      "coordinate_method": "UNKNOWN",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "7/18/2031",
+      "permit_expiration_iso": "2031-07-18",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 7/18/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID AL7210020742",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "barry-goldwater-west-mcas-yuma",
+      "name": "Barry Goldwater West Range / MCAS Yuma",
+      "epa_name": "BARRY GOLDWATER WEST RANGE - MCAS YUMA",
+      "branch": "U.S. Marine Corps",
+      "state": "AZ",
+      "city": "Mohawk",
+      "address": "E/W Dividing Line of Ranges is Mohawk",
+      "zip": "85356",
+      "epa_id": "AZR000037382",
+      "epa_region": "9",
+      "latitude": 32.620556,
+      "longitude": -114.506666,
+      "coordinate_source": "EPA FRS RCRAINFO AZR000037382 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "8/4/2025",
+      "permit_expiration_iso": "2025-08-04",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 8/4/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID AZR000037382",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "yuma-proving-ground",
+      "name": "Yuma Proving Ground",
+      "epa_name": "US ARMY GARRISON YUMA PROVING GROUND",
+      "branch": "U.S. Army",
+      "state": "AZ",
+      "city": "Yuma",
+      "address": "301 C St",
+      "zip": "85365",
+      "epa_id": "AZ5213820991",
+      "epa_region": "9",
+      "latitude": 32.85782,
+      "longitude": -114.43973,
+      "coordinate_source": "EPA FRS RCRAINFO AZ5213820991 (NAD83)",
+      "coordinate_method": "ADDRESS MATCHING-HOUSE NUMBER, accuracy_value=50, reference: ENTRANCE POINT OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "7/11/2027",
+      "permit_expiration_iso": "2027-07-11",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 7/11/2027. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID AZ5213820991",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "edwards-afb",
+      "name": "Edwards Air Force Base",
+      "epa_name": "EDWARDS AIR FORCE BASE",
+      "branch": "U.S. Air Force",
+      "state": "CA",
+      "city": "Edwards",
+      "address": "446 N Rosamond Blvd Bldg 4916",
+      "zip": "93524",
+      "epa_id": "CA1570024504",
+      "epa_region": "9",
+      "latitude": 34.94943,
+      "longitude": -117.8857,
+      "coordinate_source": "EPA FRS RCRAINFO CA1570024504 (NAD83)",
+      "coordinate_method": "INTERPOLATION - DIGITAL MAP SRCE (TIGER), accuracy_value=5, reference: OTHER",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/20/2031",
+      "permit_expiration_iso": "2031-09-20",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/20/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID CA1570024504",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "naws-china-lake",
+      "name": "Naval Air Weapons Station China Lake",
+      "epa_name": "NAVAL AIR WEAPONS STATION CHINA LAKE",
+      "branch": "U.S. Navy",
+      "state": "CA",
+      "city": "China Lake",
+      "address": "429 E Bowen Rd",
+      "zip": "93555",
+      "epa_id": "CA2170023152",
+      "epa_region": "9",
+      "latitude": 35.655,
+      "longitude": -117.656389,
+      "coordinate_source": "EPA FRS RCRAINFO CA2170023152 (NAD83)",
+      "coordinate_method": "INTERPOLATION - DIGITAL MAP SRCE (TIGER), accuracy_value=20, reference: ADMINISTRATIVE BUILDING",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "7/12/2028",
+      "permit_expiration_iso": "2028-07-12",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 7/12/2028. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID CA2170023152",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "vandenberg-afb",
+      "name": "Vandenberg Air Force Base",
+      "epa_name": "DEPT OF AIR FORCE VANDENBERG AFB",
+      "branch": "U.S. Air Force",
+      "state": "CA",
+      "city": "Vandenberg AFB",
+      "address": "1028 Iceland Ave",
+      "zip": "93436",
+      "epa_id": "CA9570025149",
+      "epa_region": "9",
+      "latitude": 34.73249,
+      "longitude": -120.57044,
+      "coordinate_source": "EPA FRS RCRAINFO CA9570025149 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "8/07/2027",
+      "permit_expiration_iso": "2027-08-07",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 8/07/2027. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID CA9570025149",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "fort-carson",
+      "name": "Fort Carson",
+      "epa_name": "US ARMY - FORT CARSON",
+      "branch": "U.S. Army",
+      "state": "CO",
+      "city": "Fort Carson",
+      "address": "1626 Evans St Bldg 1219",
+      "zip": "80913",
+      "epa_id": "CO2210020150",
+      "epa_region": "8",
+      "latitude": 38.745573,
+      "longitude": -104.794975,
+      "coordinate_source": "EPA FRS RCRAINFO CO2210020150 (NAD83)",
+      "coordinate_method": "GDT-ADDRESS MATCHING (GEOCODING), reference: ENTRANCE POINT OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/28/2027",
+      "permit_expiration_iso": "2027-09-28",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/28/2027. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID CO2210020150",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "cape-canaveral-sfs",
+      "name": "Cape Canaveral Space Force Station",
+      "epa_name": "CAPE CANAVERAL SFS",
+      "branch": "U.S. Space Force",
+      "state": "FL",
+      "city": "Patrick AFB",
+      "address": "1224 Jupiter St",
+      "zip": "32925",
+      "epa_id": "FL2800016121",
+      "epa_region": "4",
+      "latitude": 28.4701,
+      "longitude": -80.5751,
+      "coordinate_source": "EPA FRS RCRAINFO FL2800016121 (NAD83)",
+      "coordinate_method": "INTERPOLATION-MAP, accuracy_value=2000, reference: CENTER OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "3/03/2025",
+      "permit_expiration_iso": "2025-03-03",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 3/03/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID FL2800016121",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "eglin-afb",
+      "name": "Eglin Air Force Base",
+      "epa_name": "EGLIN AIR FORCE BASE",
+      "branch": "U.S. Air Force",
+      "state": "FL",
+      "city": "Eglin AFB",
+      "address": "501 Deleon St Suite 101",
+      "zip": "32542",
+      "epa_id": "FL8570024366",
+      "epa_region": "4",
+      "latitude": 30.484389,
+      "longitude": -86.493272,
+      "coordinate_source": "EPA FRS RCRAINFO FL8570024366 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/1/2025",
+      "permit_expiration_iso": "2025-09-01",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/1/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID FL8570024366",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "nsb-kings-bay",
+      "name": "Naval Submarine Base Kings Bay",
+      "epa_name": "NAVAL SUBMARINE BASE - KING'S BAY",
+      "branch": "U.S. Navy",
+      "state": "GA",
+      "city": "Kings Bay",
+      "address": "1063 USS Tennessee Ave",
+      "zip": "31547",
+      "epa_id": "GA4170090001",
+      "epa_region": "4",
+      "latitude": 30.79525,
+      "longitude": -81.513556,
+      "coordinate_source": "EPA FRS RCRAINFO GA4170090001 (NAD83)",
+      "coordinate_method": "accuracy_value=20",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/28/2022",
+      "permit_expiration_iso": "2022-09-28",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/28/2022. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID GA4170090001",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "andersen-afb",
+      "name": "Andersen Air Force Base (Joint Region Marianas)",
+      "epa_name": "U.S.A.F. ANDERSEN AIR FORCE BASE - JOINT REGION MARIANAS",
+      "branch": "U.S. Air Force",
+      "state": "GU",
+      "city": "Yigo",
+      "address": "Bldg 19017 Arc Light Blvd",
+      "zip": "96543",
+      "epa_id": "GU6571999519",
+      "epa_region": "9",
+      "latitude": 13.572916,
+      "longitude": 144.897361,
+      "coordinate_source": "EPA FRS RCRAINFO GU6571999519 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "5/31/2020",
+      "permit_expiration_iso": "2020-05-31",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 5/31/2020. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID GU6571999519",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "navy-region-hawaii-waipio",
+      "name": "Navy Region Hawaii – Waipio Peninsula",
+      "epa_name": "NAVY REGION HAWAII - WAIPIO PENINSULA",
+      "branch": "U.S. Navy",
+      "state": "HI",
+      "city": "Waipahu",
+      "address": "Waipio Point Access Rd",
+      "zip": "96797",
+      "epa_id": "HIR000001115",
+      "epa_region": "9",
+      "latitude": 21.363351,
+      "longitude": -157.9857,
+      "coordinate_source": "EPA FRS RCRAINFO HIR000001115 (NAD83)",
+      "coordinate_method": "GDT-ADDRESS MATCHING (GEOCODING), reference: ENTRANCE POINT OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "1/29/2029",
+      "permit_expiration_iso": "2029-01-29",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 1/29/2029. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID HIR000001115",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "iaaap",
+      "name": "Iowa Army Ammunition Plant",
+      "epa_name": "IOWA ARMY AMMUNITION PLANT",
+      "branch": "U.S. Army",
+      "state": "IA",
+      "city": "Middletown",
+      "address": "17571 DMC Hwy 79",
+      "zip": "52638",
+      "epa_id": "IA7213820445",
+      "epa_region": "7",
+      "latitude": 40.808331,
+      "longitude": -91.246669,
+      "coordinate_source": "EPA FRS RCRAINFO IA7213820445 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD",
+        "production",
+        "storage"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/28/2028",
+      "permit_expiration_iso": "2028-09-28",
+      "known_energetics": "Bulk lead azide stored wetted in 68 55-gallon plastic drums in two earth-covered magazines; Col. Aaron C. Teller (71st Ordnance Group EOD) states the total weight is 9,773.5 lb. The plant also has a conventional munitions load-assemble-pack mission. This draft does not inventory other energetics on site.",
+      "current_status": "As of Nov 23, 2026 (America/Phoenix): the planned in-place detonation had not occurred. The original date was Nov 20; the Army postponed to Nov 23, then announced Nov 25. The Eighth Circuit issued an administrative stay of EPA's emergency treatment permit on Nov 19, pending a ruling on the emergency stay motion in No. 26-3374; as of a CourtListener docket review on Nov 23, that merits ruling had not issued. Iowa Public Radio reported that President Trump posted on Truth Social on Nov 23 that he ordered the military not to proceed until the Eighth Circuit agrees they can go forward, and subject to Gov.-elect Rob Sand agreeing. IAAAP also holds a regular RCRA OB/OD permit (EPA ID IA7213820445) listed as permitted through Sept 28, 2028. The emergency permit for in-place magazine detonation is a separate authorization, issued Nov 13, 2026, effective through Feb 11, 2027.",
+      "notable_incidents": [
+        {
+          "date": "2026-11",
+          "summary": "Army plan to destroy 68 drums of crystallized, unserviceable lead azide by controlled in-place detonation in two earth-covered magazines. EPA issued an emergency RCRA permit on Nov 13, 2026. The shot did not take place on Nov 20 or Nov 23, 2026, and remained subject to a court stay and a reported presidential stand-down order.",
+          "sources": [
+            "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-3",
+            "https://www.army.mil/article/296990/army_update_on_iowa_army_ammunition_plant",
+            "https://www.courtlistener.com/docket/75150222/iowa-environmental-council-v-epa/",
+            "https://www.iowapublicradio.org/ipr-news/2026-11-23/trump-orders-army-stop-lead-blast-iowa"
+          ]
+        }
+      ],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "The closest documented historical analog for bulk lead azide in deteriorating 55-gallon drums is Savanna Army Depot (1984). A March 21, 2014 Army article attributed DoD's 2004 green-primaries work to concern over a 40-year-old deteriorating lead azide stockpile at IAAAP. A separate research log kept with this draft has the claim-by-claim review.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID IA7213820445",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA public notice, emergency permit (issued Nov 13, 2026)",
+          "url": "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-3"
+        },
+        {
+          "title": "Army update on IAAAP (announced Nov 25 date)",
+          "url": "https://www.army.mil/article/296990/army_update_on_iowa_army_ammunition_plant"
+        },
+        {
+          "title": "Environmental Assessment IAAAP-EA-2026-01",
+          "url": "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78364.pdf"
+        },
+        {
+          "title": "Mitigated FONSI",
+          "url": "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78363.pdf"
+        },
+        {
+          "title": "Eighth Circuit docket, Iowa Environmental Council v. EPA, No. 26-3374",
+          "url": "https://www.courtlistener.com/docket/75150222/iowa-environmental-council-v-epa/"
+        },
+        {
+          "title": "Iowa Public Radio, Trump stand-down report (Nov 23, 2026)",
+          "url": "https://www.iowapublicradio.org/ipr-news/2026-11-23/trump-orders-army-stop-lead-blast-iowa"
+        },
+        {
+          "title": "Army, Picatinny aims for green with new type of primary explosive (March 21, 2014)",
+          "url": "https://www.army.mil/article/122127/picatinny_aims_for_green_with_new_type_of_primary_explosive"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "savanna-army-depot",
+      "name": "Savanna Army Depot Activity",
+      "epa_name": "SAVANNA ARMY DEPOT ACTIVITY",
+      "branch": "U.S. Army (former depot)",
+      "state": "IL",
+      "city": "Savanna",
+      "address": "",
+      "zip": "",
+      "epa_id": "IL3210020803",
+      "latitude": 42.179816,
+      "longitude": -90.24939,
+      "coordinate_source": "EPA FRS RCRAINFO IL3210020803 (NAD83)",
+      "coordinate_method": "GDT-ADDRESS MATCHING (GEOCODING); reference: entrance point of a facility or station. FRS also lists a SEMS point at 42.21, -90.313331; this draft uses the RCRA record and does not average the two.",
+      "type": [
+        "storage"
+      ],
+      "on_epa_obod_list": false,
+      "permit_status": "Not on EPA's current OB/OD operating list",
+      "permit_expiration": "",
+      "known_energetics": "William Shaneyfelt, safety officer at Savanna Army Depot Activity, described Vietnam-era surplus bulk lead azide in deteriorating 55-gallon drums in a 1984 paper to the DoD Explosives Safety Board. Electrolysis destroyed about half the stockpile; the remainder was repacked. The public record reviewed for this draft does not establish what happened to the remaining drums after 1984.",
+      "current_status": "A former Army depot. EPA FRS lists BRAC and SEMS interests under ID IL3210020803. It is not on EPA's current OB/OD operating list. Present land use and whether any energetic material remains were not independently confirmed in this draft.",
+      "notable_incidents": [
+        {
+          "date": "1984",
+          "summary": "Shaneyfelt paper (21st Explosives Safety Seminar, Houston, Aug 28–30, 1984): surplus bulk lead azide in deteriorating drums; sale attempts failed; electrolytic destruction halted after about half the stockpile; remaining leaking drums were repacked. The paper also describes a process-building contamination accident in which sodium azide washdown reacted with brass/copper debris and caused a 'loud, though not extremely dangerous, explosion.' That event was not a storage-drum detonation.",
+          "sources": [
+            "https://apps.dtic.mil/sti/citations/ADP004872",
+            "https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt"
+          ]
+        }
+      ],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Closest documented historical analog to IAAAP's bulk lead azide drums. Post-1984 fate of the remaining material is a research gap.",
+      "sources": [
+        {
+          "title": "Shaneyfelt, Complexities of Lead Azide, DTIC ADP004872 / ADA152150 (1984)",
+          "url": "https://apps.dtic.mil/sti/citations/ADP004872"
+        },
+        {
+          "title": "Archive text of the 21st Explosives Safety Seminar volume",
+          "url": "https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt"
+        },
+        {
+          "title": "EPA FRS / SEMS ID IL3210020803",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23",
+      "epa_region": "",
+      "jmc_demil_hub": false,
+      "permit_expiration_iso": "",
+      "epa_id_notes": ""
+    },
+    {
+      "id": "nsa-crane",
+      "name": "Crane Army Ammunition Activity / Naval Support Activity Crane",
+      "epa_name": "US NAVAL SUPPORT ACTIVITY CRANE DIVISION",
+      "branch": "U.S. Navy / U.S. Army tenant (CAAA)",
+      "state": "IN",
+      "city": "Crane",
+      "address": "300 Sr 361",
+      "zip": "47522",
+      "epa_id": "IN5170023498",
+      "epa_region": "5",
+      "latitude": 38.841611,
+      "longitude": -86.848305,
+      "coordinate_source": "EPA FRS RCRAINFO IN5170023498 (NAD83)",
+      "coordinate_method": "THE GEOGRAPHIC COORDINATE DETERMINATION METHOD BASED ON INTERPOLATION",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "7/10/2024",
+      "permit_expiration_iso": "2024-07-10",
+      "known_energetics": "Hrycak's Oct 1, 2025 briefing names Crane Army Ammunition Activity as a CONUS demil facility at Crane, Indiana. EPA lists the RCRA OB/OD facility under Naval Support Activity Crane Division. This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of July 10, 2024. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Named as a JMC/CONUS demil hub in the Oct 1, 2025 public-release briefing.",
+      "notable_incidents": [
+        {
+          "date": "2006-03-21",
+          "summary": "Local contemporaneous reporting: three Crane Army Ammunition Activity employees were injured when small detonators exploded prematurely while being unpacked at the Ammunition Burning Grounds. This draft did not independently retrieve an official Army accident report.",
+          "sources": [
+            "https://www.suncommercial.com/gcdailyworld/archives/article_7f398027-d9be-5e6a-81c0-ff5b1c0dde54.html"
+          ]
+        }
+      ],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "The 2006 event is a demilitarization-handling accident, not a documented spontaneous storage-magazine explosion.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID IN5170023498",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "blue-grass-army-depot",
+      "name": "Blue Grass Army Depot",
+      "epa_name": "BLUE GRASS ARMY DEPOT",
+      "branch": "U.S. Army",
+      "state": "KY",
+      "city": "Richmond",
+      "address": "431 Battlefield Memorial Hwy",
+      "zip": "40475",
+      "epa_id": "KY8213820105",
+      "epa_region": "4",
+      "latitude": 37.663611,
+      "longitude": -84.242778,
+      "coordinate_source": "EPA FRS RCRAINFO KY8213820105 (NAD83)",
+      "coordinate_method": "INTERPOLATION-MAP, accuracy_value=30, reference: POINT WHERE SUBSTANCE IS RELEASED",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "4/18/2026",
+      "permit_expiration_iso": "2026-04-18",
+      "known_energetics": "Named as a CONUS conventional demil facility in the Oct 1, 2025 public-release briefing. Separately, Blue Grass was one of the last two U.S. chemical-weapons destruction sites. DoD announced that the final munition in the declared U.S. chemical-weapons stockpile — a sarin-filled M55 rocket — was destroyed there on July 7, 2023. This draft does not have a current item-level inventory of remaining conventional demil stocks.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of April 18, 2026. The declared U.S. chemical-weapons stockpile destruction operations were completed on July 7, 2023, at this depot. DoD said the chemical demil facilities would then enter a closure phase.",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID KY8213820105",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        },
+        {
+          "title": "DoD, U.S. completes chemical weapons stockpile destruction operations (July 7, 2023)",
+          "url": "https://www.war.gov/News/Releases/Release/Article/3451920/us-completes-chemical-weapons-stockpile-destruction-operations/"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "camp-minden",
+      "name": "Camp Minden (former Louisiana Army Ammunition Plant)",
+      "epa_name": "STATE OF LOUISIANA MILITARY DEPT - CAMP MINDEN / U.S. ARMY LOUISIANA ARMY AMMUNITION PLANT",
+      "branch": "Louisiana Military Department (Army National Guard installation; former Army ammunition plant)",
+      "state": "LA",
+      "city": "Minden",
+      "address": "",
+      "zip": "",
+      "epa_id": "LAR000101283",
+      "epa_id_notes": "FRS also lists RCRA IDs LAR000009662, LA0213820533, and LAR000037267 for Camp Minden / Louisiana Army Ammunition Plant records.",
+      "latitude": 32.530724,
+      "longitude": -93.432131,
+      "coordinate_source": "EPA FRS RCRAINFO LA0213820533 (NAD83). Chosen over the Camp Minden address-matched point because FRS records interpolation-map with a 30-meter accuracy value.",
+      "coordinate_method": "INTERPOLATION-MAP; accuracy_value=30; reference: point where substance is released",
+      "type": [
+        "storage",
+        "demil"
+      ],
+      "on_epa_obod_list": false,
+      "permit_status": "Not on EPA's current OB/OD operating list",
+      "permit_expiration": "",
+      "known_energetics": "M6 propellant and clean-burning igniter (CBI) left from Explo Systems contractor storage of Army-origin material. EPA approved contained-burn destruction of about 16 million pounds of M6 and CBI in June 2016. These are HD 1.3 propellant/igniter materials, not primary explosives such as lead azide.",
+      "current_status": "The 2012–2016 emergency disposal campaign used a contained-burn chamber after open burning was dropped following public opposition. This draft has not independently confirmed current residual holdings, if any, after that campaign.",
+      "notable_incidents": [
+        {
+          "date": "2012-10-15",
+          "summary": "Explosion of a magazine at Explo Systems, Camp Minden. EPA chronology: Louisiana State Police later identified about 10 million pounds of unsecured M6; the town of Doyline (about 400 homes) was evacuated during operational hours.",
+          "sources": [
+            "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf"
+          ]
+        },
+        {
+          "date": "2013-06",
+          "summary": "Army Explosives Safety Board report cited in the EPA chronology: the probability of an explosives event related to long-term storage of M6 at Camp Minden was 'likely'; the Board recommended open burn/open detonation within two years.",
+          "sources": [
+            "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf"
+          ]
+        },
+        {
+          "date": "2016-06-13",
+          "summary": "EPA approved a contained-burn system after tests showed 99.99% destruction of chemicals of concern, for about 16 million pounds of M6 and CBI.",
+          "sources": [
+            "https://www.epa.gov/archive/epa/newsreleases/epa-approves-contained-burn-system-camp-minden-disposal.html"
+          ]
+        },
+        {
+          "date": "2016-09-29",
+          "summary": "About 120,960 pounds of CBI auto-ignited in an earth-covered magazine and destroyed the bunker. Louisiana National Guard reported no injuries. An Army Explosive Safety Technical Assistance Visit then advised that remaining CBI was too dangerous to handle and should be destroyed in place, with some magazines remotely ignited because entering them was not acceptable.",
+          "sources": [
+            "https://geauxguard.la.gov/2016/09/29/camp-minden-update-clean-burning-ignitor-combusted/",
+            "https://geauxguard.la.gov/2016/10/14/explosives-experts-cbi-must-be-destroyed-in-place/"
+          ]
+        }
+      ],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "Closest recent official parallel to IAAAP's 'cannot safely move it, destroy in place' finding, though the chemistry differs.",
+      "sources": [
+        {
+          "title": "EPA, Camp Minden chronology (Feb 13, 2015)",
+          "url": "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf"
+        },
+        {
+          "title": "EPA, contained-burn system approved (June 13, 2016)",
+          "url": "https://www.epa.gov/archive/epa/newsreleases/epa-approves-contained-burn-system-camp-minden-disposal.html"
+        },
+        {
+          "title": "Louisiana National Guard, CBI auto-ignition (Sept 29, 2016)",
+          "url": "https://geauxguard.la.gov/2016/09/29/camp-minden-update-clean-burning-ignitor-combusted/"
+        },
+        {
+          "title": "Louisiana National Guard, CBI must be destroyed in place (Oct 14, 2016)",
+          "url": "https://geauxguard.la.gov/2016/10/14/explosives-experts-cbi-must-be-destroyed-in-place/"
+        },
+        {
+          "title": "EPA FRS coordinates for RCRA ID LA0213820533",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23",
+      "epa_region": "",
+      "jmc_demil_hub": false,
+      "permit_expiration_iso": ""
+    },
+    {
+      "id": "fort-johnson",
+      "name": "Fort Johnson",
+      "epa_name": "US ARMY, FORT JOHNSON",
+      "branch": "U.S. Army",
+      "state": "LA",
+      "city": "Fort Johnson",
+      "address": "1647 23 Rd St",
+      "zip": "71459",
+      "epa_id": "LA0214022725",
+      "epa_region": "6",
+      "latitude": 31.03078,
+      "longitude": -93.20784,
+      "coordinate_source": "EPA FRS RCRAINFO LA0214022725 (NAD83)",
+      "coordinate_method": "ADDRESS MATCHING-HOUSE NUMBER, accuracy_value=50, reference: ENTRANCE POINT OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "10/31/2020",
+      "permit_expiration_iso": "2020-10-31",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 10/31/2020. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID LA0214022725",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "aberdeen-proving-ground",
+      "name": "Aberdeen Proving Ground",
+      "epa_name": "U.S. ARMY GARRISON, ABERDEEN PROVING GROUND",
+      "branch": "U.S. Army",
+      "state": "MD",
+      "city": "Aberdeen Proving Ground",
+      "address": "6504 Rodman Rd - 3rd Floor",
+      "zip": "21005",
+      "epa_id": "MD3210021355",
+      "epa_region": "3",
+      "latitude": 39.466667,
+      "longitude": -76.166667,
+      "coordinate_source": "EPA FRS RCRAINFO MD3210021355 (NAD83)",
+      "coordinate_method": "INTERPOLATION-PHOTO, accuracy_value=25, reference: CENTER OF FACILITY",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "2/15/2020",
+      "permit_expiration_iso": "2020-02-15",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 2/15/2020. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID MD3210021355",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "nsf-indian-head",
+      "name": "Naval Support Facility Indian Head",
+      "epa_name": "NAVAL SUPPORT FACILITY INDIAN HEAD",
+      "branch": "U.S. Navy",
+      "state": "MD",
+      "city": "Indian Head",
+      "address": "3838 Strauss Ave",
+      "zip": "20640",
+      "epa_id": "MD4170024109",
+      "epa_region": "3",
+      "latitude": 38.585316,
+      "longitude": -77.163849,
+      "coordinate_source": "EPA FRS RCRAINFO MD4170024109 (NAD83)",
+      "coordinate_method": "INTERPOLATION-MAP, accuracy_value=30, reference: POINT WHERE SUBSTANCE IS RELEASED",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Interim Status",
+      "permit_expiration": "",
+      "permit_expiration_iso": "",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Interim Status. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID MD4170024109",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "nsf-indian-head-stump-neck",
+      "name": "Naval Support Facility Indian Head, Stump Neck Annex",
+      "epa_name": "NAVAL SUPPORT FACILITY INDIAN HEAD, STUMP NECK ANNEX",
+      "branch": "U.S. Navy",
+      "state": "MD",
+      "city": "Indian Head",
+      "address": "2008 Stump Neck Rd",
+      "zip": "20640",
+      "epa_id": "MD4170090001",
+      "epa_region": "3",
+      "latitude": 38.547034,
+      "longitude": -77.199783,
+      "coordinate_source": "EPA FRS RCRAINFO MD4170090001 (NAD83)",
+      "coordinate_method": "ADDRESS MATCHING-HOUSE NUMBER, accuracy_value=50, reference: ENTRANCE POINT OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Interim Status",
+      "permit_expiration": "",
+      "permit_expiration_iso": "",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Interim Status. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID MD4170090001",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "lake-city-aap",
+      "name": "Lake City Army Ammunition Plant",
+      "epa_name": "US ARMY LAKE CITY ARMY AMMUNITION PLANT",
+      "branch": "U.S. Army",
+      "state": "MO",
+      "city": "Independence",
+      "address": "",
+      "zip": "",
+      "epa_id": "MO4213820489",
+      "latitude": 39.034178,
+      "longitude": -94.356472,
+      "coordinate_source": "EPA FRS RCRAINFO MO4213820489 (NAD83)",
+      "coordinate_method": "INTERPOLATION-OTHER",
+      "type": [
+        "production"
+      ],
+      "on_epa_obod_list": false,
+      "permit_status": "Not on EPA's current OB/OD operating list",
+      "permit_expiration": "",
+      "known_energetics": "A small-caliber ammunition production plant. The April 11, 2017 fatal accident occurred in primer-mixing operations. Primers commonly use primary explosives; this draft does not treat a specific chemical composition as confirmed from a primary document in this pass.",
+      "current_status": "An active Army ammunition plant as of the 2017 accident reporting. It is not on EPA's current OB/OD operating list. Current production status was not independently re-verified beyond that historical coverage.",
+      "notable_incidents": [
+        {
+          "date": "2017-04-11",
+          "summary": "AP: an explosion in primer-mixing operations at Lake City Army Ammunition Plant killed one worker, later identified as Lawrence Bass, and four other workers were treated at the scene.",
+          "sources": [
+            "https://apnews.com/article/4a4af83a47ea4a608ab28eae9f1c6412",
+            "https://apnews.com/domestic-news-general-news-f00f91f83e7f4d3384a346263c2f45d2"
+          ]
+        }
+      ],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Included as a comparable primary-explosives production hazard, not as an aging-drum storage case and not as a current OB/OD facility.",
+      "sources": [
+        {
+          "title": "AP, explosion at Army ammunition plant in Missouri kills 1",
+          "url": "https://apnews.com/article/4a4af83a47ea4a608ab28eae9f1c6412"
+        },
+        {
+          "title": "AP, Army identifies worker killed in Missouri plant explosion",
+          "url": "https://apnews.com/domestic-news-general-news-f00f91f83e7f4d3384a346263c2f45d2"
+        },
+        {
+          "title": "EPA FRS RCRA ID MO4213820489",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23",
+      "epa_region": "",
+      "jmc_demil_hub": false,
+      "permit_expiration_iso": "",
+      "epa_id_notes": ""
+    },
+    {
+      "id": "picatinny-arsenal",
+      "name": "Picatinny Arsenal",
+      "epa_name": "US ARMY-PICATINNY ARSENAL",
+      "branch": "U.S. Army",
+      "state": "NJ",
+      "city": "Picatinny",
+      "address": "Bldg 3100",
+      "zip": "07806",
+      "epa_id": "NJ3210020704",
+      "epa_region": "2",
+      "latitude": 40.916669,
+      "longitude": -74.583339,
+      "coordinate_source": "EPA FRS RCRAINFO NJ3210020704 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Interim Status",
+      "permit_expiration": "",
+      "permit_expiration_iso": "",
+      "known_energetics": "Picatinny has a long official role in energetics research, including work on alternatives to lead azide. A March 21, 2014 Army article said that work on 'green' primary explosives started in 2004 in response to DoD concerns over a 40-year-old stockpile of lead azide deteriorating at IAAAP. This draft does not have a current inventory of energetics stored at Picatinny.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as interim status (permit expiration 'Not applicable').",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID NJ3210020704",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Army, Picatinny aims for green with new type of primary explosive (March 21, 2014)",
+          "url": "https://www.army.mil/article/122127/picatinny_aims_for_green_with_new_type_of_primary_explosive"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "hawthorne-army-depot",
+      "name": "Hawthorne Army Depot (Main Base / Old Bomb)",
+      "epa_name": "HAWTHORNE ARMY DEPOT",
+      "branch": "U.S. Army",
+      "state": "NV",
+      "city": "Hawthorne",
+      "address": "1 S Maine Ave",
+      "zip": "89415",
+      "epa_id": "NV1210090006",
+      "epa_region": "9",
+      "latitude": 38.563,
+      "longitude": -118.633,
+      "coordinate_source": "EPA FRS RCRAINFO NV1210090006 (NAD83)",
+      "coordinate_method": "INTERPOLATION-PHOTO, accuracy_value=5000, reference: CENTER OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "5/21/2025",
+      "permit_expiration_iso": "2025-05-21",
+      "known_energetics": "Nevada/EPA permit materials for the Main Base 'Old Bomb' unit describe open burning of waste propellants that cannot be reused, recycled, or reutilized, when closed treatment at the Western Area Demilitarization Facility is not available. Permitted waste codes cited in those materials include D003, D005, D008, D009, and D030. This draft does not have a current item-level inventory of the Hawthorne demil stockpile.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of May 21, 2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Hrycak's Oct 1, 2025 public-release demil briefing names Hawthorne Army Depot as a CONUS demil facility (GOCO).",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "EPA lists a second Hawthorne unit, New Bomb Facility (NV5210090010), as a separate OB/OD entry. FRS reports the same latitude/longitude for both IDs, with a stated accuracy of 5,000 meters; this draft does not invent a second point.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID NV1210090006",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA / Nevada discussion of Hawthorne New Bomb (related unit)",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/hawthorne-ad-new-bomb.pdf"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "hawthorne-new-bomb",
+      "name": "Hawthorne Army Depot (New Bomb Facility)",
+      "epa_name": "NEW BOMB FACILITY (HAWTHORNE ARMY DEPOT)",
+      "branch": "U.S. Army",
+      "state": "NV",
+      "city": "Hawthorne",
+      "address": "State Route 359 S",
+      "zip": "89415",
+      "epa_id": "NV5210090010",
+      "epa_region": "9",
+      "latitude": 38.563,
+      "longitude": -118.633,
+      "coordinate_source": "EPA FRS RCRAINFO NV5210090010 (NAD83)",
+      "coordinate_method": "INTERPOLATION-PHOTO, accuracy_value=5000, reference: CENTER OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "6/12/2024",
+      "permit_expiration_iso": "2024-06-12",
+      "known_energetics": "EPA permit materials describe the New Bomb unit as an open-detonation unit of twenty earthen bermed cells used to deactivate explosive munitions that are unserviceable, unstable, or have no market for reuse or recycling, when processing at the Western Area Demilitarization Facility is not available.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of June 12, 2024. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed.",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "Same depot as Hawthorne Main Base (NV1210090006). FRS coordinates for the two IDs are identical, with 5,000-meter accuracy.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID NV5210090010",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "EPA, Hawthorne Army Depot New Bomb permit package",
+          "url": "https://www.epa.gov/system/files/documents/2025-05/hawthorne-ad-new-bomb.pdf"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "mcalester-aap",
+      "name": "McAlester Army Ammunition Plant",
+      "epa_name": "MCALESTER ARMY AMMUNITION PLANT",
+      "branch": "U.S. Army",
+      "state": "OK",
+      "city": "McAlester",
+      "address": "1 C Tree Rd",
+      "zip": "74501",
+      "epa_id": "OK6213822798",
+      "epa_region": "6",
+      "latitude": 34.845,
+      "longitude": -95.893,
+      "coordinate_source": "EPA FRS RCRAINFO OK6213822798 (NAD83)",
+      "coordinate_method": "INTERPOLATION-PHOTO, accuracy_value=500, reference: CENTER OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "6/27/2023",
+      "permit_expiration_iso": "2023-06-27",
+      "known_energetics": "Hrycak's Oct 1, 2025 briefing names McAlester Army Ammunition Plant as a CONUS demil facility (GOGO). This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of June 27, 2023. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed.",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "A December 5, 1944 torpedo-magazine explosion at the then-U.S. Naval Ammunition Depot, McAlester, is a historical wartime event and is not treated here as a modern aging-stockpile analog. No comparable recent emergency lead-azide or spontaneous magazine-storage explosion was found in the Nov 23, 2026 research pass.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID OK6213822798",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "letterkenny-army-depot",
+      "name": "Letterkenny Army Depot / Letterkenny Munitions Center",
+      "epa_name": "LETTERKENNY ARMY DEPOT",
+      "branch": "U.S. Army",
+      "state": "PA",
+      "city": "Chambersburg",
+      "address": "1 Overcash Ave",
+      "zip": "17201",
+      "epa_id": "PA6213820503",
+      "epa_region": "3",
+      "latitude": 39.9957,
+      "longitude": -77.6444,
+      "coordinate_source": "EPA FRS RCRAINFO PA6213820503 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "8/05/2018",
+      "permit_expiration_iso": "2018-08-05",
+      "known_energetics": "Hrycak's Oct 1, 2025 briefing names Letterkenny Munitions Center (LEMC) at Chambersburg, Pennsylvania, as a CONUS demil facility (GOGO), and mentions an ammonium perchlorate rocket-motor destruction capability there. This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of Aug 5, 2018. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed.",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID PA6213820503",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "jb-charleston-weapons",
+      "name": "Joint Base Charleston Weapons Station",
+      "epa_name": "JOINT BASE CHARLESTON WEAPONS",
+      "branch": "U.S. Department of Defense (joint base)",
+      "state": "SC",
+      "city": "Goose Creek",
+      "address": "2316 Red Bank Rd Ste 100",
+      "zip": "29445",
+      "epa_id": "SC8170022620",
+      "epa_region": "4",
+      "latitude": 32.9583,
+      "longitude": -79.93597,
+      "coordinate_source": "EPA FRS RCRAINFO SC8170022620 (NAD83)",
+      "coordinate_method": "ADDRESS MATCHING-HOUSE NUMBER, accuracy_value=50, reference: ENTRANCE POINT OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/06/2033",
+      "permit_expiration_iso": "2033-09-06",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/06/2033. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID SC8170022620",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "mcas-beaufort",
+      "name": "Marine Corps Air Station Beaufort",
+      "epa_name": "US MARINE CORPS AIR STATION",
+      "branch": "U.S. Marine Corps",
+      "state": "SC",
+      "city": "Beaufort",
+      "address": "Hwy 21 Bldg 601",
+      "zip": "29904",
+      "epa_id": "SC1750216169",
+      "epa_region": "4",
+      "latitude": 32.4575,
+      "longitude": -80.711667,
+      "coordinate_source": "EPA FRS RCRAINFO SC1750216169 (NAD83)",
+      "coordinate_method": "THE GEOGRAPHIC COORDINATE DETERMINATION METHOD BASED ON GPS, reference: FACILITY CENTROID",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "1/29/2025",
+      "permit_expiration_iso": "2025-01-29",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 1/29/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID SC1750216169",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "holston-aap",
+      "name": "Holston Army Ammunition Plant",
+      "epa_name": "HOLSTON ARMY AMMUNITION PLANT",
+      "branch": "U.S. Army",
+      "state": "TN",
+      "city": "Kingsport",
+      "address": "4509 W Stone Dr",
+      "zip": "37660",
+      "epa_id": "TN5210020421",
+      "epa_region": "4",
+      "latitude": 36.550455,
+      "longitude": -82.634794,
+      "coordinate_source": "EPA FRS RCRAINFO TN5210020421 (NAD83)",
+      "coordinate_method": "INTERPOLATION-PHOTO, accuracy_value=25, reference: PLANT ENTRANCE (GENERAL)",
+      "type": [
+        "OB/OD",
+        "production"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "3/31/2021",
+      "permit_expiration_iso": "2021-03-31",
+      "known_energetics": "A production plant historically associated with RDX and Composition B manufacturing. This draft does not treat that product list as a current verified inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of March 31, 2021. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed.",
+      "notable_incidents": [
+        {
+          "date": "2019-01-03",
+          "summary": "Local press, citing an Army final report, said a fire in a manufacturing building spread to a trailer carrying about 2,500 pounds of explosives, which detonated; the area had been evacuated and no fatalities were reported. The Army report itself was not independently read in this draft.",
+          "sources": [
+            "https://www.timesnews.net/business/army-gives-final-report-on-2019-explosion-at-haap/article_df039f0e-6c1a-5f6b-a376-da388e5ae61d.html"
+          ]
+        }
+      ],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "This was a production-area accident, not a documented aging-drum storage emergency.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID TN5210020421",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "jbsa-camp-bullis",
+      "name": "Joint Base San Antonio–Camp Bullis",
+      "epa_name": "JOINT BASE SAN ANTONIO CAMP BULLIS",
+      "branch": "U.S. Department of Defense (joint base)",
+      "state": "TX",
+      "city": "San Antonio",
+      "address": "5050 Wilkerson Rd Bldg 5000",
+      "zip": "78257",
+      "epa_id": "TX4210020133",
+      "epa_region": "6",
+      "latitude": 29.688568,
+      "longitude": -98.562424,
+      "coordinate_source": "EPA FRS RCRAINFO TX4210020133 (NAD83)",
+      "coordinate_method": "INTERPOLATION-MAP, accuracy_value=30, reference: FACILITY CENTROID",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "5/23/2029",
+      "permit_expiration_iso": "2029-05-23",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 5/23/2029. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID TX4210020133",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "lone-star-aap",
+      "name": "Lone Star Army Ammunition Plant",
+      "epa_name": "LONE STAR ARMY AMMUNITION PLANT",
+      "branch": "U.S. Army",
+      "state": "TX",
+      "city": "Hooks",
+      "address": "Hwy 82 W Approximately 12",
+      "zip": "75501",
+      "epa_id": "TXR000084774",
+      "epa_region": "6",
+      "latitude": 33.41,
+      "longitude": -94.25,
+      "coordinate_source": "EPA FRS RCRAINFO TXR000084774 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "1/16/2031",
+      "permit_expiration_iso": "2031-01-16",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 1/16/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID TXR000084774",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "dugway-proving-ground",
+      "name": "Dugway Proving Ground",
+      "epa_name": "US ARMY DUGWAY PROVING GROUND",
+      "branch": "U.S. Army",
+      "state": "UT",
+      "city": "Dugway",
+      "address": "6672 Stark Rd",
+      "zip": "84022",
+      "epa_id": "UT3750211259",
+      "epa_region": "8",
+      "latitude": 40.220029,
+      "longitude": -112.749599,
+      "coordinate_source": "EPA FRS RCRAINFO UT3750211259 (NAD83)",
+      "coordinate_method": "ADDRESS MATCHING-HOUSE NUMBER, accuracy_value=50, reference: ENTRANCE POINT OF A FACILITY OR STATION",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/30/2030",
+      "permit_expiration_iso": "2030-09-30",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 9/30/2030. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID UT3750211259",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "tooele-army-depot-north",
+      "name": "Tooele Army Depot (North)",
+      "epa_name": "TOOELE ARMY DEPOT - NORTH",
+      "branch": "U.S. Army",
+      "state": "UT",
+      "city": "Tooele",
+      "address": "1 Tooele Army Depot",
+      "zip": "84074",
+      "epa_id": "UT3213820894",
+      "epa_region": "8",
+      "latitude": 40.54166,
+      "longitude": -112.375,
+      "coordinate_source": "EPA FRS RCRAINFO UT3213820894 (NAD83)",
+      "coordinate_method": "INTERPOLATION - DIGITAL MAP SRCE (TIGER), accuracy_value=5, reference: OTHER",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/27/2023",
+      "permit_expiration_iso": "2023-09-27",
+      "known_energetics": "Hrycak's Oct 1, 2025 briefing names Tooele Army Depot as a CONUS demil facility (GOGO). This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of Sept 27, 2023. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed.",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "EPA lists Tooele South (UT5210090002) separately. No comparable recent emergency lead-azide or spontaneous magazine-storage explosion was found in the Nov 23, 2026 research pass.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID UT3213820894",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "tooele-army-depot-south",
+      "name": "Tooele Army Depot (South)",
+      "epa_name": "TOOELE ARMY DEPOT - SOUTH",
+      "branch": "U.S. Army",
+      "state": "UT",
+      "city": "Tooele",
+      "address": "State Hwy 36",
+      "zip": "84074",
+      "epa_id": "UT5210090002",
+      "epa_region": "8",
+      "latitude": 40.29983,
+      "longitude": -112.346811,
+      "coordinate_source": "EPA FRS RCRAINFO UT5210090002 (NAD83)",
+      "coordinate_method": "INTERPOLATION-MAP, accuracy_value=15, reference: ACRES POINTS NOT REPRESENTED BY 101-107",
+      "type": [
+        "OB/OD",
+        "demil"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": true,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/22/2027",
+      "permit_expiration_iso": "2027-09-22",
+      "known_energetics": "Part of Tooele Army Depot, named as a CONUS demil facility in the Oct 1, 2025 public-release briefing. This draft does not have a current item-level inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of Sept 22, 2027.",
+      "notable_incidents": [],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "See also Tooele North (UT3213820894).",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID UT5210090002",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        },
+        {
+          "title": "Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25",
+          "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "utah-test-and-training-range",
+      "name": "Utah Test and Training Range",
+      "epa_name": "UTAH TEST AND TRAINING RANGE",
+      "branch": "",
+      "state": "UT",
+      "city": "Hill Air Force Base",
+      "address": "18 Miles N of Exit 62 I-80",
+      "zip": "84056",
+      "epa_id": "UT0570090001",
+      "epa_region": "8",
+      "latitude": 41.133611,
+      "longitude": -112.891111,
+      "coordinate_source": "EPA FRS RCRAINFO UT0570090001 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "8/18/2025",
+      "permit_expiration_iso": "2025-08-18",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 8/18/2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID UT0570090001",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "nswc-dahlgren",
+      "name": "Naval Surface Warfare Center Dahlgren",
+      "epa_name": "US NAVY DAHLGREN",
+      "branch": "U.S. Navy",
+      "state": "VA",
+      "city": "Dahlgren",
+      "address": "6509 Sampson Rd",
+      "zip": "22448",
+      "epa_id": "VA7170024684",
+      "epa_region": "3",
+      "latitude": 38.326667,
+      "longitude": -77.026944,
+      "coordinate_source": "EPA FRS RCRAINFO VA7170024684 (NAD83)",
+      "coordinate_method": "",
+      "type": [
+        "OB/OD"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "4/28/2031",
+      "permit_expiration_iso": "2031-04-28",
+      "known_energetics": "",
+      "current_status": "Listed on EPA's current OB/OD facilities table as Permitted, with a listed expiration of 4/28/2031. Incidents and current operations beyond this listing have not been researched in this draft.",
+      "notable_incidents": [],
+      "research_depth": "basic",
+      "verification": "partly verified",
+      "needs_research": true,
+      "notes": "Basic entry from the EPA OB/OD list and FRS coordinates only. Incidents and energetics inventory need research.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID VA7170024684",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    },
+    {
+      "id": "radford-aap",
+      "name": "Radford Army Ammunition Plant",
+      "epa_name": "RADFORD ARMY AMMUNITION PLANT",
+      "branch": "U.S. Army",
+      "state": "VA",
+      "city": "Radford",
+      "address": "4050 Peppers Ferry Rd",
+      "zip": "24141",
+      "epa_id": "VA1210020730",
+      "epa_region": "3",
+      "latitude": 37.110613,
+      "longitude": -80.570245,
+      "coordinate_source": "EPA FRS RCRAINFO VA1210020730 (NAD83)",
+      "coordinate_method": "CLASSICAL SURVEYING TECHNIQUES, accuracy_value=1, reference: UNKNOWN",
+      "type": [
+        "OB/OD",
+        "production"
+      ],
+      "on_epa_obod_list": true,
+      "jmc_demil_hub": false,
+      "permit_status": "Permitted",
+      "permit_expiration": "9/17/2031",
+      "permit_expiration_iso": "2031-09-17",
+      "known_energetics": "A production plant for energetic materials, including nitrocellulose (the material named in coverage of the June 2018 flash fire). This draft does not have a full current product inventory.",
+      "current_status": "Listed on EPA's current OB/OD facilities table as permitted, with a listed expiration of Sept 17, 2031. It is a production plant, not a JMC conventional-demil hub in the Oct 1, 2025 briefing.",
+      "notable_incidents": [
+        {
+          "date": "2018-06-11",
+          "summary": "AP reported a nitrocellulose flash fire at Radford Army Ammunition Plant that injured three workers. This was a production accident, not an aging-drum storage emergency. This draft did not independently retrieve the full AP article body (Cloudflare block during collection).",
+          "sources": [
+            "https://apnews.com/general-news-domestic-news-domestic-news-9a869211a454431ea11867c4c82751b5"
+          ]
+        }
+      ],
+      "research_depth": "deep",
+      "verification": "partly verified",
+      "needs_research": false,
+      "notes": "Local outlets also covered the 2018 fire and later reported that one of the injured workers, Andrew Goad, died of his injuries. That fatality was not independently confirmed from AP in this pass.",
+      "sources": [
+        {
+          "title": "EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)",
+          "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities"
+        },
+        {
+          "title": "EPA FRS facility coordinates for RCRA ID VA1210020730",
+          "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8"
+        }
+      ],
+      "last_checked": "2026-11-23"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Dangerous Munitions Near Me — DRAFT, not published</title>
+  <meta name="description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
+  <meta name="author" content="D.A. Williams">
+  <link rel="canonical" href="https://dangerousmunitionsnearme.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dangerous Munitions Near Me">
+  <meta property="og:title" content="Dangerous Munitions Near Me">
+  <meta property="og:description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
+  <meta property="og:url" content="https://dangerousmunitionsnearme.com/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel=stylesheet href='lib/leaflet/leaflet.css'>
+</head>
+<body>
+  <div class="draft-banner"><span>Draft, not published — local review only. Not an official U.S. government document.</span></div>
+  <header class="site-head">
+    <div class="wrap">
+      <div class="brand">
+        <h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
+        <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
+      </div>
+      <nav><a href="index.html" aria-current="page">Tracker</a><a href="about.html">About / methods</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    
+    <p class="lede">A draft, sourced tracker of U.S. military and DoD facilities that store or destroy old or unstable energetics, starting from EPA's current open-burning / open-detonation list, official demil hubs, and documented comparables to the Iowa Army Ammunition Plant lead azide case. 39 sites are in this cut. Blank fields mean no source was found — nothing here is guessed.</p>
+    <div id="map" role="region" aria-label="Map of tracked sites"></div>
+    <div class="legend">
+      <span><i class="swatch partly"></i> Partly verified</span>
+      <span><i class="swatch verified"></i> Verified</span>
+      <span><i class="swatch unverified"></i> Unverified</span>
+      <span>Larger dots have a deeper research note in this draft. Coordinates come from EPA FRS, not from hand-placed guesses.</span>
+    </div>
+    <div class="filters">
+      <label>Search <input type="search" id="q" placeholder="Name, city, EPA ID…"></label>
+      <label>State <select id="f-state"></select></label>
+      <label>Branch <select id="f-branch"></select></label>
+      <label>Type <select id="f-type"></select></label>
+      <label>Verification <select id="f-verification"></select></label>
+      <label>Research depth <select id="f-depth"></select></label>
+    </div>
+    <p class="count" id="count">Loading…</p>
+    <div class="table-wrap">
+      <table id="sites-table">
+        <thead>
+          <tr>
+            <th data-key="name">Site <span class="arrow">▲</span></th>
+            <th data-key="branch">Branch <span class="arrow"></span></th>
+            <th data-key="state">Location <span class="arrow"></span></th>
+            <th data-key="type">Type <span class="arrow"></span></th>
+            <th data-key="verification">Verification <span class="arrow"></span></th>
+            <th data-key="research_depth">Depth <span class="arrow"></span></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script src="lib/leaflet/leaflet.js"></script>
+    <script src="js/app.js" data-src="data/sites.json" data-icon-path="lib/leaflet/images/"></script>
+    
+  </main>
+  <footer>
+    <div class="wrap">
+      <div>Draft by D.A. Williams. Not published.</div>
+      <div><a href="https://awesomegoy.com">awesomegoy.com</a></div>
+    </div>
+  </footer>
+</body>
+</html>

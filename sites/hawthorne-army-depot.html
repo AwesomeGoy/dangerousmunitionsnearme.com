@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Hawthorne Army Depot (Main Base / Old Bomb) | Dangerous Munitions Near Me — DRAFT, not published</title>
+  <meta name="description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
+  <meta name="author" content="D.A. Williams">
+  <link rel="canonical" href="https://dangerousmunitionsnearme.com/sites/hawthorne-army-depot.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.png" type="image/png" sizes="32x32">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dangerous Munitions Near Me">
+  <meta property="og:title" content="Hawthorne Army Depot (Main Base / Old Bomb) | Dangerous Munitions Near Me">
+  <meta property="og:description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
+  <meta property="og:url" content="https://dangerousmunitionsnearme.com/sites/hawthorne-army-depot.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel=stylesheet href='../lib/leaflet/leaflet.css'>
+</head>
+<body>
+  <div class="draft-banner"><span>Draft, not published — local review only. Not an official U.S. government document.</span></div>
+  <header class="site-head">
+    <div class="wrap">
+      <div class="brand">
+        <h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
+        <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
+      </div>
+      <nav><a href="../index.html">Tracker</a><a href="../about.html">About / methods</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    
+    <p><a href="../index.html">← All sites</a></p>
+    <h2>Hawthorne Army Depot (Main Base / Old Bomb)</h2>
+    <p><span class="badge partly">partly verified</span>
+       <span class="badge depth">deep</span></p>
+    <dl class="meta-list">
+      <dt>Branch</dt><dd>U.S. Army</dd>
+      <dt>Location</dt><dd>1 S Maine Ave, Hawthorne, NV, 89415</dd>
+      <dt>EPA ID</dt><dd>NV1210090006</dd>
+      <dt>EPA listed name</dt><dd>HAWTHORNE ARMY DEPOT</dd>
+      <dt>Type</dt><dd>OB/OD, demil</dd>
+      <dt>On EPA OB/OD list</dt><dd>yes</dd>
+      <dt>JMC demil hub (2025 briefing)</dt><dd>yes</dd>
+      <dt>Permit status</dt><dd>Permitted</dd>
+      <dt>Permit expiration (as listed)</dt><dd>5/21/2025</dd>
+      <dt>Latitude, longitude</dt><dd>38.563, -118.633</dd>
+      <dt>Last checked</dt><dd>2026-11-23</dd>
+    </dl>
+    
+        <div id="map" role="region" aria-label="Map of this site"></div>
+        <p class="legend">EPA FRS RCRAINFO NV1210090006 (NAD83). INTERPOLATION-PHOTO, accuracy_value=5000, reference: CENTER OF A FACILITY OR STATION</p>
+        <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
+        <script src="../lib/leaflet/leaflet.js"></script>
+        <script>
+          const map = L.map('map').setView([38.563, -118.633], 9);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 18
+          }).addTo(map);
+          L.Icon.Default.imagePath = '../lib/leaflet/images/';
+          L.circleMarker([38.563, -118.633], {
+            radius: 10, color: '#1c1917', weight: 1, fillColor: '#b45309', fillOpacity: 0.9
+          }).addTo(map).bindPopup("Hawthorne Army Depot (Main Base / Old Bomb)");
+        </script>
+        
+    <h2>Known energetics or munitions types</h2>
+    <p>Nevada/EPA permit materials for the Main Base &#x27;Old Bomb&#x27; unit describe open burning of waste propellants that cannot be reused, recycled, or reutilized, when closed treatment at the Western Area Demilitarization Facility is not available. Permitted waste codes cited in those materials include D003, D005, D008, D009, and D030. This draft does not have a current item-level inventory of the Hawthorne demil stockpile.</p>
+    <h2>Current status</h2>
+    <p>Listed on EPA&#x27;s current OB/OD facilities table as permitted, with a listed expiration of May 21, 2025. EPA notes that conditions of an expired permit continue in force if the permittee has submitted a timely application for a new permit (40 CFR 270.51). This draft does not independently confirm whether a timely renewal was filed. Hrycak&#x27;s Oct 1, 2025 public-release demil briefing names Hawthorne Army Depot as a CONUS demil facility (GOCO).</p>
+    <h2>Notable incidents</h2>
+    <p class="empty">No notable incidents are recorded in this draft. That is not a finding that none occurred.</p>
+    <h2>Notes</h2>
+    <p>EPA lists a second Hawthorne unit, New Bomb Facility (NV5210090010), as a separate OB/OD entry. FRS reports the same latitude/longitude for both IDs, with a stated accuracy of 5,000 meters; this draft does not invent a second point.</p>
+    <h2>Sources</h2>
+    <ul class="sources"><li>EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a></li><li>EPA FRS facility coordinates for RCRA ID NV1210090006<br><a href="https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8</a></li><li>EPA / Nevada discussion of Hawthorne New Bomb (related unit)<br><a href="https://www.epa.gov/system/files/documents/2025-05/hawthorne-ad-new-bomb.pdf">https://www.epa.gov/system/files/documents/2025-05/hawthorne-ad-new-bomb.pdf</a></li><li>Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25<br><a href="https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf">https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf</a></li></ul>
+    
+  </main>
+  <footer>
+    <div class="wrap">
+      <div>Draft by D.A. Williams. Not published.</div>
+      <div><a href="https://awesomegoy.com">awesomegoy.com</a></div>
+    </div>
+  </footer>
+</body>
+</html>
