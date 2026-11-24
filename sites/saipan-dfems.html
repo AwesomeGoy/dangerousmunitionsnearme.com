@@ -121,6 +121,7 @@
           </label>
           <button type="submit">Get alerts</button>
         </div>
+        <div class="alerts-recaptcha"><div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div></div><p class="nearby-note alerts-recaptcha-legal">This form is protected by reCAPTCHA. The Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
         <input type="hidden" name="fields[dmnm_source]" value="dmnm">
         <input type="hidden" name="ml-submit" value="1">
         <input type="hidden" name="anticsrf" value="true">
@@ -129,10 +130,13 @@
       <p class="nearby-note" id="alerts-note-site-saipan-dfems">You must confirm by email before any alerts are sent. See the <a href="../privacy.html">privacy notice</a> for what is collected, how MailerLite is used, and how to unsubscribe.</p>
     </section>
     
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
 (function () {
   if (window.__dmnmAlertsBound) return;
   window.__dmnmAlertsBound = true;
+
+  var BLOCKER_MSG = "We could not reach the signup service. If you use an ad blocker or Brave Shields, allow this site, then try again.";
 
   function validZip(v) { return /^\d{5}$/.test(v); }
   function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
@@ -143,6 +147,18 @@
     el.textContent = msg || "";
     if (isError) el.classList.add("nearby-error");
     else el.classList.remove("nearby-error");
+  }
+
+  function recaptchaToken() {
+    if (typeof grecaptcha === "undefined" || !grecaptcha.getResponse) return null;
+    try { return grecaptcha.getResponse() || ""; }
+    catch (e) { return null; }
+  }
+
+  function resetRecaptcha() {
+    if (typeof grecaptcha !== "undefined" && grecaptcha.reset) {
+      try { grecaptcha.reset(); } catch (e) {}
+    }
   }
 
   document.addEventListener("submit", function (ev) {
@@ -169,6 +185,16 @@
       return;
     }
 
+    var token = recaptchaToken();
+    if (token === null) {
+      setStatus(statusEl, "The security check did not load. If you use an ad blocker or Brave Shields, allow this site, then try again.", true);
+      return;
+    }
+    if (!token) {
+      setStatus(statusEl, "Please complete the \"I'm not a robot\" check, then try again.", true);
+      return;
+    }
+
     if (btn) btn.disabled = true;
     setStatus(statusEl, "Sending…", false);
 
@@ -178,6 +204,7 @@
     body.set("fields[dmnm_source]", "dmnm");
     body.set("ml-submit", "1");
     body.set("anticsrf", "true");
+    body.set("g-recaptcha-response", token);
 
     fetch(form.action, {
       method: "POST",
@@ -187,15 +214,21 @@
       if (res && res.success) {
         setStatus(statusEl, "Check your email to confirm this signup. No alerts will be sent until you confirm.", false);
         form.setAttribute("data-alerts-done", "true");
+        resetRecaptcha();
       } else {
-        var msg = "Something went wrong. Please try again.";
+        var msg = (res && res.message) ? res.message : "Something went wrong. Please try again.";
         var fieldErrors = res && res.errors && res.errors.fields;
         if (fieldErrors && fieldErrors.email && fieldErrors.email[0]) msg = fieldErrors.email[0];
+        if (/recaptcha/i.test(msg)) {
+          msg = "The security check failed. Complete it again, or if you use an ad blocker or Brave Shields, allow this site, then try again.";
+        }
         setStatus(statusEl, msg, true);
+        resetRecaptcha();
         if (btn) btn.disabled = false;
       }
     }).catch(function () {
-      setStatus(statusEl, "Something went wrong. Please try again.", true);
+      setStatus(statusEl, BLOCKER_MSG, true);
+      resetRecaptcha();
       if (btn) btn.disabled = false;
     });
   });
