@@ -275,6 +275,14 @@ nav a { margin-right: 0; }
   outline: none;
 }
 
+.alerts-box input[type="email"] {
+  width: 16rem;
+  letter-spacing: normal;
+}
+.alerts-box .nearby-note[data-alerts-status] {
+  min-height: 1.2em;
+}
+
 .research-slot {
   background: #f3efe8;
   border: 1px dashed var(--line);

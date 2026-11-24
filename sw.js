@@ -1,10 +1,10 @@
 /* Dangerous Munitions Near Me service worker
- * Cache version: dmnm-pwa-20261124-033451
+ * Cache version: dmnm-pwa-20261124-071009
  * Network-first for /data/*.json and for same-origin pages/assets.
  * Precaches a small app shell and falls back to /offline.html.
  * No push notifications, no analytics, no data collection.
  */
-const CACHE_VERSION = "dmnm-pwa-20261124-033451";
+const CACHE_VERSION = "dmnm-pwa-20261124-071009";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 const DATA_CACHE = CACHE_VERSION + "-data";
 const SHELL_URLS = ["/", "/index.html", "/offline.html", "/css/style.css", "/css/canada.css", "/js/app.js", "/favicon.svg", "/favicon.png", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-512-maskable.png", "/icons/apple-touch-icon.png", "/manifest.webmanifest"];
