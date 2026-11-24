@@ -245,3 +245,47 @@ Coordinates are included only if the official XLSX or the DND locations page pro
 | `sources` | array of `{title, url}` | URL(s) joined with ` \| ` | The Open Government dataset page. |
 | `verification` | string | | `verified` for ID, name, province, and status copied from the official XLSX. |
 | `last_checked` | date | | Date the official file was checked. |
+
+---
+
+## 6. `canada_sites.json` and `canada_sites.csv`
+
+Builder-facing Canada file for the Canada section at dangerousmunitionsnearme.com/canada/. Thor’s builder auto-loads `data/canada_sites.json`. **Do not mix these records into the U.S. `sites.json`.** The official-inventory extract `canada_uxo.json` / `canada_uxo.csv` is unchanged and remains the attribution copy of the Open Government XLSX (no inferred coordinates).
+
+`canada_sites.json` is an object with `meta` and `sites`. `canada_sites.csv` is a flattened table of the same sites, one row per site, using the same list-joining conventions as `sites.csv` (`type` joined with `; `, incident text with ` | `, source URLs with ` | `, booleans `yes` / `no`).
+
+Site objects use the **same fields as `sites.json`**, plus the Canada fields below. U.S. EPA-only fields are present so a shared builder can read both files; they are blank or `false` for Canada records.
+
+### Extra Canada fields (and `state` compatibility)
+
+| Field | JSON type | CSV notes | Meaning |
+| --- | --- | --- | --- |
+| `province` | string | | Official province, territory, or coast code from the DND inventory for legacy rows (`AB`, `BC`, `MB`, `NB`, `NL`, `NS`, `NT`, `NU`, `ON`, `PE`, `QC`, `SK`, `YT`, plus `EC` and `WC`, which are not expanded here). Active DND rows use the standard province code of the installation. |
+| `state` | string | | **Same value as `province`.** Kept so a builder that already reads `state` from the U.S. schema does not need a special case. |
+| `coord_precision` | string | | `exact` — a published official coordinate of the site itself (for example a Federal Contaminated Sites Inventory point for a named range). `place_name_approx` — official NRCan CGNDB named-feature point for a uniquely matched place, base, or training-area name; not a surveyed footprint. `none` — latitude and longitude left blank. This pass uses only `place_name_approx` and `none`. |
+| `coord_source` | string | | URL of the official coordinate source, usually the CGNDB geoname JSON record (for example `https://geogratis.gc.ca/services/geoname/en/geonames/IAQFR.json`). Blank when `coord_precision` is `none`. |
+| `coordinate_source`, `coordinate_method` | string | | Human-readable attribution and method, as in the U.S. schema. |
+| `dnd_site_id` | string | | Full official UXO inventory identifier, for example `AB900-001 / 0539-X001`. Blank on added active DND records that are not a single XLSX row. |
+| `site_id_primary`, `site_id_secondary` | string | | The two official ID parts (`AB900-001`, `0539-X001`). Blank on added active DND records. |
+| `public_comment_status`, `public_comment_open`, `public_comment_close`, `public_comment_url` | string | | Filled only when an official consultation is **open** at `last_checked`. As of 2026-11-23 no open official comment period was found; recently closed IAAC assessments (including Shearwater 90236 and Valcartier 90825) are described in `current_status` / `notes` instead. |
+
+### Fields used the same way as `sites.json`
+
+`id`, `name`, `branch`, `city`, `address`, `zip`, `latitude`, `longitude`, `type`, `known_energetics`, `current_status`, `notable_incidents`, `research_depth`, `verification`, `needs_research`, `notes`, `sources`, `last_checked`, `sector`, plus the EPA/permit fields listed in section 1 (blank or `false` here).
+
+Canada `sector` values:
+
+- `legacy_uxo` — official DND UXO Legacy Sites inventory row (854 records). `current_status` is the official XLSX Status value (`In Assessment`, `Assessment Complete`, `Risk Mitigation Ongoing`, or `Closed`). `verification` is `partly verified` (official record confirmed; location is not a surveyed site point). `research_depth` is `basic` except for a small Debert cluster that was researched further.
+- `dnd` — active or proposed Department of National Defence / Canadian Armed Forces range, training area, proving ground, EOD/demolition area, or ammunition depot, added only from primary Government of Canada sources.
+- `contractor` — reserved for industrial or contractor energetics disposal sites documented from primary Government of Canada sources. None were added in this pass.
+
+### Coordinate rules (do not relax in the builder)
+
+- Do not treat a CGNDB place-name or military-feature point as the site footprint.
+- Do not guess among multiple official same-name places in the same province (or, for `EC`/`WC`, in Canada).
+- Leave water-body, offshore, wreck, and dump-site names blank unless an official source gives coordinates for that site.
+- `last_checked` / `last_built` are America/Phoenix (UTC-7) calendar dates.
+
+### `meta` notes for this file
+
+Includes `site_count`, `legacy_uxo_count`, `active_dnd_count`, `contractor_count`, `deep_count`, `records_with_coordinates`, `legacy_records_with_coordinates`, `coord_precision_counts`, `sector_counts`, Open Government Licence attribution, `coordinate_policy`, `public_comments_note`, and `coverage_gaps`. Required attribution: “Contains information licensed under the Open Government Licence – Canada.”

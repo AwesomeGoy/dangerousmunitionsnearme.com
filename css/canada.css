@@ -106,6 +106,8 @@
 .status-pill.assessment-complete { color: #1e3a8a; background: #eff6ff; border-color: #93c5fd; }
 .status-pill.risk-mitigation-ongoing { color: #9f1239; background: #fff1f2; border-color: #fda4af; }
 .status-pill.closed { color: #14532d; background: #f0fdf4; border-color: #86efac; }
+.status-pill.active { color: #1e3a8a; background: #eff6ff; border-color: #93c5fd; }
+.status-pill.proposed { color: #9f1239; background: #fff1f2; border-color: #fda4af; }
 .precision-pill.exact { color: #14532d; background: #f0fdf4; border-color: #86efac; }
 .precision-pill.place-name-approx { color: #9a3412; background: #fff7ed; border-color: #fdba74; }
 .precision-pill.mapped { color: #1e3a8a; background: #eff6ff; border-color: #93c5fd; }
@@ -126,21 +128,20 @@
 
 /* Keep the Canada table readable on small screens: scroll sideways
    instead of breaking official IDs and names mid-word. */
-#canada-table {
-  min-width: 44rem;
-}
 #canada-table th,
 #canada-table td {
   word-break: normal;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
   vertical-align: top;
 }
 #canada-table td:first-child {
   overflow-wrap: anywhere;
-  min-width: 12rem;
+  min-width: 10rem;
 }
-#canada-table th:not(:first-child),
-#canada-table td:not(:first-child) {
+#canada-table th[data-key="site_id"],
+#canada-table td:nth-child(2),
+#canada-table .status-pill,
+#canada-table .precision-pill {
   white-space: nowrap;
 }
 #canada-count,
@@ -151,6 +152,7 @@
 @media (max-width: 700px) {
   #canada-table {
     font-size: 0.88rem;
+    min-width: 44rem;
   }
   #canada-table th,
   #canada-table td {
