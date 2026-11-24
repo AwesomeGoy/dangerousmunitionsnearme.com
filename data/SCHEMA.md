@@ -289,3 +289,42 @@ Canada `sector` values:
 ### `meta` notes for this file
 
 Includes `site_count`, `legacy_uxo_count`, `active_dnd_count`, `contractor_count`, `deep_count`, `records_with_coordinates`, `legacy_records_with_coordinates`, `coord_precision_counts`, `sector_counts`, Open Government Licence attribution, `coordinate_policy`, `public_comments_note`, and `coverage_gaps`. Required attribution: “Contains information licensed under the Open Government Licence – Canada.”
+
+---
+
+## 7. `international/europe_sites.json` and `international/europe_sites.csv`
+
+Builder-facing Europe / international sea-dumped munitions file. Thor’s builder should auto-load `data/international/europe_sites.json`. **Do not mix these records into the U.S. `sites.json` or Canada `canada_sites.json`.**
+
+`europe_sites.json` is an object with `meta` and `sites`. `europe_sites.csv` is a flattened table of the same sites, using the same list-joining conventions as `sites.csv`. Official polygon geometry is JSON-only (`geometry` as a GeoJSON geometry object) and is not written to the CSV; the CSV has `geometry_included` (`yes` / `no`).
+
+Site objects use the **same fields as `sites.json` / `canada_sites.json`**, plus the international fields below. U.S. EPA-only fields are present so a shared builder can read the file; they are blank or `false`.
+
+### Extra international fields
+
+| Field | JSON type | CSV notes | Meaning |
+| --- | --- | --- | --- |
+| `country` | string | | Derived coastal state or territory name from a unique exclusive Marine Regions EEZ v12 (2023) polygon (or a unique exclusive EEZ within 1 km of the official point, as a documented coastline-resolution snap). Blank when the official EMODnet feature has no unique exclusive EEZ match, including joint regimes, overlapping claims, high seas, and EEZs not in the European extract. **Not an EMODnet attribute.** |
+| `state` | string | | ISO 3166-1 alpha-2 code matching `country` when a unique exclusive EEZ was assigned (for builder compatibility with the U.S./Canada `state` field). Blank when `country` is blank. |
+| `region` | string | | Official Scottish Marine Region name when the point falls in (or within 1 km of) a unique polygon from the Scottish Government Marine Directorate INSPIRE WFS layer `nmpwfs:administrative_units_scottish_marine_regions`. Blank otherwise. |
+| `coord_precision` | string | | `exact` — official EMODnet WFS point geometry. `centroid` — centroid or in-polygon representative point computed from an official EMODnet polygon. `none` — no coordinate. `place_name_approx` is reserved for named-place points (as in the Canada file) and is not used here. |
+| `coord_source` | string | | Official WFS GetFeature URL for the source layer. |
+| `source_dataset`, `source_layer`, `source_feature_id` | string | | Official collection name, WFS type name (`emodnet:munitions` or `emodnet:munitionspoly`), and official feature id (`munitions.123`). |
+| `country_assignment` | string | | Short explanation of the EEZ join result (unique match, 1 km snap, or why country was left blank). |
+| `geometry` | GeoJSON geometry or `null` | not in CSV | Official polygon ring(s), kept only when reasonably small (≤500 vertices and ≤50 KB of GeoJSON). Always `null` for point records and for oversized polygons. |
+| `geometry_included` | boolean | `yes` / `no` | Whether `geometry` is present. |
+| `public_comment_*` | string | | Same open-consultation fields as in `canada_sites.json`. Unused here; left blank. |
+
+### `sector` values for this file
+
+- `sea_dump_conventional` — official EMODnet `munition_type` is Conventional only.
+- `sea_dump_chemical` — official `munition_type` is Chemical, or mixed “Chemical and conventional” (both values are listed in `type`; the record is not split).
+- `sea_dump_unknown` — official `munition_type` is Unknown or is not a conventional/chemical label.
+
+`verification` is `partly verified` for these official records: the EMODnet identity, official type, and official geometry are copied from the WFS, but EMODnet says validation remains with the primary sources. Many point features cite OSPAR ODIMS as the information provider (encounter records aggregated into the dumped-munitions layer).
+
+`research_depth` is `basic`. `last_checked` / `last_built` are America/Phoenix (UTC-7) calendar dates.
+
+### Licences
+
+See `meta.licences` and `data/international/README.md`. EMODnet Human Activities Dumped Munitions is CC BY 4.0. Country is derived from Marine Regions EEZ v12 (also CC BY 4.0). Scottish Marine Region names, and the documented but not ingested NMPi historic munitions layer, are Crown copyright under the Open Government Licence v3.0; the required attribution is: “Contains public sector information licensed under the Open Government Licence v3.0.”

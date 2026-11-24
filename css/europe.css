@@ -1,0 +1,165 @@
+/* Europe sea-dump section */
+#europe-map {
+  height: min(62vh, 560px);
+  min-height: 320px;
+  margin: 1rem 0 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  z-index: 0;
+  background: #e8eef4;
+}
+
+.europe-caveat {
+  border: 2px solid var(--banner, #9a3412);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--banner, #9a3412) 8%, var(--card, #fffdf8));
+  padding: 1rem 1.1rem 0.85rem;
+  margin: 0 0 1.25rem;
+  max-width: 54rem;
+}
+.europe-caveat h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  color: var(--banner, #9a3412);
+}
+.europe-caveat p { margin: 0 0 0.6rem; }
+.europe-caveat p:last-child { margin-bottom: 0; }
+
+.europe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  align-items: baseline;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+.europe-legend .swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  vertical-align: -1px;
+  border: 1px solid rgb(0 0 0 / 0.2);
+}
+.europe-legend .swatch.conventional { background: #1d4ed8; }
+.europe-legend .swatch.chemical { background: #9a3412; }
+.europe-legend .swatch.unknown { background: #57534e; }
+.europe-legend .swatch.mixed { background: #7c3aed; }
+.europe-legend .swatch.area {
+  border-radius: 2px;
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #b45309;
+}
+
+.europe-map-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+  margin: 0.35rem 0 0.5rem;
+  font-size: 0.92rem;
+}
+.europe-map-tools label {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-weight: 500;
+}
+
+#europe-map-status,
+#europe-count {
+  font-size: 0.95rem;
+}
+
+.europe-pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  align-items: center;
+  margin: 0.7rem 0;
+  font-size: 0.92rem;
+}
+.europe-pager button {
+  font: inherit;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card, #fffdf8);
+  cursor: pointer;
+}
+.europe-pager button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+#europe-table td.type-chemical,
+#europe-table .type-pill.chemical { color: #9a3412; }
+.type-pill {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.type-pill.conventional { color: #1d4ed8; }
+.type-pill.unknown { color: #44403c; }
+.type-pill.mixed { color: #6d28d9; }
+.kind-pill, .ospar-flag {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+#europe-table td.desc {
+  max-width: 28rem;
+  overflow-wrap: anywhere;
+}
+
+.stat-panel[data-kind="type"] .stat-bar > span { background: #1d4ed8; }
+.stat-panel[data-kind="kind"] .stat-bar > span { background: #b45309; }
+.stat-panel[data-kind="country"] .stat-bar > span { background: #1d4ed8; }
+
+/* Markercluster tweaks to sit on the site palette */
+.marker-cluster-small {
+  background-color: rgb(29 78 216 / 0.28);
+}
+.marker-cluster-small div {
+  background-color: rgb(29 78 216 / 0.72);
+  color: #fff;
+}
+.marker-cluster-medium {
+  background-color: rgb(180 83 9 / 0.28);
+}
+.marker-cluster-medium div {
+  background-color: rgb(180 83 9 / 0.8);
+  color: #fff;
+}
+.marker-cluster-large {
+  background-color: rgb(154 52 18 / 0.3);
+}
+.marker-cluster-large div {
+  background-color: rgb(154 52 18 / 0.88);
+  color: #fff;
+}
+.marker-cluster div {
+  font-family: var(--sans, sans-serif);
+  font-weight: 600;
+}
+
+.europe-popup h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.35rem;
+}
+.europe-popup p { margin: 0 0 0.35rem; }
+.europe-popup .muted { color: var(--muted); font-size: 0.85rem; }
+.europe-popup .warn {
+  color: #9a3412;
+  font-weight: 600;
+}
+
+#europe-empty { margin: 0.5rem 0; }
+
+@media (max-width: 700px) {
+  #europe-map { min-height: 280px; height: 55vh; }
+  #europe-table td.desc { max-width: 16rem; }
+}
