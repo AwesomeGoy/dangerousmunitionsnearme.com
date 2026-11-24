@@ -197,7 +197,7 @@
         body: body.toString()
       }).then(function (r) { return r.json(); }).then(function (res) {
         if (res && res.success) {
-          setStatus(statusEl, "Check your email to confirm this signup. No alerts will be sent until you confirm.", false);
+          setStatus(statusEl, "You're in. If you're new, check your email to confirm.", false);
           form.setAttribute("data-alerts-done", "true");
         } else {
           var msg = (res && res.message) ? res.message : "Something went wrong. Please try again.";
