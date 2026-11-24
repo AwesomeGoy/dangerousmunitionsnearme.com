@@ -34,12 +34,13 @@
         <h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
         <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
       </div>
-      <nav><a href="../index.html">Tracker</a><a href="../nearby.html">Live near one?</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../about.html">About / methods</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
+      <nav><a href="../index.html">Tracker</a><a href="../nearby.html">Live near one?</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../records.html">Records request</a><a href="../stories.html">Neighbor stories</a><a href="../about.html">About / methods</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
     </div>
   </header>
   <main class="wrap">
     
     <p><a href="../index.html">← All sites</a></p>
+    <p class="toolbar-links no-print"><a href="los-alamos-national-laboratory-sheet.html">Printable fact sheet</a> · <a href="../records.html">Records request kit</a> · <a href="../stories.html">Neighbor stories</a></p>
     <h2>Los Alamos National Laboratory</h2>
     <p><span class="badge partly">partly verified</span>
        <span class="badge depth">Department of Energy</span>
@@ -59,22 +60,34 @@
       <dt>Last checked</dt><dd>2026-11-23</dd>
     </dl>
     
-        <div id="map" role="region" aria-label="Map of this site"></div>
-        <p class="legend">EPA FRS RCRAINFO NM0890010515 (NAD83). INTERPOLATION-MAP, accuracy_value=3, reference: POINT WHERE SUBSTANCE IS RELEASED</p>
-        <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
-        <script src="../lib/leaflet/leaflet.js"></script>
-        <script>
-          const map = L.map('map').setView([35.873967, -106.3195], 9);
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            maxZoom: 18
-          }).addTo(map);
-          L.Icon.Default.imagePath = '../lib/leaflet/images/';
-          L.circleMarker([35.873967, -106.3195], {
-            radius: 10, color: '#1c1917', weight: 1, fillColor: '#b45309', fillOpacity: 0.9
-          }).addTo(map).bindPopup("Los Alamos National Laboratory");
-        </script>
-        
+    <div class="layer-controls no-print">
+      <label><input type="checkbox" id="layer-schools" checked> Public schools</label>
+      <label><input type="checkbox" id="layer-water" checked> Rivers and waterbodies</label>
+      <label><input type="checkbox" id="layer-radius" checked> 10-mile ring</label>
+    </div>
+    <div id="map" role="region" aria-label="Map of this site and nearby schools and water"
+         data-lat="35.873967" data-lon="-106.3195" data-name="Los Alamos National Laboratory"
+         data-layers="../data/layers/los-alamos-national-laboratory.json"
+         data-icon-path="../lib/leaflet/images/"></div>
+    <p class="layer-note" id="layer-counts">School and surface-water overlays load from a static extract within about 10 miles. Public water wells are not mapped.</p>
+    <p class="legend">EPA FRS RCRAINFO NM0890010515 (NAD83). INTERPOLATION-MAP, accuracy_value=3, reference: POINT WHERE SUBSTANCE IS RELEASED Map tiles © OpenStreetMap contributors (ODbL). School points are from NCES EDGE 2023-24 (public domain). Surface water is from EPA NHDPlus or, outside the conterminous U.S., the USGS National Hydrography Dataset (public domain).</p>
+    <script src="../lib/leaflet/leaflet.js"></script>
+    <script src="../js/site-map.js"></script>
+    
+    
+    <div class="wind-box">
+      <svg class="wind-rose" viewBox="0 0 150 150" width="150" height="150" role="img" aria-label="Wind rose showing prevailing wind from S"><circle cx="75.0" cy="75.0" r="62.0" fill="#fffdf8" stroke="#d6d0c7"/><text x="75.0" y="5.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">N</text><text x="145.0" y="75.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">E</text><text x="75.0" y="145.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">S</text><text x="5.0" y="75.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">W</text><path d="M 75.0 75.0 L 72.5 61.7 L 77.2 61.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 74.9 63.8 L 78.7 64.4 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 76.7 64.6 L 80.2 65.8 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 78.9 63.9 L 82.5 65.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 81.4 63.6 L 84.9 66.5 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 84.0 64.0 L 87.2 67.8 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 85.2 66.3 L 87.6 70.3 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 86.3 68.3 L 87.9 72.6 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 86.2 70.8 L 87.0 74.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 85.4 73.1 L 85.4 76.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 84.0 74.9 L 83.4 78.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 84.4 76.6 L 83.3 79.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 85.2 78.6 L 83.3 81.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 85.8 81.1 L 83.1 84.4 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 87.3 85.1 L 83.1 88.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 87.4 89.6 L 81.7 92.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 88.0 97.1 L 79.7 100.2 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 89.3 113.1 L 75.4 115.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 83.1 118.8 L 67.6 119.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 75.5 129.0 L 57.0 125.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 66.6 125.3 L 49.9 119.4 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 58.9 120.4 L 44.4 112.1 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 54.7 110.8 L 43.7 101.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 53.4 101.2 L 45.8 92.2 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 51.2 95.4 L 45.6 86.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 53.7 87.5 L 50.7 79.5 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 53.8 82.9 L 52.4 75.2 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 50.6 79.5 L 50.5 70.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 51.9 75.2 L 53.2 67.3 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 57.0 72.0 L 59.1 66.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 59.7 69.6 L 62.5 64.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 64.7 69.2 L 67.4 66.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 67.8 69.0 L 70.2 66.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 68.2 67.0 L 71.3 65.2 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 68.2 63.4 L 72.5 61.8 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 70.0 61.6 L 74.9 60.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><line x1="75.0" y1="75.0" x2="84.2" y2="19.8" stroke="#9a3412" stroke-width="2" marker-end="url(#arrow)"/><defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#9a3412"/></marker></defs><circle cx="75.0" cy="75.0" r="2.5" fill="#1c1917"/></svg>
+      <div>
+        <h2>Prevailing wind</h2>
+        <p>A 2016-2025 wind rose from the nearest Iowa Environmental Mesonet ASOS/AWOS station,
+        <strong>LOS ALAMOS (LAM)</strong>, 2.8 miles away.
+        The most common wind is <strong>from the S</strong> (5.5% of non-calm observations in that sector).
+        The rust arrow points downwind of that pattern. Calm was recorded 22.3% of the time.</p>
+        <p class="wind-caveat">This is a multi-year pattern of wind observed at the nearest airport or weather station, not a smoke or burn-day forecast. Wind at the munitions site can differ from the station. Direction is the direction the wind blows FROM, in the meteorological convention. Period: 2016-01-01 to 2025-12-31.
+        Source: <a href="https://mesonet.agron.iastate.edu/sites/windrose.phtml?station=LAM&amp;network=NM_ASOS">IEM wind rose for this station</a>.</p>
+      </div>
+    </div>
+    
     <h2>Known energetics or munitions types</h2>
     <p>No sourced inventory is recorded in this draft.</p>
     <h2>Current status</h2>
@@ -84,7 +97,7 @@
     <h2>Notes</h2>
     <p>—</p>
     <h2>Sources</h2>
-    <ul class="sources"><li>EPA current OB/OD facilities list<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a></li><li>EPA FRS facility record, registry 110010571880<br><a href="https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110010571880">https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110010571880</a></li></ul>
+    <ul class="sources"><li>EPA current OB/OD facilities list<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a> <a class="archive-link" href="https://web.archive.org/web/20261104203301/https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">archived copy</a></li><li>EPA FRS facility record, registry 110010571880<br><a href="https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110010571880">https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110010571880</a></li></ul>
     
     <section class="nearby alerts-box" aria-labelledby="alerts-heading-site-los-alamos-national-laboratory">
       <h2 id="alerts-heading-site-los-alamos-national-laboratory">ZIP alerts <span class="coming-soon">Alerts coming soon</span></h2>

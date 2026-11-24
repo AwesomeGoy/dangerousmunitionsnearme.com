@@ -34,12 +34,13 @@
         <h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
         <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
       </div>
-      <nav><a href="../index.html">Tracker</a><a href="../nearby.html">Live near one?</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../about.html">About / methods</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
+      <nav><a href="../index.html">Tracker</a><a href="../nearby.html">Live near one?</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../records.html">Records request</a><a href="../stories.html">Neighbor stories</a><a href="../about.html">About / methods</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
     </div>
   </header>
   <main class="wrap">
     
     <p><a href="../index.html">← All sites</a></p>
+    <p class="toolbar-links no-print"><a href="nsf-indian-head-sheet.html">Printable fact sheet</a> · <a href="../records.html">Records request kit</a> · <a href="../stories.html">Neighbor stories</a></p>
     <h2>Naval Support Facility Indian Head</h2>
     <p><span class="badge partly">partly verified</span>
        <span class="badge depth">Navy</span>
@@ -59,22 +60,34 @@
       <dt>Last checked</dt><dd>2026-11-23</dd>
     </dl>
     
-        <div id="map" role="region" aria-label="Map of this site"></div>
-        <p class="legend">EPA FRS RCRAINFO MD4170024109 (NAD83). INTERPOLATION-MAP, accuracy_value=30, reference: POINT WHERE SUBSTANCE IS RELEASED</p>
-        <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
-        <script src="../lib/leaflet/leaflet.js"></script>
-        <script>
-          const map = L.map('map').setView([38.585316, -77.163849], 9);
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            maxZoom: 18
-          }).addTo(map);
-          L.Icon.Default.imagePath = '../lib/leaflet/images/';
-          L.circleMarker([38.585316, -77.163849], {
-            radius: 10, color: '#1c1917', weight: 1, fillColor: '#b45309', fillOpacity: 0.9
-          }).addTo(map).bindPopup("Naval Support Facility Indian Head");
-        </script>
-        
+    <div class="layer-controls no-print">
+      <label><input type="checkbox" id="layer-schools" checked> Public schools</label>
+      <label><input type="checkbox" id="layer-water" checked> Rivers and waterbodies</label>
+      <label><input type="checkbox" id="layer-radius" checked> 10-mile ring</label>
+    </div>
+    <div id="map" role="region" aria-label="Map of this site and nearby schools and water"
+         data-lat="38.585316" data-lon="-77.163849" data-name="Naval Support Facility Indian Head"
+         data-layers="../data/layers/nsf-indian-head.json"
+         data-icon-path="../lib/leaflet/images/"></div>
+    <p class="layer-note" id="layer-counts">School and surface-water overlays load from a static extract within about 10 miles. Public water wells are not mapped.</p>
+    <p class="legend">EPA FRS RCRAINFO MD4170024109 (NAD83). INTERPOLATION-MAP, accuracy_value=30, reference: POINT WHERE SUBSTANCE IS RELEASED Map tiles © OpenStreetMap contributors (ODbL). School points are from NCES EDGE 2023-24 (public domain). Surface water is from EPA NHDPlus or, outside the conterminous U.S., the USGS National Hydrography Dataset (public domain).</p>
+    <script src="../lib/leaflet/leaflet.js"></script>
+    <script src="../js/site-map.js"></script>
+    
+    
+    <div class="wind-box">
+      <svg class="wind-rose" viewBox="0 0 150 150" width="150" height="150" role="img" aria-label="Wind rose showing prevailing wind from NW"><circle cx="75.0" cy="75.0" r="62.0" fill="#fffdf8" stroke="#d6d0c7"/><text x="75.0" y="5.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">N</text><text x="145.0" y="75.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">E</text><text x="75.0" y="145.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">S</text><text x="5.0" y="75.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#57534e">W</text><path d="M 75.0 75.0 L 73.7 68.1 L 76.2 68.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 74.9 68.4 L 77.2 68.8 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 76.0 69.2 L 77.9 69.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 76.5 70.6 L 77.9 71.4 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 76.5 72.4 L 77.3 73.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 76.7 72.9 L 77.3 73.6 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 76.8 73.4 L 77.3 74.2 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 76.9 73.9 L 77.2 74.6 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 77.9 73.9 L 78.0 75.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 79.0 74.3 L 79.0 75.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 82.3 74.9 L 81.9 77.4 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 86.6 76.9 L 85.2 80.8 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 95.3 82.2 L 91.6 88.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 97.7 87.9 L 92.0 94.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 97.1 93.3 L 89.6 99.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 92.6 95.7 L 84.5 100.4 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 87.9 96.9 L 79.6 100.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 84.4 100.2 L 75.2 101.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 79.6 100.1 L 70.8 100.1 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 75.2 93.0 L 69.0 91.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 73.1 86.3 L 69.4 85.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 72.4 82.4 L 70.0 81.1 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 72.1 80.1 L 70.5 78.8 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 72.3 78.3 L 71.3 77.2 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 71.2 78.3 L 70.3 76.8 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 69.9 78.0 L 69.2 76.1 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 68.2 77.5 L 67.7 75.1 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 63.2 77.2 L 63.1 73.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 55.9 75.2 L 57.0 68.6 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 44.7 69.9 L 48.3 59.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 31.6 59.6 L 39.5 45.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 28.0 48.4 L 39.9 33.9 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 39.8 46.0 L 51.8 35.7 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 57.0 53.9 L 65.3 49.0 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 66.4 60.5 L 71.9 58.4 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><path d="M 75.0 75.0 L 71.2 64.9 L 74.9 64.2 Z" fill="#1e3a5f" fill-opacity="0.55" stroke="#1e3a5f" stroke-width="0.4"/><line x1="75.0" y1="75.0" x2="118.2" y2="110.6" stroke="#9a3412" stroke-width="2" marker-end="url(#arrow)"/><defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#9a3412"/></marker></defs><circle cx="75.0" cy="75.0" r="2.5" fill="#1c1917"/></svg>
+      <div>
+        <h2>Prevailing wind</h2>
+        <p>A 2016-2025 wind rose from the nearest Iowa Environmental Mesonet ASOS/AWOS station,
+        <strong>FORT BELVOIR/DAVISO (DAA)</strong>, 9.0 miles away.
+        The most common wind is <strong>from the NW</strong> (5.1% of non-calm observations in that sector).
+        The rust arrow points downwind of that pattern. Calm was recorded 45.6% of the time.</p>
+        <p class="wind-caveat">This is a multi-year pattern of wind observed at the nearest airport or weather station, not a smoke or burn-day forecast. Wind at the munitions site can differ from the station. Direction is the direction the wind blows FROM, in the meteorological convention. Period: 2016-01-01 to 2025-12-31.
+        Source: <a href="https://mesonet.agron.iastate.edu/sites/windrose.phtml?station=DAA&amp;network=VA_ASOS">IEM wind rose for this station</a>.</p>
+      </div>
+    </div>
+    
     <h2>Known energetics or munitions types</h2>
     <p>An EPA federal-facility document (posted June 2025) states that Naval Surface Warfare Center Indian Head Division — formerly the Naval Ordnance Station, Naval Propellant Plant, Naval Powder Factory, and Naval Proving Grounds — is the lead Navy activity for propellants, explosives, and pyrotechnics (energetics), and conducts engineering, manufacturing, research and development, and testing of energetic materials and ordnance devices. The same document says a RCRA Part B, Subpart X permit application for thermal treatment of explosives was submitted to EPA on November 8, 1988, for both the Main Area and the Stump Neck Annex, and that both activities remain in interim status for those miscellaneous units. The installation was added to the Superfund National Priorities List in September 1995. This draft does not have a current item-level inventory.</p>
     <h2>Current status</h2>
@@ -84,7 +97,7 @@
     <h2>Notes</h2>
     <p>See also the Stump Neck Annex record (MD4170090001), which is a separate EPA ID under the same NSWC Indian Head activity.</p>
     <h2>Sources</h2>
-    <ul class="sources"><li>EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a></li><li>EPA FRS facility coordinates for RCRA ID MD4170024109<br><a href="https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8</a></li><li>EPA, Naval Surface Warfare Center Indian Head Division facility document (posted June 2025)<br><a href="https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf">https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf</a></li><li>EPA Superfund site profile, Indian Head Naval Surface Warfare Center<br><a href="https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.cleanup&amp;id=0300430">https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.cleanup&amp;id=0300430</a></li></ul>
+    <ul class="sources"><li>EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a> <a class="archive-link" href="https://web.archive.org/web/20261104203301/https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">archived copy</a></li><li>EPA FRS facility coordinates for RCRA ID MD4170024109<br><a href="https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8</a> <a class="archive-link" href="https://web.archive.org/web/20261108223920/https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">archived copy</a></li><li>EPA, Naval Surface Warfare Center Indian Head Division facility document (posted June 2025)<br><a href="https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf">https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf</a> <a class="archive-link" href="https://web.archive.org/web/20260615173047/https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf">archived copy</a></li><li>EPA Superfund site profile, Indian Head Naval Surface Warfare Center<br><a href="https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.cleanup&amp;id=0300430">https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.cleanup&amp;id=0300430</a> <a class="archive-link" href="https://web.archive.org/web/20260609200802/https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.Cleanup&amp;id=0300430">archived copy</a></li></ul>
     
     <section class="nearby alerts-box" aria-labelledby="alerts-heading-site-nsf-indian-head">
       <h2 id="alerts-heading-site-nsf-indian-head">ZIP alerts <span class="coming-soon">Alerts coming soon</span></h2>

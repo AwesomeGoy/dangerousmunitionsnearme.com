@@ -1,0 +1,1 @@
+{"site_id": "tooele-army-depot-south", "generated": "2026-11-23", "station": {"sid": "T62", "name": "TOOELE", "network": "UT_ASOS", "state": "UT", "lat": 40.3167, "lon": -112.3, "online": false, "archive_begin": "1951-07-01", "archive_end": "2002-09-30", "miles": 2.7}, "error": "no wind rose sectors parsed"}

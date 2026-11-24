@@ -519,3 +519,157 @@ td a,
   table { word-break: break-word; }
   th, td { white-space: normal; }
 }
+
+
+/* --- Thor-7 additions: map layers, wind, records, stories, fact sheets, archives --- */
+.layer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.1rem;
+  align-items: center;
+  font-size: 0.88rem;
+  margin: 0.35rem 0 0.6rem;
+}
+.layer-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+}
+.layer-controls input { accent-color: var(--link); }
+.layer-note { color: var(--muted); font-size: 0.85rem; margin: 0.2rem 0 0.8rem; max-width: 46rem; }
+.swatch.school { background: #1d4ed8; border-color: #1e3a8a; border-radius: 2px; }
+.swatch.water { background: #0284c7; border-color: #0369a1; border-radius: 2px; }
+
+.wind-box {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0.75rem 1.2rem;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0;
+}
+.wind-box h2 { margin: 0 0 0.3rem; }
+.wind-box p { margin: 0.25rem 0; }
+.wind-rose { width: 150px; height: 150px; display: block; }
+.wind-caveat { color: var(--muted); font-size: 0.85rem; max-width: 40rem; }
+@media (max-width: 700px) {
+  .wind-box { grid-template-columns: 1fr; justify-items: start; }
+}
+
+.archive-link {
+  font-size: 0.8rem;
+  margin-left: 0.35rem;
+  white-space: nowrap;
+}
+.toolbar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0.7rem 0 1rem;
+  font-weight: 600;
+}
+
+.letter-form label, .stories-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.7rem;
+}
+.letter-form input, .letter-form select, .letter-form textarea,
+.stories-form input, .stories-form select, .stories-form textarea {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.45rem 0.55rem;
+  background: var(--card);
+  width: 100%;
+  max-width: 40rem;
+}
+.letter-form textarea, .stories-form textarea { min-height: 5rem; max-width: 46rem; }
+.letter-actions, .stories-form .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.6rem 0 1rem; }
+.letter-actions button, .stories-form button, .print-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--card);
+  cursor: pointer;
+}
+.letter-actions button[type="button"].secondary, .print-btn.secondary, .stories-form button[disabled] {
+  background: var(--card);
+  color: var(--ink);
+}
+.letter-preview {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  white-space: pre-wrap;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  max-width: 46rem;
+}
+.routing { margin: 1rem 0; }
+.routing dt { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 650; }
+.routing dd { margin: 0 0 0.5rem; }
+
+.stories-form[aria-disabled="true"], .stories-form.disabled {
+  opacity: 0.85;
+}
+.disabled-banner {
+  background: var(--banner-bg);
+  border: 1px solid var(--banner-line);
+  color: var(--banner);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  font-weight: 650;
+  margin: 0 0 1rem;
+}
+
+.factsheet {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem 1.15rem 1.3rem;
+}
+.factsheet h2 { margin-top: 0.9rem; }
+.factsheet .meta-list { font-size: 0.9rem; grid-template-columns: 9.5rem 1fr; }
+.factsheet .sources { font-size: 0.82rem; }
+.factsheet .incidents { font-size: 0.82rem; }
+.factsheet .url-line { font-size: 0.85rem; color: var(--muted); word-break: break-all; }
+
+@media print {
+  @page { size: letter; margin: 0.45in; }
+  body { background: #fff; font-size: 10.5pt; line-height: 1.35; }
+  .draft-banner, header.site-head, footer, .no-print, .alerts-box, nav, .nearby, .layer-controls, .letter-actions, .print-btn {
+    display: none !important;
+  }
+  a { color: #000; text-decoration: none; }
+  .factsheet {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    background: #fff;
+  }
+  .factsheet h2 { font-size: 12pt; margin: 0.55rem 0 0.25rem; }
+  .factsheet h1, .factsheet .sheet-title { font-size: 16pt; margin: 0 0 0.2rem; }
+  #map, .wind-rose { break-inside: avoid; }
+  .wind-box { grid-template-columns: 120px 1fr; border: 0; padding: 0; }
+  .meta-list { grid-template-columns: 8.5rem 1fr; }
+}

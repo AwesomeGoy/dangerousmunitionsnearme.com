@@ -1,0 +1,1 @@
+{"site_id": "navy-region-hawaii-waipio", "generated": "2026-11-23", "station": {"sid": "PHIK", "name": "Hickman AFB", "network": "HI_ASOS", "state": "HI", "lat": 21.3187, "lon": -157.9224, "online": false, "archive_begin": "1948-01-01", "archive_end": "2016-03-02", "miles": 5.1}, "error": "no wind rose sectors parsed"}

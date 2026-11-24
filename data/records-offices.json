@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "title": "Records-request routing for this draft",
+    "status": "DRAFT, not published",
+    "last_checked": "2026-11-23",
+    "note": "Routing is to official agency FOIA or public-records pages. Private contractors are not themselves subject to FOIA; records about those sites are requested from the agency that holds them. Addresses and portals can change; check the official page before sending."
+  },
+  "federal": {
+    "army": {
+      "component": "Department of the Army, Freedom of Information Act office",
+      "url": "https://www.foia.army.mil/",
+      "portal": "Submit through the Army FOIA page or FOIA.gov after confirming the current installation or command office.",
+      "notes": "Name the installation and, if known, the command (for example Joint Munitions Command or the garrison). The Army FOIA page lists component offices."
+    },
+    "air_force": {
+      "component": "Department of the Air Force FOIA Requester Service Center",
+      "url": "https://www.foia.af.mil/",
+      "portal": "https://www.foia.af.mil/",
+      "notes": "Covers U.S. Air Force and, for many records, U.S. Space Force installations. Name the base and unit if you know them."
+    },
+    "navy": {
+      "component": "Department of the Navy FOIA / Privacy Division (Office of the Secretary of the Navy)",
+      "url": "https://www.secnav.navy.mil/foia/Pages/default.aspx",
+      "portal": "https://www.secnav.navy.mil/foia/Pages/default.aspx",
+      "notes": "Covers Navy commands and, through Department of the Navy policy, many Marine Corps records. Name the installation and command."
+    },
+    "marines": {
+      "component": "U.S. Marine Corps FOIA (Department of the Navy)",
+      "url": "https://www.hqmc.marines.mil/Agencies/USMC-FOIA/",
+      "portal": "https://www.hqmc.marines.mil/Agencies/USMC-FOIA/",
+      "notes": "Marine Corps FOIA is administered with Department of the Navy FOIA procedures. You may also use the Navy FOIA page if the Marine Corps page is unavailable."
+    },
+    "whs": {
+      "component": "Department of Defense, Washington Headquarters Services / OSD FOIA",
+      "url": "https://www.esd.whs.mil/FOIA/",
+      "portal": "https://www.esd.whs.mil/FOIA/",
+      "notes": "Use this when the records are held by OSD or a DoD component not listed separately, or when the lead service is unclear. FOIA.gov can also route a request."
+    },
+    "doe": {
+      "component": "U.S. Department of Energy FOIA",
+      "url": "https://www.energy.gov/management/freedom-information-act",
+      "portal": "https://www.energy.gov/management/freedom-information-act",
+      "notes": "NNSA sites (for example Pantex, Los Alamos, Sandia, and the Nevada Field Office) may also be requested through the NNSA FOIA office: https://www.energy.gov/nnsa/nnsa-freedom-information-act-foia"
+    },
+    "nasa": {
+      "component": "NASA FOIA",
+      "url": "https://www.nasa.gov/foia",
+      "portal": "https://www.nasa.gov/foia",
+      "notes": "Name the NASA center (for Wallops, NASA Goddard Space Flight Center / Wallops Flight Facility)."
+    },
+    "epa": {
+      "component": "U.S. Environmental Protection Agency FOIA",
+      "url": "https://www.epa.gov/foia",
+      "portal": "https://www.epa.gov/foia",
+      "notes": "Use EPA FOIA for EPA-held permit, inspection, and enforcement records, including many RCRA files. Name the EPA ID if you have it. State environmental agencies often hold the operating permit file as well."
+    }
+  },
+  "by_sector": {
+    "army": "army",
+    "air_force": "air_force",
+    "navy": "navy",
+    "marines": "marines",
+    "other_dod": "whs",
+    "doe": "doe",
+    "nasa": "nasa",
+    "contractor": "epa",
+    "other": "epa"
+  },
+  "overrides": {
+    "jb-charleston-weapons": "navy",
+    "jbsa-camp-bullis": "army",
+    "doe-pantex": "doe",
+    "doe-nnsa-nfo": "doe",
+    "los-alamos-national-laboratory": "doe",
+    "sandia-national-laboratories": "doe",
+    "llnl-site-300": "doe",
+    "nasa-wallops": "nasa",
+    "cape-canaveral-sfs": "air_force",
+    "vandenberg-afb": "air_force",
+    "utah-test-and-training-range": "air_force"
+  },
+  "states": {
+    "AL": {
+      "agency": "Alabama official or the Alabama Attorney General",
+      "law": "Alabama Open Records Act, Ala. Code \u00a7 36-12-40 et seq.",
+      "url": "https://www.alabamaag.gov/",
+      "notes": "Many environmental records are held by the Alabama Department of Environmental Management."
+    },
+    "AR": {
+      "agency": "Arkansas official or the Arkansas Attorney General",
+      "law": "Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
+      "url": "https://arkansasag.gov/divisions/public-protection/foia/",
+      "notes": ""
+    },
+    "AZ": {
+      "agency": "Arizona official or the Arizona Attorney General",
+      "law": "Arizona Public Records Law, A.R.S. \u00a7\u00a7 39-121 et seq.",
+      "url": "https://www.azag.gov/find-help/public-records",
+      "notes": ""
+    },
+    "CA": {
+      "agency": "California official or the California Attorney General",
+      "law": "California Public Records Act, Cal. Gov. Code \u00a7 7920.000 et seq.",
+      "url": "https://oag.ca.gov/open-government",
+      "notes": ""
+    },
+    "CO": {
+      "agency": "Colorado official or the Colorado Attorney General",
+      "law": "Colorado Open Records Act (CORA), C.R.S. \u00a7 24-72-201 et seq.",
+      "url": "https://www.sos.state.co.us/pubs/info_center/openRecordsLaw.html",
+      "notes": ""
+    },
+    "FL": {
+      "agency": "Florida official or the Florida Attorney General",
+      "law": "Florida Public Records Law, Chapter 119, Florida Statutes",
+      "url": "https://www.myfloridalegal.com/open-government",
+      "notes": ""
+    },
+    "GA": {
+      "agency": "Georgia official or the Georgia Attorney General",
+      "law": "Georgia Open Records Act, O.C.G.A. \u00a7 50-18-70 et seq.",
+      "url": "https://law.georgia.gov/",
+      "notes": ""
+    },
+    "GU": {
+      "agency": "Government of Guam official",
+      "law": "Guam Sunshine Reform Act of 1999, 5 GCA Chapter 10",
+      "url": "https://oagguam.org/",
+      "notes": ""
+    },
+    "HI": {
+      "agency": "Hawaii Office of Information Practices",
+      "law": "Uniform Information Practices Act, Haw. Rev. Stat. Chapter 92F",
+      "url": "https://oip.hawaii.gov/",
+      "notes": ""
+    },
+    "IA": {
+      "agency": "Iowa Public Information Board",
+      "law": "Iowa Open Records Law, Iowa Code Chapter 22",
+      "url": "https://ipib.iowa.gov/",
+      "notes": ""
+    },
+    "IL": {
+      "agency": "Illinois Attorney General, Public Access Bureau",
+      "law": "Illinois Freedom of Information Act, 5 ILCS 140",
+      "url": "https://foia.ilattorneygeneral.net/",
+      "notes": ""
+    },
+    "IN": {
+      "agency": "Indiana Public Access Counselor / Indiana official",
+      "law": "Indiana Access to Public Records Act, Ind. Code \u00a7 5-14-3",
+      "url": "https://www.in.gov/pac/",
+      "notes": ""
+    },
+    "KS": {
+      "agency": "Kansas official or the Kansas Attorney General",
+      "law": "Kansas Open Records Act, K.S.A. 45-215 et seq.",
+      "url": "https://www.ag.ks.gov/legal-services/open-government",
+      "notes": ""
+    },
+    "KY": {
+      "agency": "Kentucky Attorney General, Open Records",
+      "law": "Kentucky Open Records Act, KRS 61.870 et seq.",
+      "url": "https://www.ag.ky.gov/orom/Pages/default.aspx",
+      "notes": ""
+    },
+    "LA": {
+      "agency": "Louisiana official or the Louisiana Attorney General",
+      "law": "Louisiana Public Records Law, La. R.S. 44:1 et seq.",
+      "url": "https://www.ag.state.la.us/",
+      "notes": ""
+    },
+    "MD": {
+      "agency": "Maryland Attorney General, Public Information Act",
+      "law": "Maryland Public Information Act, Md. Code Ann., General Provisions \u00a7 4-101 et seq.",
+      "url": "https://www.marylandattorneygeneral.gov/Pages/OpenGov/pia.aspx",
+      "notes": ""
+    },
+    "MN": {
+      "agency": "Minnesota official, Data Practices Office",
+      "law": "Minnesota Government Data Practices Act, Minn. Stat. Chapter 13",
+      "url": "https://mn.gov/admin/data-practices/",
+      "notes": ""
+    },
+    "MO": {
+      "agency": "Missouri Attorney General, Sunshine Law",
+      "law": "Missouri Sunshine Law, Chapter 610, RSMo",
+      "url": "https://ago.mo.gov/missouri-law/sunshine-law",
+      "notes": ""
+    },
+    "MP": {
+      "agency": "Commonwealth of the Northern Mariana Islands official",
+      "law": "CNMI Open Government Act (public records provisions of Commonwealth law)",
+      "url": "https://www.cnmiag.org/",
+      "notes": "Confirm the current official receiving office before sending. This draft lists a Commonwealth attorney-general starting point only."
+    },
+    "NJ": {
+      "agency": "New Jersey Government Records Council",
+      "law": "New Jersey Open Public Records Act (OPRA), N.J.S.A. 47:1A-1 et seq.",
+      "url": "https://www.nj.gov/grc/",
+      "notes": ""
+    },
+    "NM": {
+      "agency": "New Mexico Attorney General, Inspection of Public Records",
+      "law": "New Mexico Inspection of Public Records Act, NMSA 1978, \u00a7 14-2-1 et seq.",
+      "url": "https://www.nmag.gov/ipra/",
+      "notes": ""
+    },
+    "NV": {
+      "agency": "Nevada official or the Nevada Attorney General",
+      "law": "Nevada Public Records Act, NRS Chapter 239",
+      "url": "https://ag.nv.gov/",
+      "notes": ""
+    },
+    "OH": {
+      "agency": "Ohio Attorney General, Sunshine Laws",
+      "law": "Ohio Public Records Act, R.C. 149.43",
+      "url": "https://www.ohioattorneygeneral.gov/Legal/Sunshine-Laws",
+      "notes": ""
+    },
+    "OK": {
+      "agency": "Oklahoma official or the Oklahoma Attorney General",
+      "law": "Oklahoma Open Records Act, 51 O.S. \u00a7 24A.1 et seq.",
+      "url": "https://www.oag.ok.gov/",
+      "notes": ""
+    },
+    "PA": {
+      "agency": "Pennsylvania Office of Open Records",
+      "law": "Pennsylvania Right-to-Know Law, 65 P.S. \u00a7 67.101 et seq.",
+      "url": "https://www.openrecords.pa.gov/",
+      "notes": ""
+    },
+    "SC": {
+      "agency": "South Carolina official or the South Carolina Attorney General",
+      "law": "South Carolina Freedom of Information Act, S.C. Code Ann. \u00a7 30-4-10 et seq.",
+      "url": "https://www.scag.gov/",
+      "notes": ""
+    },
+    "SD": {
+      "agency": "South Dakota official or the South Dakota Attorney General",
+      "law": "South Dakota public records law, SDCL Chapter 1-27",
+      "url": "https://atg.sd.gov/",
+      "notes": ""
+    },
+    "TN": {
+      "agency": "Tennessee official, public records",
+      "law": "Tennessee Public Records Act, Tenn. Code Ann. \u00a7 10-7-503 et seq.",
+      "url": "https://www.tn.gov/finance/section/public-records",
+      "notes": ""
+    },
+    "TX": {
+      "agency": "Texas Attorney General, Open Government",
+      "law": "Texas Public Information Act, Tex. Gov't Code Chapter 552",
+      "url": "https://www.texasattorneygeneral.gov/open-government",
+      "notes": ""
+    },
+    "UT": {
+      "agency": "Utah State Archives, GRAMA",
+      "law": "Utah Government Records Access and Management Act (GRAMA), Utah Code \u00a7 63G-2-101 et seq.",
+      "url": "https://archives.utah.gov/records-management/grama/",
+      "notes": ""
+    },
+    "VA": {
+      "agency": "Virginia Freedom of Information Advisory Council",
+      "law": "Virginia Freedom of Information Act, Va. Code \u00a7 2.2-3700 et seq.",
+      "url": "https://www.foiacouncil.dls.virginia.gov/",
+      "notes": ""
+    },
+    "WI": {
+      "agency": "Wisconsin Department of Justice, Office of Open Government",
+      "law": "Wisconsin Public Records Law, Wis. Stat. \u00a7\u00a7 19.31\u201319.39",
+      "url": "https://www.doj.state.wi.us/office-open-government/office-open-government",
+      "notes": ""
+    },
+    "WV": {
+      "agency": "West Virginia official or the West Virginia Attorney General",
+      "law": "West Virginia Freedom of Information Act, W. Va. Code \u00a7 29B-1-1 et seq.",
+      "url": "https://ago.wv.gov/",
+      "notes": ""
+    }
+  }
+}

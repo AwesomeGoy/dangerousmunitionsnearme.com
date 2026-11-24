@@ -1,0 +1,648 @@
+{
+  "generated": "2026-11-23",
+  "source": {
+    "name": "Internet Archive Wayback Machine",
+    "license": "Snapshot links; documents remain under their original copyright or public-domain status",
+    "url": "https://web.archive.org/",
+    "availability": "https://archive.org/wayback/available"
+  },
+  "count": 85,
+  "items": {
+    "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities": {
+      "url": "https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities",
+      "wayback_url": "https://web.archive.org/web/20261104203301/https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities",
+      "timestamp": "20261104203301",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8": {
+      "url": "https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8",
+      "wayback_url": "https://web.archive.org/web/20261108223920/https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8",
+      "timestamp": "20261108223920",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf": {
+      "url": "https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.war.gov/News/Releases/Release/Article/3451920/us-completes-chemical-weapons-stockpile-destruction-operations/": {
+      "url": "https://www.war.gov/News/Releases/Release/Article/3451920/us-completes-chemical-weapons-stockpile-destruction-operations/",
+      "wayback_url": "https://web.archive.org/web/20261016212841/https://www.war.gov/News/Releases/Release/Article/3451920/us-completes-chemical-weapons-stockpile-destruction-operations/",
+      "timestamp": "20261016212841",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.pdf": {
+      "url": "https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.pdf",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.pdf: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/redston-arsenal.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/redston-arsenal.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154529/https://www.epa.gov/system/files/documents/2025-05/redston-arsenal.pdf",
+      "timestamp": "20261108154529",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.army.mil/article/38599/explosion_at_redstone_arsenal": {
+      "url": "https://www.army.mil/article/38599/explosion_at_redstone_arsenal",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.army.mil/article/38599/explosion_at_redstone_arsenal: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/barry-m-goldwater-range.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/barry-m-goldwater-range.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154526/https://www.epa.gov/system/files/documents/2025-05/barry-m-goldwater-range.pdf",
+      "timestamp": "20261108154526",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/yuma-proving-ground.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/yuma-proving-ground.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154531/https://www.epa.gov/system/files/documents/2025-05/yuma-proving-ground.pdf",
+      "timestamp": "20261108154531",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/edwards-afb.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/edwards-afb.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154527/https://www.epa.gov/system/files/documents/2025-05/edwards-afb.pdf",
+      "timestamp": "20261108154527",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/naval-air-weapons-station-china-lake.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/naval-air-weapons-station-china-lake.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154536/https://www.epa.gov/system/files/documents/2025-05/naval-air-weapons-station-china-lake.pdf",
+      "timestamp": "20261108154536",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/newsreleases/us-epa-requires-safer-management-hazardous-waste-naval-air-weapons-station-china-lake": {
+      "url": "https://www.epa.gov/newsreleases/us-epa-requires-safer-management-hazardous-waste-naval-air-weapons-station-china-lake",
+      "wayback_url": "https://web.archive.org/web/20260717143451/https://www.epa.gov/newsreleases/us-epa-requires-safer-management-hazardous-waste-naval-air-weapons-station-china-lake",
+      "timestamp": "20260717143451",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/vandenberg-afb.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/vandenberg-afb.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154531/https://www.epa.gov/system/files/documents/2025-05/vandenberg-afb.pdf",
+      "timestamp": "20261108154531",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/cape-canaveral-sfs.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/cape-canaveral-sfs.pdf",
+      "wayback_url": "https://web.archive.org/web/20260218202958/https://www.epa.gov/system/files/documents/2025-05/cape-canaveral-sfs.pdf",
+      "timestamp": "20260218202958",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/eglin-air-force-base.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/eglin-air-force-base.pdf",
+      "wayback_url": "https://web.archive.org/web/20260218203021/https://www.epa.gov/system/files/documents/2025-05/eglin-air-force-base.pdf",
+      "timestamp": "20260218203021",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-08/naval-submarine-base-kings-bay.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-08/naval-submarine-base-kings-bay.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154537/https://www.epa.gov/system/files/documents/2025-08/naval-submarine-base-kings-bay.pdf",
+      "timestamp": "20261108154537",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/2262813/navy-controlled-detonations-to-occur-over-next-several-weeks-at-waipio-peninsul/": {
+      "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/2262813/navy-controlled-detonations-to-occur-over-next-several-weeks-at-waipio-peninsul/",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/2262813/navy-controlled-detonations-to-occur-over-next-several-weeks-at-waipio-peninsul/: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://statelegals.staradvertiser.com/2024/08/15/0001462891-01/": {
+      "url": "https://statelegals.staradvertiser.com/2024/08/15/0001462891-01/",
+      "wayback_url": "https://web.archive.org/web/20260515202243/https://statelegals.staradvertiser.com/2024/08/15/0001462891-01/",
+      "timestamp": "20260515202243",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-3": {
+      "url": "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-3",
+      "wayback_url": "https://web.archive.org/web/20261123002853/https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-3",
+      "timestamp": "20261123002853",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.army.mil/article/296990/army_update_on_iowa_army_ammunition_plant": {
+      "url": "https://www.army.mil/article/296990/army_update_on_iowa_army_ammunition_plant",
+      "wayback_url": "https://web.archive.org/web/20261123113330/https://www.army.mil/article/296990/army_update_on_iowa_army_ammunition_plant",
+      "timestamp": "20261123113330",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78364.pdf": {
+      "url": "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78364.pdf",
+      "wayback_url": "https://web.archive.org/web/20261123190351/https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78364.pdf",
+      "timestamp": "20261123190351",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78363.pdf": {
+      "url": "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78363.pdf",
+      "wayback_url": "https://web.archive.org/web/20261121191135/https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_78363.pdf",
+      "timestamp": "20261121191135",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.courtlistener.com/docket/75150222/iowa-environmental-council-v-epa/": {
+      "url": "https://www.courtlistener.com/docket/75150222/iowa-environmental-council-v-epa/",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.courtlistener.com/docket/75150222/iowa-environmental-council-v-epa/: HTTP Error 520: UNKNOWN",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.iowapublicradio.org/ipr-news/2026-11-23/trump-orders-army-stop-lead-blast-iowa": {
+      "url": "https://www.iowapublicradio.org/ipr-news/2026-11-23/trump-orders-army-stop-lead-blast-iowa",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.iowapublicradio.org/ipr-news/2026-11-23/trump-orders-army-stop-lead-blast-iowa: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.army.mil/article/122127/picatinny_aims_for_green_with_new_type_of_primary_explosive": {
+      "url": "https://www.army.mil/article/122127/picatinny_aims_for_green_with_new_type_of_primary_explosive",
+      "wayback_url": "https://web.archive.org/web/20261119181014/https://www.army.mil/article/122127/picatinny_aims_for_green_with_new_type_of_primary_explosive",
+      "timestamp": "20261119181014",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://apps.dtic.mil/sti/citations/ADP004872": {
+      "url": "https://apps.dtic.mil/sti/citations/ADP004872",
+      "wayback_url": "https://web.archive.org/web/20200814201349/https://apps.dtic.mil/sti/citations/ADP004872",
+      "timestamp": "20200814201349",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt": {
+      "url": "https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt",
+      "available": true,
+      "error": "save failed: GET failed https://web.archive.org/save/https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "already-archive",
+      "action": "existing",
+      "wayback_url": "https://archive.org/download/DTIC_ADA152150/DTIC_ADA152150_djvu.txt"
+    },
+    "https://www.denix.osd.mil/armybrac/illinois-active-component/savanna-army-depot-activity/": {
+      "url": "https://www.denix.osd.mil/armybrac/illinois-active-component/savanna-army-depot-activity/",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.denix.osd.mil/armybrac/illinois-active-component/savanna-army-depot-activity/: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_72674.pdf": {
+      "url": "https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_72674.pdf",
+      "wayback_url": "https://web.archive.org/web/20250208211857/https://d34w7g4gy10iej.cloudfront.net/pubs/pdf_72674.pdf",
+      "timestamp": "20250208211857",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.suncommercial.com/gcdailyworld/archives/article_7f398027-d9be-5e6a-81c0-ff5b1c0dde54.html": {
+      "url": "https://www.suncommercial.com/gcdailyworld/archives/article_7f398027-d9be-5e6a-81c0-ff5b1c0dde54.html",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.suncommercial.com/gcdailyworld/archives/article_7f398027-d9be-5e6a-81c0-ff5b1c0dde54.html: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf": {
+      "url": "https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf",
+      "wayback_url": "https://web.archive.org/web/20240629042234/https://www.epa.gov/sites/default/files/2015-03/documents/1150056.pdf",
+      "timestamp": "20240629042234",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/archive/epa/newsreleases/epa-approves-contained-burn-system-camp-minden-disposal.html": {
+      "url": "https://www.epa.gov/archive/epa/newsreleases/epa-approves-contained-burn-system-camp-minden-disposal.html",
+      "wayback_url": "https://web.archive.org/web/20261028065022/https://www.epa.gov/archive/epa/newsreleases/epa-approves-contained-burn-system-camp-minden-disposal.html",
+      "timestamp": "20261028065022",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://geauxguard.la.gov/2016/09/29/camp-minden-update-clean-burning-ignitor-combusted/": {
+      "url": "https://geauxguard.la.gov/2016/09/29/camp-minden-update-clean-burning-ignitor-combusted/",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://geauxguard.la.gov/2016/09/29/camp-minden-update-clean-burning-ignitor-combusted/: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://geauxguard.la.gov/2016/10/14/explosives-experts-cbi-must-be-destroyed-in-place/": {
+      "url": "https://geauxguard.la.gov/2016/10/14/explosives-experts-cbi-must-be-destroyed-in-place/",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://geauxguard.la.gov/2016/10/14/explosives-experts-cbi-must-be-destroyed-in-place/: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://geauxguard.la.gov/2017/04/21/update-camp-minden-m6-disposal-successfully-completed/": {
+      "url": "https://geauxguard.la.gov/2017/04/21/update-camp-minden-m6-disposal-successfully-completed/",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://geauxguard.la.gov/2017/04/21/update-camp-minden-m6-disposal-successfully-completed/: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://press-herald.com/leftover-m6-causes-stir-at-meeting/": {
+      "url": "https://press-herald.com/leftover-m6-causes-stir-at-meeting/",
+      "wayback_url": "https://web.archive.org/web/20250524220501/https://press-herald.com/leftover-m6-causes-stir-at-meeting/",
+      "timestamp": "20250524220501",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://ordspub.epa.gov/ords/cimc/f?p=CIMC:RCRA::::P14_RCRA_HANDLER_ID:LA0214022725": {
+      "url": "https://ordspub.epa.gov/ords/cimc/f?p=CIMC:RCRA::::P14_RCRA_HANDLER_ID:LA0214022725",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://ordspub.epa.gov/ords/cimc/f?p=CIMC:RCRA::::P14_RCRA_HANDLER_ID:LA0214022725: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://mde.maryland.gov/programs/land/Documents/APG%20Emergency%20Permit%202024/APG%20-%20emergency%20permit%2011-21-24%20signed.pdf": {
+      "url": "https://mde.maryland.gov/programs/land/Documents/APG%20Emergency%20Permit%202024/APG%20-%20emergency%20permit%2011-21-24%20signed.pdf",
+      "wayback_url": "https://web.archive.org/web/20250414025132/https://mde.maryland.gov/programs/land/Documents/APG%20Emergency%20Permit%202024/APG%20-%20emergency%20permit%2011-21-24%20signed.pdf",
+      "timestamp": "20250414025132",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20TD%20Notice%20and%20Fact%20Sheet%20-%205-20-22.pdf": {
+      "url": "https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20TD%20Notice%20and%20Fact%20Sheet%20-%205-20-22.pdf",
+      "wayback_url": "https://web.archive.org/web/20231117230900/https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20TD%20Notice%20and%20Fact%20Sheet%20-%205-20-22.pdf",
+      "timestamp": "20231117230900",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20Draft%20A-190%20CHS%20Permit%205-20-22%20redacted.pdf": {
+      "url": "https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20Draft%20A-190%20CHS%20Permit%205-20-22%20redacted.pdf",
+      "wayback_url": "https://web.archive.org/web/20250701011417/https://mde.maryland.gov/programs/land/Documents/APG%20HW%20Permit/APG%20-%20Draft%20A-190%20CHS%20Permit%205-20-22%20redacted.pdf",
+      "timestamp": "20250701011417",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf",
+      "wayback_url": "https://web.archive.org/web/20260615173047/https://www.epa.gov/system/files/documents/2025-06/navyswcindianhead.pdf",
+      "timestamp": "20260615173047",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.cleanup&id=0300430": {
+      "url": "https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.cleanup&id=0300430",
+      "wayback_url": "https://web.archive.org/web/20260609200802/https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.Cleanup&id=0300430",
+      "timestamp": "20260609200802",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://apnews.com/article/4a4af83a47ea4a608ab28eae9f1c6412": {
+      "url": "https://apnews.com/article/4a4af83a47ea4a608ab28eae9f1c6412",
+      "wayback_url": "https://web.archive.org/web/20231126082610/https://apnews.com/article/4a4af83a47ea4a608ab28eae9f1c6412",
+      "timestamp": "20231126082610",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://apnews.com/domestic-news-general-news-f00f91f83e7f4d3384a346263c2f45d2": {
+      "url": "https://apnews.com/domestic-news-general-news-f00f91f83e7f4d3384a346263c2f45d2",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://apnews.com/domestic-news-general-news-f00f91f83e7f4d3384a346263c2f45d2: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/hawthorne-ad-new-bomb.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/hawthorne-ad-new-bomb.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154532/https://www.epa.gov/system/files/documents/2025-05/hawthorne-ad-new-bomb.pdf",
+      "timestamp": "20261108154532",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/joint-base-charleston.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/joint-base-charleston.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154532/https://www.epa.gov/system/files/documents/2025-05/joint-base-charleston.pdf",
+      "timestamp": "20261108154532",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/marine-corps-air-station-beaufort.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/marine-corps-air-station-beaufort.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154534/https://www.epa.gov/system/files/documents/2025-05/marine-corps-air-station-beaufort.pdf",
+      "timestamp": "20261108154534",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.timesnews.net/business/army-gives-final-report-on-2019-explosion-at-haap/article_df039f0e-6c1a-5f6b-a376-da388e5ae61d.html": {
+      "url": "https://www.timesnews.net/business/army-gives-final-report-on-2019-explosion-at-haap/article_df039f0e-6c1a-5f6b-a376-da388e5ae61d.html",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.timesnews.net/business/army-gives-final-report-on-2019-explosion-at-haap/article_df039f0e-6c1a-5f6b-a376-da388e5ae61d.html: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/joint-base-san-antonio-camp-bullis.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/joint-base-san-antonio-camp-bullis.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154533/https://www.epa.gov/system/files/documents/2025-05/joint-base-san-antonio-camp-bullis.pdf",
+      "timestamp": "20261108154533",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.denix.osd.mil/armybrac/denix-files/sites/111/BRAC-2005-Installation-Reports.pdf": {
+      "url": "https://www.denix.osd.mil/armybrac/denix-files/sites/111/BRAC-2005-Installation-Reports.pdf",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://www.denix.osd.mil/armybrac/denix-files/sites/111/BRAC-2005-Installation-Reports.pdf: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/dugway-proving-ground.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/dugway-proving-ground.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154527/https://www.epa.gov/system/files/documents/2025-05/dugway-proving-ground.pdf",
+      "timestamp": "20261108154527",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/utah-test-training-range.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/utah-test-training-range.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154531/https://www.epa.gov/system/files/documents/2025-05/utah-test-training-range.pdf",
+      "timestamp": "20261108154531",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/system/files/documents/2025-05/naval-surface-warfare-center.pdf": {
+      "url": "https://www.epa.gov/system/files/documents/2025-05/naval-surface-warfare-center.pdf",
+      "wayback_url": "https://web.archive.org/web/20261108154528/https://www.epa.gov/system/files/documents/2025-05/naval-surface-warfare-center.pdf",
+      "timestamp": "20261108154528",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://apnews.com/general-news-domestic-news-domestic-news-9a869211a454431ea11867c4c82751b5": {
+      "url": "https://apnews.com/general-news-domestic-news-domestic-news-9a869211a454431ea11867c4c82751b5",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://apnews.com/general-news-domestic-news-domestic-news-9a869211a454431ea11867c4c82751b5: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110019877409": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110019877409",
+      "wayback_url": "https://web.archive.org/web/20260515172156/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110019877409",
+      "timestamp": "20260515172156",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000335389": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000335389",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000335389: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110070828367": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110070828367",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110070828367: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000345010": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000345010",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000345010: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110072233112": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110072233112",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110072233112: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000362232": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000362232",
+      "available": false,
+      "error": "save failed: GET failed https://web.archive.org/save/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000362232: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>",
+      "method": "save",
+      "action": "save-failed"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110025318948": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110025318948",
+      "wayback_url": "https://web.archive.org/web/20251110203612/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110025318948",
+      "timestamp": "20251110203612",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110056963727": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110056963727",
+      "wayback_url": "https://web.archive.org/web/20210327185116/https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110056963727",
+      "timestamp": "20210327185116",
+      "statuscode": "200",
+      "available": true,
+      "method": "availability",
+      "action": "existing"
+    },
+    "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-2": {
+      "url": "https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-2",
+      "wayback_url": "https://web.archive.org/web/20261104204422/https://www.epa.gov/ia/iowa-army-ammunition-plant-middletown-iowa-2",
+      "timestamp": "20261104204422",
+      "available": true,
+      "action": "existing",
+      "method": "availability"
+    },
+    "https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.html": {
+      "url": "https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.html",
+      "wayback_url": "https://web.archive.org/web/20260617072814/https://adem.alabama.gov/sites/default/files/2026-06/06-26rsa.html",
+      "timestamp": "20260617072814",
+      "available": true,
+      "action": "existing",
+      "method": "availability"
+    },
+    "https://www.noticeregistry.com/florida/notice/other-crawfordville-11713815": {
+      "url": "https://www.noticeregistry.com/florida/notice/other-crawfordville-11713815",
+      "available": false,
+      "action": "no-snapshot"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110015782107": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110015782107",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000395242": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000395242",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110009521703": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110009521703",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000859991": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000859991",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110001101922": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110001101922",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000746364": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000746364",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000911210": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000911210",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110010571880": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110010571880",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000701296": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000701296",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110002045368": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110002045368",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110034584304": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110034584304",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110016706448": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110016706448",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000494858": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000494858",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110067271650": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110067271650",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110002380254": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110002380254",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110032607329": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110032607329",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000781468": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000781468",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000484075": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110000484075",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110070616344": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110070616344",
+      "available": false,
+      "action": "not-retrieved"
+    },
+    "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110001136716": {
+      "url": "https://ofmpub.epa.gov/frs_public2/fii_query_detail.disp_program_facility?p_registry_id=110001136716",
+      "available": false,
+      "action": "not-retrieved"
+    }
+  }
+}

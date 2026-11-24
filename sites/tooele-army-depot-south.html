@@ -34,12 +34,13 @@
         <h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
         <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
       </div>
-      <nav><a href="../index.html">Tracker</a><a href="../nearby.html">Live near one?</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../about.html">About / methods</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
+      <nav><a href="../index.html">Tracker</a><a href="../nearby.html">Live near one?</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../records.html">Records request</a><a href="../stories.html">Neighbor stories</a><a href="../about.html">About / methods</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
     </div>
   </header>
   <main class="wrap">
     
     <p><a href="../index.html">← All sites</a></p>
+    <p class="toolbar-links no-print"><a href="tooele-army-depot-south-sheet.html">Printable fact sheet</a> · <a href="../records.html">Records request kit</a> · <a href="../stories.html">Neighbor stories</a></p>
     <h2>Tooele Army Depot (South)</h2>
     <p><span class="badge partly">partly verified</span>
        <span class="badge depth">Army</span>
@@ -59,22 +60,21 @@
       <dt>Last checked</dt><dd>2026-11-23</dd>
     </dl>
     
-        <div id="map" role="region" aria-label="Map of this site"></div>
-        <p class="legend">EPA FRS RCRAINFO UT5210090002 (NAD83). INTERPOLATION-MAP, accuracy_value=15, reference: ACRES POINTS NOT REPRESENTED BY 101-107</p>
-        <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
-        <script src="../lib/leaflet/leaflet.js"></script>
-        <script>
-          const map = L.map('map').setView([40.29983, -112.346811], 9);
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            maxZoom: 18
-          }).addTo(map);
-          L.Icon.Default.imagePath = '../lib/leaflet/images/';
-          L.circleMarker([40.29983, -112.346811], {
-            radius: 10, color: '#1c1917', weight: 1, fillColor: '#b45309', fillOpacity: 0.9
-          }).addTo(map).bindPopup("Tooele Army Depot (South)");
-        </script>
-        
+    <div class="layer-controls no-print">
+      <label><input type="checkbox" id="layer-schools" checked> Public schools</label>
+      <label><input type="checkbox" id="layer-water" checked> Rivers and waterbodies</label>
+      <label><input type="checkbox" id="layer-radius" checked> 10-mile ring</label>
+    </div>
+    <div id="map" role="region" aria-label="Map of this site and nearby schools and water"
+         data-lat="40.29983" data-lon="-112.346811" data-name="Tooele Army Depot (South)"
+         data-layers="../data/layers/tooele-army-depot-south.json"
+         data-icon-path="../lib/leaflet/images/"></div>
+    <p class="layer-note" id="layer-counts">School and surface-water overlays load from a static extract within about 10 miles. Public water wells are not mapped.</p>
+    <p class="legend">EPA FRS RCRAINFO UT5210090002 (NAD83). INTERPOLATION-MAP, accuracy_value=15, reference: ACRES POINTS NOT REPRESENTED BY 101-107 Map tiles © OpenStreetMap contributors (ODbL). School points are from NCES EDGE 2023-24 (public domain). Surface water is from EPA NHDPlus or, outside the conterminous U.S., the USGS National Hydrography Dataset (public domain).</p>
+    <script src="../lib/leaflet/leaflet.js"></script>
+    <script src="../js/site-map.js"></script>
+    
+    <div class="wind-box"><div><h2>Prevailing wind</h2><p class="empty">no wind rose sectors parsed</p></div></div>
     <h2>Known energetics or munitions types</h2>
     <p>Part of Tooele Army Depot, named as a CONUS demil facility in the Oct 1, 2025 public-release briefing. This draft does not have a current item-level inventory.</p>
     <h2>Current status</h2>
@@ -84,7 +84,7 @@
     <h2>Notes</h2>
     <p>See also Tooele North (UT3213820894).</p>
     <h2>Sources</h2>
-    <ul class="sources"><li>EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a></li><li>EPA FRS facility coordinates for RCRA ID UT5210090002<br><a href="https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8</a></li><li>Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25<br><a href="https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf">https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf</a></li></ul>
+    <ul class="sources"><li>EPA, Current Open Burning / Open Detonation Facilities (list last updated March 11, 2025; page also marked July 14, 2026)<br><a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities</a> <a class="archive-link" href="https://web.archive.org/web/20261104203301/https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">archived copy</a></li><li>EPA FRS facility coordinates for RCRA ID UT5210090002<br><a href="https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8</a> <a class="archive-link" href="https://web.archive.org/web/20261108223920/https://gispub.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/8">archived copy</a></li><li>Hrycak, Demil Enterprise Strategic Plan, Oct 1, 2025, PAO# 794-25<br><a href="https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf">https://www.ndia.org/-/media/sites/ndia/meetings-and-events/proceedings/2025/FFC/October%201/Hrycak_Orest_2025%20FFC_1%20October%202025.pdf</a></li></ul>
     
     <section class="nearby alerts-box" aria-labelledby="alerts-heading-site-tooele-army-depot-south">
       <h2 id="alerts-heading-site-tooele-army-depot-south">ZIP alerts <span class="coming-soon">Alerts coming soon</span></h2>

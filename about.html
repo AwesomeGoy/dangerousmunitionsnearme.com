@@ -34,7 +34,7 @@
         <h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
         <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
       </div>
-      <nav><a href="index.html">Tracker</a><a href="nearby.html">Live near one?</a><a href="comments.html">Comment tracker</a><a href="timeline.html">Timeline</a><a href="about.html" aria-current="page">About / methods</a><a href="privacy.html">Privacy</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav>
+      <nav><a href="index.html">Tracker</a><a href="nearby.html">Live near one?</a><a href="comments.html">Comment tracker</a><a href="timeline.html">Timeline</a><a href="records.html">Records request</a><a href="stories.html">Neighbor stories</a><a href="about.html" aria-current="page">About / methods</a><a href="privacy.html">Privacy</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav>
     </div>
   </header>
   <main class="wrap">
@@ -69,8 +69,27 @@
     <h2>ZIP search</h2>
     <p>The home-page “Is there one near me?” tool looks up a five-digit U.S. ZIP against a compact table of <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html">ZIP Code Tabulation Area</a> internal centroids from the U.S. Census Bureau <a href="https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_zcta_national.zip">2025 ZCTA gazetteer</a> (file dated 2025; INTPTLAT and INTPTLONG, rounded to four decimal degrees). That file is a U.S. government work in the public domain. ZCTAs are generalized representations of ZIP Codes used for statistics; they are not identical to every USPS ZIP Code, and some postal ZIPs have no ZCTA centroid in this table.</p>
     <p>Distances are straight-line (great-circle) miles from that ZCTA center, or from a location the browser reports after a “Use my location” click. They are not driving distance and not a measure of risk. The result list is the closest five sites in this draft, plus any other dataset site within 100 miles. The ZIP table is loaded in the browser only when a ZIP is searched. No search or location data is sent to a server.</p>
+    
+    <h2>Map layers (schools and surface water)</h2>
+    <p>Each site page can show a static overlay of public schools and surface water within about 10 miles of the EPA FRS coordinate. The extracts are built at compile time. The browser does not call a live API and no API key is used.</p>
+    <ul>
+      <li>Public school points come from the National Center for Education Statistics <a href="https://nces.ed.gov/programs/edge/geographic/schoollocations">EDGE Public School Locations, 2023-24</a> file (<a href="https://nces.ed.gov/programs/edge/data/EDGE_GEOCODE_PUBLICSCH_2324.zip">download</a>). NCES states that the file is in the public domain. Private schools, child-care sites, and schools opened after that collection are not included. Guam, Hawaii, and the Northern Mariana Islands are in the NCES file when they were reported to the Common Core of Data.</li>
+      <li>Rivers, streams (stream order 3 and higher), and waterbodies of about 4 hectares or more in the conterminous United States come from the <a href="https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus">EPA Office of Water NHDPlus</a> map service. For Hawaii, Guam, and the Northern Mariana Islands, which are outside NHDPlus coverage, this draft uses the <a href="https://www.usgs.gov/national-hydrography/national-hydrography-dataset">USGS National Hydrography Dataset</a> small-scale territory layers from The National Map. Both are U.S. government works in the public domain. If a territory extract could not be retrieved, the site page says so and the school layer still appears.</li>
+      <li>Public water wells are not mapped. The public USGS NWIS site service returns mixed groundwater inventories (monitoring, domestic, and other wells) without a consistent public-supply use flag in the fields this draft could retrieve, so well locations were omitted rather than shown without that distinction.</li>
+    </ul>
+    <p>Distances in the overlay are straight-line miles from the site coordinate, not driving distance and not a measure of risk. A feature may sit on or just inside a military installation. Presence on the map is not a finding that a school or river is contaminated.</p>
+    <h2>Prevailing wind</h2>
+    <p>Each site page includes a simple wind rose built from a 2016-2025 frequency table at the nearest <a href="https://mesonet.agron.iastate.edu/sites/windrose.phtml">Iowa Environmental Mesonet ASOS/AWOS station</a>. IEM documents this service at <a href="https://mesonet.agron.iastate.edu/cgi-bin/mywindrose.py?help=">mywindrose.py</a>. The station name and straight-line distance are labeled. Direction is the direction the wind blows from (meteorological convention). This is a multi-year pattern, not a smoke forecast, and wind at the munitions site can differ from the airport station. IEM data-use information is at <a href="https://mesonet.agron.iastate.edu/disclaimer.php">the IEM disclaimer</a>.</p>
+    <h2>Records request kit and neighbor stories</h2>
+    <p>The records kit builds a letter in the browser from a fill-in form. Nothing is sent or stored. Agency routing links are official FOIA or state public-records pages checked for this draft on November 23, 2026 (America/Phoenix calendar date). Those addresses can change.</p>
+    <p>The neighbor-stories page explains a planned, moderated submissions feature. The form is disabled and collects nothing. A draft moderation policy and privacy notice are held outside the published site folder for D.A. Williams to review before any collection begins.</p>
+    <h2>Printable fact sheets</h2>
+    <p>Each site has a compact, letter-size fact sheet intended to print on one page. It carries the draft banner in the browser, verification labels on incidents, sources with archived-copy links when a Wayback snapshot was found, and the canonical site URL. It is not an official government document.</p>
+    <h2>Source archive</h2>
+    <p>Where the <a href="https://archive.org/wayback/available">Internet Archive Wayback Machine availability API</a> already had a snapshot of a source URL, this draft links an "archived copy" next to the live source. If no snapshot was found, a rate-limited Save Page Now request was attempted. This draft does not rehost copyrighted documents. A missing archived-copy link means no snapshot was retrieved, not that the live source is unreliable.</p>
+    
     <h2>Downloads</h2>
-    <p><a href="data/sites.json">sites.json</a> · <a href="data/sites.csv">sites.csv</a> · <a href="data/incidents.json">incidents.json</a> · <a href="data/public_comments.json">public_comments.json</a> · <a href="data/resident_guide.json">resident_guide.json</a> · <a href="data/zcta-centroids.json">zcta-centroids.json</a> (2025 Census ZCTA centroids)</p>
+    <p><a href="data/sites.json">sites.json</a> · <a href="data/sites.csv">sites.csv</a> · <a href="data/incidents.json">incidents.json</a> · <a href="data/public_comments.json">public_comments.json</a> · <a href="data/resident_guide.json">resident_guide.json</a> · <a href="data/zcta-centroids.json">zcta-centroids.json</a> (2025 Census ZCTA centroids) · <a href="data/source-archives.json">source-archives.json</a> · <a href="data/records-offices.json">records-offices.json</a></p>
     
   </main>
   <footer>
