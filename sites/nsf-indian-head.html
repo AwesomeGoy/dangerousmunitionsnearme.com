@@ -112,6 +112,7 @@
       <h2 id="alerts-heading-site-nsf-indian-head">ZIP alerts</h2>
       <p>Get an email when this site records a documented incident, permit change, or public-comment deadline at a tracked site within 50 miles of a U.S. ZIP code you enter. You must confirm your address by email before any alerts are sent. Distance is not a measure of risk.</p>
       <form id="alerts-form-site-nsf-indian-head" class="alerts-form" action="https://assets.mailerlite.com/jsonp/2769826/forms/205031264695092832/subscribe" method="post" data-alerts-form="true" data-alerts-enabled="true" novalidate>
+        <p class="nearby-note" id="alerts-form-site-nsf-indian-head-status" data-alerts-status="true" role="status" aria-live="polite" hidden></p>
         <div class="nearby-row">
           <label for="alerts-zip-site-nsf-indian-head">ZIP code
             <input id="alerts-zip-site-nsf-indian-head" name="fields[z_i_p]" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" value="20640" autocomplete="postal-code" aria-describedby="alerts-note-site-nsf-indian-head" data-alerts-zip="true">
@@ -121,11 +122,9 @@
           </label>
           <button type="submit">Get alerts</button>
         </div>
-        
         <input type="hidden" name="fields[dmnm_source]" value="dmnm">
         <input type="hidden" name="ml-submit" value="1">
         <input type="hidden" name="anticsrf" value="true">
-        <p class="nearby-note" id="alerts-form-site-nsf-indian-head-status" data-alerts-status="true" hidden></p>
       </form>
       <p class="nearby-note" id="alerts-note-site-nsf-indian-head">You must confirm by email before any alerts are sent. See the <a href="../privacy.html">privacy notice</a> for what is collected, how MailerLite is used, and how to unsubscribe.</p>
     </section>
@@ -142,66 +141,82 @@
 
   function setStatus(el, msg, isError) {
     if (!el) return;
+    if (msg) el.removeAttribute("hidden");
+    else el.setAttribute("hidden", "hidden");
     el.hidden = !msg;
     el.textContent = msg || "";
     if (isError) el.classList.add("nearby-error");
     else el.classList.remove("nearby-error");
+    if (msg && el.scrollIntoView) {
+      try { el.scrollIntoView({ block: "nearest", inline: "nearest" }); }
+      catch (e) { el.scrollIntoView(); }
+    }
   }
 
-  document.addEventListener("submit", function (ev) {
+  function handleAlertsSubmit(ev) {
     var form = ev.target;
     if (!form || !form.getAttribute || form.getAttribute("data-alerts-form") !== "true") return;
     ev.preventDefault();
-    if (form.getAttribute("data-alerts-enabled") !== "true") return;
-
-    var zipInput = form.querySelector("[data-alerts-zip]");
-    var emailInput = form.querySelector("[data-alerts-email]");
-    var statusEl = document.getElementById(form.id + "-status");
-    var zipVal = ((zipInput && zipInput.value) || "").trim();
-    var emailVal = ((emailInput && emailInput.value) || "").trim();
+    var statusEl = document.getElementById((form.id || "") + "-status") || form.querySelector("[data-alerts-status]");
     var btn = form.querySelector("button[type='submit']");
-
-    if (!validZip(zipVal)) {
-      setStatus(statusEl, "Enter a five-digit U.S. ZIP code.", true);
-      if (zipInput) zipInput.focus();
-      return;
-    }
-    if (!validEmail(emailVal)) {
-      setStatus(statusEl, "Enter a valid email address.", true);
-      if (emailInput) emailInput.focus();
-      return;
-    }
-
-    if (btn) btn.disabled = true;
-    setStatus(statusEl, "Sending…", false);
-
-    var body = new URLSearchParams();
-    body.set("fields[email]", emailVal);
-    body.set("fields[z_i_p]", zipVal);
-    body.set("fields[dmnm_source]", "dmnm");
-    body.set("ml-submit", "1");
-    body.set("anticsrf", "true");
-
-    fetch(form.action, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: body.toString()
-    }).then(function (r) { return r.json(); }).then(function (res) {
-      if (res && res.success) {
-        setStatus(statusEl, "Check your email to confirm this signup. No alerts will be sent until you confirm.", false);
-        form.setAttribute("data-alerts-done", "true");
-      } else {
-        var msg = (res && res.message) ? res.message : "Something went wrong. Please try again.";
-        var fieldErrors = res && res.errors && res.errors.fields;
-        if (fieldErrors && fieldErrors.email && fieldErrors.email[0]) msg = fieldErrors.email[0];
-        setStatus(statusEl, msg, true);
-        if (btn) btn.disabled = false;
+    try {
+      if (form.getAttribute("data-alerts-enabled") !== "true") {
+        setStatus(statusEl, "Alerts signup is not open yet.", true);
+        return;
       }
-    }).catch(function () {
-      setStatus(statusEl, BLOCKER_MSG, true);
+
+      var zipInput = form.querySelector("[data-alerts-zip]");
+      var emailInput = form.querySelector("[data-alerts-email]");
+      var zipVal = ((zipInput && zipInput.value) || "").trim();
+      var emailVal = ((emailInput && emailInput.value) || "").trim();
+      if (zipInput) zipInput.blur();
+      if (emailInput) emailInput.blur();
+
+      if (!validZip(zipVal)) {
+        setStatus(statusEl, "Enter a five-digit U.S. ZIP code.", true);
+        return;
+      }
+      if (!validEmail(emailVal)) {
+        setStatus(statusEl, "Enter a valid email address.", true);
+        return;
+      }
+
+      if (btn) btn.disabled = true;
+      setStatus(statusEl, "Sending…", false);
+
+      var body = new URLSearchParams();
+      body.set("fields[email]", emailVal);
+      body.set("fields[z_i_p]", zipVal);
+      body.set("fields[dmnm_source]", "dmnm");
+      body.set("ml-submit", "1");
+      body.set("anticsrf", "true");
+
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString()
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (res && res.success) {
+          setStatus(statusEl, "Check your email to confirm this signup. No alerts will be sent until you confirm.", false);
+          form.setAttribute("data-alerts-done", "true");
+        } else {
+          var msg = (res && res.message) ? res.message : "Something went wrong. Please try again.";
+          var fieldErrors = res && res.errors && res.errors.fields;
+          if (fieldErrors && fieldErrors.email && fieldErrors.email[0]) msg = fieldErrors.email[0];
+          setStatus(statusEl, msg, true);
+          if (btn) btn.disabled = false;
+        }
+      }).catch(function () {
+        setStatus(statusEl, BLOCKER_MSG, true);
+        if (btn) btn.disabled = false;
+      });
+    } catch (err) {
+      setStatus(statusEl, "Something went wrong. Please try again.", true);
       if (btn) btn.disabled = false;
-    });
-  });
+    }
+  }
+
+  document.addEventListener("submit", handleAlertsSubmit, true);
 })();
 </script>
 

@@ -1,10 +1,11 @@
 /* Dangerous Munitions Near Me service worker
- * Cache version: dmnm-pwa-20261124-081247
+ * Cache version: dmnm-pwa-20261124-082302
  * Network-first for /data/*.json and for same-origin pages/assets.
+ * HTML navigations bypass the HTTP cache so phones pick up a new page quickly.
  * Precaches a small app shell and falls back to /offline.html.
  * No push notifications, no analytics, no data collection.
  */
-const CACHE_VERSION = "dmnm-pwa-20261124-081247";
+const CACHE_VERSION = "dmnm-pwa-20261124-082302";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 const DATA_CACHE = CACHE_VERSION + "-data";
 const SHELL_URLS = ["/", "/index.html", "/offline.html", "/css/style.css", "/css/canada.css", "/js/app.js", "/favicon.svg", "/favicon.png", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-512-maskable.png", "/icons/apple-touch-icon.png", "/manifest.webmanifest"];
@@ -58,8 +59,8 @@ function isNavigation(request) {
   return request.method === "GET" && accept.indexOf("text/html") !== -1;
 }
 
-function networkFirst(request, cacheName, fallbackUrl) {
-  return fetch(request).then(function (response) {
+function networkFirst(request, cacheName, fallbackUrl, fetchOpts) {
+  return fetch(request, fetchOpts || {}).then(function (response) {
     if (response && response.ok) {
       var copy = response.clone();
       caches.open(cacheName).then(function (cache) {
@@ -91,7 +92,7 @@ self.addEventListener("fetch", function (event) {
   }
 
   if (isNavigation(request)) {
-    event.respondWith(networkFirst(request, SHELL_CACHE, "/offline.html"));
+    event.respondWith(networkFirst(request, SHELL_CACHE, "/offline.html", { cache: "no-store" }));
     return;
   }
 
