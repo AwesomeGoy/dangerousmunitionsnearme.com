@@ -178,3 +178,70 @@ Current section ids:
 
 ## meta.credits
 List of {name, url} cross-check sources to credit on the About page.
+
+---
+
+## 5. `canada_uxo.json` and `canada_uxo.csv`
+
+Official National Defence inventory of UXO Legacy Sites in Canada, copied from the English Open Government XLSX. This is a companion dataset, not mixed into `sites.json` (the U.S. EPA OB/OD / munitions-sites set).
+
+**Attribution:** Contains information licensed under the Open Government Licence – Canada. Publisher: National Defence. Licence: https://open.canada.ca/en/open-government-licence-canada. This project is not endorsed by the Government of Canada.
+
+Portal record: https://open.canada.ca/data/en/dataset/de4c9c42-40ea-4069-91e3-1951206e3b60 (record ID `de4c9c42-40ea-4069-91e3-1951206e3b60`; DOI `OD-2017-00002`; source date modified 2026-06-26). A byte-for-byte copy of the official English file is stored at `data/sources/canada-dnd-uxo/uxo-open-source-data-en.xlsx`.
+
+Coordinates are included only if the official XLSX or the DND locations page provides them. The June 26, 2026 English XLSX and the locations table do not publish latitude or longitude; those fields are left blank and are not geocoded from place names.
+
+### `meta`
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `title` | string | Dataset title. |
+| `status` | string | `DRAFT, not published`. |
+| `byline` | string | `D.A. Williams`. |
+| `homepage` | string | `https://awesomegoy.com`. |
+| `last_built` | date | Date these files were written. |
+| `timezone_note` | string | How dates are recorded. |
+| `publisher` | string | `National Defence (Canada)`. |
+| `dataset_name` | string | Official dataset title. |
+| `dataset_record_id` | string | Open Government record ID. |
+| `dataset_doi` | string | Portal DOI / unique identifier (`OD-2017-00002`). |
+| `source_url` | string | Open Government dataset page. |
+| `download_url_en` | string | Official English XLSX URL. |
+| `download_url_fr` | string | Official French XLSX URL (not ingested in this pass). |
+| `locations_page` | string | DND searchable locations page. |
+| `program_page` | string | DND UXO Legacy Sites Program page (status and risk-process context). |
+| `source_date_modified` | date | Date the portal gives for the source file (`2026-06-26`). |
+| `source_date_published` | date | Portal "date published." |
+| `record_released` | date | Portal "record released." |
+| `licence` | string | `Open Government Licence – Canada`. |
+| `licence_url` | string | Licence page. |
+| `licence_version` | string | `2.0` as of the licence page checked on 2026-11-23. |
+| `attribution` | string | Required attribution statement. |
+| `attribution_note` | string | Non-endorsement and official-symbol reminder. |
+| `coordinate_policy` | string | Official coordinates only; none were published in the XLSX or locations table. |
+| `verification_policy` | string | How labels are used for this file. |
+| `source_file` | string | Path to the stored official XLSX. |
+| `source_file_bytes` | number | Size of that official file (46,704). |
+| `record_count` | number | Number of site records (854). |
+| `status_counts` | object | Counts by official `Status` value. |
+| `province_counts` | object | Counts by official `Province` code, including `EC` and `WC`. |
+| `status_notes` | object | Sourced DND program-page context for portfolio classes, risk levels (not in the XLSX), and what `Closed` means. |
+| `coverage_note` | string | XLSX vs locations-page row difference, and unexpanded `EC`/`WC` codes. |
+| `inclusion_rule` | string | Every official English XLSX row is included. |
+
+### Site object / CSV columns
+
+| Field | JSON type | CSV notes | Meaning |
+| --- | --- | --- | --- |
+| `id` | string | | Stable slug: `canada-` plus the lowercase primary site ID (for example `canada-ab900-001`). |
+| `site_id` | string | | Full official identifier, for example `AB900-001 / 0539-X001`. |
+| `site_id_primary` | string | | The first official ID (`AB900-001`). |
+| `site_id_secondary` | string | | The second official ID (`0539-X001`). |
+| `name` | string | | Site name as published in the English XLSX (some names repeat the primary ID). |
+| `province` | string | | Official `Province` code as published. The DND locations page labels the same codes `Coast`. Values include standard province and territory codes plus `EC` and `WC`, which are not expanded here because an official definition was not retrieved. |
+| `status` | string | | Official status as published: `In Assessment`, `Assessment Complete`, `Risk Mitigation Ongoing`, or `Closed`. |
+| `latitude`, `longitude` | number or `null` | blank | Official coordinates when published. Currently blank for every record. |
+| `coordinate_source` | string | | Attribution for coordinates when present; currently blank. |
+| `sources` | array of `{title, url}` | URL(s) joined with ` \| ` | The Open Government dataset page. |
+| `verification` | string | | `verified` for ID, name, province, and status copied from the official XLSX. |
+| `last_checked` | date | | Date the official file was checked. |

@@ -24,6 +24,7 @@
   <meta name="twitter:description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
   <meta name="twitter:image" content="https://dangerousmunitionsnearme.com/og/home.png">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/canada.css">
   
 </head>
 <body>
@@ -34,10 +35,11 @@
         <h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
         <p>dangerousmunitionsnearme.com · Old and unstable energetics at Army and DoD facilities — draft by D.A. Williams</p>
       </div>
-      <nav><a href="index.html">Tracker</a><a href="nearby.html">Live near one?</a><a href="comments.html">Comment tracker</a><a href="timeline.html">Timeline</a><a href="records.html">Records request</a><a href="stories.html">Neighbor stories</a><a href="about.html" aria-current="page">About / methods</a><a href="privacy.html">Privacy</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav>
+      <nav><a href="index.html">Tracker</a><a href="canada/index.html">Canada</a><a href="nearby.html">Live near one?</a><a href="comments.html">Comment tracker</a><a href="timeline.html">Timeline</a><a href="records.html">Records request</a><a href="stories.html">Neighbor stories</a><a href="about.html" aria-current="page">About / methods</a><a href="privacy.html">Privacy</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav>
     </div>
   </header>
   <main class="wrap">
+    
     
     <h2>About this draft</h2>
     <p class="lede">This is a local working draft for D.A. Williams. It has not been published, deployed, or posted. It is not an official U.S. government document and should not be mistaken for one.</p>
@@ -88,8 +90,17 @@
     <h2>Source archive</h2>
     <p>Where the <a href="https://archive.org/wayback/available">Internet Archive Wayback Machine availability API</a> already had a snapshot of a source URL, this draft links an "archived copy" next to the live source. If no snapshot was found, a rate-limited Save Page Now request was attempted. This draft does not rehost copyrighted documents. A missing archived-copy link means no snapshot was retrieved, not that the live source is unreliable.</p>
     
+    
+    <h2>Canada section</h2>
+    <p>The Canada section lists 854 UXO Legacy Sites copied from the official National Defence English Open Government inventory (source date modified 2026-06-26). The official XLSX and DND locations table do not publish coordinates, so this cut has no map pins and no postal-code search. Later builds will use <code>data/canada_sites.json</code> automatically if that file is added, and will draw pins only for records that already include official coordinates. This draft does not geocode site names.</p>
+    <p>See the <a href="canada/index.html">Canada page</a> for the inventory, filters, and counts.</p>
+    <p class="canada-note"><strong>About “Closed” status:</strong> DND’s published “Closed” label does not mean a site is clear of unexploded ordnance. The <a href="https://www.canada.ca/en/department-national-defence/services/uxo/uxo-program.html">DND UXO Legacy Sites Program page</a> states that sites with no or low UXO risk may be administratively closed, that administratively closed sites can be re-opened at any time if new information suggests an unacceptable UXO risk, and that no technology available today guarantees all UXO on a site have been located and removed.</p>
+    <p class="licence-note">Contains information licensed under the <a href="https://open.canada.ca/en/open-government-licence-canada">Open Government Licence – Canada</a> (<a href="https://open.canada.ca/en/open-government-licence-canada">https://open.canada.ca/en/open-government-licence-canada</a>). This project is not endorsed by the Government of Canada.</p>
+    
+    <p>Downloads: <a href="data/canada_uxo.json">canada_uxo.json</a> · <a href="data/canada_uxo.csv">canada_uxo.csv</a></p>
+    
     <h2>Downloads</h2>
-    <p><a href="data/sites.json">sites.json</a> · <a href="data/sites.csv">sites.csv</a> · <a href="data/incidents.json">incidents.json</a> · <a href="data/public_comments.json">public_comments.json</a> · <a href="data/resident_guide.json">resident_guide.json</a> · <a href="data/zcta-centroids.json">zcta-centroids.json</a> (2025 Census ZCTA centroids) · <a href="data/source-archives.json">source-archives.json</a> · <a href="data/records-offices.json">records-offices.json</a></p>
+    <p><a href="data/sites.json">sites.json</a> · <a href="data/sites.csv">sites.csv</a> · <a href="data/incidents.json">incidents.json</a> · <a href="data/public_comments.json">public_comments.json</a> · <a href="data/resident_guide.json">resident_guide.json</a> · <a href="data/zcta-centroids.json">zcta-centroids.json</a> (2025 Census ZCTA centroids) · <a href="data/source-archives.json">source-archives.json</a> · <a href="data/records-offices.json">records-offices.json</a> · <a href="data/canada_uxo.json">canada_uxo.json</a> · <a href="data/canada_uxo.csv">canada_uxo.csv</a></p>
     
   </main>
   <footer>
