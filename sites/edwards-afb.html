@@ -23,6 +23,13 @@
   <meta name="twitter:title" content="Edwards Air Force Base | Dangerous Munitions Near Me">
   <meta name="twitter:description" content="A sourced tracker of U.S. Army and DoD facilities that store or destroy old or unstable energetics, built from EPA and official records. Blank fields mean no source was found. This is a draft, not an official U.S. government document. Draft by D.A. Williams.">
   <meta name="twitter:image" content="https://dangerousmunitionsnearme.com/og/edwards-afb.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#9a3412">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Munitions Near Me">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/canada.css">
   <link rel=stylesheet href='../lib/leaflet/leaflet.css'>
@@ -126,5 +133,17 @@
       <div><a href="../privacy.html">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a></div>
     </div>
   </footer>
+  <script>
+(function () {
+  if (!("serviceWorker" in navigator)) return;
+  var host = location.hostname;
+  var secure = location.protocol === "https:";
+  var local = host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+  if (!secure && !local) return;
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(function () {});
+  });
+})();
+</script>
 </body>
 </html>
