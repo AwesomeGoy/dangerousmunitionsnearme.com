@@ -521,6 +521,29 @@ td a,
 }
 
 
+
+.about-data {
+  margin: 0 0 1.15rem;
+  max-width: 46rem;
+}
+.about-data h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+.about-data p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+@media (max-width: 400px) {
+  .about-data {
+    padding: 0.75rem 0.85rem;
+  }
+  .about-data h2 { font-size: 0.98rem; }
+  .about-data p { font-size: 0.92rem; }
+}
+
+
 /* --- Thor-7 additions: map layers, wind, records, stories, fact sheets, archives --- */
 .layer-controls {
   display: flex;

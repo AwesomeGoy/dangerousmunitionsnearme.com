@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Records-request routing for this draft",
-    "status": "DRAFT, not published",
+    "title": "Records-request routing for this inventory",
+    "status": "Public",
     "last_checked": "2026-11-23",
     "note": "Routing is to official agency FOIA or public-records pages. Private contractors are not themselves subject to FOIA; records about those sites are requested from the agency that holds them. Addresses and portals can change; check the official page before sending."
   },
@@ -82,31 +82,31 @@
   "states": {
     "AL": {
       "agency": "Alabama official or the Alabama Attorney General",
-      "law": "Alabama Open Records Act, Ala. Code \u00a7 36-12-40 et seq.",
+      "law": "Alabama Open Records Act, Ala. Code § 36-12-40 et seq.",
       "url": "https://www.alabamaag.gov/",
       "notes": "Many environmental records are held by the Alabama Department of Environmental Management."
     },
     "AR": {
       "agency": "Arkansas official or the Arkansas Attorney General",
-      "law": "Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
+      "law": "Arkansas Freedom of Information Act, Ark. Code Ann. § 25-19-101 et seq.",
       "url": "https://arkansasag.gov/divisions/public-protection/foia/",
       "notes": ""
     },
     "AZ": {
       "agency": "Arizona official or the Arizona Attorney General",
-      "law": "Arizona Public Records Law, A.R.S. \u00a7\u00a7 39-121 et seq.",
+      "law": "Arizona Public Records Law, A.R.S. §§ 39-121 et seq.",
       "url": "https://www.azag.gov/find-help/public-records",
       "notes": ""
     },
     "CA": {
       "agency": "California official or the California Attorney General",
-      "law": "California Public Records Act, Cal. Gov. Code \u00a7 7920.000 et seq.",
+      "law": "California Public Records Act, Cal. Gov. Code § 7920.000 et seq.",
       "url": "https://oag.ca.gov/open-government",
       "notes": ""
     },
     "CO": {
       "agency": "Colorado official or the Colorado Attorney General",
-      "law": "Colorado Open Records Act (CORA), C.R.S. \u00a7 24-72-201 et seq.",
+      "law": "Colorado Open Records Act (CORA), C.R.S. § 24-72-201 et seq.",
       "url": "https://www.sos.state.co.us/pubs/info_center/openRecordsLaw.html",
       "notes": ""
     },
@@ -118,7 +118,7 @@
     },
     "GA": {
       "agency": "Georgia official or the Georgia Attorney General",
-      "law": "Georgia Open Records Act, O.C.G.A. \u00a7 50-18-70 et seq.",
+      "law": "Georgia Open Records Act, O.C.G.A. § 50-18-70 et seq.",
       "url": "https://law.georgia.gov/",
       "notes": ""
     },
@@ -148,7 +148,7 @@
     },
     "IN": {
       "agency": "Indiana Public Access Counselor / Indiana official",
-      "law": "Indiana Access to Public Records Act, Ind. Code \u00a7 5-14-3",
+      "law": "Indiana Access to Public Records Act, Ind. Code § 5-14-3",
       "url": "https://www.in.gov/pac/",
       "notes": ""
     },
@@ -172,7 +172,7 @@
     },
     "MD": {
       "agency": "Maryland Attorney General, Public Information Act",
-      "law": "Maryland Public Information Act, Md. Code Ann., General Provisions \u00a7 4-101 et seq.",
+      "law": "Maryland Public Information Act, Md. Code Ann., General Provisions § 4-101 et seq.",
       "url": "https://www.marylandattorneygeneral.gov/Pages/OpenGov/pia.aspx",
       "notes": ""
     },
@@ -192,7 +192,7 @@
       "agency": "Commonwealth of the Northern Mariana Islands official",
       "law": "CNMI Open Government Act (public records provisions of Commonwealth law)",
       "url": "https://www.cnmiag.org/",
-      "notes": "Confirm the current official receiving office before sending. This draft lists a Commonwealth attorney-general starting point only."
+      "notes": "Confirm the current official receiving office before sending. This site lists a Commonwealth attorney-general starting point only."
     },
     "NJ": {
       "agency": "New Jersey Government Records Council",
@@ -202,7 +202,7 @@
     },
     "NM": {
       "agency": "New Mexico Attorney General, Inspection of Public Records",
-      "law": "New Mexico Inspection of Public Records Act, NMSA 1978, \u00a7 14-2-1 et seq.",
+      "law": "New Mexico Inspection of Public Records Act, NMSA 1978, § 14-2-1 et seq.",
       "url": "https://www.nmag.gov/ipra/",
       "notes": ""
     },
@@ -220,19 +220,19 @@
     },
     "OK": {
       "agency": "Oklahoma official or the Oklahoma Attorney General",
-      "law": "Oklahoma Open Records Act, 51 O.S. \u00a7 24A.1 et seq.",
+      "law": "Oklahoma Open Records Act, 51 O.S. § 24A.1 et seq.",
       "url": "https://www.oag.ok.gov/",
       "notes": ""
     },
     "PA": {
       "agency": "Pennsylvania Office of Open Records",
-      "law": "Pennsylvania Right-to-Know Law, 65 P.S. \u00a7 67.101 et seq.",
+      "law": "Pennsylvania Right-to-Know Law, 65 P.S. § 67.101 et seq.",
       "url": "https://www.openrecords.pa.gov/",
       "notes": ""
     },
     "SC": {
       "agency": "South Carolina official or the South Carolina Attorney General",
-      "law": "South Carolina Freedom of Information Act, S.C. Code Ann. \u00a7 30-4-10 et seq.",
+      "law": "South Carolina Freedom of Information Act, S.C. Code Ann. § 30-4-10 et seq.",
       "url": "https://www.scag.gov/",
       "notes": ""
     },
@@ -244,7 +244,7 @@
     },
     "TN": {
       "agency": "Tennessee official, public records",
-      "law": "Tennessee Public Records Act, Tenn. Code Ann. \u00a7 10-7-503 et seq.",
+      "law": "Tennessee Public Records Act, Tenn. Code Ann. § 10-7-503 et seq.",
       "url": "https://www.tn.gov/finance/section/public-records",
       "notes": ""
     },
@@ -256,25 +256,25 @@
     },
     "UT": {
       "agency": "Utah State Archives, GRAMA",
-      "law": "Utah Government Records Access and Management Act (GRAMA), Utah Code \u00a7 63G-2-101 et seq.",
+      "law": "Utah Government Records Access and Management Act (GRAMA), Utah Code § 63G-2-101 et seq.",
       "url": "https://archives.utah.gov/records-management/grama/",
       "notes": ""
     },
     "VA": {
       "agency": "Virginia Freedom of Information Advisory Council",
-      "law": "Virginia Freedom of Information Act, Va. Code \u00a7 2.2-3700 et seq.",
+      "law": "Virginia Freedom of Information Act, Va. Code § 2.2-3700 et seq.",
       "url": "https://www.foiacouncil.dls.virginia.gov/",
       "notes": ""
     },
     "WI": {
       "agency": "Wisconsin Department of Justice, Office of Open Government",
-      "law": "Wisconsin Public Records Law, Wis. Stat. \u00a7\u00a7 19.31\u201319.39",
+      "law": "Wisconsin Public Records Law, Wis. Stat. §§ 19.31–19.39",
       "url": "https://www.doj.state.wi.us/office-open-government/office-open-government",
       "notes": ""
     },
     "WV": {
       "agency": "West Virginia official or the West Virginia Attorney General",
-      "law": "West Virginia Freedom of Information Act, W. Va. Code \u00a7 29B-1-1 et seq.",
+      "law": "West Virginia Freedom of Information Act, W. Va. Code § 29B-1-1 et seq.",
       "url": "https://ago.wv.gov/",
       "notes": ""
     }

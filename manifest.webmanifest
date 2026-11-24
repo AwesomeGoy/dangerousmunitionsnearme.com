@@ -2,7 +2,7 @@
   "id": "/",
   "name": "Dangerous Munitions Near Me",
   "short_name": "Munitions Near Me",
-  "description": "A draft, sourced tracker of munitions sites near you. Not an official U.S. government document.",
+  "description": "A sourced tracker of munitions sites near you. Not an official U.S. government document.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
