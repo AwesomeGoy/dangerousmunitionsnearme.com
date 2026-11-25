@@ -112,6 +112,7 @@
     populateSelect(fDepth, unique(sites.map((s) => s.research_depth)), "All depths");
 
     const map = L.map("map", { scrollWheelZoom: true });
+    window.DMNM_MAP = map;
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 18,

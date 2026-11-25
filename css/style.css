@@ -874,3 +874,35 @@ header.site-head.site-head--banner .site-head-bar {
     box-sizing: border-box;
   }
 }
+
+/* --- PFAS + Superfund layers --- */
+.env-intro { margin: 0 0 0.6rem; }
+.env-results { margin-top: 1rem; }
+.env-filter-set { border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 0.75rem; margin: 0 0 0.8rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+.env-filter-set legend { font-weight: 600; padding: 0 0.3rem; }
+.env-check { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 44px; cursor: pointer; }
+.env-check input { width: 1.15rem; height: 1.15rem; }
+.env-tag { display: inline-block; font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 0.05rem 0.4rem; border: 1px solid currentColor; }
+.env-tag--mun { color: #9a3412; background: #fff7ed; }
+.env-tag--pfas { color: #155e75; background: #ecfeff; }
+.env-tag--sf { color: #5b21b6; background: #f5f3ff; }
+.env-tag--fed { color: #1e3a5f; background: #eff6ff; }
+.env-group h3 { font-size: 1.05rem; }
+.env-group li { margin-bottom: 0.5rem; }
+.env-meta { color: var(--muted); font-size: 0.85rem; }
+.env-page h3 { margin-top: 1.3rem; }
+.env-sources li { margin-bottom: 0.3rem; }
+.env-browse { margin: 1.5rem 0; }
+.env-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.8rem; margin: 0.6rem 0; }
+.env-filters label { font-weight: 600; }
+.env-filters select, .env-filters input[type="search"] { font: inherit; min-height: 44px; padding: 0.3rem 0.5rem; border: 1px solid var(--muted); border-radius: 6px; background: #fff; color: var(--ink); }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.env-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.env-table th, .env-table td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.env-table thead th { background: var(--card); position: sticky; top: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 700px) {
+  .env-filters { flex-direction: column; align-items: stretch; }
+  .env-filters select, .env-filters input[type="search"] { width: 100%; box-sizing: border-box; }
+  .env-table { font-size: 0.85rem; }
+}
