@@ -941,3 +941,10 @@ header.site-head.site-head--banner .site-head-bar {
 .env-dot--aum { background: #a16207; border-color: #3f3f46; }
 .nuc-map { height: 460px; }
 .env-nuc details summary { cursor: pointer; font-weight: 600; margin: .5rem 0; }
+
+/* FUDS munitions (checked 2026-11-25) */
+.env-tag--fuds { color: #4a044e; background: #fae8ff; }
+.env-dot--fuds { background: #e879f9; border-color: #4a044e; }
+.env-fuds details summary { cursor: pointer; font-weight: 600; margin: .5rem 0; }
+.env-tag--fudso { color: #292524; background: #e7e5e4; }
+.env-dot--fudso { background: #d6d3d1; border-color: #44403c; }
