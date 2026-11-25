@@ -36,22 +36,28 @@
     var munitionsEl = document.getElementById("nearby-results");
     if (!box || !form) return;
     var map = null, mapLayer = null, last = null;
-    var state = { mun: true, pfas: true, sf: true, deleted: false };
+    var state = { mun: true, pfas: true, sf: true, fus: true, deleted: false };
 
     function filtersHtml() {
       return '<fieldset class="env-filter-set"><legend>Show these site types</legend>' +
         '<label class="env-check"><input type="checkbox" data-k="mun"' + (state.mun ? " checked" : "") + '> <span class="env-tag env-tag--mun">Munitions</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="pfas"' + (state.pfas ? " checked" : "") + '> <span class="env-tag env-tag--pfas">Military PFAS</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="sf"' + (state.sf ? " checked" : "") + '> <span class="env-tag env-tag--sf">Superfund</span></label>' +
-        '<label class="env-check"><input type="checkbox" data-k="deleted"' + (state.deleted ? " checked" : "") + '> Include deleted (cleaned-up) Superfund sites</label></fieldset>';
+        '<label class="env-check"><input type="checkbox" data-k="fus"' + (state.fus ? " checked" : "") + '> <span class="env-tag env-tag--fus">FUSRAP</span></label>' +
+        '<label class="env-check"><input type="checkbox" data-k="deleted"' + (state.deleted ? " checked" : "") + '> Include deleted (cleaned-up) Superfund sites</label></fieldset>' +
+        (window.DMNM_MAP ? '<p class="env-legend" aria-label="Map marker key"><span><i class="env-dot env-dot--sf" aria-hidden="true"></i> Superfund</span> <span><i class="env-dot env-dot--fus" aria-hidden="true"></i> FUSRAP</span> <span><i class="env-dot env-dot--pfas" aria-hidden="true"></i> Military PFAS (when mapped)</span> <span><i class="env-dot env-dot--zip" aria-hidden="true"></i> Your ZIP</span><span><i class="env-dot env-dot--mun" aria-hidden="true"></i> Munitions (green, amber or gray)</span></p>' : "");
     }
 
     function render(lat, lon, label) {
       last = { lat: lat, lon: lon, label: label };
       box.hidden = false;
       box.innerHTML = "<p>Loading PFAS and Superfund layers…</p>";
-      Promise.all([load("data/superfund.json"), load("data/pfas.json")]).then(function (res) {
-        var sf = res[0], pf = res[1];
+      Promise.all([load("data/superfund.json"), load("data/pfas.json"), load("data/fusrap.json")]).then(function (res) {
+        var sf = res[0], pf = res[1], fu = res[2];
+        var fuRanked = fu.sites.filter(function (s) { return s.la != null && s.lo != null; })
+          .map(function (s) { return { s: s, mi: miles(lat, lon, s.la, s.lo) }; })
+          .sort(function (a, b) { return a.mi - b.mi; });
+        var fuPick = fuRanked.filter(function (r, i) { return i < 3 || (r.mi <= 100 && i < 10); });
         var sfRanked = sf.sites.filter(function (s) { return state.deleted || s.st !== "deleted"; })
           .map(function (s) { return { s: s, mi: miles(lat, lon, s.la, s.lo) }; })
           .sort(function (a, b) { return a.mi - b.mi; });
@@ -81,6 +87,12 @@
             '<div class="env-meta">' + esc(sfMeta(r.s, sf.meta)) + "</div></li>";
         }).join("");
         h += '</ol><p class="env-meta">Links go to each site’s official EPA profile. <a href="superfund.html">What is Superfund?</a></p></section>';
+        h += '<section class="env-group" data-group="fus"' + (state.fus ? "" : " hidden") + '><h3><span class="env-tag env-tag--fus">FUSRAP</span> Nearest active FUSRAP (atomic-era cleanup) sites</h3><ol>';
+        h += fuPick.map(function (r) {
+          return '<li><a href="' + esc(r.s.u) + '">' + esc(r.s.n) + "</a> — <span class=\"miles\">" + fmt(r.mi) + "</span> — " + esc([r.s.c, r.s.s].filter(Boolean).join(", ")) +
+            '<div class="env-meta">' + esc(r.s.ph + " · USACE " + r.s.dist + " · Source: USACE / DOE LM / EPA, checked " + r.s.chk) + "</div></li>";
+        }).join("");
+        h += '</ol><p class="env-meta">' + fu.meta.unmapped.length + ' of the ' + fu.meta.count + ' active sites have no checked map location yet and are not included in distances. See all on the <a href="fusrap.html">FUSRAP page</a>.</p></section>';
         box.innerHTML = h;
         if (munitionsEl) munitionsEl.hidden = !state.mun;
         Array.prototype.forEach.call(box.querySelectorAll("input[data-k]"), function (cb) {
@@ -90,14 +102,14 @@
             if (munitionsEl) munitionsEl.hidden = !state.mun;
             var g = box.querySelector('[data-group="' + cb.getAttribute("data-k") + '"]');
             if (g) g.hidden = !cb.checked;
-            drawMap(sfPick, pfPick);
+            drawMap(sfPick, pfPick, fuPick);
           });
         });
-        drawMap(sfPick, pfPick);
+        drawMap(sfPick, pfPick, fuPick);
       }).catch(function (e) { box.innerHTML = '<p class="nearby-error">' + esc(e.message) + "</p>"; });
     }
 
-    function drawMap(sfPick, pfPick) {
+    function drawMap(sfPick, pfPick, fuPick) {
       map = window.DMNM_MAP || null;
       if (!map || typeof L === "undefined") return;
       if (mapLayer) map.removeLayer(mapLayer);
@@ -109,6 +121,10 @@
       if (state.pfas) pfPick.forEach(function (r) {
         L.circleMarker([r.s.la, r.s.lo], { radius: 7, color: "#0e7490", weight: 2, fillColor: "#cffafe", fillOpacity: 0.9 })
           .bindPopup("<strong>Military PFAS:</strong> " + esc(r.s.n)).addTo(mapLayer);
+      });
+      if (state.fus) (fuPick || []).forEach(function (r) {
+        L.circleMarker([r.s.la, r.s.lo], { radius: 8, color: "#854d0e", weight: 3, fillColor: "#fde047", fillOpacity: 0.95 })
+          .bindPopup("<strong>FUSRAP:</strong> " + esc(r.s.n) + '<br><a href="' + esc(r.s.u) + '">USACE site page</a>').addTo(mapLayer);
       });
     }
 
@@ -170,5 +186,14 @@
       [sel, st, fed].forEach(function (e) { e.addEventListener("change", draw); }); q.addEventListener("input", draw); draw();
     });
   }
-  if (MODE === "pfas") pfasMode(); else if (MODE === "superfund") sfMode(); else zipMode();
+  function fusMode() {
+    load("data/fusrap.json").then(function (d) {
+      var tb = document.querySelector("#fusrap-table tbody"), cnt = document.getElementById("fusrap-count");
+      cnt.textContent = d.meta.count + " active sites, " + d.meta.mapped + " with a checked map location. Checked " + d.meta.data_date + ".";
+      tb.innerHTML = d.sites.map(function (r) {
+        return '<tr><td><a href="' + esc(r.u) + '">' + esc(r.n) + "</a></td><td>" + esc([r.c, r.s].filter(Boolean).join(", ")) + "</td><td>" + esc(r.ph) + "</td><td>" + esc(r.cont.split(/[(;]/)[0].trim()) + "</td><td>" + esc(r.dist + (r.ty ? " / FY " + r.ty : "")) + "</td><td>" + (r.la != null ? "Mapped" + (r.cp === "approximate" ? " (approximate)" : "") : "No checked location yet") + "</td></tr>";
+      }).join("");
+    });
+  }
+  if (MODE === "fusrap") fusMode(); else if (MODE === "pfas") pfasMode(); else if (MODE === "superfund") sfMode(); else zipMode();
 })();
