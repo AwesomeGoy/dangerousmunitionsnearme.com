@@ -962,6 +962,14 @@ header.site-head.site-head--banner .site-head-bar {
 .env-tag--fudso { color: #292524; background: #e7e5e4; }
 .env-dot--fudso { background: #d6d3d1; border-color: #44403c; }
 
+/* africa-section */
+.afr-map { height: 520px; } .afr-list li { margin-bottom: 1rem; } @media (max-width:700px){ .afr-map { height: 380px; } }
+.afr-caveats ul { margin: 0.4rem 0 0; padding-left: 1.2rem; } .afr-caveats li { margin-bottom: 0.35rem; }
+.afr-v { display: inline-block; font-size: 0.78rem; font-weight: 700; padding: 0.05rem 0.45rem; border-radius: 0.6rem; vertical-align: 0.1em; }
+.afr-v--verified { background: #dcfce7; color: #14532d; } .afr-v--corrected { background: #dbeafe; color: #1e3a8a; } .afr-v--unverified { background: #fef08a; color: #713f12; border: 1px dashed #a16207; }
+.afr-why { background: #fefce8; border-left: 4px solid #ca8a04; padding: 0.3rem 0.6rem; margin: 0.3rem 0; }
+/* /africa-section */
+
 /* --- Homepage cover: photo collage v1 --- */
 .cover-hero {
   background: #111;
