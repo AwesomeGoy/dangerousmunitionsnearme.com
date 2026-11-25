@@ -970,6 +970,10 @@ header.site-head.site-head--banner .site-head-bar {
 .afr-why { background: #fefce8; border-left: 4px solid #ca8a04; padding: 0.3rem 0.6rem; margin: 0.3rem 0; }
 /* /africa-section */
 
+/* samerica-section */
+.sam-pe-pt span { display: block; width: 9px; height: 9px; margin: 1px; background: #7f1d1d; border: 1.5px solid #fff; transform: rotate(45deg); box-shadow: 0 0 0 1px #7f1d1d; }
+/* /samerica-section */
+
 /* --- Homepage cover: photo collage v1 --- */
 .cover-hero {
   background: #111;
