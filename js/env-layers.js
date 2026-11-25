@@ -210,5 +210,62 @@
       if (pts.length) map.fitBounds(pts, { padding: [24, 24], maxZoom: 9 }); else { map.setView([39.5, -98.35], 3); el.insertAdjacentHTML("afterend", '<p class="env-meta">No mapped sites in this state yet.</p>'); }
     });
   }
-  if (MODE === "state") stateMode(); else if (MODE === "fusrap") fusMode(); else if (MODE === "pfas") pfasMode(); else if (MODE === "superfund") sfMode(); else zipMode();
+  function anzMode() {
+    var base = script.getAttribute("data-base") || "";
+    var el = document.getElementById("map");
+    load(base + "data/anz.json").then(function (d) {
+      var LAYERS = [
+        { k: "sub", label: "UXO: substantial", col: "#b91c1c", fill: "#fecaca", on: true },
+        { k: "sli", label: "UXO: slight", col: "#c2410c", fill: "#fed7aa", on: true },
+        { k: "rem", label: "UXO: remote", col: "#a16207", fill: "#fef08a", on: true },
+        { k: "oth", label: "Other / no UXO found", col: "#78716c", fill: "#f5f5f4", on: false },
+        { k: "sea", label: "AU sea dumping", col: "#1d4ed8", fill: "#dbeafe", on: true },
+        { k: "dc", label: "WWII depth charges", col: "#0f766e", fill: "#ccfbf1", on: true },
+        { k: "au_pfas", label: "AU Defence PFAS (base location)", col: "#0e7490", fill: "#67e8f9", on: true },
+        { k: "nz_pfas", label: "NZ PFAS (base location)", col: "#0e7490", fill: "#a5f3fc", on: true },
+        { k: "nz_sea", label: "NZ ammunition dumping", col: "#1e3a8a", fill: "#93c5fd", on: true },
+        { k: "nz_other", label: "NZ other munitions", col: "#7c2d12", fill: "#fdba74", on: true }
+      ];
+      var groups = {};
+      var map = null;
+      if (el && typeof L !== "undefined") {
+        map = L.map(el, { scrollWheelZoom: false, preferCanvas: true });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(map);
+        map.fitBounds([[-44, 113], [-10, 179]]);
+        LAYERS.forEach(function (l) { groups[l.k] = L.layerGroup(); if (l.on) groups[l.k].addTo(map); });
+        d.sites.forEach(function (s) {
+          if (s.la == null || s.lo == null) return;
+          var key = s.L === "au_uxo" ? s.k : s.L, l = LAYERS.filter(function (x) { return x.k === key; })[0];
+          if (!l) return;
+          var note = s.base ? "<br><em>Base location, not the contamination location</em>" : "";
+          L.circleMarker([s.la, s.lo], { radius: key === "oth" ? 4 : 6, color: l.col, weight: key === "oth" ? 1 : 2, fillColor: l.fill, fillOpacity: key === "oth" ? 0.5 : 0.9 })
+            .bindPopup("<strong>" + esc(l.label) + ":</strong> " + esc(s.n) + note + (s.dd ? "<br>Data date: " + esc(s.dd) : "") + (s.u ? '<br><a href="' + esc(s.u) + '">Official source</a>' : ""))
+            .addTo(groups[key]);
+        });
+      }
+      var f = document.getElementById("anz-filters");
+      if (f) {
+        f.innerHTML = "<legend class=\"sr-only\">Map layers</legend>" + LAYERS.map(function (l) {
+          return '<label class="env-check"><input type="checkbox" data-k="' + l.k + '"' + (l.on ? " checked" : "") + '> <i class="env-dot" style="border-color:' + l.col + ';background:' + l.fill + '" aria-hidden="true"></i> ' + esc(l.label) + "</label>";
+        }).join("");
+        Array.prototype.forEach.call(f.querySelectorAll("input"), function (cb) {
+          cb.addEventListener("change", function () { if (!map) return; var g = groups[cb.getAttribute("data-k")]; if (cb.checked) g.addTo(map); else map.removeLayer(g); });
+        });
+      }
+      var rows = d.sites.filter(function (s) { return s.L === "au_uxo"; });
+      var sel = document.getElementById("uxo-state"), cat = document.getElementById("uxo-cat"), q = document.getElementById("uxo-q");
+      var tb = document.querySelector("#uxo-table tbody"), cnt = document.getElementById("uxo-count");
+      if (!tb) return;
+      fillStates(sel, rows.map(function (r) { return r.st; }));
+      Array.from(new Set(rows.map(function (r) { return r.cat; }))).sort().forEach(function (c) { var o = document.createElement("option"); o.value = c; o.textContent = c; cat.appendChild(o); });
+      function draw() {
+        var qq = (q.value || "").toLowerCase();
+        var vis = rows.filter(function (r) { return (!sel.value || r.st === sel.value) && (!cat.value || r.cat === cat.value) && (!qq || (r.n + " " + r.d).toLowerCase().indexOf(qq) !== -1); });
+        cnt.textContent = "Showing " + vis.length + " of " + rows.length + " areas. Source: Department of Defence UXO map, index last modified 2026-11-16.";
+        tb.innerHTML = vis.map(function (r) { return "<tr><td>" + esc(r.n) + "</td><td>" + esc(r.st) + "</td><td>" + esc(r.cat) + (r.alerts ? "" : " <span class=\"env-meta\">(not used for alerts)</span>") + "</td><td>" + esc(r.d) + "</td></tr>"; }).join("");
+      }
+      [sel, cat].forEach(function (e) { e.addEventListener("change", draw); }); q.addEventListener("input", draw); draw();
+    });
+  }
+  if (MODE === "anz") anzMode(); else if (MODE === "state") stateMode(); else if (MODE === "fusrap") fusMode(); else if (MODE === "pfas") pfasMode(); else if (MODE === "superfund") sfMode(); else zipMode();
 })();
