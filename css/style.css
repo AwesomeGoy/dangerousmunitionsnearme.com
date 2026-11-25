@@ -979,6 +979,11 @@ header.site-head.site-head--banner .site-head-bar {
 .ant-lbl { font: 600 11px/1.1 system-ui, sans-serif; color: #475569; white-space: nowrap; background: transparent; border: 0; box-shadow: none; }
 /* /antarctica-section */
 
+/* arctic-section */
+#map.arc-map, #map.arc-map.leaflet-container { background: #dbeafe; }
+.ant-lbl.ant-lbl--ac { color: #b91c1c; }
+/* /arctic-section */
+
 /* header-v2 */
 header.site-head--cover .brand { flex: 1 1 100%; max-width: 44rem; margin-bottom: 0.35rem; }
 header.site-head--cover .brand h1 { font-size: 1.6rem; letter-spacing: -0.015em; }
