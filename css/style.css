@@ -994,6 +994,16 @@ header.site-head.site-head--banner .site-head-bar {
 .as-stubs li { margin-bottom: .4rem; }
 /* /asia-section */
 
+/* regions2-section */
+.rg-section { margin-top: 2.5rem; }
+.rg-map { height: 340px; margin: 1rem 0 .4rem; }
+.rg-ptrs > li { margin-bottom: .6rem; }
+.rg-ptrs ul { margin: .3rem 0 0; padding-left: 1.2rem; }
+.rg-ptrs ul li { margin-bottom: .3rem; }
+.rg-jump { margin: .25rem 0 1rem; }
+@media (max-width: 640px) { .rg-map { height: 280px; } }
+/* /regions2-section */
+
 /* petroleum-section */
 .pet-filters .env-dot { flex: 0 0 auto; }
 /* /petroleum-section */
