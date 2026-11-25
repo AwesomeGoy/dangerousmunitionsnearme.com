@@ -989,6 +989,11 @@ header.site-head.site-head--banner .site-head-bar {
 .afr-list li .env-meta strong { color: #7c2d12; }
 /* /mideast-section */
 
+/* asia-section */
+.as-filters .env-dot { flex: 0 0 auto; }
+.as-stubs li { margin-bottom: .4rem; }
+/* /asia-section */
+
 /* petroleum-section */
 .pet-filters .env-dot { flex: 0 0 auto; }
 /* /petroleum-section */
