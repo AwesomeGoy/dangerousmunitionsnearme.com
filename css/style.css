@@ -929,3 +929,7 @@ header.site-head.site-head--banner .site-head-bar {
 .env-obod li { margin: .35rem 0; overflow-wrap: anywhere; }
 .env-note { border-left: 4px solid #b45309; background: #fffbeb; color: #1c1917; padding: .6rem .8rem; margin: .5rem 0; }
 .env-obod-li a { text-decoration: underline; }
+
+/* U.S. sea-disposal sites (checked 2026-11-25) */
+.env-tag--sea { background: #dbeafe; color: #1e3a8a; border-color: #1e3a8a; }
+.env-sea ul { padding-left: 1.2rem; }

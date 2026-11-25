@@ -225,18 +225,52 @@
       }).join("");
     });
   }
+  function seaPopup(s) {
+    return "<strong>Sea dump " + esc(s.code) + ":</strong> " + esc(s.n) + "<br>" + esc(s.mi) + " nautical miles from shore · depth " + esc(s.dp) + " feet" +
+      "<br><small>Approximate location: the charted Unexploded Ordnance area on NOAA chart 19357.</small>";
+  }
+  function seaMode() {
+    load("data/seadump.json").then(function (d) {
+      var rows = d.sites, sel = document.getElementById("sea-state"), chem = document.getElementById("sea-chem");
+      var tb = document.querySelector("#sea-table tbody"), cnt = document.getElementById("sea-count");
+      var names = {};
+      rows.forEach(function (r) { if (r.s) names[r.s] = r.sn; });
+      Object.keys(names).sort(function (a, b) { return names[a] < names[b] ? -1 : 1; }).forEach(function (c) { var o = document.createElement("option"); o.value = c; o.textContent = names[c]; sel.appendChild(o); });
+      var o2 = document.createElement("option"); o2.value = "-"; o2.textContent = "Not named by DoD"; sel.appendChild(o2);
+      var el = document.getElementById("map");
+      if (el && typeof L !== "undefined") {
+        var map = L.map(el, { scrollWheelZoom: false });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(map);
+        var pts = [];
+        rows.forEach(function (r) { if (r.la == null) return; pts.push([r.la, r.lo]);
+          L.circleMarker([r.la, r.lo], { radius: 9, color: "#1e3a8a", weight: 3, fillColor: "#1d4ed8", fillOpacity: 0.85 }).bindPopup(seaPopup(r)).addTo(map); });
+        if (pts.length) map.setView(pts[0], 10); else map.setView([39.5, -98.35], 3);
+      }
+      function draw() {
+        var vis = rows.filter(function (r) { return (!sel.value || (sel.value === "-" ? !r.s : r.s === sel.value)) && (!chem.checked || r.cwc); });
+        cnt.textContent = "Showing " + vis.length + " of " + rows.length + " sites (" + vis.filter(function (r) { return r.cwc; }).length + " with chemical weapons). Source: DoD FY2009 report, checked Nov 25, 2026.";
+        tb.innerHTML = vis.map(function (r) {
+          var what = (r.cwc ? "<strong>Chemical weapons</strong>" + (r.ag.length ? ": " + esc(r.ag.join(", ")) : "") + ". " : "") + esc(r.it.join("; ")) + (r.nit > r.it.length ? " and " + (r.nit - r.it.length) + " more rows" : "");
+          return "<tr><td>" + esc(r.n) + "</td><td>" + esc(r.sn || "Not named") + "</td><td>" + esc(r.mi) + "</td><td>" + esc(r.dp) + "</td><td>" + what + "</td><td>" +
+            (r.la != null ? "Mapped (approximate)" : "List only") + "</td></tr>";
+        }).join("");
+      }
+      sel.addEventListener("change", draw); chem.addEventListener("change", draw); draw();
+    });
+  }
   function stateMode() {
     var code = script.getAttribute("data-state"), base = script.getAttribute("data-base") || "";
     var el = document.getElementById("map");
     if (!el || typeof L === "undefined") return;
     var map = L.map(el, { scrollWheelZoom: false });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(map);
-    Promise.all([load(base + "data/sites.json"), load(base + "data/superfund.json"), load(base + "data/fusrap.json"), load(base + "data/pfas.json")]).then(function (r) {
+    Promise.all([load(base + "data/sites.json"), load(base + "data/superfund.json"), load(base + "data/fusrap.json"), load(base + "data/pfas.json"), load(base + "data/seadump.json")]).then(function (r) {
       var pts = [];
       function add(lat, lon, opt, html) { if (lat == null || lon == null || lat === "" || lon === "") return; lat = Number(lat); lon = Number(lon); L.circleMarker([lat, lon], opt).bindPopup(html).addTo(map); pts.push([lat, lon]); }
       r[1].sites.forEach(function (s) { if (s.s === code && s.st !== "deleted") add(s.la, s.lo, { radius: 6, color: "#5b21b6", weight: 2, fillColor: "#ede9fe", fillOpacity: 0.9 }, "<strong>Superfund:</strong> " + esc(s.n) + '<br><a href="' + esc(s.u) + '">EPA site profile</a>'); });
       r[2].sites.forEach(function (s) { if (s.s === code) add(s.la, s.lo, { radius: 8, color: "#854d0e", weight: 3, fillColor: "#fde047", fillOpacity: 0.95 }, "<strong>FUSRAP:</strong> " + esc(s.n) + '<br><a href="' + esc(s.u) + '">USACE site page</a>'); });
       r[3].installations.forEach(function (s) { if (s.s === code && s.la != null) add(s.la, s.lo, { radius: 6, color: "#0e7490", weight: 2, fillColor: "#cffafe", fillOpacity: 0.9 }, pfPopup(s, r[3].meta)); });
+      r[4].sites.forEach(function (s) { if (s.s === code && s.la != null) add(s.la, s.lo, { radius: 8, color: "#1e3a8a", weight: 3, fillColor: "#1d4ed8", fillOpacity: 0.85 }, seaPopup(s)); });
       (r[0].sites || []).forEach(function (s) { if (s.state === code) add(s.latitude, s.longitude, { radius: 8, color: "#1c1917", weight: 1, fillColor: "#166534", fillOpacity: 0.9 }, "<strong>Munitions:</strong> " + '<a href="' + base + "sites/" + encodeURIComponent(s.id) + '.html">' + esc(s.name) + "</a>"); });
       if (pts.length) map.fitBounds(pts, { padding: [24, 24], maxZoom: 9 }); else { map.setView([39.5, -98.35], 3); el.insertAdjacentHTML("afterend", '<p class="env-meta">No mapped sites in this state yet.</p>'); }
     });
@@ -298,5 +332,5 @@
       [sel, cat].forEach(function (e) { e.addEventListener("change", draw); }); q.addEventListener("input", draw); draw();
     });
   }
-  if (MODE === "anz") anzMode(); else if (MODE === "state") stateMode(); else if (MODE === "fusrap") fusMode(); else if (MODE === "pfas") pfasMode(); else if (MODE === "superfund") sfMode(); else zipMode();
+  if (MODE === "anz") anzMode(); else if (MODE === "state") stateMode(); else if (MODE === "fusrap") fusMode(); else if (MODE === "pfas") pfasMode(); else if (MODE === "sea") seaMode(); else if (MODE === "superfund") sfMode(); else zipMode();
 })();
