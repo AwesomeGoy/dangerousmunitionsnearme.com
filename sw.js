@@ -1,14 +1,14 @@
 /* Dangerous Munitions Near Me service worker
- * Cache version: dmnm-pwa-20261125-145830
+ * Cache version: dmnm-pwa-20261125-151913
  * Network-first for /data/*.json and for same-origin pages/assets.
  * HTML navigations bypass the HTTP cache so phones pick up a new page quickly.
  * Precaches a small app shell and falls back to /offline.html.
  * No push notifications, no analytics, no data collection.
  */
-const CACHE_VERSION = "dmnm-pwa-20261125-145830";
+const CACHE_VERSION = "dmnm-pwa-20261125-151913";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 const DATA_CACHE = CACHE_VERSION + "-data";
-const SHELL_URLS = ["/", "/index.html", "/offline.html", "/css/style.css", "/css/canada.css", "/js/app.js", "/favicon.svg", "/favicon.png", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-512-maskable.png", "/icons/apple-touch-icon.png", "/manifest.webmanifest", "/africa/index.html", "/js/africa.js", "/south-america/index.html", "/js/samerica.js", "/antarctica/index.html", "/js/antarctica.js", "/arctic/index.html", "/js/arctic.js"];
+const SHELL_URLS = ["/", "/index.html", "/offline.html", "/css/style.css", "/css/canada.css", "/js/app.js", "/favicon.svg", "/favicon.png", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-512-maskable.png", "/icons/apple-touch-icon.png", "/manifest.webmanifest", "/africa/index.html", "/js/africa.js", "/south-america/index.html", "/js/samerica.js", "/antarctica/index.html", "/js/antarctica.js", "/arctic/index.html", "/js/arctic.js", "/africa/south-africa/index.html", "/js/south-africa.js", "/middle-east/index.html", "/js/middle-east.js"];
 
 self.addEventListener("install", function (event) {
   event.waitUntil(
