@@ -933,3 +933,11 @@ header.site-head.site-head--banner .site-head-bar {
 /* U.S. sea-disposal sites (checked 2026-11-25) */
 .env-tag--sea { background: #dbeafe; color: #1e3a8a; border-color: #1e3a8a; }
 .env-sea ul { padding-left: 1.2rem; }
+
+/* DOE LM and Navajo abandoned uranium mines (checked 2026-11-25) */
+.env-tag--lm { color: #7c2d12; background: #ffedd5; }
+.env-tag--aum { color: #422006; background: #fef3c7; }
+.env-dot--lm { background: #fdba74; border-color: #7c2d12; }
+.env-dot--aum { background: #a16207; border-color: #3f3f46; }
+.nuc-map { height: 460px; }
+.env-nuc details summary { cursor: pointer; font-weight: 600; margin: .5rem 0; }

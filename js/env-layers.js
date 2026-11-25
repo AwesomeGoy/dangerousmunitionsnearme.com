@@ -38,6 +38,21 @@
       "<br><small>Base location, not the contamination location" + (p.cp === "approximate" ? " (approximate point)" : "") + ".</small>" + (u ? "<br><small>" + esc(u) + "</small>" : "");
   }
 
+  var LM_STYLE = { radius: 7, color: "#7c2d12", weight: 2, fillColor: "#fdba74", fillOpacity: 0.95 };
+  var AUM_STYLE = { radius: 5, color: "#3f3f46", weight: 1, fillColor: "#a16207", fillOpacity: 0.9 };
+  function lmPopup(s) {
+    return "<strong>DOE Legacy Management:</strong> " + esc(s.n) + "<br>" +
+      (s.rec ? "<small>Records site in Grand Junction, Colorado, not a contamination site.</small><br>" : (s.dl ? esc(s.dl) + "<br>" : "")) +
+      '<a href="' + esc(s.u) + '">DOE site page</a>' + (s.fs ? ' · <a href="' + esc(s.fs) + '">fact sheet</a>' : "");
+  }
+  function aumPopup(s) {
+    return "<strong>Abandoned uranium mine:</strong> " + esc(s.n) + " (EPA ID " + esc(s.mid) + ")<br>" + esc(s.reg) + " AUM region, Navajo Nation area · " + esc(s.st) +
+      '<br><a href="' + esc(s.fs || s.u) + '">' + (s.fs ? "EPA screening report" : "EPA program page") + "</a>";
+  }
+  function clusterGroup() {
+    return (typeof L.markerClusterGroup === "function") ? L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 45, chunkedLoading: true }) : L.layerGroup();
+  }
+
   /* ---------- ZIP search mode ---------- */
   function zipMode() {
     var box = document.getElementById("env-results");
@@ -47,7 +62,7 @@
     var munitionsEl = document.getElementById("nearby-results");
     if (!box || !form) return;
     var map = null, mapLayer = null, last = null;
-    var state = { mun: true, pfas: true, sf: true, fus: true, deleted: false };
+    var state = { mun: true, pfas: true, sf: true, fus: true, lm: true, aum: true, deleted: false };
 
     function filtersHtml() {
       return '<fieldset class="env-filter-set"><legend>Show these site types</legend>' +
@@ -55,16 +70,22 @@
         '<label class="env-check"><input type="checkbox" data-k="pfas"' + (state.pfas ? " checked" : "") + '> <span class="env-tag env-tag--pfas">Military PFAS</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="sf"' + (state.sf ? " checked" : "") + '> <span class="env-tag env-tag--sf">Superfund</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="fus"' + (state.fus ? " checked" : "") + '> <span class="env-tag env-tag--fus">FUSRAP</span></label>' +
+        '<label class="env-check"><input type="checkbox" data-k="lm"' + (state.lm ? " checked" : "") + '> <span class="env-tag env-tag--lm">DOE Legacy Management</span></label>' +
+        '<label class="env-check"><input type="checkbox" data-k="aum"' + (state.aum ? " checked" : "") + '> <span class="env-tag env-tag--aum">Navajo uranium mines</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="deleted"' + (state.deleted ? " checked" : "") + '> Include deleted (cleaned-up) Superfund sites</label></fieldset>' +
-        (window.DMNM_MAP ? '<p class="env-legend" aria-label="Map marker key"><span><i class="env-dot env-dot--sf" aria-hidden="true"></i> Superfund</span> <span><i class="env-dot env-dot--fus" aria-hidden="true"></i> FUSRAP</span> <span><i class="env-dot env-dot--pfas" aria-hidden="true"></i> Military PFAS (base location)</span> <span><i class="env-dot env-dot--zip" aria-hidden="true"></i> Your ZIP</span><span><i class="env-dot env-dot--mun" aria-hidden="true"></i> Munitions (green, amber or gray)</span></p>' : "");
+        (window.DMNM_MAP ? '<p class="env-legend" aria-label="Map marker key"><span><i class="env-dot env-dot--sf" aria-hidden="true"></i> Superfund</span> <span><i class="env-dot env-dot--fus" aria-hidden="true"></i> FUSRAP</span> <span><i class="env-dot env-dot--pfas" aria-hidden="true"></i> Military PFAS (base location)</span> <span><i class="env-dot env-dot--lm" aria-hidden="true"></i> DOE LM</span> <span><i class="env-dot env-dot--aum" aria-hidden="true"></i> Uranium mine</span> <span><i class="env-dot env-dot--zip" aria-hidden="true"></i> Your ZIP</span><span><i class="env-dot env-dot--mun" aria-hidden="true"></i> Munitions (green, amber or gray)</span></p>' : "");
     }
 
     function render(lat, lon, label) {
       last = { lat: lat, lon: lon, label: label };
       box.hidden = false;
       box.innerHTML = "<p>Loading PFAS and Superfund layers…</p>";
-      Promise.all([load("data/superfund.json"), load("data/pfas.json"), load("data/fusrap.json")]).then(function (res) {
-        var sf = res[0], pf = res[1], fu = res[2]; pf_meta = pf.meta;
+      Promise.all([load("data/superfund.json"), load("data/pfas.json"), load("data/fusrap.json"), load("data/nuclear.json")]).then(function (res) {
+        var sf = res[0], pf = res[1], fu = res[2], nu = res[3]; pf_meta = pf.meta;
+        var lmRanked = nu.lm.filter(function (s) { return !s.rec; }).map(function (s) { return { s: s, mi: miles(lat, lon, s.la, s.lo) }; }).sort(function (a, b) { return a.mi - b.mi; });
+        var lmPick = lmRanked.filter(function (r, i) { return i < 3 || (r.mi <= 50 && i < 10); });
+        var aumIn = nu.aum.map(function (s) { return { s: s, mi: miles(lat, lon, s.la, s.lo) }; }).filter(function (r) { return r.mi <= 50; }).sort(function (a, b) { return a.mi - b.mi; });
+        var aumPick = aumIn.slice(0, 10);
         var fuRanked = fu.sites.filter(function (s) { return s.la != null && s.lo != null; })
           .map(function (s) { return { s: s, mi: miles(lat, lon, s.la, s.lo) }; })
           .sort(function (a, b) { return a.mi - b.mi; });
@@ -104,6 +125,23 @@
             '<div class="env-meta">' + esc(r.s.ph + " · USACE " + r.s.dist + " · Checked against USACE, DOE LM and EPA records on Nov 25, 2026") + "</div></li>";
         }).join("");
         h += '</ol><p class="env-meta">' + fu.meta.unmapped.length + ' of the ' + fu.meta.count + ' active sites are marked “location not confirmed” and are not included in distances. See all on the <a href="fusrap.html">FUSRAP page</a>.</p></section>';
+        h += '<section class="env-group" data-group="lm"' + (state.lm ? "" : " hidden") + '><h3><span class="env-tag env-tag--lm">DOE LM</span> Nearest DOE Legacy Management sites</h3><ol>';
+        h += lmPick.map(function (r) {
+          return '<li><a href="' + esc(r.s.u) + '">' + esc(r.s.n) + "</a> — <span class=\"miles\">" + fmt(r.mi) + "</span>" +
+            '<div class="env-meta">' + esc((r.s.dl || "DOE LM site") + (r.s.ty ? " · with DOE LM since " + r.s.ty : "") + " · Source: DOE Office of Legacy Management, checked Nov 25, 2026") + "</div></li>";
+        }).join("");
+        h += '</ol><p class="env-meta">Long-term care sites; being listed does not by itself mean a place is unsafe today. <a href="nuclear-legacy.html#lm">About DOE LM sites</a></p></section>';
+        h += '<section class="env-group" data-group="aum"' + (state.aum ? "" : " hidden") + '><h3><span class="env-tag env-tag--aum">Uranium mines</span> Navajo Nation abandoned uranium mines within 50 miles</h3>';
+        if (aumIn.length) {
+          h += "<p>" + aumIn.length + " mine" + (aumIn.length === 1 ? "" : "s") + " in EPA’s Navajo Nation inventory " + (aumIn.length === 1 ? "is" : "are") + " within 50 miles" + (aumIn.length > aumPick.length ? "; the nearest " + aumPick.length + " are listed" : "") + ".</p><ol>";
+          h += aumPick.map(function (r) {
+            return '<li><a href="' + esc(r.s.fs || r.s.u) + '">' + esc(r.s.n) + "</a> — <span class=\"miles\">" + fmt(r.mi) + "</span>" +
+              '<div class="env-meta">' + esc("EPA ID " + r.s.mid + " · " + r.s.reg + " AUM region · " + r.s.st) + "</div></li>";
+          }).join("") + "</ol>";
+        } else {
+          h += "<p>None within 50 miles.</p>";
+        }
+        h += '<p class="env-meta">Source: EPA Region 9, checked Nov 25, 2026. See EPA’s <a href="https://www.epa.gov/navajo-nation-uranium-cleanup/what-are-health-effects-uranium">health guidance</a> and <a href="nuclear-legacy.html#navajo">about these mines</a>.</p></section>';
         box.innerHTML = h;
         if (munitionsEl) munitionsEl.hidden = !state.mun;
         Array.prototype.forEach.call(box.querySelectorAll("input[data-k]"), function (cb) {
@@ -113,15 +151,15 @@
             if (munitionsEl) munitionsEl.hidden = !state.mun;
             var g = box.querySelector('[data-group="' + cb.getAttribute("data-k") + '"]');
             if (g) g.hidden = !cb.checked;
-            drawMap(sfPick, pfPick, fuPick);
+            drawMap(sfPick, pfPick, fuPick, lmPick, aumPick);
           });
         });
-        drawMap(sfPick, pfPick, fuPick);
+        drawMap(sfPick, pfPick, fuPick, lmPick, aumPick);
       }).catch(function (e) { box.innerHTML = '<p class="nearby-error">' + esc(e.message) + "</p>"; });
     }
 
     var pf_meta = null;
-    function drawMap(sfPick, pfPick, fuPick) {
+    function drawMap(sfPick, pfPick, fuPick, lmPick, aumPick) {
       map = window.DMNM_MAP || null;
       if (!map || typeof L === "undefined") return;
       if (mapLayer) map.removeLayer(mapLayer);
@@ -134,6 +172,8 @@
         L.circleMarker([r.s.la, r.s.lo], { radius: 7, color: "#0e7490", weight: 2, fillColor: "#cffafe", fillOpacity: 0.9 })
           .bindPopup(pfPopup(r.s, pf_meta)).addTo(mapLayer);
       });
+      if (state.lm) (lmPick || []).forEach(function (r) { L.circleMarker([r.s.la, r.s.lo], LM_STYLE).bindPopup(lmPopup(r.s)).addTo(mapLayer); });
+      if (state.aum) (aumPick || []).forEach(function (r) { L.circleMarker([r.s.la, r.s.lo], AUM_STYLE).bindPopup(aumPopup(r.s)).addTo(mapLayer); });
       if (state.fus) (fuPick || []).forEach(function (r) {
         L.circleMarker([r.s.la, r.s.lo], { radius: 8, color: "#854d0e", weight: 3, fillColor: "#fde047", fillOpacity: 0.95 })
           .bindPopup("<strong>FUSRAP:</strong> " + esc(r.s.n) + '<br><a href="' + esc(r.s.u) + '">USACE site page</a>').addTo(mapLayer);
@@ -258,18 +298,62 @@
       sel.addEventListener("change", draw); chem.addEventListener("change", draw); draw();
     });
   }
+  function nuclearMode() {
+    load("data/nuclear.json").then(function (d) {
+      var el = document.getElementById("map"), map = null, gLm = null, gAum = null;
+      if (el && typeof L !== "undefined") {
+        map = L.map(el, { scrollWheelZoom: false });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(map);
+        map.setView([38.5, -98.5], 4);
+        gLm = L.layerGroup(); d.lm.forEach(function (s) { L.circleMarker([s.la, s.lo], LM_STYLE).bindPopup(lmPopup(s)).addTo(gLm); }); gLm.addTo(map);
+        gAum = clusterGroup(); d.aum.forEach(function (s) { gAum.addLayer(L.circleMarker([s.la, s.lo], AUM_STYLE).bindPopup(aumPopup(s))); }); map.addLayer(gAum);
+        map.fitBounds(d.lm.filter(function (s) { return s.lo < -60 && s.lo > -130 && s.la < 50; }).map(function (s) { return [s.la, s.lo]; }), { padding: [16, 16] });
+        [["nuc-show-lm", gLm], ["nuc-show-aum", gAum]].forEach(function (p) {
+          var cb = document.getElementById(p[0]); if (!cb) return;
+          cb.addEventListener("change", function () { if (cb.checked) map.addLayer(p[1]); else map.removeLayer(p[1]); });
+        });
+      }
+      var ls = document.getElementById("lm-state"), ltb = document.querySelector("#lm-table tbody"), lc = document.getElementById("lm-count");
+      fillStates(ls, d.lm.map(function (r) { return r.s; }));
+      function drawLm() {
+        var vis = d.lm.filter(function (r) { return !ls.value || r.s === ls.value; });
+        lc.textContent = "Showing " + vis.length + " of " + d.lm.length + " DOE LM sites.";
+        ltb.innerHTML = vis.map(function (r) {
+          return "<tr><td>" + esc(r.n) + "</td><td>" + esc(r.s) + "</td><td>" + (r.rec ? "<strong>Records site</strong> in Grand Junction, not a contamination site" : esc(r.dl || "DOE LM site")) + "</td><td>" + esc(r.ty) + "</td><td>" +
+            '<a href="' + esc(r.u) + '">site page</a>' + (r.fs ? ' · <a href="' + esc(r.fs) + '">fact sheet</a>' : "") + "</td></tr>";
+        }).join("");
+      }
+      ls.addEventListener("change", drawLm); drawLm();
+      var rg = document.getElementById("aum-region"), pr = document.getElementById("aum-pr"), q = document.getElementById("aum-q");
+      var atb = document.querySelector("#aum-table tbody"), ac = document.getElementById("aum-count");
+      Array.from(new Set(d.aum.map(function (r) { return r.reg; }))).filter(Boolean).sort().forEach(function (v) { var o = document.createElement("option"); o.value = v; o.textContent = v; rg.appendChild(o); });
+      function drawAum() {
+        var qq = (q.value || "").toLowerCase();
+        var vis = d.aum.filter(function (r) { return (!rg.value || r.reg === rg.value) && (!pr.checked || r.pr) && (!qq || (r.n + " " + r.mid).toLowerCase().indexOf(qq) !== -1); });
+        ac.textContent = "Showing " + vis.length + " of " + d.aum.length + " mines (" + vis.filter(function (r) { return r.pr; }).length + " priority). Source: EPA Region 9, checked Nov 25, 2026.";
+        atb.innerHTML = vis.map(function (r) {
+          return "<tr><td>" + esc(r.n) + "</td><td>" + esc(r.mid) + "</td><td>" + esc(r.reg) + "</td><td>" + esc(r.s) + "</td><td>" + esc(r.st) + "</td><td>" +
+            (r.fs ? '<a href="' + esc(r.fs) + '">screening report</a>' : '<a href="' + esc(r.u) + '">program page</a>') + "</td></tr>";
+        }).join("");
+      }
+      [rg, pr].forEach(function (e) { e.addEventListener("change", drawAum); }); q.addEventListener("input", drawAum); drawAum();
+    });
+  }
   function stateMode() {
     var code = script.getAttribute("data-state"), base = script.getAttribute("data-base") || "";
     var el = document.getElementById("map");
     if (!el || typeof L === "undefined") return;
     var map = L.map(el, { scrollWheelZoom: false });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(map);
-    Promise.all([load(base + "data/sites.json"), load(base + "data/superfund.json"), load(base + "data/fusrap.json"), load(base + "data/pfas.json"), load(base + "data/seadump.json")]).then(function (r) {
+    Promise.all([load(base + "data/sites.json"), load(base + "data/superfund.json"), load(base + "data/fusrap.json"), load(base + "data/pfas.json"), load(base + "data/seadump.json"), load(base + "data/nuclear.json")]).then(function (r) {
       var pts = [];
       function add(lat, lon, opt, html) { if (lat == null || lon == null || lat === "" || lon === "") return; lat = Number(lat); lon = Number(lon); L.circleMarker([lat, lon], opt).bindPopup(html).addTo(map); pts.push([lat, lon]); }
       r[1].sites.forEach(function (s) { if (s.s === code && s.st !== "deleted") add(s.la, s.lo, { radius: 6, color: "#5b21b6", weight: 2, fillColor: "#ede9fe", fillOpacity: 0.9 }, "<strong>Superfund:</strong> " + esc(s.n) + '<br><a href="' + esc(s.u) + '">EPA site profile</a>'); });
       r[2].sites.forEach(function (s) { if (s.s === code) add(s.la, s.lo, { radius: 8, color: "#854d0e", weight: 3, fillColor: "#fde047", fillOpacity: 0.95 }, "<strong>FUSRAP:</strong> " + esc(s.n) + '<br><a href="' + esc(s.u) + '">USACE site page</a>'); });
       r[3].installations.forEach(function (s) { if (s.s === code && s.la != null) add(s.la, s.lo, { radius: 6, color: "#0e7490", weight: 2, fillColor: "#cffafe", fillOpacity: 0.9 }, pfPopup(s, r[3].meta)); });
+      r[5].lm.forEach(function (s) { if (s.s === code) add(s.la, s.lo, LM_STYLE, lmPopup(s)); });
+      var aums = r[5].aum.filter(function (s) { return s.s === code; });
+      if (aums.length) { var cg = clusterGroup(); aums.forEach(function (s) { cg.addLayer(L.circleMarker([s.la, s.lo], AUM_STYLE).bindPopup(aumPopup(s))); pts.push([s.la, s.lo]); }); map.addLayer(cg); }
       r[4].sites.forEach(function (s) { if (s.s === code && s.la != null) add(s.la, s.lo, { radius: 8, color: "#1e3a8a", weight: 3, fillColor: "#1d4ed8", fillOpacity: 0.85 }, seaPopup(s)); });
       (r[0].sites || []).forEach(function (s) { if (s.state === code) add(s.latitude, s.longitude, { radius: 8, color: "#1c1917", weight: 1, fillColor: "#166534", fillOpacity: 0.9 }, "<strong>Munitions:</strong> " + '<a href="' + base + "sites/" + encodeURIComponent(s.id) + '.html">' + esc(s.name) + "</a>"); });
       if (pts.length) map.fitBounds(pts, { padding: [24, 24], maxZoom: 9 }); else { map.setView([39.5, -98.35], 3); el.insertAdjacentHTML("afterend", '<p class="env-meta">No mapped sites in this state yet.</p>'); }
@@ -332,5 +416,5 @@
       [sel, cat].forEach(function (e) { e.addEventListener("change", draw); }); q.addEventListener("input", draw); draw();
     });
   }
-  if (MODE === "anz") anzMode(); else if (MODE === "state") stateMode(); else if (MODE === "fusrap") fusMode(); else if (MODE === "pfas") pfasMode(); else if (MODE === "sea") seaMode(); else if (MODE === "superfund") sfMode(); else zipMode();
+  if (MODE === "anz") anzMode(); else if (MODE === "state") stateMode(); else if (MODE === "fusrap") fusMode(); else if (MODE === "pfas") pfasMode(); else if (MODE === "sea") seaMode(); else if (MODE === "nuclear") nuclearMode(); else if (MODE === "superfund") sfMode(); else zipMode();
 })();
