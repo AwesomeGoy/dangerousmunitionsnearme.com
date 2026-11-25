@@ -86,7 +86,7 @@
   function fudsDetail(x) {
     if (x.k === "m") return x.m.length ? x.m.map(function (m) { return m[0] + " (" + mrsppTxt(m[1]) + ")"; }).join("; ") : (x.rv.length ? x.rv.map(mrsppTxt).join(", ") + " · no mapped boundary" : "No mapped boundary");
     if (x.k === "o") return x.cat.length ? x.cat.map(function (c) { return FUDS_CAT[c] || c; }).join("; ") : "Projects listed; no FY24 project details";
-    return "No projects" + (x.el ? " · " + x.el : "");
+    return "No projects" + (x.el ? " · FUDS eligibility: " + x.el : "");
   }
   function fudsPopup(x) {
     return "<strong>" + esc(fudsKind(x)) + ":</strong> " + esc(x.n) + "<br>" + esc((x.co ? x.co + " County, " : "") + x.s) +
@@ -488,7 +488,7 @@
         loadFudsProps("", sel.value).then(function (pd) {
           var qq = (q.value || "").toLowerCase();
           var vis = pd.props.filter(function (x) { return (!ty.value || x.k === ty.value) && (!qq || (x.n + " " + x.co + " " + (x.m || []).map(function (m) { return m[0]; }).join(" ")).toLowerCase().indexOf(qq) !== -1); });
-          vis.sort(function (a, b) { return (a.k === "m" ? 0 : 1) - (b.k === "m" ? 0 : 1) || (a.n < b.n ? -1 : 1); });
+          vis.sort(function (a, b) { return (a.k === "m" ? 0 : 1) - (b.k === "m" ? 0 : 1) || a.n.localeCompare(b.n, "en", { sensitivity: "base" }); });
           cnt.textContent = "Showing " + Math.min(vis.length, 400) + " of " + vis.length + " matching properties in " + sel.value + ". Source: USACE FUDS GIS (FY24), checked Nov 25, 2026.";
           tb.innerHTML = vis.slice(0, 400).map(function (x) {
             return "<tr><td>" + esc(x.n) + "</td><td>" + esc(x.co) + '</td><td><span class="env-tag ' + (x.k === "m" ? "env-tag--fuds" : "env-tag--fudso") + '">' + (x.k === "m" ? "FUDS munitions" : "Other FUDS") + "</span></td><td>" +
@@ -507,7 +507,7 @@
         if (!dt.open || dt.getAttribute("data-loaded")) return;
         dt.setAttribute("data-loaded", "1");
         loadFudsProps(base, code).then(function (d) {
-          var rows = d.props.filter(function (x) { return x.k !== "m"; }).sort(function (a, b) { return a.n < b.n ? -1 : 1; });
+          var rows = d.props.filter(function (x) { return x.k !== "m"; }).sort(function (a, b) { return a.n.localeCompare(b.n, "en", { sensitivity: "base" }); });
           dt.querySelector(".fuds-other-list").innerHTML = "<ul>" + rows.map(function (x) {
             return "<li>" + (x.u ? '<a href="' + esc(x.u) + '">' + esc(x.n) + "</a>" : esc(x.n)) + ' <span class="env-meta">· ' + esc((x.co ? x.co + " County · " : "") + fudsDetail(x) + (x.done ? " · all projects closed out" : "") + (x.la == null ? (x.warn ? " · Caution: " + x.warn : " · list only, no official map point") : "")) + "</span></li>";
           }).join("") + "</ul>";
