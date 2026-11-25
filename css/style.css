@@ -961,3 +961,24 @@ header.site-head.site-head--banner .site-head-bar {
 .env-fuds details summary { cursor: pointer; font-weight: 600; margin: .5rem 0; }
 .env-tag--fudso { color: #292524; background: #e7e5e4; }
 .env-dot--fudso { background: #d6d3d1; border-color: #44403c; }
+
+/* --- Homepage cover: photo collage v1 --- */
+.cover-hero {
+  background: #111;
+  line-height: 0;
+}
+.cover-hero picture,
+.cover-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+header.site-head.site-head--cover > .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
