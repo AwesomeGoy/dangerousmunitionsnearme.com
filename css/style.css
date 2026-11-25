@@ -914,3 +914,9 @@ header.site-head.site-head--banner .site-head-bar {
 .env-dot--pfas { border-color: #0e7490; background: #cffafe; }
 .env-dot--zip { border-color: #1e3a5f; background: #f7f4ef; }
 .env-dot--mun { border-color: #1c1917; background: #166534; }
+.state-map { height: 380px; border: 1px solid var(--line); border-radius: 6px; margin: 0.8rem 0 0.4rem; }
+.state-counts { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+.crumbs { font-size: 0.9rem; margin: 0.4rem 0; }
+.env-nearby-site ul { padding-left: 1.1rem; }
+.env-nearby-site li { margin-bottom: 0.35rem; }
+@media (max-width: 700px) { .state-map { height: 300px; } }
