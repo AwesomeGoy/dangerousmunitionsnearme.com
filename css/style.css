@@ -470,6 +470,19 @@ footer nav.footer-nav {
 }
 footer nav.footer-nav a { font-weight: 500; font-size: 0.9rem; }
 
+a.support-link {
+  color: var(--link);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a.support-link:hover { color: var(--link-hover); }
+a.support-link:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 @media (max-width: 700px) {
   nav { max-width: 100%; }
   .timeline-toolbar, .comments-toolbar { flex-direction: column; align-items: stretch; }
