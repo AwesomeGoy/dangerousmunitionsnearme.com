@@ -921,3 +921,11 @@ header.site-head.site-head--banner .site-head-bar {
 .env-nearby-site li { margin-bottom: 0.35rem; }
 @media (max-width: 700px) { .state-map { height: 300px; } }
 .anz-map { height: 460px; } .anz-list li { margin-bottom: 0.9rem; } @media (max-width:700px){ .anz-map { height: 340px; } }
+
+/* OB/OD permit and air records (checked 2026-11-25) */
+.env-obod { margin: 1.5rem 0; }
+.env-obod h3 { margin: 1rem 0 .4rem; font-size: 1.05rem; }
+.env-obod ul { padding-left: 1.2rem; }
+.env-obod li { margin: .35rem 0; overflow-wrap: anywhere; }
+.env-note { border-left: 4px solid #b45309; background: #fffbeb; color: #1c1917; padding: .6rem .8rem; margin: .5rem 0; }
+.env-obod-li a { text-decoration: underline; }

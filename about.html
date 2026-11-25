@@ -130,6 +130,10 @@
     The official EMODnet dataset remains the source of record, via the
     <a href="https://ows.emodnet-humanactivities.eu/geonetwork/srv/api/records/661aa259-8ea9-49ae-a39d-49685057b013">metadata record</a>.</p>
     
+    <h2 id="obod-permits">OB/OD permits and air records</h2>
+    <p>Each facility page has an “EPA permit and air records” section, checked on Nov 25, 2026. All 64 facilities on <a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">EPA’s current open burning / open detonation list</a> (updated March 11, 2025) are matched: 60 permitted and 4 under interim status. 51 have a permit PDF posted on <a href="https://www.epa.gov/hwpermitting/subpart-x-hazardous-waste-permits-treatment-explosive-wastes">EPA’s Subpart X page</a> (EPA notes posted permits may be expired or modified). Facility registry IDs and hazardous-waste roles come from <a href="https://www.epa.gov/frs">EPA’s Facility Registry Service (FRS)</a>. Compliance fields come from <a href="https://echo.epa.gov/tools/web-services">EPA ECHO</a>, and air-program fields from <a href="https://echo.epa.gov/tools/data-downloads/icis-air-download-summary">EPA ICIS-AIR downloads</a> (files dated Nov 22, 2026; 44 facilities have an air-program record).</p>
+    <p><strong>The air and compliance data are whole-plant data, not proof the open burning caused a violation.</strong> They describe the whole facility, not the open burning or detonation unit alone. Map points are the existing EPA FRS points; none were moved. Hawthorne Main Base and the New Bomb Facility share one FRS registry and point, so they plot at the same spot. Savanna Army Depot, Camp Minden and Lake City Army Ammunition Plant are not on EPA’s current list. Download: <a href="data/obod.json">obod.json</a>.</p>
+    <!-- /obod-permits -->
     <h2 id="pfas-superfund-data">PFAS, Superfund and FUSRAP layers</h2>
     <p>The ZIP search also shows nearby Superfund, FUSRAP and military PFAS sites. These layers come straight from government data and are kept separate from the munitions inventory above.</p>
     <ul>
