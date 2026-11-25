@@ -26,6 +26,17 @@
   function pfMeta(p, meta) {
     return p.comp + " " + p.t + " · DoD status: " + p.cs + (p.ia ? " · Interim action listed" : "") + " · Source: DoD PFAS status chart, data as of " + meta.data_date;
   }
+  function u5Text(p) {
+    if (!p.u5) return "";
+    return "Town water systems within 5 miles, not tests on the base (EPA UCMR 5): " + p.u5 + " system" + (p.u5 === 1 ? "" : "s") +
+      (p.u5d ? ", PFOA or PFOS detected in " + p.u5d : ", no PFOA or PFOS detected") +
+      ((p.u5s || []).length && p.u5d ? ". " + p.u5s.filter(function (x) { return x.r !== "not detected"; }).map(function (x) { return x.n + ": " + x.r; }).join("; ") : "") + ".";
+  }
+  function pfPopup(p, meta) {
+    var u = u5Text(p);
+    return "<strong>Military PFAS:</strong> " + esc(p.n) + "<br>" + esc(p.comp + " " + p.t) + " · DoD status: " + esc(p.cs) +
+      "<br><small>Base location, not the contamination location" + (p.cp === "approximate" ? " (approximate point)" : "") + ".</small>" + (u ? "<br><small>" + esc(u) + "</small>" : "");
+  }
 
   /* ---------- ZIP search mode ---------- */
   function zipMode() {
@@ -45,7 +56,7 @@
         '<label class="env-check"><input type="checkbox" data-k="sf"' + (state.sf ? " checked" : "") + '> <span class="env-tag env-tag--sf">Superfund</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="fus"' + (state.fus ? " checked" : "") + '> <span class="env-tag env-tag--fus">FUSRAP</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="deleted"' + (state.deleted ? " checked" : "") + '> Include deleted (cleaned-up) Superfund sites</label></fieldset>' +
-        (window.DMNM_MAP ? '<p class="env-legend" aria-label="Map marker key"><span><i class="env-dot env-dot--sf" aria-hidden="true"></i> Superfund</span> <span><i class="env-dot env-dot--fus" aria-hidden="true"></i> FUSRAP</span> <span><i class="env-dot env-dot--pfas" aria-hidden="true"></i> Military PFAS (when mapped)</span> <span><i class="env-dot env-dot--zip" aria-hidden="true"></i> Your ZIP</span><span><i class="env-dot env-dot--mun" aria-hidden="true"></i> Munitions (green, amber or gray)</span></p>' : "");
+        (window.DMNM_MAP ? '<p class="env-legend" aria-label="Map marker key"><span><i class="env-dot env-dot--sf" aria-hidden="true"></i> Superfund</span> <span><i class="env-dot env-dot--fus" aria-hidden="true"></i> FUSRAP</span> <span><i class="env-dot env-dot--pfas" aria-hidden="true"></i> Military PFAS (base location)</span> <span><i class="env-dot env-dot--zip" aria-hidden="true"></i> Your ZIP</span><span><i class="env-dot env-dot--mun" aria-hidden="true"></i> Munitions (green, amber or gray)</span></p>' : "");
     }
 
     function render(lat, lon, label) {
@@ -53,7 +64,7 @@
       box.hidden = false;
       box.innerHTML = "<p>Loading PFAS and Superfund layers…</p>";
       Promise.all([load("data/superfund.json"), load("data/pfas.json"), load("data/fusrap.json")]).then(function (res) {
-        var sf = res[0], pf = res[1], fu = res[2];
+        var sf = res[0], pf = res[1], fu = res[2]; pf_meta = pf.meta;
         var fuRanked = fu.sites.filter(function (s) { return s.la != null && s.lo != null; })
           .map(function (s) { return { s: s, mi: miles(lat, lon, s.la, s.lo) }; })
           .sort(function (a, b) { return a.mi - b.mi; });
@@ -72,13 +83,13 @@
         if (pfPick.length) {
           h += "<ol>" + pfPick.map(function (r) {
             return '<li><a href="' + esc(pf.meta.source_url) + '">' + esc(r.s.n) + "</a> — <span class=\"miles\">" + fmt(r.mi) + "</span> — " + esc(r.s.sn) +
-              '<div class="env-meta">' + esc(pfMeta(r.s, pf.meta)) + "</div></li>";
+              '<div class="env-meta">' + esc(pfMeta(r.s, pf.meta)) + "</div>" + (r.s.u5 ? '<div class="env-meta">' + esc(u5Text(r.s)) + "</div>" : "") + "</li>";
           }).join("") + "</ol>";
         }
         if (pf.meta.geocoded < pf.meta.count) {
-          h += '<p class="env-meta">' + (pfPick.length ? "Only " + pf.meta.geocoded + " of " : "Locations for the ") + pf.meta.count +
-            ' installations DoD is checking for PFAS ' + (pfPick.length ? "are mapped so far." : "are still being mapped, so distances are not shown yet.") +
-            ' See the <a href="pfas.html#pfas-list-heading">full list by state</a> (DoD data as of ' + esc(pf.meta.data_date) + ").</p>";
+          h += '<p class="env-meta">' + pf.meta.geocoded + " of " + pf.meta.count +
+            " installations DoD is checking for PFAS have a checked map point (checked Nov 25, 2026), so distances cover those only. Points are base locations, not contamination locations." +
+            ' The rest are in the <a href="pfas.html#pfas-list-heading">full list by state</a> (DoD data as of ' + esc(pf.meta.data_date) + ").</p>";
         }
         h += "</section>";
         h += '<section class="env-group" data-group="sf"' + (state.sf ? "" : " hidden") + '><h3><span class="env-tag env-tag--sf">Superfund</span> Nearest Superfund (NPL) sites</h3><ol>';
@@ -109,6 +120,7 @@
       }).catch(function (e) { box.innerHTML = '<p class="nearby-error">' + esc(e.message) + "</p>"; });
     }
 
+    var pf_meta = null;
     function drawMap(sfPick, pfPick, fuPick) {
       map = window.DMNM_MAP || null;
       if (!map || typeof L === "undefined") return;
@@ -120,7 +132,7 @@
       });
       if (state.pfas) pfPick.forEach(function (r) {
         L.circleMarker([r.s.la, r.s.lo], { radius: 7, color: "#0e7490", weight: 2, fillColor: "#cffafe", fillOpacity: 0.9 })
-          .bindPopup("<strong>Military PFAS:</strong> " + esc(r.s.n)).addTo(mapLayer);
+          .bindPopup(pfPopup(r.s, pf_meta)).addTo(mapLayer);
       });
       if (state.fus) (fuPick || []).forEach(function (r) {
         L.circleMarker([r.s.la, r.s.lo], { radius: 8, color: "#854d0e", weight: 3, fillColor: "#fde047", fillOpacity: 0.95 })
@@ -157,12 +169,30 @@
       var rows = d.installations, sel = document.getElementById("pfas-state"), q = document.getElementById("pfas-q");
       var tb = document.querySelector("#pfas-table tbody"), cnt = document.getElementById("pfas-count");
       fillStates(sel, rows.map(function (r) { return r.s; }));
+      var el = document.getElementById("map"), pmap = null, layer = null;
+      if (el && typeof L !== "undefined") {
+        pmap = L.map(el, { scrollWheelZoom: false });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(pmap);
+        pmap.setView([39.5, -98.35], 3);
+      }
+      function drawPf(vis) {
+        if (!pmap) return;
+        if (layer) pmap.removeLayer(layer);
+        layer = L.layerGroup().addTo(pmap);
+        var pts = [];
+        vis.forEach(function (r) { if (r.la == null) return; pts.push([r.la, r.lo]);
+          L.circleMarker([r.la, r.lo], { radius: 6, color: "#0e7490", weight: 2, fillColor: r.u5d ? "#0891b2" : "#cffafe", fillOpacity: 0.9 }).bindPopup(pfPopup(r, d.meta)).addTo(layer); });
+        if (pts.length) pmap.fitBounds(pts, { padding: [20, 20], maxZoom: 9 });
+      }
       function draw() {
         var qq = (q.value || "").toLowerCase();
         var vis = rows.filter(function (r) { return (!sel.value || r.s === sel.value) && (!qq || (r.n + " " + r.sn + " " + r.comp).toLowerCase().indexOf(qq) !== -1); });
-        cnt.textContent = "Showing " + vis.length + " of " + rows.length + " installations. Source: DoD, data as of " + d.meta.data_date + ".";
+        cnt.textContent = "Showing " + vis.length + " of " + rows.length + " installations (" + vis.filter(function (r) { return r.la != null; }).length + " mapped). Source: DoD, data as of " + d.meta.data_date + ".";
+        drawPf(vis);
         tb.innerHTML = vis.map(function (r) {
-          return "<tr><td>" + esc(r.n) + "</td><td>" + esc(r.s) + "</td><td>" + esc(r.comp + " · " + r.t) + "</td><td>" + esc(r.cs) + (r.ia ? " · Interim action listed" : "") + "</td></tr>";
+          return "<tr><td>" + esc(r.n) + "</td><td>" + esc(r.s) + "</td><td>" + esc(r.comp + " · " + r.t) + "</td><td>" + esc(r.cs) + (r.ia ? " · Interim action listed" : "") + "</td><td>" +
+            (r.la != null ? "Mapped" + (r.cp === "approximate" ? " (approximate)" : "") : "List only") + "</td><td>" +
+            (r.la == null ? "Not checked (no map point)" : r.u5 ? esc(r.u5 + " system" + (r.u5 === 1 ? "" : "s") + "; " + (r.u5d ? "PFOA/PFOS detected in " + r.u5d : "none detected")) : "No system within 5 miles") + "</td></tr>";
         }).join("");
       }
       sel.addEventListener("change", draw); q.addEventListener("input", draw); draw();
@@ -201,11 +231,12 @@
     if (!el || typeof L === "undefined") return;
     var map = L.map(el, { scrollWheelZoom: false });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(map);
-    Promise.all([load(base + "data/sites.json"), load(base + "data/superfund.json"), load(base + "data/fusrap.json")]).then(function (r) {
+    Promise.all([load(base + "data/sites.json"), load(base + "data/superfund.json"), load(base + "data/fusrap.json"), load(base + "data/pfas.json")]).then(function (r) {
       var pts = [];
       function add(lat, lon, opt, html) { if (lat == null || lon == null || lat === "" || lon === "") return; lat = Number(lat); lon = Number(lon); L.circleMarker([lat, lon], opt).bindPopup(html).addTo(map); pts.push([lat, lon]); }
       r[1].sites.forEach(function (s) { if (s.s === code && s.st !== "deleted") add(s.la, s.lo, { radius: 6, color: "#5b21b6", weight: 2, fillColor: "#ede9fe", fillOpacity: 0.9 }, "<strong>Superfund:</strong> " + esc(s.n) + '<br><a href="' + esc(s.u) + '">EPA site profile</a>'); });
       r[2].sites.forEach(function (s) { if (s.s === code) add(s.la, s.lo, { radius: 8, color: "#854d0e", weight: 3, fillColor: "#fde047", fillOpacity: 0.95 }, "<strong>FUSRAP:</strong> " + esc(s.n) + '<br><a href="' + esc(s.u) + '">USACE site page</a>'); });
+      r[3].installations.forEach(function (s) { if (s.s === code && s.la != null) add(s.la, s.lo, { radius: 6, color: "#0e7490", weight: 2, fillColor: "#cffafe", fillOpacity: 0.9 }, pfPopup(s, r[3].meta)); });
       (r[0].sites || []).forEach(function (s) { if (s.state === code) add(s.latitude, s.longitude, { radius: 8, color: "#1c1917", weight: 1, fillColor: "#166534", fillOpacity: 0.9 }, "<strong>Munitions:</strong> " + '<a href="' + base + "sites/" + encodeURIComponent(s.id) + '.html">' + esc(s.name) + "</a>"); });
       if (pts.length) map.fitBounds(pts, { padding: [24, 24], maxZoom: 9 }); else { map.setView([39.5, -98.35], 3); el.insertAdjacentHTML("afterend", '<p class="env-meta">No mapped sites in this state yet.</p>'); }
     });
