@@ -9,7 +9,7 @@
     { k: "haz", label: "Contamination, waste or explosion", col: "#7c2d12", fill: "#fb923c" },
     { k: "min", label: "Mine, smelter or spill", col: "#14532d", fill: "#86efac" }
   ];
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" };
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") };
   fetch(base + "data/arctic.json").then(function (r) { return r.json(); }).then(function (d) {
     var el = document.getElementById("map"); if (!el || typeof L === "undefined") return;
     var map = L.map(el, { crs: L.CRS.Simple, minZoom: -6, maxZoom: 4, zoomSnap: 0.25, scrollWheelZoom: false, zoomControl: false, attributionControl: true, maxBounds: [[-5200, -5200], [5200, 5200]] });

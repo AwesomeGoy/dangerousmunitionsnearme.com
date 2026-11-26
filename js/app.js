@@ -1,5 +1,22 @@
 (function () {
-  const script = document.currentScript;
+  
+  function t(key, fallback, vars) {
+    if (window.DMNM_I18N && typeof DMNM_I18N.t === "function") {
+      var got = DMNM_I18N.t(key, fallback, vars);
+      if (got && got !== key) return got;
+    }
+    if (fallback && vars) {
+      return String(fallback).replace(/\{([a-zA-Z0-9_]+)\}/g, function (_, k) {
+        return vars[k] != null ? String(vars[k]) : "{" + k + "}";
+      });
+    }
+    return fallback;
+  }
+  function whenI18n(fn) {
+    if (window.DMNM_I18N && DMNM_I18N.ready) DMNM_I18N.ready(fn);
+    else fn();
+  }
+const script = document.currentScript;
   const DATA_URL = (script && script.getAttribute("data-src")) || "data/sites.json";
   const ICON_PATH = (script && script.getAttribute("data-icon-path")) || "lib/leaflet/images/";
   const ZCTA_URL = (script && script.getAttribute("data-zcta-src")) || "data/zcta-centroids.json";
@@ -21,26 +38,22 @@
 
   const joinTypes = (t) => (Array.isArray(t) ? t.join(", ") : (t || ""));
 
-  const SECTOR_LABELS = {
-    army: "Army",
-    navy: "Navy",
-    air_force: "Air Force",
-    marines: "Marines",
-    other_dod: "Other DoD",
-    doe: "Department of Energy",
-    nasa: "NASA",
-    contractor: "Contractor",
-    other: "Other"
-  };
+  const SECTOR_LABELS = {};
+  function sectorLabel(s) {
+    var keys = {army:"sector.army",navy:"sector.navy",air_force:"sector.air_force",marines:"sector.marines",other_dod:"sector.other_dod",doe:"sector.doe",nasa:"sector.nasa",contractor:"sector.contractor",other:"sector.other"};
+    var fallback = {army:"Army",navy:"Navy",air_force:"Air Force",marines:"Marines",other_dod:"Other DoD",doe:"Department of Energy",nasa:"NASA",contractor:"Contractor",other:"Other"};
+    if (!s) return "";
+    if (keys[s]) return t(keys[s], fallback[s]);
+    return s;
+  }
   const SECTOR_ORDER = ["army","navy","air_force","marines","other_dod","doe","nasa","contractor","other"];
-  const sectorLabel = (s) => SECTOR_LABELS[s] || s || "";
 
   function populateSectorSelect(sel, values) {
     if (!sel) return;
     sel.innerHTML = "";
     const all = document.createElement("option");
     all.value = "";
-    all.textContent = "All sectors";
+    all.textContent = t("filter.all_sectors","All sectors");
     sel.appendChild(all);
     const set = new Set(values.filter(Boolean));
     const ordered = SECTOR_ORDER.filter((v) => set.has(v)).concat(
@@ -69,8 +82,8 @@
   }
 
   function formatMiles(mi) {
-    if (mi < 0.1) return "< 0.1 miles";
-    return mi.toFixed(1) + " miles";
+    if (mi < 0.1) return t("distance.lt_tenth","< 0.1 miles");
+    return t("distance.miles","{n} miles",{n: mi.toFixed(1)});
   }
 
   function escapeText(s) {
@@ -104,12 +117,12 @@
     const tbody = document.querySelector("#sites-table tbody");
     const thead = document.querySelector("#sites-table thead");
 
-    populateSelect(fState, unique(sites.map((s) => s.state)), "All states");
+    populateSelect(fState, unique(sites.map((s) => s.state)), t("filter.all_states","All states"));
     populateSectorSelect(fSector, unique(sites.map((s) => s.sector)));
-    populateSelect(fBranch, unique(sites.map((s) => s.branch)), "All branches");
-    populateSelect(fType, unique(sites.flatMap((s) => s.type || [])), "All types");
-    populateSelect(fVer, unique(sites.map((s) => s.verification)), "All labels");
-    populateSelect(fDepth, unique(sites.map((s) => s.research_depth)), "All depths");
+    populateSelect(fBranch, unique(sites.map((s) => s.branch)), t("filter.all_branches","All branches"));
+    populateSelect(fType, unique(sites.flatMap((s) => s.type || [])), t("filter.all_types","All types"));
+    populateSelect(fVer, unique(sites.map((s) => s.verification)), t("filter.all_labels","All labels"));
+    populateSelect(fDepth, unique(sites.map((s) => s.research_depth)), t("filter.all_depths","All depths"));
 
     const map = L.map("map", { scrollWheelZoom: true });
     window.DMNM_MAP = map;
@@ -159,7 +172,7 @@
     function render() {
       const visible = sortSites(sites.filter(passes));
       countEl.textContent =
-        "Showing " + visible.length + " of " + sites.length + " sites.";
+        t("table.showing","Showing {visible} of {total} sites.",{visible: visible.length, total: sites.length});
       layer.clearLayers();
       const bounds = [];
       visible.forEach((s) => {
@@ -243,7 +256,7 @@
       if (!zctaLoading) {
         zctaLoading = fetch(ZCTA_URL)
           .then((r) => {
-            if (!r.ok) throw new Error("Could not load the ZIP centroid table.");
+            if (!r.ok) throw new Error(t("nearby.zcta_load_error","Could not load the ZIP centroid table."));
             return r.json();
           })
           .then((t) => {
@@ -312,14 +325,13 @@
       }
       const withinCount = picked.filter((r) => r.miles <= 100).length;
       let summary =
-        "Showing the closest " +
-        Math.min(5, picked.length) +
-        " site" +
-        (Math.min(5, picked.length) === 1 ? "" : "s");
+        (Math.min(5, picked.length) === 1
+          ? t("nearby.showing_closest","Showing the closest {n} site",{n: Math.min(5, picked.length)})
+          : t("nearby.showing_closest_plural","Showing the closest {n} sites",{n: Math.min(5, picked.length)}));
       if (withinCount > 5) {
-        summary += ", plus " + (withinCount - 5) + " more within 100 miles";
+        summary += t("nearby.plus_more",", plus {n} more within 100 miles",{n: (withinCount - 5)});
       } else if (withinCount === 0) {
-        summary += ". None of the sites in this draft are within 100 straight-line miles";
+        summary += t("nearby.none_within",". None of the sites in this draft are within 100 straight-line miles");
       }
       summary += ".";
       const items = picked
@@ -368,19 +380,17 @@
         e.preventDefault();
         const zip = (zipInput.value || "").trim();
         if (!/^\d{5}$/.test(zip)) {
-          setNearbyMessage("Please enter a five-digit U.S. ZIP code.", true);
+          setNearbyMessage(t("nearby.please_zip","Please enter a five-digit U.S. ZIP code."), true);
           zipInput.focus();
           return;
         }
-        setNearbyMessage("Looking up that ZIP…");
+        setNearbyMessage(t("nearby.looking_up","Looking up that ZIP…"));
         loadZcta()
           .then((table) => {
             const coord = table[zip];
             if (!coord || coord.length < 2) {
               setNearbyMessage(
-                "ZIP " +
-                  zip +
-                  " is not in the Census 2025 ZCTA list used by this draft. Not every postal ZIP has a ZCTA centroid, so a distance cannot be calculated for this code.",
+                t("nearby.zip_not_found","ZIP {zip} is not in the Census 2025 ZCTA list used by this draft. Not every postal ZIP has a ZCTA centroid, so a distance cannot be calculated for this code.",{zip: zip}),
                 true
               );
               return;
@@ -388,12 +398,12 @@
             renderNearby(
               coord[0],
               coord[1],
-              "Nearest sites to ZIP " + zip,
-              "ZIP " + zip + " (Census ZCTA center)"
+              t("nearby.nearest_to_zip","Nearest sites to ZIP {zip}",{zip: zip}),
+              t("nearby.origin_zip","ZIP {zip} (Census ZCTA center)",{zip: zip})
             );
           })
           .catch((err) => {
-            setNearbyMessage(err.message || "Could not load the ZIP centroid table.", true);
+            setNearbyMessage(err.message || t("nearby.zcta_load_error","Could not load the ZIP centroid table."), true);
           });
       });
     }
@@ -401,21 +411,21 @@
     if (geoBtn) {
       geoBtn.addEventListener("click", () => {
         if (!navigator.geolocation) {
-          setNearbyMessage("This browser does not support location lookup.", true);
+          setNearbyMessage(t("nearby.no_geo","This browser does not support location lookup."), true);
           return;
         }
-        setNearbyMessage("Asking this browser for your location. Nothing is sent to a server.");
+        setNearbyMessage(t("nearby.asking_location","Asking this browser for your location. Nothing is sent to a server."));
         navigator.geolocation.getCurrentPosition(
           (pos) => {
             const lat = pos.coords.latitude;
             const lon = pos.coords.longitude;
-            renderNearby(lat, lon, "Nearest sites to your location", "Your location (from this browser)");
+            renderNearby(lat, lon, t("nearby.nearest_to_location","Nearest sites to your location"), t("nearby.origin_location","Your location (from this browser)"));
           },
           (err) => {
-            let msg = "Could not get your location.";
-            if (err && err.code === 1) msg = "Location permission was denied. You can still search by ZIP code.";
-            else if (err && err.code === 2) msg = "Your location was unavailable. You can still search by ZIP code.";
-            else if (err && err.code === 3) msg = "The location request timed out. You can still search by ZIP code.";
+            let msg = t("nearby.geo_fail","Could not get your location.");
+            if (err && err.code === 1) msg = t("nearby.geo_denied","Location permission was denied. You can still search by ZIP code.");
+            else if (err && err.code === 2) msg = t("nearby.geo_unavailable","Your location was unavailable. You can still search by ZIP code.");
+            else if (err && err.code === 3) msg = t("nearby.geo_timeout","The location request timed out. You can still search by ZIP code.");
             setNearbyMessage(msg, true);
           },
           { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 }
@@ -431,9 +441,9 @@
       if (!r.ok) throw new Error("Could not load sites.json");
       return r.json();
     })
-    .then(init)
+    .then(function (data) { whenI18n(function () { init(data); }); })
     .catch((err) => {
       const el = document.getElementById("count");
-      if (el) el.textContent = "Could not load the dataset: " + err.message;
+      if (el) el.textContent = t("table.load_error","Could not load the dataset: {error}",{error: ""}) + err.message;
     });
 })();

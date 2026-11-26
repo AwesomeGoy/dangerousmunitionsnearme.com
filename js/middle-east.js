@@ -10,7 +10,7 @@
     { k: "haz", label: "Depleted uranium (IAEA sampling point)", col: "#7c2d12", fill: "#fb923c" },
     { k: "min", label: "Mine (USGS MRDS point)", col: "#3f6212", fill: "#bef264" }
   ];
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" };
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") };
   var AREA_NOTE = "Shaded area is a country or province outline standing in for reported minefield or UXO zones. It is not a hazard boundary.";
   var ISR_NOTE = " The Israel outline is a GADM placeholder that includes the Golan Heights; it is not a statement on sovereignty or borders.";
   Promise.all([load(base + "data/middle-east.json"), load(base + "data/middle-east-areas.json")]).then(function (r) {

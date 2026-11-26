@@ -43,29 +43,99 @@
 
     gtag('config', 'G-DQ72CZPH8J');
   </script>
+  <script id="dmnm-i18n-bootstrap">
+  window.DMNM_I18N_BASE = "i18n/";
+  (function () {
+    var KEY = "dmnm-lang";
+    var SUP = {en:"en",es:"es",fr:"fr",pt:"pt",ar:"ar",ru:"ru",uk:"uk",zh:"zh-Hans",hi:"hi",ja:"ja",de:"de",ko:"ko",vi:"vi",id:"id",tr:"tr"};
+    var RTL = {ar:1};
+    function norm(c) {
+      if (!c) return null;
+      c = String(c).replace("_","-").toLowerCase();
+      if (SUP[c]) return c;
+      if (c.indexOf("zh") === 0) return "zh";
+      var p = c.split("-")[0];
+      return SUP[p] ? p : null;
+    }
+    var lang = "en";
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      lang = norm(q) || norm(localStorage.getItem(KEY)) || lang;
+      if (norm(q)) localStorage.setItem(KEY, lang);
+      if (lang === "en") {
+        var list = (navigator.languages || []).concat(navigator.language || []);
+        if (!norm(q) && !norm(localStorage.getItem(KEY))) {
+          for (var i = 0; i < list.length; i++) {
+            var n = norm(list[i]); if (n) { lang = n; break; }
+          }
+        }
+      }
+    } catch (e) {}
+    var el = document.documentElement;
+    el.setAttribute("lang", SUP[lang] || "en");
+    el.setAttribute("dir", RTL[lang] ? "rtl" : "ltr");
+    if (RTL[lang]) el.classList.add("is-rtl");
+    if (lang !== "en") {
+      el.classList.add("i18n-pending");
+      var l = document.createElement("link");
+      l.rel = "preload"; l.as = "fetch"; l.crossOrigin = "anonymous";
+      l.href = "i18n/" + lang + ".json";
+      document.head.appendChild(l);
+    }
+  })();
+  </script>
 </head>
 <body>
-  <header class="site-head site-head--banner"><div class="hero hero--slim"><picture class="hero-art"><source type="image/webp" srcset="img/banner/tooele-plume-800.webp 800w, img/banner/tooele-plume-1600.webp 1600w, img/banner/tooele-plume-2000.webp 2000w" sizes="100vw"><img src="img/banner/tooele-plume-1600.jpg" srcset="img/banner/tooele-plume-800.jpg 800w, img/banner/tooele-plume-1600.jpg 1600w, img/banner/tooele-plume-2000.jpg 2000w" sizes="100vw" width="2000" height="500" alt="Dust and smoke plume from an open detonation of old, obsolete, or unsafe munitions at the Tooele Army Depot South Range in Utah." decoding="async" loading="lazy"></picture><div class="hero-overlay"><div class="wrap hero-copy"><div class="brand"><h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1></div></div></div></div><p class="hero-credit"><span class="wrap"><a href="https://www.dvidshub.net/image/9740059/open-detonations-resume-tooele-army-depot">Photo: Wade Mathews, Tooele Army Depot Public Affairs. U.S. Army photo (public domain), via DVIDS.</a></span></p><div class="wrap site-head-bar"><nav><a href="index.html">Tracker</a><a href="canada/index.html">Canada</a><a href="europe/index.html">Europe</a><a href="anz/index.html">Australia &amp; NZ</a><a href="africa/index.html">Africa</a><a href="south-america/index.html">South America</a><a href="antarctica/index.html">Antarctica</a><a href="arctic/index.html">Arctic</a><a href="middle-east/index.html">Middle East</a><a href="asia/index.html">Asia</a><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="mexico-central-america/index.html">Mexico &amp; Central America</a><a href="nearby.html">Live near one?</a><a href="pfas.html">PFAS</a><a href="superfund.html">Superfund</a><a href="fusrap.html">FUSRAP</a><a href="states/index.html">By state</a><a href="sea-dumps.html">Sea dumps</a><a href="nuclear-legacy.html">Nuclear legacy</a><a href="fuds.html">FUDS</a><a href="topics/index.html">Topics</a><a href="comments.html">Comment tracker</a><a href="timeline.html">Timeline</a><a href="records.html">Records request</a><a href="stories.html" aria-current="page">Neighbor stories</a><a href="more-maps.html">More maps</a><a href="about.html">About / methods</a><a href="alerts.html">Email alerts</a><a href="report.html">Report a site</a><a href="privacy.html">Privacy</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav></div></header>
-  <main class="wrap">
+  <a class="skip-link" href="#main-content" data-dmnm-i18n="skip" data-i18n="page.skip">Skip to content</a>
+
+  <header class="site-head site-head--banner"><div class="hero hero--slim"><picture class="hero-art"><source type="image/webp" srcset="img/banner/tooele-plume-800.webp 800w, img/banner/tooele-plume-1600.webp 1600w, img/banner/tooele-plume-2000.webp 2000w" sizes="100vw"><img src="img/banner/tooele-plume-1600.jpg" srcset="img/banner/tooele-plume-800.jpg 800w, img/banner/tooele-plume-1600.jpg 1600w, img/banner/tooele-plume-2000.jpg 2000w" sizes="100vw" width="2000" height="500" alt="Dust and smoke plume from an open detonation of old, obsolete, or unsafe munitions at the Tooele Army Depot South Range in Utah." decoding="async" loading="lazy"></picture><div class="hero-overlay"><div class="wrap hero-copy"><div class="brand"><h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1></div>
+    <div class="lang-picker" data-dmnm-i18n="picker">
+      <label class="lang-picker-label" for="dmnm-lang-select" data-i18n="lang.label">Language</label>
+      <select id="dmnm-lang-select" autocomplete="off" aria-describedby="dmnm-lang-help">
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="uk" lang="uk">Українська</option>
+        <option value="zh" lang="zh-Hans">中文（简体）</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="ja" lang="ja">日本語</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="ko" lang="ko">한국어</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="tr" lang="tr">Türkçe</option>
+      </select>
+      <p class="lang-picker-help" id="dmnm-lang-help" data-i18n="lang.help">Menus, labels and disclaimers use this language. Record names, research notes and quotations stay in English. Source titles stay in their original language.</p>
+      <p class="lang-machine-note" data-i18n="lang.machine_note">Machine-assisted translation, not yet reviewed by a native speaker.</p>
+      <p class="lang-status" id="dmnm-lang-status" role="status" aria-live="polite"></p>
+    </div></div></div></div><p class="hero-credit"><span class="wrap" data-i18n-html="site.hero_credit_html"><a href="https://www.dvidshub.net/image/9740059/open-detonations-resume-tooele-army-depot">Photo: Wade Mathews, Tooele Army Depot Public Affairs. U.S. Army photo (public domain), via DVIDS.</a></span></p><div class="wrap site-head-bar"><nav><a href="index.html" data-i18n="nav.tracker">Tracker</a><a href="canada/index.html" data-i18n="nav.canada">Canada</a><a href="europe/index.html" data-i18n="nav.europe">Europe</a><a href="anz/index.html" data-i18n="nav.anz">Australia &amp; NZ</a><a href="africa/index.html" data-i18n="nav.africa">Africa</a><a href="south-america/index.html" data-i18n="nav.south_america">South America</a><a href="antarctica/index.html" data-i18n="nav.antarctica">Antarctica</a><a href="arctic/index.html" data-i18n="nav.arctic">Arctic</a><a href="middle-east/index.html" data-i18n="nav.middle_east">Middle East</a><a href="asia/index.html" data-i18n="nav.asia">Asia</a><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="mexico-central-america/index.html">Mexico &amp; Central America</a><a href="lookup.html">What's near me?</a><a href="nearby.html" data-i18n="nav.nearby">Live near one?</a><a href="pfas.html" data-i18n="nav.pfas">PFAS</a><a href="superfund.html" data-i18n="nav.superfund">Superfund</a><a href="fusrap.html" data-i18n="nav.fusrap">FUSRAP</a><a href="states/index.html" data-i18n="nav.by_state">By state</a><a href="sea-dumps.html" data-i18n="nav.sea_dumps">Sea dumps</a><a href="nuclear-legacy.html" data-i18n="nav.nuclear_legacy">Nuclear legacy</a><a href="fuds.html" data-i18n="nav.fuds">FUDS</a><a href="topics/index.html" data-i18n="nav.topics">Topics</a><a href="comments.html" data-i18n="nav.comments">Comment tracker</a><a href="timeline.html" data-i18n="nav.timeline">Timeline</a><a href="records.html" data-i18n="nav.records">Records request</a><a href="stories.html" aria-current="page" data-i18n="nav.stories">Neighbor stories</a><a href="more-maps.html" data-i18n="nav.more_maps">More maps</a><a href="about.html" data-i18n="nav.about">About / methods</a><a href="alerts.html">Email alerts</a><a href="report.html">Report a site</a><a href="privacy.html" data-i18n="nav.privacy">Privacy</a><a href="data/sites.csv" data-i18n="nav.download_csv">Download CSV</a><a href="data/sites.json" data-i18n="nav.download_json">Download JSON</a></nav></div></header>
+  <main class="wrap" id="main-content" tabindex="-1" data-dmnm-i18n="main">
+    <aside class="records-lang-note" data-dmnm-i18n="records-note">
+      <h2 data-i18n="records.note_title">About language on this site</h2>
+      <p data-i18n="records.note">The menus, labels and disclaimers are shown in the language you choose. Record names, research notes and quotations stay in English. Source titles stay in their original language. They are not machine-translated.</p>
+    </aside>
     
     
     <article class="prose">
-    <h2>Neighbor stories</h2>
+    <h2 data-i18n="page.stories">Neighbor stories</h2>
     <p class="lede">A place for first-person accounts from people who live, work, or went to school near a site in this tracker. A person reads every submission before anything is posted. Nothing is published automatically.</p>
     <p>If you are 18 or older, you can send a short account of what you have seen or lived with near a named site. You may use a first name, initials, or “name withheld.” Your contact email is used only to follow up, and is not published. Home addresses and other sensitive personal data will be removed or will cause the story to be declined.</p>
     <p>Read the <a href="moderation.html">moderation policy</a> and the <a href="privacy.html#neighbor-stories">privacy notice</a> before you submit.</p>
-    <h2>Published stories</h2>
+    <h2 data-i18n="page.stories_published">Published stories</h2>
     <p>No reader stories have been published yet.</p>
-    <h2>Submit a story</h2>
+    <h2 data-i18n="page.stories_submit">Submit a story</h2>
     <form class="stories-form" action="https://formsubmit.co/794b0a2dab7ab8ad7d91a3e6dadf3e4e" method="post" accept-charset="UTF-8">
       <input type="hidden" name="_subject" value="Neighbor story submission — Dangerous Munitions Near Me">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://dangerousmunitionsnearme.com/stories-received.html">
       <input type="hidden" name="_captcha" value="true">
       <input type="text" name="_honey" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;height:0;width:0;overflow:hidden">
-      <label>Related site
+      <label data-i18n="page.stories_related">Related site
         <select name="site" required>
-          <option value="">Choose a site</option>
+          <option value="" data-i18n="page.stories_choose">Choose a site</option>
           <option value="Anniston Army Depot / Anniston Defense Munitions Center (AL) [anniston-army-depot]">Anniston Army Depot / Anniston Defense Munitions Center (AL)</option><option value="Redstone Arsenal (AL) [redstone-arsenal]">Redstone Arsenal (AL)</option><option value="Barry Goldwater West Range / MCAS Yuma (AZ) [barry-goldwater-west-mcas-yuma]">Barry Goldwater West Range / MCAS Yuma (AZ)</option><option value="Yuma Proving Ground (AZ) [yuma-proving-ground]">Yuma Proving Ground (AZ)</option><option value="Edwards Air Force Base (CA) [edwards-afb]">Edwards Air Force Base (CA)</option><option value="Naval Air Weapons Station China Lake (CA) [naws-china-lake]">Naval Air Weapons Station China Lake (CA)</option><option value="Vandenberg Air Force Base (CA) [vandenberg-afb]">Vandenberg Air Force Base (CA)</option><option value="Fort Carson (CO) [fort-carson]">Fort Carson (CO)</option><option value="Cape Canaveral Space Force Station (FL) [cape-canaveral-sfs]">Cape Canaveral Space Force Station (FL)</option><option value="Eglin Air Force Base (FL) [eglin-afb]">Eglin Air Force Base (FL)</option><option value="Naval Submarine Base Kings Bay (GA) [nsb-kings-bay]">Naval Submarine Base Kings Bay (GA)</option><option value="Andersen Air Force Base (Joint Region Marianas) (GU) [andersen-afb]">Andersen Air Force Base (Joint Region Marianas) (GU)</option><option value="Navy Region Hawaii – Waipio Peninsula (HI) [navy-region-hawaii-waipio]">Navy Region Hawaii – Waipio Peninsula (HI)</option><option value="Iowa Army Ammunition Plant (IA) [iaaap]">Iowa Army Ammunition Plant (IA)</option><option value="Savanna Army Depot Activity (IL) [savanna-army-depot]">Savanna Army Depot Activity (IL)</option><option value="Crane Army Ammunition Activity / Naval Support Activity Crane (IN) [nsa-crane]">Crane Army Ammunition Activity / Naval Support Activity Crane (IN)</option><option value="Blue Grass Army Depot (KY) [blue-grass-army-depot]">Blue Grass Army Depot (KY)</option><option value="Camp Minden (former Louisiana Army Ammunition Plant) (LA) [camp-minden]">Camp Minden (former Louisiana Army Ammunition Plant) (LA)</option><option value="Fort Johnson (LA) [fort-johnson]">Fort Johnson (LA)</option><option value="Aberdeen Proving Ground (MD) [aberdeen-proving-ground]">Aberdeen Proving Ground (MD)</option><option value="Naval Support Facility Indian Head (MD) [nsf-indian-head]">Naval Support Facility Indian Head (MD)</option><option value="Naval Support Facility Indian Head, Stump Neck Annex (MD) [nsf-indian-head-stump-neck]">Naval Support Facility Indian Head, Stump Neck Annex (MD)</option><option value="Lake City Army Ammunition Plant (MO) [lake-city-aap]">Lake City Army Ammunition Plant (MO)</option><option value="Picatinny Arsenal (NJ) [picatinny-arsenal]">Picatinny Arsenal (NJ)</option><option value="Hawthorne Army Depot (Main Base / Old Bomb) (NV) [hawthorne-army-depot]">Hawthorne Army Depot (Main Base / Old Bomb) (NV)</option><option value="Hawthorne Army Depot (New Bomb Facility) (NV) [hawthorne-new-bomb]">Hawthorne Army Depot (New Bomb Facility) (NV)</option><option value="McAlester Army Ammunition Plant (OK) [mcalester-aap]">McAlester Army Ammunition Plant (OK)</option><option value="Letterkenny Army Depot / Letterkenny Munitions Center (PA) [letterkenny-army-depot]">Letterkenny Army Depot / Letterkenny Munitions Center (PA)</option><option value="Joint Base Charleston Weapons Station (SC) [jb-charleston-weapons]">Joint Base Charleston Weapons Station (SC)</option><option value="Marine Corps Air Station Beaufort (SC) [mcas-beaufort]">Marine Corps Air Station Beaufort (SC)</option><option value="Holston Army Ammunition Plant (TN) [holston-aap]">Holston Army Ammunition Plant (TN)</option><option value="Joint Base San Antonio–Camp Bullis (TX) [jbsa-camp-bullis]">Joint Base San Antonio–Camp Bullis (TX)</option><option value="Lone Star Army Ammunition Plant (TX) [lone-star-aap]">Lone Star Army Ammunition Plant (TX)</option><option value="Dugway Proving Ground (UT) [dugway-proving-ground]">Dugway Proving Ground (UT)</option><option value="Tooele Army Depot (North) (UT) [tooele-army-depot-north]">Tooele Army Depot (North) (UT)</option><option value="Tooele Army Depot (South) (UT) [tooele-army-depot-south]">Tooele Army Depot (South) (UT)</option><option value="Utah Test and Training Range (UT) [utah-test-and-training-range]">Utah Test and Training Range (UT)</option><option value="Naval Surface Warfare Center Dahlgren (VA) [nswc-dahlgren]">Naval Surface Warfare Center Dahlgren (VA)</option><option value="Radford Army Ammunition Plant (VA) [radford-aap]">Radford Army Ammunition Plant (VA)</option><option value="Alliant Techsystems Operations LLC – Elkton (MD) [alliant-elkton]">Alliant Techsystems Operations LLC – Elkton (MD)</option><option value="Copperhead Chemical Co. (PA) [copperhead-chemical]">Copperhead Chemical Co. (PA)</option><option value="NASA GSFC Wallops Flight Facility (VA) [nasa-wallops]">NASA GSFC Wallops Flight Facility (VA)</option><option value="Alliant Techsystems Operations LLC, ABL Operations (Rocket Center) (WV) [alliant-abl-rocket-center]">Alliant Techsystems Operations LLC, ABL Operations (Rocket Center) (WV)</option><option value="St. Marks Powder (FL) [st-marks-powder]">St. Marks Powder (FL)</option><option value="Nammo Perry (FL) [nammo-perry]">Nammo Perry (FL)</option><option value="Kilgore Flares Company (TN) [kilgore-flares]">Kilgore Flares Company (TN)</option><option value="Federal Cartridge Co. (Anoka) (MN) [federal-cartridge-anoka]">Federal Cartridge Co. (Anoka) (MN)</option><option value="Alliant Techsystems Operations LLC (Saint Francis) (MN) [alliant-saint-francis]">Alliant Techsystems Operations LLC (Saint Francis) (MN)</option><option value="Austin Powder Co. – Red Diamond Plant (OH) [austin-powder-red-diamond]">Austin Powder Co. – Red Diamond Plant (OH)</option><option value="Stresau Laboratory (WI) [stresau-laboratory]">Stresau Laboratory (WI)</option><option value="Aerojet Rocketdyne (East Camden) (AR) [aerojet-east-camden]">Aerojet Rocketdyne (East Camden) (AR)</option><option value="Austin Powder Company (East Camden) (AR) [austin-powder-east-camden]">Austin Powder Company (East Camden) (AR)</option><option value="Armtec Countermeasures (East Camden) (AR) [armtec-east-camden]">Armtec Countermeasures (East Camden) (AR)</option><option value="Clean Harbors of Colfax (LA) [clean-harbors-colfax]">Clean Harbors of Colfax (LA)</option><option value="Los Alamos National Laboratory (NM) [los-alamos-national-laboratory]">Los Alamos National Laboratory (NM)</option><option value="Sandia National Laboratories (NM) [sandia-national-laboratories]">Sandia National Laboratories (NM)</option><option value="DOE Pantex Plant (TX) [doe-pantex]">DOE Pantex Plant (TX)</option><option value="Schlumberger Coyanosa Facility (TX) [schlumberger-coyanosa]">Schlumberger Coyanosa Facility (TX)</option><option value="Day &amp; Zimmermann Lone Star Facility (TX) [day-zimmermann-lone-star]">Day &amp; Zimmermann Lone Star Facility (TX)</option><option value="Day &amp; Zimmermann Kansas LLC (KS) [day-zimmermann-kansas]">Day &amp; Zimmermann Kansas LLC (KS)</option><option value="Tech Ord, a division of Amtec Corporation (SD) [tech-ord-clear-lake]">Tech Ord, a division of Amtec Corporation (SD)</option><option value="ATK Launch Systems – NIROP (UT) [atk-nirop]">ATK Launch Systems – NIROP (UT)</option><option value="ATK Launch Systems – Promontory (UT) [atk-promontory]">ATK Launch Systems – Promontory (UT)</option><option value="Lawrence Livermore National Laboratory Site 300 (CA) [llnl-site-300]">Lawrence Livermore National Laboratory Site 300 (CA)</option><option value="Pacific Scientific Energetic Materials Co. (Hollister) (CA) [pacific-scientific-hollister]">Pacific Scientific Energetic Materials Co. (Hollister) (CA)</option><option value="Saipan Department of Fire and Emergency Management Services (DFEMS) (MP) [saipan-dfems]">Saipan Department of Fire and Emergency Management Services (DFEMS) (MP)</option><option value="DOE NNSA/NFO (Nevada National Security Site) (NV) [doe-nnsa-nfo]">DOE NNSA/NFO (Nevada National Security Site) (NV)</option>
         </select>
       </label>
@@ -84,15 +154,15 @@
       <label class="choice"><input type="checkbox" name="age" value="yes" required> I am 18 or older</label>
       <label class="choice"><input type="checkbox" name="own_account" value="yes" required> This story is my own account</label>
       <p class="nearby-note">By submitting, you agree to the <a href="moderation.html">moderation policy</a> and the <a href="privacy.html#neighbor-stories">privacy notice</a>.</p>
-      <div class="actions"><button type="submit">Submit for review</button></div>
+      <div class="actions"><button type="submit" data-i18n="page.stories_button">Submit for review</button></div>
     </form>
     </article>
     
   </main>
   <footer>
     <div class="wrap">
-      <div>By D.A. Williams. Not an official government document.</div>
-      <div><a href="privacy.html">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener">Support this research ☕<span class="sr-only"> (opens in a new tab)</span></a></div>
+      <div><span data-i18n-wrap data-i18n="footer.byline">By D.A. Williams. Not an official government document.</span></div>
+      <div><a href="privacy.html" data-i18n="footer.privacy">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener" data-i18n="footer.support">Support this research ☕<span class="sr-only" data-i18n="footer.new_tab"> (opens in a new tab)</span></a></div>
     </div>
   </footer>
   <script>
@@ -108,5 +178,6 @@
 })();
 </script>
   <script src="/js/pwa-install.js" defer></script>
+<script src="js/i18n.js" data-dmnm-i18n="js"></script>
 </body>
 </html>

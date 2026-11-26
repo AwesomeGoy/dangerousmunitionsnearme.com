@@ -8,7 +8,7 @@
     { k: "sp", label: "Major oil spill", col: "#1e3a8a", fill: "#93c5fd" },
     { k: "co", label: "Long-running contamination", col: "#78350f", fill: "#fcd34d" }
   ];
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" };
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") };
   fetch(base + "data/petroleum.json").then(function (r) { return r.json(); }).then(function (d) {
     var el = document.getElementById("map"); if (!el || typeof L === "undefined") return;
     var map = L.map(el, { scrollWheelZoom: false, worldCopyJump: true });

@@ -8,7 +8,7 @@
     { k: "nuc", label: "Nuclear reactor or RTG site", col: "#6b21a8", fill: "#e9d5ff" },
     { k: "haz", label: "Contamination, waste or explosives", col: "#7c2d12", fill: "#fb923c" }
   ];
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" };
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") };
   fetch(base + "data/antarctica.json").then(function (r) { return r.json(); }).then(function (d) {
     var el = document.getElementById("map"); if (!el || typeof L === "undefined") return;
     var map = L.map(el, { crs: L.CRS.Simple, minZoom: -4, maxZoom: 4, zoomSnap: 0.25, scrollWheelZoom: false, attributionControl: true, maxBounds: [[-4300, -4300], [4300, 4300]] });

@@ -3,7 +3,24 @@
  * Runs in the browser only. No ZIP or location is sent to a server.
  * Modes (data-mode): "zip" (adds results under the ZIP search), "pfas", "superfund" (list pages). */
 (function () {
-  var script = document.currentScript;
+  
+  function t(key, fallback, vars) {
+    if (window.DMNM_I18N && typeof DMNM_I18N.t === "function") {
+      var got = DMNM_I18N.t(key, fallback, vars);
+      if (got && got !== key) return got;
+    }
+    if (fallback && vars) {
+      return String(fallback).replace(/\{([a-zA-Z0-9_]+)\}/g, function (_, k) {
+        return vars[k] != null ? String(vars[k]) : "{" + k + "}";
+      });
+    }
+    return fallback;
+  }
+  function whenI18n(fn) {
+    if (window.DMNM_I18N && DMNM_I18N.ready) DMNM_I18N.ready(fn);
+    else fn();
+  }
+var script = document.currentScript;
   var MODE = (script && script.getAttribute("data-mode")) || "zip";
   var cache = {};
   function load(url) {

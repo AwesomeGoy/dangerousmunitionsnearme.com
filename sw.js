@@ -1,5 +1,5 @@
 /* Dangerous Munitions Near Me service worker
- * Cache version: dmnm-pwa-20261125-170849
+ * Cache version: dmnm-pwa-20261125-190742
  * - Pages (HTML navigations): network-first, bypassing the HTTP cache; falls back to the
  *   cached copy of that page, then to /offline.html.
  * - Data (/data/*.json, *.geojson, *.csv): network-first so records stay current; the last
@@ -10,13 +10,15 @@
  * - Other origins (map tiles, external links) are not touched.
  * No push notifications, no analytics, no data collection. Location is never seen here.
  */
-const CACHE_VERSION = "dmnm-pwa-20261125-170849";
+const CACHE_VERSION = "dmnm-pwa-20261125-190742";
 const CACHE_PREFIX = "dmnm-";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 const STATIC_CACHE = CACHE_VERSION + "-static";
 const DATA_CACHE = "dmnm-data-v1";
 const MAX_DATA_ENTRIES = 40;
-const SHELL_URLS = ["/", "/index.html", "/offline.html", "/css/style.css", "/css/canada.css", "/js/app.js", "/favicon.svg", "/favicon.png", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-512-maskable.png", "/icons/apple-touch-icon.png", "/manifest.webmanifest", "/africa/index.html", "/js/africa.js", "/south-america/index.html", "/js/samerica.js", "/antarctica/index.html", "/js/antarctica.js", "/arctic/index.html", "/js/arctic.js", "/africa/south-africa/index.html", "/js/south-africa.js", "/middle-east/index.html", "/js/middle-east.js", "/petroleum/index.html", "/js/petroleum.js", "/asia/index.html", "/js/asia.js", "/topics/index.html", "/nuclear-tests/index.html", "/chemical-weapons/index.html", "/chemical-plants/index.html", "/nuclear-accidents/index.html", "/ranges/index.html", "/uxo/index.html", "/tailings/index.html", "/js/topic-map.js", "/russia-central-asia/index.html", "/mexico-central-america/index.html", "/js/regional-map.js", "/js/pwa-install.js", "/nearby.html"];
+const LOOKUP_CACHE = "dmnm-lookup-v1";
+const MAX_LOOKUP_ENTRIES = 400;
+const SHELL_URLS = ["/", "/index.html", "/offline.html", "/css/style.css", "/css/canada.css", "/js/app.js", "/favicon.svg", "/favicon.png", "/icons/icon-192.png", "/icons/icon-512.png", "/icons/icon-512-maskable.png", "/icons/apple-touch-icon.png", "/manifest.webmanifest", "/africa/index.html", "/js/africa.js", "/south-america/index.html", "/js/samerica.js", "/antarctica/index.html", "/js/antarctica.js", "/arctic/index.html", "/js/arctic.js", "/africa/south-africa/index.html", "/js/south-africa.js", "/middle-east/index.html", "/js/middle-east.js", "/petroleum/index.html", "/js/petroleum.js", "/asia/index.html", "/js/asia.js", "/topics/index.html", "/nuclear-tests/index.html", "/chemical-weapons/index.html", "/chemical-plants/index.html", "/nuclear-accidents/index.html", "/ranges/index.html", "/uxo/index.html", "/tailings/index.html", "/js/topic-map.js", "/russia-central-asia/index.html", "/mexico-central-america/index.html", "/js/regional-map.js", "/js/pwa-install.js", "/nearby.html", "/lookup.html", "/factsheet.html", "/js/fl-strings.js", "/js/fl-core.js", "/js/fl-lookup.js", "/js/fl-factsheet.js", "/css/fl.css", "/lib/qrcode/qrcode.js", "/data/lookup/manifest.json", "/js/i18n.js"];
 
 self.addEventListener("install", function (event) {
   event.waitUntil(
@@ -38,7 +40,7 @@ self.addEventListener("activate", function (event) {
     caches.keys().then(function (keys) {
       return Promise.all(keys.map(function (key) {
         var mine = key.indexOf(CACHE_PREFIX) === 0;
-        if (mine && key !== SHELL_CACHE && key !== STATIC_CACHE && key !== DATA_CACHE) {
+        if (mine && key !== SHELL_CACHE && key !== STATIC_CACHE && key !== DATA_CACHE && key !== LOOKUP_CACHE) {
           return caches.delete(key);
         }
       }));
@@ -134,6 +136,26 @@ function cacheFirst(request) {
   });
 }
 
+function isLookup(u) {
+  return u.pathname.indexOf("/data/lookup/") === 0;
+}
+
+// Lookup tiles, record chunks and outlines: stale-while-revalidate in their own capped cache, so thousands of
+// small files never crowd out the main data cache. Third-party geocoder replies are other-origin and never cached.
+function staleWhileRevalidate(request, cacheName, max) {
+  return caches.open(cacheName).then(function (cache) {
+    return cache.match(request).then(function (hit) { return hit || caches.match(request); }).then(function (cached) {
+      var net = fetch(request).then(function (res) {
+        if (res && res.ok) {
+          cache.put(request, res.clone()).then(function () { return trimCache(cacheName, max); });
+        }
+        return res;
+      }).catch(function () { return cached || offlineResponse(); });
+      return cached || net;
+    });
+  });
+}
+
 self.addEventListener("fetch", function (event) {
   var request = event.request;
   if (request.method !== "GET") return;
@@ -141,6 +163,10 @@ self.addEventListener("fetch", function (event) {
   if (!u || u.origin !== self.location.origin) return;
   if (u.pathname === "/sw.js") return;
 
+  if (isLookup(u)) {
+    event.respondWith(staleWhileRevalidate(request, LOOKUP_CACHE, MAX_LOOKUP_ENTRIES));
+    return;
+  }
   if (isData(u)) {
     event.respondWith(networkFirst(request, DATA_CACHE, { max: MAX_DATA_ENTRIES }));
     return;

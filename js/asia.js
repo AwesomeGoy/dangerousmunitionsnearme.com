@@ -9,7 +9,7 @@
     { k: "mil", label: "U.S. military (airfield-level)", col: "#1e3a8a", fill: "#93c5fd" },
     { k: "min", label: "Mine (USGS MRDS point)", col: "#3f6212", fill: "#bef264" }
   ];
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" };
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") };
   var AREA_NOTE = "Shaded area is a whole-country outline standing in for reported landmine or UXO contamination somewhere inside it. It is not a hazard footprint, and the outline is not a statement on borders.";
   Promise.all([load(base + "data/asia.json"), load(base + "data/asia-areas.json")]).then(function (r) {
     var d = r[0], areas = r[1], byId = {};

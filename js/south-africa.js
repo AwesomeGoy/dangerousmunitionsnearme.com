@@ -8,7 +8,7 @@
     { k: "nuc", label: "Nuclear reactor, power station or waste site", col: "#6b21a8", fill: "#e9d5ff" },
     { k: "min", label: "Mine (USGS 2018)", col: "#3f6212", fill: "#bef264" }
   ];
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" };
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") };
   fetch(base + "data/south-africa.json").then(function (r) { return r.json(); }).then(function (d) {
     var el = document.getElementById("map"); if (!el || typeof L === "undefined") return;
     var map = L.map(el, { scrollWheelZoom: false });

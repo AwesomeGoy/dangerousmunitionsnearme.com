@@ -43,17 +43,87 @@
 
     gtag('config', 'G-DQ72CZPH8J');
   </script>
+  <script id="dmnm-i18n-bootstrap">
+  window.DMNM_I18N_BASE = "../i18n/";
+  (function () {
+    var KEY = "dmnm-lang";
+    var SUP = {en:"en",es:"es",fr:"fr",pt:"pt",ar:"ar",ru:"ru",uk:"uk",zh:"zh-Hans",hi:"hi",ja:"ja",de:"de",ko:"ko",vi:"vi",id:"id",tr:"tr"};
+    var RTL = {ar:1};
+    function norm(c) {
+      if (!c) return null;
+      c = String(c).replace("_","-").toLowerCase();
+      if (SUP[c]) return c;
+      if (c.indexOf("zh") === 0) return "zh";
+      var p = c.split("-")[0];
+      return SUP[p] ? p : null;
+    }
+    var lang = "en";
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      lang = norm(q) || norm(localStorage.getItem(KEY)) || lang;
+      if (norm(q)) localStorage.setItem(KEY, lang);
+      if (lang === "en") {
+        var list = (navigator.languages || []).concat(navigator.language || []);
+        if (!norm(q) && !norm(localStorage.getItem(KEY))) {
+          for (var i = 0; i < list.length; i++) {
+            var n = norm(list[i]); if (n) { lang = n; break; }
+          }
+        }
+      }
+    } catch (e) {}
+    var el = document.documentElement;
+    el.setAttribute("lang", SUP[lang] || "en");
+    el.setAttribute("dir", RTL[lang] ? "rtl" : "ltr");
+    if (RTL[lang]) el.classList.add("is-rtl");
+    if (lang !== "en") {
+      el.classList.add("i18n-pending");
+      var l = document.createElement("link");
+      l.rel = "preload"; l.as = "fetch"; l.crossOrigin = "anonymous";
+      l.href = "../i18n/" + lang + ".json";
+      document.head.appendChild(l);
+    }
+  })();
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content" data-dmnm-i18n="skip" data-i18n="page.skip">Skip to content</a>
+
   <header class="site-head">
     <div class="wrap">
       <div class="brand">
         <h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1>
       </div>
-      <nav><a href="../index.html">Tracker</a><a href="../canada/index.html">Canada</a><a href="../europe/index.html">Europe</a><a href="../anz/index.html">Australia &amp; NZ</a><a href="../africa/index.html">Africa</a><a href="../south-america/index.html">South America</a><a href="../antarctica/index.html">Antarctica</a><a href="../arctic/index.html">Arctic</a><a href="../middle-east/index.html">Middle East</a><a href="../asia/index.html">Asia</a><a href="../russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="../mexico-central-america/index.html">Mexico &amp; Central America</a><a href="../nearby.html">Live near one?</a><a href="../pfas.html">PFAS</a><a href="../superfund.html">Superfund</a><a href="../fusrap.html">FUSRAP</a><a href="../states/index.html">By state</a><a href="../sea-dumps.html">Sea dumps</a><a href="../nuclear-legacy.html">Nuclear legacy</a><a href="../fuds.html">FUDS</a><a href="../topics/index.html">Topics</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../records.html">Records request</a><a href="../stories.html">Neighbor stories</a><a href="../more-maps.html">More maps</a><a href="../about.html">About / methods</a><a href="../alerts.html">Email alerts</a><a href="../report.html">Report a site</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav>
+    <div class="lang-picker" data-dmnm-i18n="picker">
+      <label class="lang-picker-label" for="dmnm-lang-select" data-i18n="lang.label">Language</label>
+      <select id="dmnm-lang-select" autocomplete="off" aria-describedby="dmnm-lang-help">
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="uk" lang="uk">Українська</option>
+        <option value="zh" lang="zh-Hans">中文（简体）</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="ja" lang="ja">日本語</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="ko" lang="ko">한국어</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="tr" lang="tr">Türkçe</option>
+      </select>
+      <p class="lang-picker-help" id="dmnm-lang-help" data-i18n="lang.help">Menus, labels and disclaimers use this language. Record names, research notes and quotations stay in English. Source titles stay in their original language.</p>
+      <p class="lang-machine-note" data-i18n="lang.machine_note">Machine-assisted translation, not yet reviewed by a native speaker.</p>
+      <p class="lang-status" id="dmnm-lang-status" role="status" aria-live="polite"></p>
+    </div>
+      <nav><a href="../index.html" data-i18n="nav.tracker">Tracker</a><a href="../canada/index.html" data-i18n="nav.canada">Canada</a><a href="../europe/index.html" data-i18n="nav.europe">Europe</a><a href="../anz/index.html" data-i18n="nav.anz">Australia &amp; NZ</a><a href="../africa/index.html" data-i18n="nav.africa">Africa</a><a href="../south-america/index.html" data-i18n="nav.south_america">South America</a><a href="../antarctica/index.html" data-i18n="nav.antarctica">Antarctica</a><a href="../arctic/index.html" data-i18n="nav.arctic">Arctic</a><a href="../middle-east/index.html" data-i18n="nav.middle_east">Middle East</a><a href="../asia/index.html" data-i18n="nav.asia">Asia</a><a href="../russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="../mexico-central-america/index.html">Mexico &amp; Central America</a><a href="../lookup.html">What's near me?</a><a href="../nearby.html" data-i18n="nav.nearby">Live near one?</a><a href="../pfas.html" data-i18n="nav.pfas">PFAS</a><a href="../superfund.html" data-i18n="nav.superfund">Superfund</a><a href="../fusrap.html" data-i18n="nav.fusrap">FUSRAP</a><a href="../states/index.html" data-i18n="nav.by_state">By state</a><a href="../sea-dumps.html" data-i18n="nav.sea_dumps">Sea dumps</a><a href="../nuclear-legacy.html" data-i18n="nav.nuclear_legacy">Nuclear legacy</a><a href="../fuds.html" data-i18n="nav.fuds">FUDS</a><a href="../topics/index.html" data-i18n="nav.topics">Topics</a><a href="../comments.html" data-i18n="nav.comments">Comment tracker</a><a href="../timeline.html" data-i18n="nav.timeline">Timeline</a><a href="../records.html" data-i18n="nav.records">Records request</a><a href="../stories.html" data-i18n="nav.stories">Neighbor stories</a><a href="../more-maps.html" data-i18n="nav.more_maps">More maps</a><a href="../about.html" data-i18n="nav.about">About / methods</a><a href="../alerts.html">Email alerts</a><a href="../report.html">Report a site</a><a href="../privacy.html" data-i18n="nav.privacy">Privacy</a><a href="../data/sites.csv" data-i18n="nav.download_csv">Download CSV</a><a href="../data/sites.json" data-i18n="nav.download_json">Download JSON</a></nav>
     </div>
   </header>
-  <main class="wrap">
+  <main class="wrap" id="main-content" tabindex="-1" data-dmnm-i18n="main">
+    <aside class="records-lang-note" data-dmnm-i18n="records-note">
+      <h2 data-i18n="records.note_title">About language on this site</h2>
+      <p data-i18n="records.note">The menus, labels and disclaimers are shown in the language you choose. Record names, research notes and quotations stay in English. Source titles stay in their original language. They are not machine-translated.</p>
+    </aside>
     
     
     <p class="no-print"><a href="vandenberg-afb.html">Site page</a> · <a href="../index.html">All sites</a>
@@ -72,7 +142,7 @@
         <dt>On EPA OB/OD list</dt><dd>yes</dd>
         <dt>Permit status</dt><dd>Permitted</dd>
         <dt>Permit expiration (as listed)</dt><dd>8/07/2027</dd>
-        <dt>Coordinates</dt><dd>34.73249, -120.57044</dd>
+        <dt data-i18n="page.about_coordinates">Coordinates</dt><dd>34.73249, -120.57044</dd>
         <dt>Last checked</dt><dd>2026-11-23</dd>
       </dl>
       <h2>What is documented</h2>
@@ -103,8 +173,8 @@
   </main>
   <footer>
     <div class="wrap">
-      <div>By D.A. Williams. Not an official government document.</div>
-      <div><a href="../privacy.html">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener">Support this research ☕<span class="sr-only"> (opens in a new tab)</span></a></div>
+      <div><span data-i18n-wrap data-i18n="footer.byline">By D.A. Williams. Not an official government document.</span></div>
+      <div><a href="../privacy.html" data-i18n="footer.privacy">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener" data-i18n="footer.support">Support this research ☕<span class="sr-only" data-i18n="footer.new_tab"> (opens in a new tab)</span></a></div>
     </div>
   </footer>
   <script>
@@ -120,5 +190,6 @@
 })();
 </script>
   <script src="/js/pwa-install.js" defer></script>
+<script src="../js/i18n.js" data-dmnm-i18n="js"></script>
 </body>
 </html>

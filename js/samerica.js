@@ -11,7 +11,7 @@
     { k: "blast", label: "Depot explosion", col: "#7c2d12", fill: "#fb923c" },
     { k: "mine", label: "Mining operation", col: "#3f6212", fill: "#bef264" }
   ];
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" };
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") };
   Promise.all([load(base + "data/samerica.json"), load(base + "data/samerica-uxo-areas.json")]).then(function (r) {
     var d = r[0], areas = r[1], byId = {};
     d.sites.forEach(function (s) { byId[s.id] = s; });

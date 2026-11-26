@@ -44,32 +44,102 @@
     gtag('config', 'G-DQ72CZPH8J');
   </script>
   <link rel="preload" as="image" type="image/webp" imagesrcset="img/cover/cover-photo-v1-640.webp 640w, img/cover/cover-photo-v1-1280.webp 1280w, img/cover/cover-photo-v1.webp 1600w" imagesizes="100vw" fetchpriority="high">
+  <script id="dmnm-i18n-bootstrap">
+  window.DMNM_I18N_BASE = "i18n/";
+  (function () {
+    var KEY = "dmnm-lang";
+    var SUP = {en:"en",es:"es",fr:"fr",pt:"pt",ar:"ar",ru:"ru",uk:"uk",zh:"zh-Hans",hi:"hi",ja:"ja",de:"de",ko:"ko",vi:"vi",id:"id",tr:"tr"};
+    var RTL = {ar:1};
+    function norm(c) {
+      if (!c) return null;
+      c = String(c).replace("_","-").toLowerCase();
+      if (SUP[c]) return c;
+      if (c.indexOf("zh") === 0) return "zh";
+      var p = c.split("-")[0];
+      return SUP[p] ? p : null;
+    }
+    var lang = "en";
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      lang = norm(q) || norm(localStorage.getItem(KEY)) || lang;
+      if (norm(q)) localStorage.setItem(KEY, lang);
+      if (lang === "en") {
+        var list = (navigator.languages || []).concat(navigator.language || []);
+        if (!norm(q) && !norm(localStorage.getItem(KEY))) {
+          for (var i = 0; i < list.length; i++) {
+            var n = norm(list[i]); if (n) { lang = n; break; }
+          }
+        }
+      }
+    } catch (e) {}
+    var el = document.documentElement;
+    el.setAttribute("lang", SUP[lang] || "en");
+    el.setAttribute("dir", RTL[lang] ? "rtl" : "ltr");
+    if (RTL[lang]) el.classList.add("is-rtl");
+    if (lang !== "en") {
+      el.classList.add("i18n-pending");
+      var l = document.createElement("link");
+      l.rel = "preload"; l.as = "fetch"; l.crossOrigin = "anonymous";
+      l.href = "i18n/" + lang + ".json";
+      document.head.appendChild(l);
+    }
+  })();
+  </script>
 </head>
 <body>
-  <header class="site-head site-head--cover"><div class="cover-hero"><picture><source type="image/webp" srcset="img/cover/cover-photo-v1-640.webp 640w, img/cover/cover-photo-v1-1280.webp 1280w, img/cover/cover-photo-v1.webp 1600w" sizes="100vw"><img src="img/cover/cover-photo-v1-1280.jpg" srcset="img/cover/cover-photo-v1-640.jpg 640w, img/cover/cover-photo-v1-1280.jpg 1280w, img/cover/cover-photo-v1.jpg 1600w" sizes="100vw" width="1600" height="900" alt="Dark photo collage titled Dangerous Munitions Near Me. In the center, a real munitions-disposal explosion with a fireball and smoke. Around it are photographs of a Caution Radioactive Materials warning sign, leaking hazardous-waste drums, an aerial view of the Church Rock uranium mine on the Navajo Nation, a Danger Unexploded Ordnance sign, sailors wading through military firefighting foam, and a coral-encrusted sea-dumped munition. A Search your ZIP label sits under the title, and a graphic threat-level scale along the bottom is labeled as not an official military alert." decoding="async" fetchpriority="high"></picture></div><p class="hero-credit"><span class="wrap">Cover photograph credits are listed on the <a href="about.html">About / methods</a> page.</span></p><div class="wrap"><div class="brand"><h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1><p class="brand-mission">A worldwide, source-linked record of places harmed or put at risk by military munitions, nuclear weapons and energy, chemical weapons and industrial disasters. It spans every continent and both poles, with layers for military bases and firing ranges, unexploded wartime bombs, nuclear test, accident and waste sites, chemical weapons stockpiles and sea dumps, chemical-plant and petroleum disasters, and mine-waste and coal-ash dam failures. Records link to their sources — official government, treaty and court documents wherever available — and each is marked verified, corrected or unverified, so anyone can see what lies near their community.</p></div><nav><a href="index.html" aria-current="page">Tracker</a><a href="canada/index.html">Canada</a><a href="europe/index.html">Europe</a><a href="anz/index.html">Australia &amp; NZ</a><a href="africa/index.html">Africa</a><a href="south-america/index.html">South America</a><a href="antarctica/index.html">Antarctica</a><a href="arctic/index.html">Arctic</a><a href="middle-east/index.html">Middle East</a><a href="asia/index.html">Asia</a><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="mexico-central-america/index.html">Mexico &amp; Central America</a><a href="nearby.html">Live near one?</a><a href="pfas.html">PFAS</a><a href="superfund.html">Superfund</a><a href="fusrap.html">FUSRAP</a><a href="states/index.html">By state</a><a href="sea-dumps.html">Sea dumps</a><a href="nuclear-legacy.html">Nuclear legacy</a><a href="fuds.html">FUDS</a><a href="topics/index.html">Topics</a><a href="comments.html">Comment tracker</a><a href="timeline.html">Timeline</a><a href="records.html">Records request</a><a href="stories.html">Neighbor stories</a><a href="more-maps.html">More maps</a><a href="about.html">About / methods</a><a href="alerts.html">Email alerts</a><a href="report.html">Report a site</a><a href="privacy.html">Privacy</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav></div></header>
-  <main class="wrap">
-    <p class="region-switcher" aria-label="Choose a country section"><a href="index.html" aria-current="page">United States</a><span class="sep" aria-hidden="true"> | </span><a href="canada/index.html">Canada</a><span class="sep" aria-hidden="true"> | </span><a href="europe/index.html">Europe</a><span class="sep" aria-hidden="true"> | </span><a href="anz/index.html">Australia &amp; NZ</a><span class="sep" aria-hidden="true"> | </span><a href="africa/index.html">Africa</a><span class="sep" aria-hidden="true"> | </span><a href="south-america/index.html">South America</a><span class="sep" aria-hidden="true"> | </span><a href="antarctica/index.html">Antarctica</a><span class="sep" aria-hidden="true"> | </span><a href="arctic/index.html">Arctic</a><span class="sep" aria-hidden="true"> | </span><a href="middle-east/index.html">Middle East</a><span class="sep" aria-hidden="true"> | </span><a href="asia/index.html">Asia</a><span class="sep" aria-hidden="true"> | </span><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><span class="sep" aria-hidden="true"> | </span><a href="mexico-central-america/index.html">Mexico &amp; Central America</a></p>
+  <a class="skip-link" href="#main-content" data-dmnm-i18n="skip" data-i18n="page.skip">Skip to content</a>
+
+  <header class="site-head site-head--cover"><div class="cover-hero"><picture><source type="image/webp" srcset="img/cover/cover-photo-v1-640.webp 640w, img/cover/cover-photo-v1-1280.webp 1280w, img/cover/cover-photo-v1.webp 1600w" sizes="100vw"><img src="img/cover/cover-photo-v1-1280.jpg" srcset="img/cover/cover-photo-v1-640.jpg 640w, img/cover/cover-photo-v1-1280.jpg 1280w, img/cover/cover-photo-v1.jpg 1600w" sizes="100vw" width="1600" height="900" data-i18n-alt="site.cover_alt" alt="Dark photo collage titled Dangerous Munitions Near Me. In the center, a real munitions-disposal explosion with a fireball and smoke. Around it are photographs of a Caution Radioactive Materials warning sign, leaking hazardous-waste drums, an aerial view of the Church Rock uranium mine on the Navajo Nation, a Danger Unexploded Ordnance sign, sailors wading through military firefighting foam, and a coral-encrusted sea-dumped munition. A Search your ZIP label sits under the title, and a graphic threat-level scale along the bottom is labeled as not an official military alert." decoding="async" fetchpriority="high"></picture></div><p class="hero-credit"><span class="wrap" data-i18n-html="site.hero_credit_html">Cover photograph credits are listed on the <a href="about.html">About / methods</a> page.</span></p><div class="wrap"><div class="brand"><h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1><p class="brand-mission" data-i18n="home.mission">A worldwide, source-linked record of places harmed or put at risk by military munitions, nuclear weapons and energy, chemical weapons and industrial disasters. It spans every continent and both poles, with layers for military bases and firing ranges, unexploded wartime bombs, nuclear test, accident and waste sites, chemical weapons stockpiles and sea dumps, chemical-plant and petroleum disasters, and mine-waste and coal-ash dam failures. Records link to their sources — official government, treaty and court documents wherever available — and each is marked verified, corrected or unverified, so anyone can see what lies near their community.</p></div>
+    <div class="lang-picker" data-dmnm-i18n="picker">
+      <label class="lang-picker-label" for="dmnm-lang-select" data-i18n="lang.label">Language</label>
+      <select id="dmnm-lang-select" autocomplete="off" aria-describedby="dmnm-lang-help">
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="uk" lang="uk">Українська</option>
+        <option value="zh" lang="zh-Hans">中文（简体）</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="ja" lang="ja">日本語</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="ko" lang="ko">한국어</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="tr" lang="tr">Türkçe</option>
+      </select>
+      <p class="lang-picker-help" id="dmnm-lang-help" data-i18n="lang.help">Menus, labels and disclaimers use this language. Record names, research notes and quotations stay in English. Source titles stay in their original language.</p>
+      <p class="lang-machine-note" data-i18n="lang.machine_note">Machine-assisted translation, not yet reviewed by a native speaker.</p>
+      <p class="lang-status" id="dmnm-lang-status" role="status" aria-live="polite"></p>
+    </div><nav><a href="index.html" aria-current="page" data-i18n="nav.tracker">Tracker</a><a href="canada/index.html" data-i18n="nav.canada">Canada</a><a href="europe/index.html" data-i18n="nav.europe">Europe</a><a href="anz/index.html" data-i18n="nav.anz">Australia &amp; NZ</a><a href="africa/index.html" data-i18n="nav.africa">Africa</a><a href="south-america/index.html" data-i18n="nav.south_america">South America</a><a href="antarctica/index.html" data-i18n="nav.antarctica">Antarctica</a><a href="arctic/index.html" data-i18n="nav.arctic">Arctic</a><a href="middle-east/index.html" data-i18n="nav.middle_east">Middle East</a><a href="asia/index.html" data-i18n="nav.asia">Asia</a><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="mexico-central-america/index.html">Mexico &amp; Central America</a><a href="lookup.html">What's near me?</a><a href="nearby.html" data-i18n="nav.nearby">Live near one?</a><a href="pfas.html" data-i18n="nav.pfas">PFAS</a><a href="superfund.html" data-i18n="nav.superfund">Superfund</a><a href="fusrap.html" data-i18n="nav.fusrap">FUSRAP</a><a href="states/index.html" data-i18n="nav.by_state">By state</a><a href="sea-dumps.html" data-i18n="nav.sea_dumps">Sea dumps</a><a href="nuclear-legacy.html" data-i18n="nav.nuclear_legacy">Nuclear legacy</a><a href="fuds.html" data-i18n="nav.fuds">FUDS</a><a href="topics/index.html" data-i18n="nav.topics">Topics</a><a href="comments.html" data-i18n="nav.comments">Comment tracker</a><a href="timeline.html" data-i18n="nav.timeline">Timeline</a><a href="records.html" data-i18n="nav.records">Records request</a><a href="stories.html" data-i18n="nav.stories">Neighbor stories</a><a href="more-maps.html" data-i18n="nav.more_maps">More maps</a><a href="about.html" data-i18n="nav.about">About / methods</a><a href="alerts.html">Email alerts</a><a href="report.html">Report a site</a><a href="privacy.html" data-i18n="nav.privacy">Privacy</a><a href="data/sites.csv" data-i18n="nav.download_csv">Download CSV</a><a href="data/sites.json" data-i18n="nav.download_json">Download JSON</a></nav></div></header>
+  <main class="wrap" id="main-content" tabindex="-1" data-dmnm-i18n="main">
+    <aside class="records-lang-note" data-dmnm-i18n="records-note">
+      <h2 data-i18n="records.note_title">About language on this site</h2>
+      <p data-i18n="records.note">The menus, labels and disclaimers are shown in the language you choose. Record names, research notes and quotations stay in English. Source titles stay in their original language. They are not machine-translated.</p>
+    </aside>
+    <p class="region-switcher" aria-label="Choose a country section" data-i18n-aria="region.aria"><a href="index.html" aria-current="page" data-i18n="region.us">United States</a><span class="sep" aria-hidden="true"> | </span><a href="canada/index.html" data-i18n="region.canada">Canada</a><span class="sep" aria-hidden="true"> | </span><a href="europe/index.html" data-i18n="region.europe">Europe</a><span class="sep" aria-hidden="true"> | </span><a href="anz/index.html" data-i18n="region.anz">Australia &amp; NZ</a><span class="sep" aria-hidden="true"> | </span><a href="africa/index.html" data-i18n="region.africa">Africa</a><span class="sep" aria-hidden="true"> | </span><a href="south-america/index.html" data-i18n="region.south_america">South America</a><span class="sep" aria-hidden="true"> | </span><a href="antarctica/index.html" data-i18n="region.antarctica">Antarctica</a><span class="sep" aria-hidden="true"> | </span><a href="arctic/index.html" data-i18n="region.arctic">Arctic</a><span class="sep" aria-hidden="true"> | </span><a href="middle-east/index.html" data-i18n="region.middle_east">Middle East</a><span class="sep" aria-hidden="true"> | </span><a href="asia/index.html" data-i18n="region.asia">Asia</a><span class="sep" aria-hidden="true"> | </span><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><span class="sep" aria-hidden="true"> | </span><a href="mexico-central-america/index.html">Mexico &amp; Central America</a></p>
     
     <aside class="about-data callout" aria-labelledby="about-data-heading">
-      <h2 id="about-data-heading">About this data</h2>
-      <p>This site isn’t the only source. It gathers official public records into one searchable place: the <a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">U.S. EPA’s current open-burning and open-detonation facilities list</a>, <a href="https://www.canada.ca/en/department-national-defence/services/uxo/uxo-program.html">Canada’s Department of National Defence unexploded ordnance (UXO) legacy sites</a>, <a href="https://emodnet.ec.europa.eu/en/human-activities">EMODnet’s European dumped munitions data</a>, <a href="https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/Superfund_National_Priorities_List_(NPL)_Sites_with_Status_Information/FeatureServer/0">EPA’s Superfund National Priorities List</a> (data as of September 30, 2026), and <a href="https://www.acq.osd.mil/eie/eer/ecc/pfas/docs/data/727-status-chart.pdf">the Department of Defense PFAS status chart</a> (data as of June 30, 2026), plus the other sources listed on each page. <span class="env-about2">FUSRAP nuclear cleanup sites come from the <a href="https://www.usace.army.mil/Missions/Environmental/FUSRAP/">U.S. Army Corps of Engineers</a>, the <a href="https://www.energy.gov/lm/articles/lm-fusrap-fact-sheet">DOE Office of Legacy Management</a> and EPA location records, checked Nov 25, 2026. The <a href="anz/index.html">Australia &amp; New Zealand section</a> uses the <a href="https://uxo-map.defence.gov.au/">Australian Defence UXO map</a> (updated Nov 16, 2026), Defence PFAS program reports (status Oct 2024 and Annual Report 2024-25), NZDF, Ministry for the Environment and NZ EPA PFAS records (2018 to 2026), <a href="https://www.linz.govt.nz/">LINZ</a> sea-dumping notices (July 2025) and place names, and state and council contaminated-land registers (counts read Nov 25, 2026).</span> <span class="env-about3">U.S. sea-dump sites come from <a href="https://www.denix.osd.mil/arc/denix-files/sites/6/2016/03/10_FY09DEPARC_Sea_Disposal_DENIX.pdf">DoD’s FY2009 sea-disposal report</a>, checked Nov 25, 2026; only Ordnance Reef off O‘ahu is mapped, from a NOAA chart.</span> <span class="env-about4">DOE Legacy Management sites come from <a href="https://www.energy.gov/lm/lm-sites">DOE’s LM site list</a> and GEMS map service (updated Nov 24, 2026), and Navajo-area abandoned uranium mines from <a href="https://www.epa.gov/navajo-nation-uranium-cleanup">EPA Region 9</a>, both checked Nov 25, 2026.</span> <span class="env-about5">Formerly Used Defense Sites come from <a href="https://www.usace.army.mil/Missions/Environmental/Formerly-Used-Defense-Sites/FUDS-GIS/">USACE FUDS GIS</a> (FY24), checked Nov 25, 2026.</span> Always check the original agency source and follow its safety guidance.</p>
+      <h2 id="about-data-heading" data-i18n="home.about_data">About this data</h2>
+      <p>This site isn’t the only source. It gathers official public records into one searchable place: the <a href="https://www.epa.gov/hwpermitting/current-open-burning-open-detonation-facilities">U.S. EPA’s current open-burning and open-detonation facilities list</a>, <a href="https://www.canada.ca/en/department-national-defence/services/uxo/uxo-program.html">Canada’s Department of National Defence unexploded ordnance (UXO) legacy sites</a>, <a href="https://emodnet.ec.europa.eu/en/human-activities">EMODnet’s European dumped munitions data</a>, <a href="https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/Superfund_National_Priorities_List_(NPL)_Sites_with_Status_Information/FeatureServer/0">EPA’s Superfund National Priorities List</a> (data as of September 30, 2026), and <a href="https://www.acq.osd.mil/eie/eer/ecc/pfas/docs/data/727-status-chart.pdf">the Department of Defense PFAS status chart</a> (data as of June 30, 2026), plus the other sources listed on each page. <span class="env-about2">FUSRAP nuclear cleanup sites come from the <a href="https://www.usace.army.mil/Missions/Environmental/FUSRAP/">U.S. Army Corps of Engineers</a>, the <a href="https://www.energy.gov/lm/articles/lm-fusrap-fact-sheet">DOE Office of Legacy Management</a> and EPA location records, checked Nov 25, 2026. The <a href="anz/index.html">Australia &amp; New Zealand section</a> uses the <a href="https://uxo-map.defence.gov.au/">Australian Defence UXO map</a> (updated Nov 16, 2026), Defence PFAS program reports (status Oct 2024 and Annual Report 2024-25), NZDF, Ministry for the Environment and NZ EPA PFAS records (2018 to 2026), <a href="https://www.linz.govt.nz/">LINZ</a> sea-dumping notices (July 2025) and place names, and state and council contaminated-land registers (counts read Nov 25, 2026).</span> <span class="env-about3">U.S. sea-dump sites come from <a href="https://www.denix.osd.mil/arc/denix-files/sites/6/2016/03/10_FY09DEPARC_Sea_Disposal_DENIX.pdf">DoD’s FY2009 sea-disposal report</a>, checked Nov 25, 2026; only Ordnance Reef off O‘ahu is mapped, from a NOAA chart.</span> <span class="env-about4">DOE Legacy Management sites come from <a href="https://www.energy.gov/lm/lm-sites">DOE’s LM site list</a> and GEMS map service (updated Nov 24, 2026), and Navajo-area abandoned uranium mines from <a href="https://www.epa.gov/navajo-nation-uranium-cleanup">EPA Region 9</a>, both checked Nov 25, 2026.</span> <span class="env-about5">Formerly Used Defense Sites come from <a href="https://www.usace.army.mil/Missions/Environmental/Formerly-Used-Defense-Sites/FUDS-GIS/">USACE FUDS GIS</a> (FY24), checked Nov 25, 2026.</span> <span data-i18n-wrap data-i18n="home.about_data_check">Always check the original agency source and follow its safety guidance.</span></p>
     </aside>
-    <p class="lede">A sourced tracker of facilities that store or destroy old or unstable energetics, starting from EPA's current open-burning / open-detonation list and a few documented comparables. 67 sites are in this cut, including Army, Navy, Air Force, Marine Corps, other DoD, Energy, NASA, and contractor facilities. <span class="env-lede">It also includes 727 military installations the Department of Defense is investigating for <a href="pfas.html">PFAS</a> (212 with checked map points, the rest listed by state), 1,840 <a href="superfund.html">EPA Superfund sites</a>, 20 active <a href="fusrap.html">FUSRAP nuclear cleanup sites</a>, 72 <a href="sea-dumps.html">U.S. ocean munitions dump sites</a>, 108 <a href="nuclear-legacy.html#lm">DOE Legacy Management sites</a>, 523 <a href="nuclear-legacy.html#navajo">abandoned uranium mines on and near the Navajo Nation</a>, 10,150 <a href="fuds.html">Formerly Used Defense Sites</a> (1,493 with munitions response projects), plus region sections for <a href="anz/index.html">Australia, New Zealand and the Pacific</a>, <a href="africa/index.html">Africa</a>, <a href="south-america/index.html">South America</a>, <a href="antarctica/index.html">Antarctica</a>, <a href="arctic/index.html">Arctic</a>, <a href="middle-east/index.html">Middle East</a>, <a href="asia/index.html">Asia</a>, <a href="russia-central-asia/index.html">Russia and Central Asia</a> and <a href="mexico-central-america/index.html">Mexico, Central America and the Caribbean</a>, and worldwide topic pages on <a href="petroleum/index.html">petroleum explosions, spills and contamination</a>, <a href="nuclear-tests/index.html">nuclear test sites</a>, <a href="chemical-weapons/index.html">chemical weapons and sea dumps</a>, <a href="chemical-plants/index.html">chemical-plant disasters</a>, <a href="nuclear-accidents/index.html">nuclear accidents and waste</a>, <a href="ranges/index.html">firing and bombing ranges</a>, <a href="uxo/index.html">wartime unexploded ordnance</a> and <a href="tailings/index.html">coal-ash and tailings dam failures</a> (see <a href="topics/index.html">Topics</a>). </span>Blank fields mean no source was found — nothing here is guessed.</p>
+    <p class="lede" data-i18n-html="home.lede_html">A sourced tracker of facilities that store or destroy old or unstable energetics, starting from EPA's current open-burning / open-detonation list and a few documented comparables. 67 sites are in this cut, including Army, Navy, Air Force, Marine Corps, other DoD, Energy, NASA, and contractor facilities. <span class="env-lede">It also includes 727 military installations the Department of Defense is investigating for <a href="pfas.html">PFAS</a> (212 with checked map points, the rest listed by state), 1,840 <a href="superfund.html">EPA Superfund sites</a>, 20 active <a href="fusrap.html">FUSRAP nuclear cleanup sites</a>, 72 <a href="sea-dumps.html">U.S. ocean munitions dump sites</a>, 108 <a href="nuclear-legacy.html#lm">DOE Legacy Management sites</a>, 523 <a href="nuclear-legacy.html#navajo">abandoned uranium mines on and near the Navajo Nation</a>, 10,150 <a href="fuds.html">Formerly Used Defense Sites</a> (1,493 with munitions response projects), plus region sections for <a href="anz/index.html">Australia, New Zealand and the Pacific</a>, <a href="africa/index.html">Africa</a>, <a href="south-america/index.html">South America</a>, <a href="antarctica/index.html">Antarctica</a>, <a href="arctic/index.html">Arctic</a>, <a href="middle-east/index.html">Middle East</a>, <a href="asia/index.html">Asia</a>, <a href="russia-central-asia/index.html">Russia and Central Asia</a> and <a href="mexico-central-america/index.html">Mexico, Central America and the Caribbean</a>, and worldwide topic pages on <a href="petroleum/index.html">petroleum explosions, spills and contamination</a>, <a href="nuclear-tests/index.html">nuclear test sites</a>, <a href="chemical-weapons/index.html">chemical weapons and sea dumps</a>, <a href="chemical-plants/index.html">chemical-plant disasters</a>, <a href="nuclear-accidents/index.html">nuclear accidents and waste</a>, <a href="ranges/index.html">firing and bombing ranges</a>, <a href="uxo/index.html">wartime unexploded ordnance</a> and <a href="tailings/index.html">coal-ash and tailings dam failures</a> (see <a href="topics/index.html">Topics</a>). </span>Blank fields mean no source was found — nothing here is guessed.</p>
     <section class="nearby" aria-labelledby="nearby-heading">
-      <h2 id="nearby-heading">Is there one near me?</h2>
-      <p class="env-intro">Search one ZIP code to see the closest <strong>munitions sites</strong>, <strong>military PFAS sites</strong>, <strong>Superfund cleanup sites</strong> and <strong>FUSRAP atomic-era cleanup sites</strong>. New: <a href="pfas.html">What is PFAS?</a> · <a href="superfund.html">What is Superfund?</a> · <a href="fusrap.html">What is FUSRAP?</a></p>
-      <p>Enter a five-digit U.S. ZIP code to see the closest sites in this inventory. The map will zoom to that ZIP.</p>
+      <h2 id="nearby-heading" data-i18n="home.nearby_heading">Is there one near me?</h2>
+      <p class="env-intro" data-i18n-html="home.nearby_intro_html">Search one ZIP code to see the closest <strong>munitions sites</strong>, <strong>military PFAS sites</strong>, <strong>Superfund cleanup sites</strong> and <strong>FUSRAP atomic-era cleanup sites</strong>. New: <a href="pfas.html" data-i18n="page.what_is_pfas">What is PFAS?</a> · <a href="superfund.html" data-i18n="page.what_is_superfund">What is Superfund?</a> · <a href="fusrap.html" data-i18n="page.what_is_fusrap">What is FUSRAP?</a></p>
+      <p><span data-i18n-wrap data-i18n="home.nearby_enter">Enter a five-digit U.S. ZIP code to see the closest sites in this inventory. The map will zoom to that ZIP.</span></p>
       <form id="nearby-form" action="#" method="get">
         <div class="nearby-row">
-          <label for="nearby-zip">ZIP code</label>
+          <label for="nearby-zip" data-i18n="nearby.zip">ZIP code</label>
           <input id="nearby-zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" minlength="5" autocomplete="postal-code" aria-describedby="nearby-note" value="">
-          <button type="submit" id="nearby-submit">Search</button>
-          <button type="button" id="nearby-geo">Use my location</button>
+          <button type="submit" id="nearby-submit" data-i18n="nearby.search">Search</button>
+          <button type="button" id="nearby-geo" data-i18n="nearby.use_location">Use my location</button>
         </div>
       </form>
-      <p class="nearby-note" id="nearby-note">Distances are straight-line miles from the ZIP Code Tabulation Area (ZCTA) center published in the U.S. Census Bureau 2025 gazetteer, or from a location this browser reports after you click “Use my location.” They are not driving distance and not a measure of risk. Only sites in this dataset are included. Not every postal ZIP has a ZCTA centroid. Your location is not sent to a server.</p>
+      <p class="nearby-note" id="nearby-note" data-i18n="nearby.note">Distances are straight-line miles from the ZIP Code Tabulation Area (ZCTA) center published in the U.S. Census Bureau 2025 gazetteer, or from a location this browser reports after you click “Use my location.” They are not driving distance and not a measure of risk. Only sites in this dataset are included. Not every postal ZIP has a ZCTA centroid. Your location is not sent to a server.</p>
       <div id="nearby-results" role="status" aria-live="polite"></div>
-      <div id="env-results" class="env-results" role="region" aria-label="PFAS and Superfund results" hidden></div>
+      <div id="env-results" class="env-results" role="region" aria-label="PFAS and Superfund results" data-i18n-aria="map.env_results_aria" hidden></div>
     </section>
     
     <section class="nearby alerts-box" aria-labelledby="alerts-heading-home">
@@ -186,40 +256,41 @@
 </script>
 
     
-    <div id="map" role="region" aria-label="Map of tracked sites"></div>
+    <div id="map" role="region" aria-label="Map of tracked sites" data-i18n-aria="map.aria"></div>
     <div class="legend">
-      <span><i class="swatch partly"></i> Partly verified</span>
-      <span><i class="swatch verified"></i> Verified</span>
-      <span><i class="swatch unverified"></i> Unverified</span>
-      <span>Larger dots have a deeper research note in this inventory. Marker color is the verification label. Coordinates come from EPA FRS, not from hand-placed guesses.</span>
+      <span><i class="swatch partly"></i> <span data-i18n-wrap data-i18n="legend.partly">Partly verified</span></span>
+      <span><i class="swatch verified"></i> <span data-i18n-wrap data-i18n="legend.verified">Verified</span></span>
+      <span><i class="swatch unverified"></i> <span data-i18n-wrap data-i18n="legend.unverified">Unverified</span></span>
+      <span data-i18n="legend.marker_note">Larger dots have a deeper research note in this inventory. Marker color is the verification label. Coordinates come from EPA FRS, not from hand-placed guesses.</span>
     </div>
-    <div class="legend sector-legend" aria-label="Sectors in this inventory"><span class="sector-chip"><i class="swatch sector-army"></i> Army (21)</span><span class="sector-chip"><i class="swatch sector-navy"></i> Navy (6)</span><span class="sector-chip"><i class="swatch sector-air_force"></i> Air Force (4)</span><span class="sector-chip"><i class="swatch sector-marines"></i> Marines (2)</span><span class="sector-chip"><i class="swatch sector-other_dod"></i> Other DoD (6)</span><span class="sector-chip"><i class="swatch sector-doe"></i> Department of Energy (5)</span><span class="sector-chip"><i class="swatch sector-nasa"></i> NASA (1)</span><span class="sector-chip"><i class="swatch sector-contractor"></i> Contractor (21)</span><span class="sector-chip"><i class="swatch sector-other"></i> Other (1)</span></div>
+    <div class="legend sector-legend" aria-label="Sectors in this inventory" data-i18n-aria="filter.aria_sectors"><span class="sector-chip"><i class="swatch sector-army"></i> Army (21)</span><span class="sector-chip"><i class="swatch sector-navy"></i> Navy (6)</span><span class="sector-chip"><i class="swatch sector-air_force"></i> Air Force (4)</span><span class="sector-chip"><i class="swatch sector-marines"></i> Marines (2)</span><span class="sector-chip"><i class="swatch sector-other_dod"></i> Other DoD (6)</span><span class="sector-chip"><i class="swatch sector-doe"></i> Department of Energy (5)</span><span class="sector-chip"><i class="swatch sector-nasa"></i> NASA (1)</span><span class="sector-chip"><i class="swatch sector-contractor"></i> Contractor (21)</span><span class="sector-chip"><i class="swatch sector-other"></i> Other (1)</span></div>
     <div class="filters">
-      <label>Search <input type="search" id="q" placeholder="Name, city, EPA ID…"></label>
-      <label>State <select id="f-state"></select></label>
-      <label>Sector <select id="f-sector"></select></label>
-      <label>Branch <select id="f-branch"></select></label>
-      <label>Type <select id="f-type"></select></label>
-      <label>Verification <select id="f-verification"></select></label>
-      <label>Research depth <select id="f-depth"></select></label>
+      <label><span data-i18n-wrap data-i18n="filter.search">Search</span> <input type="search" id="q" placeholder="Name, city, EPA ID…" data-i18n-placeholder="filter.search_placeholder"></label>
+      <label><span data-i18n-wrap data-i18n="filter.state">State</span> <select id="f-state"></select></label>
+      <label><span data-i18n-wrap data-i18n="filter.sector">Sector</span> <select id="f-sector"></select></label>
+      <label><span data-i18n-wrap data-i18n="filter.branch">Branch</span> <select id="f-branch"></select></label>
+      <label><span data-i18n-wrap data-i18n="filter.type">Type</span> <select id="f-type"></select></label>
+      <label><span data-i18n-wrap data-i18n="filter.verification">Verification</span> <select id="f-verification"></select></label>
+      <label><span data-i18n-wrap data-i18n="filter.depth">Research depth</span> <select id="f-depth"></select></label>
     </div>
-    <p class="count" id="count">Loading…</p>
+    <p class="count" id="count" data-i18n="table.loading">Loading…</p>
     <div class="table-wrap">
       <table id="sites-table">
         <thead>
           <tr>
-            <th data-key="name">Site <span class="arrow">▲</span></th>
-            <th data-key="sector">Sector <span class="arrow"></span></th>
-            <th data-key="branch">Branch <span class="arrow"></span></th>
-            <th data-key="state">Location <span class="arrow"></span></th>
-            <th data-key="type">Type <span class="arrow"></span></th>
-            <th data-key="verification">Verification <span class="arrow"></span></th>
-            <th data-key="research_depth">Depth <span class="arrow"></span></th>
+            <th data-key="name"><span data-i18n-wrap data-i18n="table.site">Site</span> <span class="arrow">▲</span></th>
+            <th data-key="sector"><span data-i18n-wrap data-i18n="table.sector">Sector</span> <span class="arrow"></span></th>
+            <th data-key="branch"><span data-i18n-wrap data-i18n="table.branch">Branch</span> <span class="arrow"></span></th>
+            <th data-key="state"><span data-i18n-wrap data-i18n="table.location">Location</span> <span class="arrow"></span></th>
+            <th data-key="type"><span data-i18n-wrap data-i18n="table.type">Type</span> <span class="arrow"></span></th>
+            <th data-key="verification"><span data-i18n-wrap data-i18n="table.verification">Verification</span> <span class="arrow"></span></th>
+            <th data-key="research_depth"><span data-i18n-wrap data-i18n="table.depth">Depth</span> <span class="arrow"></span></th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </div>
+    <script src="js/i18n.js" data-dmnm-i18n="js"></script>
     <script src="lib/leaflet/leaflet.js"></script>
     <script src="js/app.js" data-src="data/sites.json" data-icon-path="lib/leaflet/images/" data-zcta-src="data/zcta-centroids.json"></script>
     <script src="js/env-layers.js" data-mode="zip"></script>
@@ -227,8 +298,8 @@
   </main>
   <footer>
     <div class="wrap">
-      <div>By D.A. Williams. Not an official government document.</div>
-      <div><a href="privacy.html">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener">Support this research ☕<span class="sr-only"> (opens in a new tab)</span></a></div>
+      <div><span data-i18n-wrap data-i18n="footer.byline">By D.A. Williams. Not an official government document.</span></div>
+      <div><a href="privacy.html" data-i18n="footer.privacy">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener" data-i18n="footer.support">Support this research ☕<span class="sr-only" data-i18n="footer.new_tab"> (opens in a new tab)</span></a></div>
     </div>
   </footer>
   <script>

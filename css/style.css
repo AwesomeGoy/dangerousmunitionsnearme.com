@@ -1043,3 +1043,217 @@ header.site-head.site-head--cover > .wrap {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+/* dmnm-i18n-css */
+/* Interface language, RTL, and script-specific system fonts.
+ * No webfonts are downloaded — only the fonts already on the device, so
+ * cheap phones and slow connections are not blocked by a font file.
+ * Load this sheet after style.css so --sans can be overridden per language.
+ */
+
+/* Hide tagged chrome only until the chosen language file is applied.
+ * visibility keeps layout stable. A 1.5s timeout in i18n.js reveals English
+ * if the file cannot be fetched. */
+html.i18n-pending [data-i18n],
+html.i18n-pending [data-i18n-html] {
+  visibility: hidden;
+}
+html.i18n-ready [data-i18n],
+html.i18n-ready [data-i18n-html],
+html.i18n-failed [data-i18n],
+html.i18n-failed [data-i18n-html] {
+  visibility: visible;
+}
+/* The language picker and skip link must stay visible during the swap. */
+html.i18n-pending .lang-picker [data-i18n],
+html.i18n-pending .skip-link[data-i18n] {
+  visibility: visible;
+}
+
+/* System stacks for scripts IBM Plex / Tahoma do not cover.
+ * Missing glyphs still fall through; this just prefers a local CJK/Arabic
+ * /Devanagari face first so the UI does not wait on a Latin-only font. */
+html[lang^="ar"] { --sans: "Noto Naskh Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif; }
+html[lang^="zh"] { --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "Segoe UI", system-ui, sans-serif; }
+html[lang^="ja"] { --sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans CJK JP", "Noto Sans JP", "Segoe UI", system-ui, sans-serif; }
+html[lang^="ko"] { --sans: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans CJK KR", "Noto Sans KR", "Segoe UI", system-ui, sans-serif; }
+html[lang^="hi"] { --sans: "Noto Sans Devanagari", "Noto Serif Devanagari", "Mangal", "Kohinoor Devanagari", "Segoe UI", system-ui, sans-serif; }
+html[lang^="ru"],
+html[lang^="uk"] { --sans: "IBM Plex Sans", "Segoe UI", "Noto Sans", "PT Sans", Tahoma, system-ui, sans-serif; }
+
+html[lang^="ar"] body,
+html[lang^="zh"] body,
+html[lang^="ja"] body,
+html[lang^="ko"] body,
+html[lang^="hi"] body {
+  line-height: 1.7;
+}
+html[lang^="ar"] em,
+html[lang^="ar"] i { font-style: normal; font-weight: 600; }
+
+/* Language picker — mobile-first, 44px touch target, AA contrast
+ * (#1c1917 on #fffdf8 is > 12:1; border #c2410c on #fffdf8 > 4.5:1). */
+.lang-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.7rem;
+  margin: 0.75rem 0 0.35rem;
+  max-width: 42rem;
+}
+.lang-picker-label {
+  font-weight: 650;
+  font-size: 0.95rem;
+  color: var(--ink, #1c1917);
+  margin: 0;
+}
+.lang-picker select {
+  min-height: 44px;
+  min-width: 11.5rem;
+  max-width: 100%;
+  padding-block: 0.4rem;
+  padding-inline: 0.7rem 2rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink, #1c1917);
+  background-color: var(--card, #fffdf8);
+  border: 2px solid var(--banner-line, #c2410c);
+  border-radius: 8px;
+  appearance: auto;
+  cursor: pointer;
+}
+.lang-picker select:focus,
+.lang-picker select:focus-visible {
+  outline: 3px solid var(--ink, #1c1917);
+  outline-offset: 2px;
+}
+.lang-picker-help {
+  flex: 1 1 16rem;
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted, #57534e);
+  max-width: 42rem;
+}
+/* #57534e on #f7f4ef is about 6.4:1, AA for small text. */
+.lang-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Records stay in their original language — visible, not color-only. */
+.records-lang-note {
+  display: none;
+  margin: 0.85rem 0 1rem;
+  padding: 0.7rem 0.85rem 0.75rem;
+  background: var(--card, #fffdf8);
+  border: 1px solid var(--line, #d6d0c7);
+  border-inline-start: 4px solid var(--banner, #9a3412);
+  border-radius: 6px;
+  max-width: 46rem;
+  color: var(--ink, #1c1917);
+}
+.records-lang-note h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.records-lang-note p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* RTL: flip chrome, keep the map itself LTR so Leaflet tiles and
+ * coordinates are not mirrored. */
+[dir="rtl"] .lang-picker,
+[dir="rtl"] nav,
+[dir="rtl"] .region-switcher,
+[dir="rtl"] .filters,
+[dir="rtl"] .legend,
+[dir="rtl"] .nearby-row,
+[dir="rtl"] footer .wrap,
+[dir="rtl"] .brand {
+  text-align: right;
+}
+[dir="rtl"] .prose ul,
+[dir="rtl"] .prose ol { padding-left: 0; padding-right: 1.3rem; }
+/* Override style.css `.skip-link { left: -999px }`. That off-canvas
+ * hide expands the scrollable page in RTL (~999px) and leaves a first
+ * paint of empty paper. The clip pattern does not affect overflow. */
+.skip-link {
+  left: auto;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  clip-path: none;
+  overflow: visible;
+  padding: 0.4rem 0.7rem;
+  top: 0.5rem;
+  inset-inline-start: 0.5rem;
+  inset-inline-end: auto;
+}
+#map,
+.leaflet-container,
+.leaflet-pane,
+.leaflet-control-container {
+  direction: ltr;
+  text-align: left;
+}
+/* Popup chrome can follow the page language; record names stay lang=en. */
+.leaflet-popup-content { direction: inherit; }
+
+@media (max-width: 640px) {
+  .lang-picker {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0.9rem;
+  }
+  .lang-picker select {
+    width: 100%;
+    min-width: 0;
+  }
+  .records-lang-note { padding: 0.65rem 0.75rem; }
+}
+
+@media print {
+  .lang-picker { display: none; }
+}
+
+/* Machine-assisted notice: shown only when a translation is in use. */
+.lang-machine-note { display: none; margin: 0.25rem 0 0; font-size: 0.9rem; color: #57534e; }
+html.i18n-ready:not([lang="en"]) .lang-machine-note { display: block; }
+
+/* Shown only when a translation is active; English pages look as before. */
+html.i18n-ready:not([lang="en"]) .records-lang-note { display: block; }
+
+/* The alert/tip honeypot sits off-screen to the left; in right-to-left pages that made a
+ * 10,000px sideways scroll. Clip it in place instead (still hidden from people and screen readers). */
+[dir="rtl"] .dmnm-at .honey {
+  left: auto;
+  right: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* /dmnm-i18n-css */

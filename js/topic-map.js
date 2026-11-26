@@ -3,7 +3,7 @@
   "use strict";
   var script = document.currentScript, base = script.getAttribute("data-base") || "", src = script.getAttribute("data-src");
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-  var VL = { verified: "Verified", corrected: "Corrected", unverified: "Unverified" }, UNV = "#a16207";
+  var VL = { verified: (window.DMNM_I18N ? DMNM_I18N.t("status.verified", "Verified") : "Verified"), corrected: (window.DMNM_I18N ? DMNM_I18N.t("status.corrected", "Corrected") : "Corrected"), unverified: (window.DMNM_I18N ? DMNM_I18N.t("status.unverified", "Unverified") : "Unverified") }, UNV = "#a16207";
   fetch(base + src).then(function (r) { return r.json(); }).then(function (d) {
     var el = document.getElementById("map"); if (!el || typeof L === "undefined") return;
     var LAYERS = d.meta.layers, byId = {}, hasAreas = d.areas && d.areas.features.length;

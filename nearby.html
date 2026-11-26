@@ -43,14 +43,84 @@
 
     gtag('config', 'G-DQ72CZPH8J');
   </script>
+  <script id="dmnm-i18n-bootstrap">
+  window.DMNM_I18N_BASE = "i18n/";
+  (function () {
+    var KEY = "dmnm-lang";
+    var SUP = {en:"en",es:"es",fr:"fr",pt:"pt",ar:"ar",ru:"ru",uk:"uk",zh:"zh-Hans",hi:"hi",ja:"ja",de:"de",ko:"ko",vi:"vi",id:"id",tr:"tr"};
+    var RTL = {ar:1};
+    function norm(c) {
+      if (!c) return null;
+      c = String(c).replace("_","-").toLowerCase();
+      if (SUP[c]) return c;
+      if (c.indexOf("zh") === 0) return "zh";
+      var p = c.split("-")[0];
+      return SUP[p] ? p : null;
+    }
+    var lang = "en";
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      lang = norm(q) || norm(localStorage.getItem(KEY)) || lang;
+      if (norm(q)) localStorage.setItem(KEY, lang);
+      if (lang === "en") {
+        var list = (navigator.languages || []).concat(navigator.language || []);
+        if (!norm(q) && !norm(localStorage.getItem(KEY))) {
+          for (var i = 0; i < list.length; i++) {
+            var n = norm(list[i]); if (n) { lang = n; break; }
+          }
+        }
+      }
+    } catch (e) {}
+    var el = document.documentElement;
+    el.setAttribute("lang", SUP[lang] || "en");
+    el.setAttribute("dir", RTL[lang] ? "rtl" : "ltr");
+    if (RTL[lang]) el.classList.add("is-rtl");
+    if (lang !== "en") {
+      el.classList.add("i18n-pending");
+      var l = document.createElement("link");
+      l.rel = "preload"; l.as = "fetch"; l.crossOrigin = "anonymous";
+      l.href = "i18n/" + lang + ".json";
+      document.head.appendChild(l);
+    }
+  })();
+  </script>
 </head>
 <body>
-  <header class="site-head site-head--banner"><div class="hero hero--slim"><picture class="hero-art"><source type="image/webp" srcset="img/banner/tooele-plume-800.webp 800w, img/banner/tooele-plume-1600.webp 1600w, img/banner/tooele-plume-2000.webp 2000w" sizes="100vw"><img src="img/banner/tooele-plume-1600.jpg" srcset="img/banner/tooele-plume-800.jpg 800w, img/banner/tooele-plume-1600.jpg 1600w, img/banner/tooele-plume-2000.jpg 2000w" sizes="100vw" width="2000" height="500" alt="Dust and smoke plume from an open detonation of old, obsolete, or unsafe munitions at the Tooele Army Depot South Range in Utah." decoding="async" loading="lazy"></picture><div class="hero-overlay"><div class="wrap hero-copy"><div class="brand"><h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1></div></div></div></div><p class="hero-credit"><span class="wrap"><a href="https://www.dvidshub.net/image/9740059/open-detonations-resume-tooele-army-depot">Photo: Wade Mathews, Tooele Army Depot Public Affairs. U.S. Army photo (public domain), via DVIDS.</a></span></p><div class="wrap site-head-bar"><nav><a href="index.html">Tracker</a><a href="canada/index.html">Canada</a><a href="europe/index.html">Europe</a><a href="anz/index.html">Australia &amp; NZ</a><a href="africa/index.html">Africa</a><a href="south-america/index.html">South America</a><a href="antarctica/index.html">Antarctica</a><a href="arctic/index.html">Arctic</a><a href="middle-east/index.html">Middle East</a><a href="asia/index.html">Asia</a><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="mexico-central-america/index.html">Mexico &amp; Central America</a><a href="nearby.html" aria-current="page">Live near one?</a><a href="pfas.html">PFAS</a><a href="superfund.html">Superfund</a><a href="fusrap.html">FUSRAP</a><a href="states/index.html">By state</a><a href="sea-dumps.html">Sea dumps</a><a href="nuclear-legacy.html">Nuclear legacy</a><a href="fuds.html">FUDS</a><a href="topics/index.html">Topics</a><a href="comments.html">Comment tracker</a><a href="timeline.html">Timeline</a><a href="records.html">Records request</a><a href="stories.html">Neighbor stories</a><a href="more-maps.html">More maps</a><a href="about.html">About / methods</a><a href="alerts.html">Email alerts</a><a href="report.html">Report a site</a><a href="privacy.html">Privacy</a><a href="data/sites.csv">Download CSV</a><a href="data/sites.json">Download JSON</a></nav></div></header>
-  <main class="wrap">
+  <a class="skip-link" href="#main-content" data-dmnm-i18n="skip" data-i18n="page.skip">Skip to content</a>
+
+  <header class="site-head site-head--banner"><div class="hero hero--slim"><picture class="hero-art"><source type="image/webp" srcset="img/banner/tooele-plume-800.webp 800w, img/banner/tooele-plume-1600.webp 1600w, img/banner/tooele-plume-2000.webp 2000w" sizes="100vw"><img src="img/banner/tooele-plume-1600.jpg" srcset="img/banner/tooele-plume-800.jpg 800w, img/banner/tooele-plume-1600.jpg 1600w, img/banner/tooele-plume-2000.jpg 2000w" sizes="100vw" width="2000" height="500" alt="Dust and smoke plume from an open detonation of old, obsolete, or unsafe munitions at the Tooele Army Depot South Range in Utah." decoding="async" loading="lazy"></picture><div class="hero-overlay"><div class="wrap hero-copy"><div class="brand"><h1><a href="index.html" class="home-link">Dangerous Munitions Near Me</a></h1></div>
+    <div class="lang-picker" data-dmnm-i18n="picker">
+      <label class="lang-picker-label" for="dmnm-lang-select" data-i18n="lang.label">Language</label>
+      <select id="dmnm-lang-select" autocomplete="off" aria-describedby="dmnm-lang-help">
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="uk" lang="uk">Українська</option>
+        <option value="zh" lang="zh-Hans">中文（简体）</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="ja" lang="ja">日本語</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="ko" lang="ko">한국어</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="tr" lang="tr">Türkçe</option>
+      </select>
+      <p class="lang-picker-help" id="dmnm-lang-help" data-i18n="lang.help">Menus, labels and disclaimers use this language. Record names, research notes and quotations stay in English. Source titles stay in their original language.</p>
+      <p class="lang-machine-note" data-i18n="lang.machine_note">Machine-assisted translation, not yet reviewed by a native speaker.</p>
+      <p class="lang-status" id="dmnm-lang-status" role="status" aria-live="polite"></p>
+    </div></div></div></div><p class="hero-credit"><span class="wrap" data-i18n-html="site.hero_credit_html"><a href="https://www.dvidshub.net/image/9740059/open-detonations-resume-tooele-army-depot">Photo: Wade Mathews, Tooele Army Depot Public Affairs. U.S. Army photo (public domain), via DVIDS.</a></span></p><div class="wrap site-head-bar"><nav><a href="index.html" data-i18n="nav.tracker">Tracker</a><a href="canada/index.html" data-i18n="nav.canada">Canada</a><a href="europe/index.html" data-i18n="nav.europe">Europe</a><a href="anz/index.html" data-i18n="nav.anz">Australia &amp; NZ</a><a href="africa/index.html" data-i18n="nav.africa">Africa</a><a href="south-america/index.html" data-i18n="nav.south_america">South America</a><a href="antarctica/index.html" data-i18n="nav.antarctica">Antarctica</a><a href="arctic/index.html" data-i18n="nav.arctic">Arctic</a><a href="middle-east/index.html" data-i18n="nav.middle_east">Middle East</a><a href="asia/index.html" data-i18n="nav.asia">Asia</a><a href="russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="mexico-central-america/index.html">Mexico &amp; Central America</a><a href="lookup.html">What's near me?</a><a href="nearby.html" aria-current="page" data-i18n="nav.nearby">Live near one?</a><a href="pfas.html" data-i18n="nav.pfas">PFAS</a><a href="superfund.html" data-i18n="nav.superfund">Superfund</a><a href="fusrap.html" data-i18n="nav.fusrap">FUSRAP</a><a href="states/index.html" data-i18n="nav.by_state">By state</a><a href="sea-dumps.html" data-i18n="nav.sea_dumps">Sea dumps</a><a href="nuclear-legacy.html" data-i18n="nav.nuclear_legacy">Nuclear legacy</a><a href="fuds.html" data-i18n="nav.fuds">FUDS</a><a href="topics/index.html" data-i18n="nav.topics">Topics</a><a href="comments.html" data-i18n="nav.comments">Comment tracker</a><a href="timeline.html" data-i18n="nav.timeline">Timeline</a><a href="records.html" data-i18n="nav.records">Records request</a><a href="stories.html" data-i18n="nav.stories">Neighbor stories</a><a href="more-maps.html" data-i18n="nav.more_maps">More maps</a><a href="about.html" data-i18n="nav.about">About / methods</a><a href="alerts.html">Email alerts</a><a href="report.html">Report a site</a><a href="privacy.html" data-i18n="nav.privacy">Privacy</a><a href="data/sites.csv" data-i18n="nav.download_csv">Download CSV</a><a href="data/sites.json" data-i18n="nav.download_json">Download JSON</a></nav></div></header>
+  <main class="wrap" id="main-content" tabindex="-1" data-dmnm-i18n="main">
+    <aside class="records-lang-note" data-dmnm-i18n="records-note">
+      <h2 data-i18n="records.note_title">About language on this site</h2>
+      <p data-i18n="records.note">The menus, labels and disclaimers are shown in the language you choose. Record names, research notes and quotations stay in English. Source titles stay in their original language. They are not machine-translated.</p>
+    </aside>
     
     
     <article class="guide prose">
-    <h2>If you live nearby</h2>
+    <h2 data-i18n="nearby.live_heading">If you live nearby</h2>
     <p class="lede">This page collects official, public guidance for people who live, work, or go to school near a facility in this tracker. It covers 67 sites in the current cut. It does not tell you whether any one site is safe or unsafe, and it does not give medical advice.</p>
     <div class="callout medical-note">
       <p>This guide points to official public sources so residents can find emergency-planning contacts, permit notices, and records-request portals. It is not medical advice, legal advice, or an emergency instruction. In an emergency, follow directions from local officials. Health questions belong with a licensed clinician or the local health department. FOIA and permit comments have formal rules; agency pages control how to file.</p>
@@ -58,19 +128,19 @@
     </div>
     </article>
     <section class="nearby" aria-labelledby="guide-nearby-heading">
-      <h2 id="guide-nearby-heading">Closest sites in this inventory</h2>
+      <h2 id="guide-nearby-heading" data-i18n="nearby.heading_guide">Closest sites in this inventory</h2>
       <p>Enter a five-digit U.S. ZIP code. The lookup runs in this browser. No ZIP or location is sent to a server. You can also use the same tool on the <a href="index.html#nearby-heading">tracker map</a>.</p>
       <form id="nearby-form" action="#" method="get">
         <div class="nearby-row">
-          <label for="nearby-zip">ZIP code</label>
+          <label for="nearby-zip" data-i18n="nearby.zip">ZIP code</label>
           <input id="nearby-zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" minlength="5" autocomplete="postal-code" aria-describedby="guide-nearby-note" value="">
-          <button type="submit" id="nearby-submit">Search</button>
-          <button type="button" id="nearby-geo">Use my location</button>
+          <button type="submit" id="nearby-submit" data-i18n="nearby.search">Search</button>
+          <button type="button" id="nearby-geo" data-i18n="nearby.use_location">Use my location</button>
         </div>
       </form>
       <p class="nearby-note" id="guide-nearby-note">Distances are straight-line miles from the ZIP Code Tabulation Area (ZCTA) center in the U.S. Census Bureau 2025 gazetteer, or from a location this browser reports after you click “Use my location.” They are not driving distance and not a measure of risk. Not every postal ZIP has a ZCTA centroid. Methods are on the <a href="more-maps.html">More maps</a><a href="about.html">About / methods</a> page.</p>
       <div id="nearby-results" role="status" aria-live="polite"></div>
-      <div id="env-results" class="env-results" role="region" aria-label="PFAS and Superfund results" hidden></div>
+      <div id="env-results" class="env-results" role="region" aria-label="PFAS and Superfund results" data-i18n-aria="map.env_results_aria" hidden></div>
     </section>
     
     <section class="nearby alerts-box" aria-labelledby="alerts-heading-nearby">
@@ -198,14 +268,15 @@
     <p>See also the <a href="comments.html">public comment tracker</a> and the <a href="timeline.html">incident timeline</a>.</p>
     <p class="nearby-note">Sources last checked: 2026-11-23 (America/Phoenix).</p>
     </article>
+    <script src="js/i18n.js" data-dmnm-i18n="js"></script>
     <script src="js/nearby-guide.js" data-src="data/sites.json" data-zcta-src="data/zcta-centroids.json"></script>
     <script src="js/env-layers.js" data-mode="zip"></script>
     
   </main>
   <footer>
     <div class="wrap">
-      <div>By D.A. Williams. Not an official government document.</div>
-      <div><a href="privacy.html">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener">Support this research ☕<span class="sr-only"> (opens in a new tab)</span></a></div>
+      <div><span data-i18n-wrap data-i18n="footer.byline">By D.A. Williams. Not an official government document.</span></div>
+      <div><a href="privacy.html" data-i18n="footer.privacy">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener" data-i18n="footer.support">Support this research ☕<span class="sr-only" data-i18n="footer.new_tab"> (opens in a new tab)</span></a></div>
     </div>
   </footer>
   <script>

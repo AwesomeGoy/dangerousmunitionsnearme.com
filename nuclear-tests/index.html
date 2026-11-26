@@ -43,11 +43,81 @@
 
     gtag('config', 'G-DQ72CZPH8J');
   </script>
+  <script id="dmnm-i18n-bootstrap">
+  window.DMNM_I18N_BASE = "../i18n/";
+  (function () {
+    var KEY = "dmnm-lang";
+    var SUP = {en:"en",es:"es",fr:"fr",pt:"pt",ar:"ar",ru:"ru",uk:"uk",zh:"zh-Hans",hi:"hi",ja:"ja",de:"de",ko:"ko",vi:"vi",id:"id",tr:"tr"};
+    var RTL = {ar:1};
+    function norm(c) {
+      if (!c) return null;
+      c = String(c).replace("_","-").toLowerCase();
+      if (SUP[c]) return c;
+      if (c.indexOf("zh") === 0) return "zh";
+      var p = c.split("-")[0];
+      return SUP[p] ? p : null;
+    }
+    var lang = "en";
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      lang = norm(q) || norm(localStorage.getItem(KEY)) || lang;
+      if (norm(q)) localStorage.setItem(KEY, lang);
+      if (lang === "en") {
+        var list = (navigator.languages || []).concat(navigator.language || []);
+        if (!norm(q) && !norm(localStorage.getItem(KEY))) {
+          for (var i = 0; i < list.length; i++) {
+            var n = norm(list[i]); if (n) { lang = n; break; }
+          }
+        }
+      }
+    } catch (e) {}
+    var el = document.documentElement;
+    el.setAttribute("lang", SUP[lang] || "en");
+    el.setAttribute("dir", RTL[lang] ? "rtl" : "ltr");
+    if (RTL[lang]) el.classList.add("is-rtl");
+    if (lang !== "en") {
+      el.classList.add("i18n-pending");
+      var l = document.createElement("link");
+      l.rel = "preload"; l.as = "fetch"; l.crossOrigin = "anonymous";
+      l.href = "../i18n/" + lang + ".json";
+      document.head.appendChild(l);
+    }
+  })();
+  </script>
 </head>
 <body>
-  <header class="site-head site-head--banner"><div class="hero hero--slim"><picture class="hero-art"><source type="image/webp" srcset="../img/banner/tooele-plume-800.webp 800w, ../img/banner/tooele-plume-1600.webp 1600w, ../img/banner/tooele-plume-2000.webp 2000w" sizes="100vw"><img src="../img/banner/tooele-plume-1600.jpg" srcset="../img/banner/tooele-plume-800.jpg 800w, ../img/banner/tooele-plume-1600.jpg 1600w, ../img/banner/tooele-plume-2000.jpg 2000w" sizes="100vw" width="2000" height="500" alt="Dust and smoke plume from an open detonation of old, obsolete, or unsafe munitions at the Tooele Army Depot South Range in Utah." decoding="async" loading="lazy"></picture><div class="hero-overlay"><div class="wrap hero-copy"><div class="brand"><h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1></div></div></div></div><p class="hero-credit"><span class="wrap"><a href="https://www.dvidshub.net/image/9740059/open-detonations-resume-tooele-army-depot">Photo: Wade Mathews, Tooele Army Depot Public Affairs. U.S. Army photo (public domain), via DVIDS.</a></span></p><div class="wrap site-head-bar"><nav><a href="../index.html">Tracker</a><a href="../canada/index.html">Canada</a><a href="../europe/index.html">Europe</a><a href="../anz/index.html">Australia &amp; NZ</a><a href="../africa/index.html">Africa</a><a href="../south-america/index.html">South America</a><a href="../antarctica/index.html">Antarctica</a><a href="../arctic/index.html">Arctic</a><a href="../middle-east/index.html">Middle East</a><a href="../asia/index.html">Asia</a><a href="../russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="../mexico-central-america/index.html">Mexico &amp; Central America</a><a href="../nearby.html">Live near one?</a><a href="../pfas.html">PFAS</a><a href="../superfund.html">Superfund</a><a href="../fusrap.html">FUSRAP</a><a href="../states/index.html">By state</a><a href="../sea-dumps.html">Sea dumps</a><a href="../nuclear-legacy.html">Nuclear legacy</a><a href="../fuds.html">FUDS</a><a href="../topics/index.html">Topics</a><a href="../comments.html">Comment tracker</a><a href="../timeline.html">Timeline</a><a href="../records.html">Records request</a><a href="../stories.html">Neighbor stories</a><a href="../more-maps.html">More maps</a><a href="../about.html">About / methods</a><a href="../alerts.html">Email alerts</a><a href="../report.html">Report a site</a><a href="../privacy.html">Privacy</a><a href="../data/sites.csv">Download CSV</a><a href="../data/sites.json">Download JSON</a></nav></div></header>
-  <main class="wrap">
-    <p class="region-switcher topic-switcher" aria-label="Choose a topic page"><a href="../topics/index.html">All topics</a><span class="sep" aria-hidden="true"> | </span><a href="../petroleum/index.html">Petroleum</a><span class="sep" aria-hidden="true"> | </span><a href="../nuclear-tests/index.html" aria-current="page">Nuclear tests</a><span class="sep" aria-hidden="true"> | </span><a href="../chemical-weapons/index.html">Chemical weapons</a><span class="sep" aria-hidden="true"> | </span><a href="../chemical-plants/index.html">Chemical plants</a><span class="sep" aria-hidden="true"> | </span><a href="../nuclear-accidents/index.html">Nuclear accidents</a><span class="sep" aria-hidden="true"> | </span><a href="../ranges/index.html">Ranges</a><span class="sep" aria-hidden="true"> | </span><a href="../uxo/index.html">Wartime UXO</a><span class="sep" aria-hidden="true"> | </span><a href="../tailings/index.html">Dam failures</a></p>
+  <a class="skip-link" href="#main-content" data-dmnm-i18n="skip" data-i18n="page.skip">Skip to content</a>
+
+  <header class="site-head site-head--banner"><div class="hero hero--slim"><picture class="hero-art"><source type="image/webp" srcset="../img/banner/tooele-plume-800.webp 800w, ../img/banner/tooele-plume-1600.webp 1600w, ../img/banner/tooele-plume-2000.webp 2000w" sizes="100vw"><img src="../img/banner/tooele-plume-1600.jpg" srcset="../img/banner/tooele-plume-800.jpg 800w, ../img/banner/tooele-plume-1600.jpg 1600w, ../img/banner/tooele-plume-2000.jpg 2000w" sizes="100vw" width="2000" height="500" alt="Dust and smoke plume from an open detonation of old, obsolete, or unsafe munitions at the Tooele Army Depot South Range in Utah." decoding="async" loading="lazy"></picture><div class="hero-overlay"><div class="wrap hero-copy"><div class="brand"><h1><a href="../index.html" class="home-link">Dangerous Munitions Near Me</a></h1></div>
+    <div class="lang-picker" data-dmnm-i18n="picker">
+      <label class="lang-picker-label" for="dmnm-lang-select" data-i18n="lang.label">Language</label>
+      <select id="dmnm-lang-select" autocomplete="off" aria-describedby="dmnm-lang-help">
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="uk" lang="uk">Українська</option>
+        <option value="zh" lang="zh-Hans">中文（简体）</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="ja" lang="ja">日本語</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="ko" lang="ko">한국어</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="tr" lang="tr">Türkçe</option>
+      </select>
+      <p class="lang-picker-help" id="dmnm-lang-help" data-i18n="lang.help">Menus, labels and disclaimers use this language. Record names, research notes and quotations stay in English. Source titles stay in their original language.</p>
+      <p class="lang-machine-note" data-i18n="lang.machine_note">Machine-assisted translation, not yet reviewed by a native speaker.</p>
+      <p class="lang-status" id="dmnm-lang-status" role="status" aria-live="polite"></p>
+    </div></div></div></div><p class="hero-credit"><span class="wrap" data-i18n-html="site.hero_credit_html"><a href="https://www.dvidshub.net/image/9740059/open-detonations-resume-tooele-army-depot">Photo: Wade Mathews, Tooele Army Depot Public Affairs. U.S. Army photo (public domain), via DVIDS.</a></span></p><div class="wrap site-head-bar"><nav><a href="../index.html" data-i18n="nav.tracker">Tracker</a><a href="../canada/index.html" data-i18n="nav.canada">Canada</a><a href="../europe/index.html" data-i18n="nav.europe">Europe</a><a href="../anz/index.html" data-i18n="nav.anz">Australia &amp; NZ</a><a href="../africa/index.html" data-i18n="nav.africa">Africa</a><a href="../south-america/index.html" data-i18n="nav.south_america">South America</a><a href="../antarctica/index.html" data-i18n="nav.antarctica">Antarctica</a><a href="../arctic/index.html" data-i18n="nav.arctic">Arctic</a><a href="../middle-east/index.html" data-i18n="nav.middle_east">Middle East</a><a href="../asia/index.html" data-i18n="nav.asia">Asia</a><a href="../russia-central-asia/index.html">Russia &amp; Central Asia</a><a href="../mexico-central-america/index.html">Mexico &amp; Central America</a><a href="../lookup.html">What's near me?</a><a href="../nearby.html" data-i18n="nav.nearby">Live near one?</a><a href="../pfas.html" data-i18n="nav.pfas">PFAS</a><a href="../superfund.html" data-i18n="nav.superfund">Superfund</a><a href="../fusrap.html" data-i18n="nav.fusrap">FUSRAP</a><a href="../states/index.html" data-i18n="nav.by_state">By state</a><a href="../sea-dumps.html" data-i18n="nav.sea_dumps">Sea dumps</a><a href="../nuclear-legacy.html" data-i18n="nav.nuclear_legacy">Nuclear legacy</a><a href="../fuds.html" data-i18n="nav.fuds">FUDS</a><a href="../topics/index.html" data-i18n="nav.topics">Topics</a><a href="../comments.html" data-i18n="nav.comments">Comment tracker</a><a href="../timeline.html" data-i18n="nav.timeline">Timeline</a><a href="../records.html" data-i18n="nav.records">Records request</a><a href="../stories.html" data-i18n="nav.stories">Neighbor stories</a><a href="../more-maps.html" data-i18n="nav.more_maps">More maps</a><a href="../about.html" data-i18n="nav.about">About / methods</a><a href="../alerts.html">Email alerts</a><a href="../report.html">Report a site</a><a href="../privacy.html" data-i18n="nav.privacy">Privacy</a><a href="../data/sites.csv" data-i18n="nav.download_csv">Download CSV</a><a href="../data/sites.json" data-i18n="nav.download_json">Download JSON</a></nav></div></header>
+  <main class="wrap" id="main-content" tabindex="-1" data-dmnm-i18n="main">
+    <aside class="records-lang-note" data-dmnm-i18n="records-note">
+      <h2 data-i18n="records.note_title">About language on this site</h2>
+      <p data-i18n="records.note">The menus, labels and disclaimers are shown in the language you choose. Record names, research notes and quotations stay in English. Source titles stay in their original language. They are not machine-translated.</p>
+    </aside>
+    <p class="region-switcher topic-switcher" aria-label="Choose a topic page" data-i18n-aria="map.topic_switcher_aria"><a href="../topics/index.html">All topics</a><span class="sep" aria-hidden="true"> | </span><a href="../petroleum/index.html">Petroleum</a><span class="sep" aria-hidden="true"> | </span><a href="../nuclear-tests/index.html" aria-current="page">Nuclear tests</a><span class="sep" aria-hidden="true"> | </span><a href="../chemical-weapons/index.html">Chemical weapons</a><span class="sep" aria-hidden="true"> | </span><a href="../chemical-plants/index.html">Chemical plants</a><span class="sep" aria-hidden="true"> | </span><a href="../nuclear-accidents/index.html">Nuclear accidents</a><span class="sep" aria-hidden="true"> | </span><a href="../ranges/index.html">Ranges</a><span class="sep" aria-hidden="true"> | </span><a href="../uxo/index.html">Wartime UXO</a><span class="sep" aria-hidden="true"> | </span><a href="../tailings/index.html">Dam failures</a></p>
     <h2>Nuclear test sites</h2>
     <p class="lede">Where nuclear weapons were tested, by testing state: test counts, largest yields, contamination and compensation programs, from official sources. 35 records: 23 verified, 0 corrected against a better official source and 12 unverified and marked as such.</p>
     <div class="callout medical-note"><p>This page is not an official government document and does not say any place is safe or unsafe. It is a selection of documented places, not a complete list. ZIP alerts on this site do not include these records.</p></div>
@@ -56,7 +126,7 @@
       <li><strong>Test counts are each testing state’s official count as the cited source gives it.</strong> Where official sources disagree (for example UK MOD and Australian ARPANSA yields, or India’s and Pakistan’s announced device counts against the UN’s count of tests), both are shown.</li><li><strong>Mapped points are test ground zeros or IAEA-printed points</strong>, not site boundaries. Six official coordinates (Bikini, Enewetak, Runit Dome, Christmas Island U.S. tests, Moruroa and Fangataufa) failed the land-boundary check or contain a known error, so those records are list only.</li>
       <li><strong>Blank coordinates mean list only.</strong> Nothing was geocoded or guessed.</li>
     </ul></div>
-    <div id="afr-filters" class="env-filter-set th-filters" role="group" aria-label="Show these layers on the map"></div>
+    <div id="afr-filters" class="env-filter-set th-filters" role="group" aria-label="Show these layers on the map" data-i18n-aria="map.layers_aria"></div>
     <div id="map" class="state-map afr-map th-map" role="region" aria-label="World map of nuclear test sites"></div>
     <p class="env-meta">12 records are mapped as points. Unverified records have a dashed yellow outline. The other 23 records have no usable official coordinate and are listed below only.</p>
 
@@ -82,19 +152,20 @@
     <p>These places belong to this topic but are recorded on another page of this site, so they are linked rather than repeated.</p>
     <ul class="th-xrefs"><li><a href="../arctic/index.html#arc-nuc-novaya-zemlya">Novaya Zemlya (incl. Tsar Bomba, 50 Mt, 30 Oct 1961)</a> (Arctic page) — Full record on the Arctic page (unverified there: the 130-test count is not from an opened official source). It includes Tsar Bomba, the largest nuclear test ever conducted.</li><li><a href="../arctic/index.html#arc-nuc-amchitka">Amchitka Island (Long Shot, Milrow, Cannikin)</a> (Arctic page) — Full record on the Arctic page. The official U.S. test table (DOE/NV-209) confirms 3 tests, with Cannikin “less than 5 Mt”. Also a DOE Legacy Management site on the Nuclear legacy page.</li><li><a href="../africa/south-africa/index.html#zaf-nuc-vastrap">Vastrap (Kalahari) test shafts, South Africa</a> (South Africa page) — No test was conducted; full record in the South Africa layer.</li><li><a href="../africa/south-africa/index.html#zaf-nuc-vela-1979">Vela 6911 &#x27;double flash&#x27;, 22 Sep 1979</a> (South Africa page) — Unattributed event; cross-reference only, not counted as a test site.</li><li><a href="../asia/index.html#as-stub-lop-nur">Lop Nur nuclear test site</a> (Asia page) — The Asia page lists this place and points here for the full record.</li><li><a href="../asia/index.html#as-stub-semipalatinsk">Semipalatinsk Test Site</a> (Asia page) — The Asia page lists this place and points here for the full record.</li><li><a href="../asia/index.html#as-stub-pokhran">Pokhran test range</a> (Asia page) — The Asia page lists this place and points here for the full record.</li><li><a href="../asia/index.html#as-stub-chagai">Ras Koh / Chagai test site</a> (Asia page) — The Asia page lists this place and points here for the full record.</li><li><a href="../asia/index.html#as-stub-punggye-ri">Punggye-ri nuclear test site</a> (Asia page) — The Asia page lists this place and points here for the full record.</li><li><a href="../antarctica/index.html">Antarctica page</a> — The Antarctica page has no nuclear test records (only radioisotope generators and the PM-3A reactor). The 1958 Argus high-altitude tests over the South Atlantic are listed on this page.</li></ul>
 
-    <h2 id="nuclear-tests-method">How this was checked</h2>
+    <h2 id="nuclear-tests-method" data-i18n="page.how_checked">How this was checked</h2>
     <div class="table-scroll"><table class="env-table"><caption class="sr-only">Verification counts</caption><thead><tr><th scope="col">Category</th><th scope="col">Records</th><th scope="col">Verified</th><th scope="col">Corrected</th><th scope="col">Unverified</th><th scope="col">Mapped</th></tr></thead><tbody><tr><td>Nuclear test site</td><td>35</td><td>23</td><td>0</td><td>12</td><td>12</td></tr></tbody></table></div>
     <p><strong>Verified</strong>: every field shown matched an official or primary source. <strong>Corrected</strong>: an official source changed at least one field of the starting record; the change is explained. <strong>Unverified</strong>: kept for context; at least one key fact was not confirmed in an official source. Map points come only from official sources and were tested against GADM 4.1 or Natural Earth boundaries; points that failed were not used. Key figures were spot-checked against their linked sources on Nov 25, 2026. Sources exclude NYT, CNN, MSNBC/MS NOW, Fox News, Snopes, PolitiFact and Wikipedia.</p>
     <p class="env-meta">Download: <a href="../data/nuclear-tests.json">nuclear-tests.json</a>. Checked 2026-11-25 by D.A. Williams. Basemap © OpenStreetMap contributors.</p>
     <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
+    <script src="../js/i18n.js" data-dmnm-i18n="js"></script>
     <script src="../lib/leaflet/leaflet.js"></script>
     <script src="../js/topic-map.js" data-base="../" data-src="data/nuclear-tests.json"></script>
 
   </main>
   <footer>
     <div class="wrap">
-      <div>By D.A. Williams. Not an official government document.</div>
-      <div><a href="../privacy.html">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener">Support this research ☕<span class="sr-only"> (opens in a new tab)</span></a></div>
+      <div><span data-i18n-wrap data-i18n="footer.byline">By D.A. Williams. Not an official government document.</span></div>
+      <div><a href="../privacy.html" data-i18n="footer.privacy">Privacy</a> · <a href="https://awesomegoy.com">awesomegoy.com</a> · <a class="support-link" href="https://www.buymeacoffee.com/dangerousmunitions" target="_blank" rel="noopener" data-i18n="footer.support">Support this research ☕<span class="sr-only" data-i18n="footer.new_tab"> (opens in a new tab)</span></a></div>
     </div>
   </footer>
   <script>
