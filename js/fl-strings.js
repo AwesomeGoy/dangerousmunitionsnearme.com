@@ -132,7 +132,7 @@ window.FL_STRINGS.en = {
   if (!window.FL_STRINGS[lang]) lang = "en";
   window.FL_LANG = lang;
   window.flT = function (key, vars) {
-    var s = (window.FL_STRINGS[lang] && window.FL_STRINGS[lang][key]) || window.FL_STRINGS.en[key];
+    var s = (window.FL_STRINGS[window.FL_LANG] && window.FL_STRINGS[window.FL_LANG][key]) || window.FL_STRINGS.en[key]; /* dmnm-i18n2-fl */
     if (s === undefined) return key;
     return s.replace(/\{(\w+)\}/g, function (_, k) { return vars && vars[k] !== undefined ? vars[k] : "{" + k + "}"; });
   };
@@ -143,3 +143,13 @@ window.FL_STRINGS.en = {
     });
   };
 })();
+/* dmnm-i18n2 */
+(function () {
+  /* Non-English visitors: load this language's lookup strings right after this file (same origin). */
+  var have = ["ar", "de", "es", "fr", "hi", "id", "ja", "ko", "pt", "ru", "tr", "uk", "vi", "zh"];
+  var l = (window.DMNM_I18N && window.DMNM_I18N.lang) || "en";
+  if (l === "en" || have.indexOf(l) === -1 || window.FL_STRINGS[l]) return;
+  var s = document.currentScript, base = s && s.src ? s.src.replace(/fl-strings\.js(?:\?.*)?$/, "") : "js/";
+  document.write('<script src="' + base + 'fl-strings-' + l + '.js"><\/script>');
+})();
+/* /dmnm-i18n2 */

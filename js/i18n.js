@@ -461,3 +461,204 @@
 
   window.DMNM_I18N = api;
 })();
+/* dmnm-i18n2 */
+  /* Phrase layer: translates remaining interface text by exact match on its English HTML.
+   * Loads i18n/phrases/<lang>.json only when the language is not English. Record areas, source lists
+   * and the email-alerts form are skipped, so record names, agency names and source titles stay as published. */
+  (function () {
+    var api = window.DMNM_I18N; if (!api) return;
+    var lang = api.lang;
+    var COLLECT = window.DMNM_I18N2_COLLECT || null;  // QA/extraction hook: records English keys that have no translation
+    if (lang === "en" && !COLLECT) return;
+    var sc = document.currentScript || document.querySelector('script[src*="i18n.js"]');
+    var base = window.DMNM_I18N_BASE || (sc && sc.src ? sc.src.replace(/\/js\/i18n\.js(?:\?.*)?$/, "/i18n/") : "/i18n/");
+    var INLINE = { A: 1, STRONG: 1, EM: 1, B: 1, I: 1, SMALL: 1, SPAN: 1, BR: 1, ABBR: 1, SUB: 1, SUP: 1, TIME: 1, MARK: 1, Q: 1, CITE: 1, CODE: 1, U: 1 };
+    var SKIP = "script,style,noscript,template,svg,textarea,pre,.alerts-box,.env-sources,.lang-picker,[data-record],#sites-table tbody," +
+      ".leaflet-tile-pane,.leaflet-control-attribution,.marker-cluster,[data-i18n-skip],[translate=no]";
+    var SOFT = "[data-i18n],[data-i18n-html],[data-t]";  // already tagged: never replaced whole, but text that scripts put there later is still checked
+    var cur = null, dict = null, res = [], seen = typeof WeakSet === "function" ? new WeakSet() : null;
+    var LETTER = /[A-Za-z]{2}/;
+    function norm(s) { return String(s).replace(/\s+/g, " ").trim(); }
+    function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\u00a0/g, "&nbsp;"); }
+    function has(k) { return !!dict && Object.prototype.hasOwnProperty.call(dict, k); }
+    function find(key) {
+      if (!key || !LETTER.test(key)) return null;
+      if (has(key)) return dict[key];
+      var c = key.match(/^(.+?) \(([\d.,]+)\)$/);  // "Label (21)": translate the label, keep the count
+      if (c && has(c[1])) return dict[c[1]] + " (" + c[2] + ")";
+      for (var i = 0; i < res.length; i++) { var m = key.match(res[i][0]); if (m) return res[i][1].replace(/\$(\d)/g, function (_, d) { return m[+d] || ""; }); }
+      return null;
+    }
+    function look(key) {
+      var out = find(key);
+      if (out == null && COLLECT && key && LETTER.test(key)) COLLECT(key, cur);
+      return out;
+    }
+    function inlineOnly(el) {
+      var all = el.getElementsByTagName("*");
+      for (var i = 0; i < all.length; i++) if (!INLINE[all[i].tagName]) return false;
+      return true;
+    }
+    function setHTML(el, html) { if (html.indexOf("<") === -1 && html.indexOf("&") === -1) el.textContent = html; else el.innerHTML = html; }
+    function textNode(n) {
+      cur = n.parentNode; var raw = n.nodeValue; if (!LETTER.test(raw)) return;
+      var key = esc(norm(raw)), out = look(key);
+      if (out == null && key.indexOf(" · ") !== -1) {  // "label · label · value" runs: translate each known piece
+        var parts = key.split(" · "), hit = false;
+        parts = parts.map(function (p) { var v = find(norm(p)); if (v != null) { hit = true; return v; } return p; });
+        if (hit) out = parts.join(" · ");
+      }
+      if (out == null) return;
+      var lead = raw.match(/^\s*/)[0], tail = raw.match(/\s*$/)[0];
+      if (out.indexOf("<") === -1) { var tmp = document.createElement("span"); tmp.innerHTML = out; n.nodeValue = lead + tmp.textContent + tail; }
+      else { var span = document.createElement("span"); span.innerHTML = lead + out + tail; while (span.firstChild) n.parentNode.insertBefore(span.firstChild, n); n.parentNode.removeChild(n); }
+    }
+    function attrs(el) {
+      ["placeholder", "aria-label", "title", "alt"].forEach(function (a) {
+        var v = el.getAttribute(a); if (!v) return;
+        var out = look(esc(norm(v))); if (out != null) { var tmp = document.createElement("span"); tmp.innerHTML = out; el.setAttribute(a, tmp.textContent); }
+      });
+    }
+    function walk(el) {
+      if (el.nodeType !== 1 || (el.matches && el.matches(SKIP))) return;
+      cur = el; attrs(el);
+      if (!(el.matches && el.matches(SOFT)) && (el.tagName === "OPTION" || inlineOnly(el))) {
+        var key = norm(el.innerHTML);
+        if (LETTER.test(el.textContent)) { var out = look(key); if (out != null) { setHTML(el, out); return; } }
+      }
+      var kids = Array.prototype.slice.call(el.childNodes);
+      for (var i = 0; i < kids.length; i++) {
+        if (kids[i].nodeType === 3) textNode(kids[i]); else if (kids[i].nodeType === 1) walk(kids[i]);
+      }
+    }
+    function titleAndMeta() {
+      var t = look(esc(norm(document.title))); if (t != null) { var tmp = document.createElement("span"); tmp.innerHTML = t; document.title = tmp.textContent; }
+      var d = document.querySelector('meta[name="description"]');
+      if (d) { var o = look(esc(norm(d.getAttribute("content") || ""))); if (o != null) { var tmp2 = document.createElement("span"); tmp2.innerHTML = o; d.setAttribute("content", tmp2.textContent); } }
+    }
+    var busy = false, queue = [], obs = null;
+    function run(nodes) {
+      busy = true;
+      try { nodes.forEach(function (n) { if (n.nodeType === 3) { if (n.parentNode && !(n.parentNode.closest && n.parentNode.closest(SKIP))) textNode(n); } else if (n.nodeType === 1 && document.contains(n) && !(n.closest && n.closest(SKIP))) walk(n); }); }
+      finally { if (obs) obs.takeRecords(); busy = false; }  // drop the records our own edits made
+    }
+    function start() {
+      titleAndMeta(); run([document.body]);
+      if (typeof MutationObserver !== "function") return;
+      var timer = null;
+      obs = new MutationObserver(function (muts) {
+        if (busy) return;
+        muts.forEach(function (m) {
+          if (m.type === "characterData") queue.push(m.target);
+          else for (var i = 0; i < m.addedNodes.length; i++) queue.push(m.addedNodes[i]);
+        });
+        if (!timer) timer = setTimeout(function () { timer = null; var q = queue.splice(0); run(q); }, 0);
+      }).observe(document.body, { childList: true, subtree: true, characterData: true });
+    }
+    var loaded = lang === "en" ? Promise.resolve({ phrases: {}, patterns: [] }) :
+      fetch(base + "phrases/" + encodeURIComponent(lang) + ".json", { credentials: "same-origin" })
+        .then(function (r) { if (!r.ok) throw new Error("phrases"); return r.json(); });
+    loaded.then(function (d) {
+      dict = d.phrases || {};
+      res = (d.patterns || []).map(function (p) { return [new RegExp("^" + p[0] + "$"), p[1]]; });
+      api.ready(function () { if (document.body) start(); else document.addEventListener("DOMContentLoaded", start, { once: true }); });
+    }).catch(function () {});
+  })();
+/* /dmnm-i18n2 */
+/* dmnm-gloss */
+(function () {
+  /* Plain-language explanations for short labels (OB/OD, demil, FUDS, NPDES, ...): dropdown labels, table-cell tooltips,
+     and the "What these labels mean" glossary. Strings come from i18n/gloss/<lang>.json (English included). */
+  if (window.DMNM_GLOSS) return;
+  window.DMNM_GLOSS = true;
+  var api = window.DMNM_I18N || {};
+  var lang = api.lang || document.documentElement.getAttribute("lang") || "en";
+  var me = document.currentScript;
+  var base = me && me.src ? me.src.replace(/js\/i18n\.js(?:\?.*)?$/, "") : "";
+  var G = null;
+  function term(id) { return G && G.terms[id]; }
+  function name(id) { var t = term(id); return t ? (t.name || t.abbr) : ""; }
+  function optText(id) { var t = term(id); return t ? name(id) + " (" + t.short + ")" : ""; }
+  function tip(id) { var t = term(id); return t ? name(id) + " (" + t.short + "): " + t.def : ""; }
+  function selects() {
+    [["f-type", "type"], ["f-verification", "verification"], ["f-depth", "depth"]].forEach(function (p) {
+      var sel = document.getElementById(p[0]); if (!sel) return;
+      var map = G.maps[p[1]];
+      Array.prototype.forEach.call(sel.options, function (o) {
+        var id = map[o.value]; if (!id || o.getAttribute("data-gloss") === lang) return;
+        o.setAttribute("data-i18n-skip", ""); o.setAttribute("data-gloss", lang);
+        o.textContent = optText(id); o.title = term(id).def;
+      });
+    });
+  }
+  function cells() {
+    var tb = document.querySelector("#sites-table tbody"); if (!tb) return;
+    Array.prototype.forEach.call(tb.querySelectorAll("td.types:not([data-gloss])"), function (td) {
+      var parts = td.textContent.split(/,\s*/).filter(Boolean);
+      td.textContent = "";
+      parts.forEach(function (v, i) {
+        if (i) td.appendChild(document.createTextNode(", "));
+        var id = G.maps.type[v];
+        if (!id) { td.appendChild(document.createTextNode(v)); return; }
+        var a = document.createElement("abbr"); a.title = tip(id); a.textContent = v; td.appendChild(a);
+      });
+      td.setAttribute("data-gloss", "");
+    });
+    Array.prototype.forEach.call(tb.querySelectorAll("span.badge:not([data-gloss])"), function (b) {
+      var v = b.textContent.trim(), id = G.maps.verification[v] || G.maps.depth[v];
+      if (id) b.title = tip(id);
+      b.setAttribute("data-gloss", "");
+    });
+  }
+  var TERMS_RE = null;
+  function labels() {
+    /* Tooltips on filter labels, legends and result headings that use an acronym (attribute only; text is untouched). */
+    if (!TERMS_RE) {
+      var keys = Object.keys(G.terms).filter(function (k) { return /^[A-Z]/.test(G.terms[k].abbr); })
+        .sort(function (a, b) { return G.terms[b].abbr.length - G.terms[a].abbr.length; });
+      TERMS_RE = keys.map(function (k) { return [k, new RegExp("(^|[^A-Za-z])" + G.terms[k].abbr.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&") + "(?![A-Za-z])")]; });
+    }
+    var q = "#lv-filters label, #lv-water legend, #lv-water label, .lv-states legend, .env-legend > span, .env-results strong, .filters label";
+    Array.prototype.forEach.call(document.querySelectorAll(q), function (el) {
+      if (el.getAttribute("data-gloss") === lang || el.querySelector("select")) return;
+      var txt = el.textContent, hit = null;
+      for (var i = 0; i < TERMS_RE.length && !hit; i++) if (TERMS_RE[i][1].test(txt)) hit = TERMS_RE[i][0];
+      if (hit) { el.title = tip(hit); el.setAttribute("data-gloss", lang); }
+    });
+  }
+  function glossBox() {
+    Array.prototype.forEach.call(document.querySelectorAll("details.dmnm-gloss"), function (box) {
+      if (box.getAttribute("data-gloss") === lang) return;
+      var s = box.querySelector("summary"); if (s) s.textContent = G.ui.summary;
+      var p = box.querySelector(".gl-intro"); if (p) p.textContent = G.ui.intro;
+      Array.prototype.forEach.call(box.querySelectorAll("[data-g]"), function (el) {
+        var id = el.getAttribute("data-g"), t = term(id); if (!t) return;
+        if (el.tagName === "DT") { var n = el.querySelector(".gl-short"); if (n) n.textContent = t.short; var nm = el.querySelector(".gl-name"); if (nm) nm.textContent = name(id); var ab = el.querySelector("abbr"); if (ab) ab.title = t.short; }
+        else { var d = el.querySelector(".gl-def"); if (d) d.textContent = t.def; }
+      });
+      Array.prototype.forEach.call(box.querySelectorAll(".gl-srclabel"), function (el) { el.textContent = G.ui.source + ":"; });
+      Array.prototype.forEach.call(box.querySelectorAll(".gl-sitelabel"), function (el) { el.textContent = "(" + G.ui.site_label + ")"; });
+      box.setAttribute("data-gloss", lang);
+    });
+  }
+  var busy = false;
+  function run() {
+    if (!G || busy) return; busy = true;
+    try { selects(); cells(); labels(); if (lang !== "en") glossBox(); } finally { busy = false; }
+  }
+  function start() {
+    run();
+    var mo = new MutationObserver(function () { run(); mo.takeRecords(); });
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
+  var ready = function (fn) { if (document.body) fn(); else document.addEventListener("DOMContentLoaded", fn, { once: true }); };
+  if (!window.fetch) return;
+  fetch(base + "i18n/gloss/" + (/^[a-z]{2}$/.test(lang) ? lang : "en") + ".json").then(function (r) { return r.ok ? r.json() : null; })
+    .catch(function () { return null; })
+    .then(function (d) {
+      if (!d && lang !== "en") return fetch(base + "i18n/gloss/en.json").then(function (r) { return r.ok ? r.json() : null; });
+      return d;
+    })
+    .then(function (d) { if (d) { G = d; ready(start); } });
+})();
+/* /dmnm-gloss */
