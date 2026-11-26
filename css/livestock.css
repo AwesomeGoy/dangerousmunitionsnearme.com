@@ -1,0 +1,8 @@
+    .lv-filters { display:flex; flex-wrap:wrap; gap:0.5rem 1rem; align-items:center; margin:0.75rem 0; }
+    fieldset.lv-filters { border:1px solid #e2e8f0; border-radius:6px; padding:0.5rem 0.75rem; min-width:0; }
+    fieldset.lv-filters legend { font-weight:600; font-size:0.95rem; padding:0 0.25rem; }
+    .lv-filters label { display:inline-flex; gap:0.35rem; align-items:center; font-size:0.95rem; }
+    #map { height:min(70vh, 640px); width:100%; margin:0.5rem 0 0.25rem; background:#e5e7eb; }
+    #lv-pager { display:flex; gap:0.75rem; align-items:center; margin:0.75rem 0; }
+    #lv-pager button { padding:0.3rem 0.7rem; }
+    .lv-split { overflow-x:auto; }

@@ -125,7 +125,29 @@ var script = document.currentScript;
     if (!fudsStateCache[st]) fudsStateCache[st] = load(base + "data/fuds/mrs-" + st + ".json").catch(function () { return { features: [] }; });
     return fudsStateCache[st];
   }
-
+/* dmnm-livestock */
+  /* ---------- poultry and cattle (optional, default off; lazy-loaded) ---------- */
+  var lvCache = null;
+  var LV_GROUP = { cattle: "Cattle or dairy", poultry: "Poultry", mixed: "Cattle and poultry", unspecified: "CAFO, animal type not stated" };
+  function unpackLv(payload) {
+    var keys = payload.keys || (payload.meta && payload.meta.keys) || [];
+    return (payload.sites || []).map(function (row) {
+      if (!Array.isArray(row)) return row;
+      var o = {}; keys.forEach(function (k, i) { o[k] = row[i]; }); return o;
+    });
+  }
+  function loadLivestock() {
+    if (!lvCache) lvCache = load("data/livestock/permits.json").then(function (d) { return unpackLv(d).filter(function (s) { return s.la != null && s.lo != null; }); });
+    return lvCache;
+  }
+  function lvPopup(s) {
+    var kind = s.k === "enforcement" ? "Documented NPDES enforcement or single-event violation" : "Permitted NPDES operation";
+    return "<strong>" + esc(kind) + ":</strong> " + esc(s.n) + "<br>" + esc([s.c, s.s].filter(Boolean).join(", ")) +
+      " · " + esc(LV_GROUP[s.g] || s.g) + (s.ps ? " · " + esc(s.ps) : "") +
+      "<br><em>A permit is not by itself proof of contamination.</em>" +
+      (s.u ? '<br><a href="' + esc(s.u) + '">Official source</a>' : "") +
+      ' · <a href="livestock.html">Full layer</a>';
+  }/* /dmnm-livestock */
   /* ---------- ZIP search mode ---------- */
   function zipMode() {
     var box = document.getElementById("env-results");
@@ -135,7 +157,7 @@ var script = document.currentScript;
     var munitionsEl = document.getElementById("nearby-results");
     if (!box || !form) return;
     var map = null, mapLayer = null, last = null;
-    var state = { mun: true, pfas: true, sf: true, fus: true, lm: true, aum: true, fuds: true, fudso: true, deleted: false };
+    var state = { mun: true, pfas: true, sf: true, fus: true, lm: true, aum: true, fuds: true, fudso: true, deleted: false/* dmnm-livestock */, lvpermit: false, lvenf: false/* /dmnm-livestock */ };
 
     function filtersHtml() {
       return '<fieldset class="env-filter-set"><legend>Show these site types</legend>' +
@@ -147,7 +169,9 @@ var script = document.currentScript;
         '<label class="env-check"><input type="checkbox" data-k="aum"' + (state.aum ? " checked" : "") + '> <span class="env-tag env-tag--aum">Navajo uranium mines</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="fuds"' + (state.fuds ? " checked" : "") + '> <span class="env-tag env-tag--fuds">FUDS munitions</span></label>' +
         '<label class="env-check"><input type="checkbox" data-k="fudso"' + (state.fudso ? " checked" : "") + '> <span class="env-tag env-tag--fudso">Other FUDS</span></label>' +
-        '<label class="env-check"><input type="checkbox" data-k="deleted"' + (state.deleted ? " checked" : "") + '> Include deleted (cleaned-up) Superfund sites</label></fieldset>' +
+        /* dmnm-livestock */'<label class="env-check"><input type="checkbox" data-k="lvpermit"' + (state.lvpermit ? " checked" : "") + '> <span class="env-tag">Poultry &amp; cattle permits</span></label>' +
+        '<label class="env-check"><input type="checkbox" data-k="lvenf"' + (state.lvenf ? " checked" : "") + '> <span class="env-tag">Poultry &amp; cattle enforcement</span></label>' +
+        /* /dmnm-livestock */'<label class="env-check"><input type="checkbox" data-k="deleted"' + (state.deleted ? " checked" : "") + '> Include deleted (cleaned-up) Superfund sites</label></fieldset>' +
         (window.DMNM_MAP ? '<p class="env-legend" aria-label="Map marker key"><span><i class="env-dot env-dot--sf" aria-hidden="true"></i> Superfund</span> <span><i class="env-dot env-dot--fus" aria-hidden="true"></i> FUSRAP</span> <span><i class="env-dot env-dot--pfas" aria-hidden="true"></i> Military PFAS (base location)</span> <span><i class="env-dot env-dot--lm" aria-hidden="true"></i> DOE LM</span> <span><i class="env-dot env-dot--aum" aria-hidden="true"></i> Uranium mine</span> <span><i class="env-dot env-dot--fuds" aria-hidden="true"></i> FUDS munitions</span> <span><i class="env-dot env-dot--fudso" aria-hidden="true"></i> Other FUDS</span> <span><i class="env-dot env-dot--zip" aria-hidden="true"></i> Your ZIP</span><span><i class="env-dot env-dot--mun" aria-hidden="true"></i> Munitions (green, amber or gray)</span></p>' : "");
     }
 
@@ -267,15 +291,16 @@ var script = document.currentScript;
             if (munitionsEl) munitionsEl.hidden = !state.mun;
             var g = box.querySelector('[data-group="' + cb.getAttribute("data-k") + '"]');
             if (g) g.hidden = !cb.checked;
-            drawMap(sfPick, pfPick, fuPick, lmPick, aumPick, fdPick, foPick);
+            drawMap(sfPick, pfPick, fuPick, lmPick, aumPick, fdPick, foPick);/* dmnm-livestock */lvRefresh();/* /dmnm-livestock */
           });
         });
-        drawMap(sfPick, pfPick, fuPick, lmPick, aumPick, fdPick, foPick);
+        drawMap(sfPick, pfPick, fuPick, lmPick, aumPick, fdPick, foPick);/* dmnm-livestock */lvRefresh();/* /dmnm-livestock */
       }).catch(function (e) { box.innerHTML = '<p class="nearby-error">' + esc(e.message) + "</p>"; });
     }
 
     var pf_meta = null;
-    function drawMap(sfPick, pfPick, fuPick, lmPick, aumPick, fdPick, foPick) {
+    function drawMap(sfPick, pfPick, fuPick, lmPick, aumPick, fdPick, foPick) {/* dmnm-livestock */
+      lastPicks = [].slice.call(arguments);/* /dmnm-livestock */
       map = window.DMNM_MAP || null;
       if (!map || typeof L === "undefined") return;
       if (mapLayer) map.removeLayer(mapLayer);
@@ -298,10 +323,51 @@ var script = document.currentScript;
       if (state.fus) (fuPick || []).forEach(function (r) {
         L.circleMarker([r.s.la, r.s.lo], { radius: 8, color: "#854d0e", weight: 3, fillColor: "#fde047", fillOpacity: 0.95 })
           .bindPopup("<strong>FUSRAP:</strong> " + esc(r.s.n) + '<br><a href="' + esc(r.s.u) + '">USACE site page</a>').addTo(mapLayer);
+      });/* dmnm-livestock */
+      if (state.lvpermit) (lastLv.permit || []).forEach(function (r) {
+        L.circleMarker([r.s.la, r.s.lo], { radius: 6, color: "#1d4ed8", weight: 2, fillColor: "#93c5fd", fillOpacity: 0.9 })
+          .bindPopup(lvPopup(r.s)).addTo(mapLayer);
       });
+      if (state.lvenf) (lastLv.enf || []).forEach(function (r) {
+        L.circleMarker([r.s.la, r.s.lo], { radius: 7, color: "#9f1239", weight: 2, fillColor: "#fb7185", fillOpacity: 0.95 })
+          .bindPopup(lvPopup(r.s)).addTo(mapLayer);
+      });/* /dmnm-livestock */
     }
 
-    form.addEventListener("submit", function () {
+    /* dmnm-livestock */var lastPicks = [];
+    var lastLv = { permit: [], enf: [] };
+    function lvRefresh() {
+      var slot = document.getElementById("lv-zip-slot");
+      if (!state.lvpermit && !state.lvenf) {
+        lastLv = { permit: [], enf: [] };
+        if (slot) slot.innerHTML = "";
+        return;
+      }
+      var at = last;
+      loadLivestock().then(function (rows) {
+        if (!at || at !== last) return;
+        function near(kind) {
+          return rows.filter(function (s) { return s.k === kind && (s.g === "cattle" || s.g === "poultry" || s.g === "mixed"); })
+            .map(function (s) { return { s: s, mi: miles(at.lat, at.lon, s.la, s.lo) }; })
+            .filter(function (r) { return r.mi <= 10; }).sort(function (a, b) { return a.mi - b.mi; });
+        }
+        lastLv = { permit: state.lvpermit ? near("permit") : [], enf: state.lvenf ? near("enforcement") : [] };
+        function sec(title, recs, key) {
+          if (!state[key]) return "";
+          if (!recs.length) return "<section data-group=\"" + key + "\"><h3>" + title + "</h3><p>None within 10 miles.</p></section>";
+          return "<section data-group=\"" + key + "\"><h3>" + title + "</h3><p>" + recs.length + " within 10 miles" +
+            (recs.length > 15 ? "; the nearest 15 are listed" : "") + ".</p><ol>" +
+            recs.slice(0, 15).map(function (r) {
+              return "<li><a href=\"livestock.html\">" + esc(r.s.n) + "</a> — <span class=\"miles\">" + fmt(r.mi) + "</span> — " +
+                esc([r.s.c, r.s.s].filter(Boolean).join(", ")) + "</li>";
+            }).join("") + "</ol><p class=\"env-meta\">A permit is not by itself proof of contamination.</p></section>";
+        }
+        if (!slot) { slot = document.createElement("div"); slot.id = "lv-zip-slot"; box.appendChild(slot); }
+        slot.innerHTML = sec("Poultry and cattle permits", lastLv.permit, "lvpermit") + sec("Poultry and cattle enforcement", lastLv.enf, "lvenf");
+        if (map) drawMap.apply(null, lastPicks);
+      }).catch(function () {});
+    }
+    /* /dmnm-livestock */form.addEventListener("submit", function () {
       var zip = (zipInput.value || "").trim();
       if (!/^\d{5}$/.test(zip)) { box.hidden = true; return; }
       load("data/zcta-centroids.json").then(function (t) {

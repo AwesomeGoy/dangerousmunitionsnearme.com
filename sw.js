@@ -1,5 +1,5 @@
 /* Dangerous Munitions Near Me service worker
- * Cache version: dmnm-pwa-20261125-190742
+ * Cache version: dmnm-pwa-20261126-030716
  * - Pages (HTML navigations): network-first, bypassing the HTTP cache; falls back to the
  *   cached copy of that page, then to /offline.html.
  * - Data (/data/*.json, *.geojson, *.csv): network-first so records stay current; the last
@@ -10,7 +10,7 @@
  * - Other origins (map tiles, external links) are not touched.
  * No push notifications, no analytics, no data collection. Location is never seen here.
  */
-const CACHE_VERSION = "dmnm-pwa-20261125-190742";
+const CACHE_VERSION = "dmnm-pwa-20261126-030716";
 const CACHE_PREFIX = "dmnm-";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 const STATIC_CACHE = CACHE_VERSION + "-static";
