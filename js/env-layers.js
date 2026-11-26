@@ -362,6 +362,7 @@ var script = document.currentScript;
                 esc([r.s.c, r.s.s].filter(Boolean).join(", ")) + "</li>";
             }).join("") + "</ol><p class=\"env-meta\">A permit is not by itself proof of contamination.</p></section>";
         }
+        slot = document.getElementById("lv-zip-slot");  // look again: two refreshes can resolve in either order
         if (!slot) { slot = document.createElement("div"); slot.id = "lv-zip-slot"; box.appendChild(slot); }
         slot.innerHTML = sec("Poultry and cattle permits", lastLv.permit, "lvpermit") + sec("Poultry and cattle enforcement", lastLv.enf, "lvenf");
         if (map) drawMap.apply(null, lastPicks);
