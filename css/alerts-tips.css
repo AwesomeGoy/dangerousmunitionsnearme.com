@@ -1,0 +1,199 @@
+/* Email alerts + report-a-site tip form. Mobile-first, WCAG 2.1 AA. */
+.dmnm-at {
+  --at-ink: #1c1917;
+  --at-muted: #57534e;
+  --at-paper: #f7f4ef;
+  --at-card: #fffdf8;
+  --at-line: #d6d0c7;
+  --at-link: #1e3a5f;
+  --at-focus: #1e3a5f;
+  --at-error: #9f1239;
+  --at-error-bg: #fff1f2;
+  --at-ok: #14532d;
+  --at-ok-bg: #f0fdf4;
+  --at-btn: #1c1917;
+  --at-btn-text: #fffdf8;
+  --at-target: 2.75rem;
+  color: var(--at-ink);
+  max-width: 40rem;
+}
+.dmnm-at *,
+.dmnm-at *::before,
+.dmnm-at *::after { box-sizing: border-box; }
+
+
+.dmnm-at :focus-visible {
+  outline: 3px solid var(--at-focus);
+  outline-offset: 2px;
+}
+
+.dmnm-at h1, .dmnm-at h2 { line-height: 1.25; }
+.dmnm-at h1 { font-size: 1.45rem; margin: 0 0 0.75rem; }
+.dmnm-at h2 { font-size: 1.2rem; margin: 0 0 0.6rem; }
+.dmnm-at p, .dmnm-at li { font-size: 1rem; line-height: 1.55; }
+.dmnm-at .lede { margin: 0 0 1rem; }
+.dmnm-at .hint {
+  display: block;
+  font-weight: 400;
+  color: var(--at-muted);
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0;
+}
+
+.dmnm-at form { margin: 0 0 1rem; }
+.dmnm-at fieldset {
+  border: 1px solid var(--at-line);
+  border-radius: 8px;
+  background: var(--at-card);
+  margin: 0 0 1rem;
+  padding: 0.85rem 0.9rem 0.4rem;
+  min-width: 0;
+}
+.dmnm-at legend {
+  font-weight: 700;
+  padding: 0 0.35rem;
+}
+
+.dmnm-at label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--at-ink);
+  margin: 0 0 0.85rem;
+}
+.dmnm-at .req {
+  font-weight: 700;
+  color: var(--at-ink);
+}
+.dmnm-at .opt {
+  font-weight: 400;
+  color: var(--at-muted);
+}
+
+.dmnm-at input,
+.dmnm-at select,
+.dmnm-at textarea,
+.dmnm-at button {
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--at-ink);
+  border: 1px solid #8a847b;
+  border-radius: 6px;
+  padding: 0.55rem 0.65rem;
+  background: #fff;
+  width: 100%;
+  min-height: var(--at-target);
+  margin: 0;
+}
+.dmnm-at textarea { min-height: 7.5rem; resize: vertical; }
+.dmnm-at select { min-height: var(--at-target); }
+.dmnm-at input[aria-invalid="true"],
+.dmnm-at select[aria-invalid="true"],
+.dmnm-at textarea[aria-invalid="true"] {
+  border-color: var(--at-error);
+  border-width: 2px;
+  background: var(--at-error-bg);
+}
+.dmnm-at button {
+  font-weight: 700;
+  background: var(--at-btn);
+  color: var(--at-btn-text);
+  border-color: var(--at-btn);
+  cursor: pointer;
+  width: auto;
+  min-width: 8rem;
+  padding: 0.65rem 1.1rem;
+}
+.dmnm-at button:hover { background: var(--at-link); border-color: var(--at-link); }
+.dmnm-at button[disabled] { cursor: not-allowed; opacity: 0.7; }
+.dmnm-at button.secondary {
+  background: var(--at-card);
+  color: var(--at-ink);
+  border-color: var(--at-ink);
+}
+.dmnm-at button.secondary:hover { background: #efeae2; color: var(--at-ink); }
+
+.dmnm-at .btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.85rem;
+}
+.dmnm-at .choice {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--at-ink);
+}
+.dmnm-at .choice input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  max-width: 1.25rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.dmnm-at .status {
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.9rem;
+  font-weight: 600;
+}
+.dmnm-at .status[hidden] { display: none; }
+.dmnm-at .status.is-error {
+  background: var(--at-error-bg);
+  color: var(--at-error);
+  border: 2px solid var(--at-error);
+}
+.dmnm-at .status.is-ok {
+  background: var(--at-ok-bg);
+  color: var(--at-ok);
+  border: 2px solid var(--at-ok);
+}
+.dmnm-at .status.is-info {
+  background: #f4f1ea;
+  color: var(--at-ink);
+  border: 1px solid var(--at-line);
+}
+
+.dmnm-at .honey {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.dmnm-at .note { color: var(--at-muted); font-size: 0.95rem; }
+.dmnm-at .loc-readout {
+  font-size: 0.95rem;
+  margin: 0 0 0.85rem;
+}
+
+
+
+@media (min-width: 640px) {
+  .dmnm-at .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 0.8rem;
+  }
+  .dmnm-at h1 { font-size: 1.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dmnm-at *,
+  .dmnm-at *::before,
+  .dmnm-at *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

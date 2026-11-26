@@ -28,5 +28,34 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "Near me",
+      "short_name": "Near me",
+      "url": "/nearby.html",
+      "description": "Find the closest listed sites using a ZIP code or this device's location (stays on the device)",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Topics",
+      "short_name": "Topics",
+      "url": "/topics/index.html",
+      "description": "Worldwide topic pages",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
 }
